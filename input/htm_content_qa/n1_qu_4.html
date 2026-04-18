@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アルバイト情報 7月号 と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.4;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 2rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px 8px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .text-left-cell {
+            text-align: left;
+            padding-left: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 3rem;
+            padding-top: 2rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: BẢNG THÔNG TIN VIỆC LÀM (Từ ảnh 1) -->
+        <header>
+            <h1 class="main-title">
+                アルバイト<ruby>情報<rt>じょうほう</rt></ruby> 7<ruby>月号<rt>がつごう</rt></ruby>
+            </h1>
+        </header>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 5%;"></th>
+                    <th style="width: 15%;"><ruby>仕事<rt>しごと</rt></ruby></th>
+                    <th style="width: 22%;"><ruby>内容<rt>ないよう</rt></ruby></th>
+                    <th style="width: 12%;"><ruby>時給<rt>じきゅう</rt></ruby>(<ruby>円<rt>えん</rt></ruby>)</th>
+                    <th style="width: 20%;"><ruby>曜日<rt>ようび</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby></th>
+                    <th style="width: 26%;"><ruby>条件<rt>じょうけん</rt></ruby></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 1 -->
+                <tr>
+                    <td>①</td>
+                    <td><ruby>中国料理店<rt>ちゅうごくりょうりてん</rt></ruby><br>スタッフ</td>
+                    <td class="text-left-cell"><ruby>食器洗<rt>しょっきあら</rt></ruby>い、<ruby>材料<rt>ざいりょう</rt></ruby>の<ruby>準備<rt>じゅんび</rt></ruby></td>
+                    <td>800</td>
+                    <td><ruby>水曜定休<rt>すいようていきゅう</rt></ruby><br>10:00-14:00</td>
+                    <td class="text-left-cell"><ruby>週<rt>しゅう</rt></ruby> 3 <ruby>回以上<rt>かいいじょう</rt></ruby><br>なるべく<ruby>多<rt>おお</rt></ruby>く<ruby>勤務<rt>きんむ</rt></ruby>できる<ruby>方<rt>かた</rt></ruby>を<ruby>望<rt>のぞ</rt></ruby>む</td>
+                </tr>
+                <!-- 2 -->
+                <tr>
+                    <td>②</td>
+                    <td><ruby>日本<rt>にほん</rt></ruby>そば<ruby>屋<rt>や</rt></ruby><br>スタッフ</td>
+                    <td class="text-left-cell"><ruby>注文<rt>ちゅうもん</rt></ruby>をとる・<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>すなどの<ruby>接客<rt>せっきゃく</rt></ruby>、<ruby>後片付<rt>あとかたづ</rt></ruby>け</td>
+                    <td>900</td>
+                    <td><ruby>月曜定休<rt>げつようていきゅう</rt></ruby><br>10:00-21:00</td>
+                    <td class="text-left-cell"><ruby>週<rt>しゅう</rt></ruby> 2 <ruby>回以上<rt>かいいじょう</rt></ruby><br><ruby>時間<rt>じかん</rt></ruby>は<ruby>相談可<rt>そうだんか</rt></ruby></td>
+                </tr>
+                <!-- 3 -->
+                <tr>
+                    <td>③</td>
+                    <td><ruby>居酒屋<rt>いざかや</rt></ruby><br>スタッフ</td>
+                    <td class="text-left-cell"><ruby>注文<rt>ちゅうもん</rt></ruby>をとる・<ruby>料理<rt>りょうり</rt></ruby>を<ruby>出<rt>だ</rt></ruby>すなどの<ruby>接客<rt>せっきゃく</rt></ruby>、<ruby>後片付<rt>あとかたづ</rt></ruby>け</td>
+                    <td>900</td>
+                    <td><ruby>毎日<rt>まいにち</rt></ruby><br>17:00-23:00</td>
+                    <td class="text-left-cell"><ruby>週<rt>しゅう</rt></ruby> 2 <ruby>回以上<rt>かいいじょう</rt></ruby> (1 <ruby>回<rt>かい</rt></ruby>は<ruby>必<rt>かなら</rt></ruby>ず 23:00 まで)<br>20 <ruby>歳以上<rt>さいいじょう</rt></ruby>の<ruby>男女<rt>だんょ</rt></ruby> (<ruby>学生可<rt>がくせいか</rt></ruby>)</td>
+                </tr>
+                <!-- 4 -->
+                <tr>
+                    <td>④</td>
+                    <td>コンビニ<ruby>店員<rt>てんいん</rt></ruby></td>
+                    <td class="text-left-cell"><ruby>商品商売<rt>しょうひんしょうばい</rt></ruby><br>および<ruby>商品管理<rt>しょうひんかんり</rt></ruby></td>
+                    <td>(～22 <ruby>時<rt>じ</rt></ruby>) 800<br>(22 <ruby>時<rt>じ</rt></ruby>～) 950</td>
+                    <td><ruby>毎日<rt>まいにち</rt></ruby><br>(1) 8:00-13:00<br>(2) 15:00-21:00<br>(3) 24:00-6:00</td>
+                    <td class="text-left-cell"><ruby>長期<rt>ちょうき</rt></ruby>できる<ruby>人<rt>ひと</rt></ruby><br><ruby>週<rt>しゅう</rt></ruby> 1、2 <ruby>回<rt>かい</rt></ruby>でも OK</td>
+                </tr>
+                <!-- 5 -->
+                <tr>
+                    <td>⑤</td>
+                    <td>スーパー<ruby>店員<rt>てんいん</rt></ruby></td>
+                    <td class="text-left-cell"><ruby>生鮮食品<rt>せいせんしょくひん</rt></ruby>・<ruby>鮮魚<rt>せんぎょ</rt></ruby>・<ruby>野菜<rt>やさい</rt></ruby>・<ruby>果物<rt>くだもの</rt></ruby>・<ruby>肉売<rt>にくう</rt></ruby>り<ruby>場<rt>ば</rt></ruby>で<ruby>商品<rt>しょうひん</rt></ruby>を<ruby>切<rt>き</rt></ruby>る。<ruby>並<rt>なら</rt></ruby>べる、<ruby>清掃<rt>せいそう</rt></ruby></td>
+                    <td>850</td>
+                    <td><ruby>水曜定休<rt>すいようていきゅう</rt></ruby><br>9:00-20:00</td>
+                    <td class="text-left-cell"><ruby>週<rt>しゅう</rt></ruby> 1 <ruby>日<rt>にち</rt></ruby>、1 <ruby>回<rt>かい</rt></ruby> 4 <ruby>時間以上<rt>じかんいじょう</rt></ruby> (<ruby>時間相談可<rt>じかんそうだんか</rt></ruby>)<br><ruby>長期<rt>ちょうき</rt></ruby>できる<ruby>人<rt>ひと</rt></ruby></td>
+                </tr>
+                <!-- 6 -->
+                <tr>
+                    <td>⑥</td>
+                    <td><ruby>食品工場製造<rt>しょくひんこうじょうせいぞう</rt></ruby><br>スタッフ</td>
+                    <td class="text-left-cell"><ruby>主<rt>おも</rt></ruby>に<ruby>果物<rt>くだもの</rt></ruby>の<ruby>皮<rt>かわ</rt></ruby>むき</td>
+                    <td>(～22 <ruby>時<rt>じ</rt></ruby>) 800<br>(22 <ruby>時<rt>じ</rt></ruby>～) 1000</td>
+                    <td><ruby>毎日<rt>まいにち</rt></ruby><br>(1) 8:00-17:00<br>(2) 17:00-24:00</td>
+                    <td class="text-left-cell"><ruby>毎日来<rt>まいにちこ</rt></ruby>られる<ruby>人<rt>ひと</rt></ruby><br><ruby>夜間可能<rt>やかんかのう</rt></ruby>な<ruby>人歓迎<rt>ひとかんげい</rt></ruby></td>
+                </tr>
+                <!-- 7 -->
+                <tr>
+                    <td>⑦</td>
+                    <td><ruby>新製品宣伝<rt>しんせいひんせんでん</rt></ruby><br>スタッフ</td>
+                    <td class="text-left-cell">スーパーで<ruby>新製品<rt>しんせいひん</rt></ruby> (<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>) をお<ruby>客様<rt>きゃくさま</rt></ruby>に<ruby>紹介<rt>しょうかい</rt></ruby>する</td>
+                    <td>1000</td>
+                    <td>7 <ruby>月<rt>がつ</rt></ruby>の<ruby>土<rt>ど</rt></ruby>・<ruby>日曜<rt>にちよう</rt></ruby><br>9:00-18:00 のうち<br>3 <ruby>時間以上<rt>じかんいじょう</rt></ruby></td>
+                    <td class="text-left-cell">7 <ruby>月中<rt>がつちゅう</rt></ruby>に 2 <ruby>日以上勤務<rt>にちいじょうきんむ</rt></ruby>できる<ruby>人<rt>ひと</rt></ruby></td>
+                </tr>
+                <!-- 8 -->
+                <tr>
+                    <td>⑧</td>
+                    <td><ruby>引越<rt>ひっこ</rt></ruby>し<br>アシスタント</td>
+                    <td class="text-left-cell"><ruby>荷物<rt>にもつ</rt></ruby>を<ruby>造<rt>つく</rt></ruby>る、<ruby>荷物<rt>にもつ</rt></ruby>の<ruby>出<rt>だ</rt></ruby>し<ruby>入<rt>い</rt></ruby>れ</td>
+                    <td>950</td>
+                    <td><ruby>毎日<rt>まいにち</rt></ruby><br><ruby>原則<rt>げんそく</rt></ruby> 9:00-17:00<br>(<ruby>残業<rt>ざんぎょう</rt></ruby>あり)</td>
+                    <td class="text-left-cell">1 <ruby>日<rt>にち</rt></ruby>だけでも<ruby>可<rt>か</rt></ruby></td>
+                </tr>
+                <!-- 9 -->
+                <tr>
+                    <td>⑨</td>
+                    <td><ruby>試験監督補助<rt>しけんかんとくほじょ</rt></ruby></td>
+                    <td class="text-left-cell"><ruby>試験監督<rt>しけんかんとく</rt></ruby>の<ruby>助手<rt>じょしゅ</rt></ruby><br>・<ruby>問題配布<rt>もんだいはいふ</rt></ruby>と<ruby>回収<rt>かいしゅう</rt></ruby><br>・<ruby>受験生<rt>じゅけんせい</rt></ruby>のチェック</td>
+                    <td>(<ruby>日給<rt>にっきゅう</rt></ruby>)<br>6000</td>
+                    <td>7 <ruby>月<rt>がつ</rt></ruby> 25 <ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)<br>8:30-17:00</td>
+                    <td class="text-left-cell"><ruby>大学生<rt>だいがくせい</rt></ruby></td>
+                </tr>
+                <!-- 10 -->
+                <tr>
+                    <td>⑩</td>
+                    <td><ruby>塾講師<rt>じゅくこうし</rt></ruby> (<ruby>英語<rt>えいご</rt></ruby>)</td>
+                    <td class="text-left-cell"><ruby>中学生<rt>ちゅうがくせい</rt></ruby>・<ruby>高校生<rt>こうこうせい</rt></ruby>の<ruby>英語<rt>えいご</rt></ruby>の<ruby>補習授業<rt>ほしゅうじゅぎょう</rt></ruby></td>
+                    <td>2000</td>
+                    <td><ruby>火<rt>か</rt></ruby>・<ruby>木<rt>もく</rt></ruby>・<ruby>土曜<rt>どよう</rt></ruby><br>16:00-20:00</td>
+                    <td class="text-left-cell"><ruby>受験指導経験者<rt>じゅけんしどうけいけんしゃ</rt></ruby><br><ruby>長期<rt>ちょうき</rt></ruby>のみ</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- PHẦN 2: CÂU HỎI 69 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">69</span> <ruby>留学生<rt>りゅうがくせい</rt></ruby>のリーさんは、<ruby>毎週<rt>まいしゅう</rt></ruby> 3 <ruby>回<rt>かい</rt></ruby>ぐらい<ruby>店<rt>みせ</rt></ruby>でアルバイトをしたいと<ruby>考<rt>かんが</rt></ruby>えている。リーさんは<ruby>平日<rt>へいじつ</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby> 3 <ruby>時<rt>じ</rt></ruby>から 9 <ruby>時<rt>じ</rt></ruby>までの<ruby>間<rt>あいだ</rt></ruby>しか<ruby>働<rt>はたら</rt></ruby>けないが、<ruby>同<rt>おな</rt></ruby>じ<ruby>時間仕事<rt>じかんしごと</rt></ruby>をした<ruby>場合<rt>ばあい</rt></ruby>、<ruby>一番給料<rt>いちばんきゅうりょう</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いのはどの<ruby>仕事<rt>しごと</rt></ruby>か。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. ①<ruby>中国料理店<rt>ちゅうごくりょうりてん</rt></ruby>スタッフ</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    2. ②<ruby>日本<rt>にほん</rt></ruby>そば<ruby>屋<rt>や</rt></ruby>スタッフ
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 3. ③<ruby>居酒屋<rt>いざかや</rt></ruby>スタッフ</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. ④コンビニ<ruby>店員<rt>てんいん</rt></ruby></div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 2</p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 70 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">70</span> <ruby>大学生<rt>だいがくせい</rt></ruby>の<ruby>山田<rt>やまだ</rt></ruby>さんは<ruby>夏休み<rt>なつやすみ</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby>の<ruby>費用<rt>ひよう</rt></ruby>が<ruby>少<rt>すこ</rt></ruby>し<ruby>足<rt>た</rt></ruby>りないので、7 <ruby>月<rt>がつ</rt></ruby>に 1 <ruby>日<rt>にち</rt></ruby>か 2 <ruby>日<rt>にち</rt></ruby>だけアルバイトをしたいと<ruby>考<rt>かんが</rt></ruby>えている。<ruby>山田<rt>やまだ</rt></ruby>さんが<ruby>応募<rt>おうぼ</rt></ruby>できる<ruby>仕事<rt>しごと</rt></ruby>はいくつあるか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. 1 つ</div>
+                <div class="option-item"><div class="radio-circle"></div> 2. 2 つ</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    3. 3 つ
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 4. 4 つ</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 3</p>
+        </div>
+    </div>
+
+</body>
+</html>

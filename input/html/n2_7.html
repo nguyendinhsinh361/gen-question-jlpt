@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>体験教室のご案内 - 南原ガラス美術館</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .museum-name {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* Lưới 2x2 cho các khóa học */
+        .course-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-cell {
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            padding: 1rem;
+            min-height: 250px;
+        }
+
+        .course-header {
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .info-label {
+            min-width: 90px;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .info-label::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .wait-time {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .section-box {
+            border: 1px solid #000;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .list-bullet {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .list-bullet::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tên bảo tàng -->
+        <div class="museum-name">
+            <ruby>南原<rt>なみはら</rt></ruby>ガラス<ruby>美術館<rt>びじゅつかん</rt></ruby>
+        </div>
+
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                <ruby>体験教室<rt>たいけんきょうしつ</rt></ruby>のご<ruby>案内<rt>あんない</rt></ruby>
+            </h1>
+            <p class="intro-text">
+                <ruby>館内<rt>かんない</rt></ruby>の<ruby>体験教室<rt>たいけんきょうしつ</rt></ruby>で、ガラス<ruby>作品作<rt>さくひんづく</rt></ruby>りが<ruby>体験<rt>たいけん</rt></ruby>できます。ご<ruby>来館<rt>らいかん</rt></ruby>の<ruby>記念<rt>きねん</rt></ruby>に、<ruby>世界<rt>せかい</rt></ruby>で<ruby>一<rt>ひと</rt></ruby>つだ<br>
+                けの<ruby>作品<rt>さくひん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>りませんか。<ruby>教室<rt>きょうしつ</rt></ruby>は A～D の 4 コースで、<ruby>毎日<rt>まいにち</rt></ruby> 2 <ruby>回<rt>かい</rt></ruby>ずつ<ruby>開催<rt>かいさい</rt></ruby>しています。
+            </p>
+        </header>
+
+        <!-- Bảng 2x2 các khóa học -->
+        <div class="course-grid">
+            <!-- Khóa A -->
+            <div class="course-cell">
+                <div class="course-header">A：コップに<ruby>絵<rt>え</rt></ruby>をつけよう（60 <ruby>分<rt>ふん</rt></ruby>）</div>
+                <p class="text-sm mb-4">
+                    <ruby>専用<rt>せんもん</rt></ruby>の<ruby>機械<rt>きかい</rt></ruby>を<ruby>使<rt>つか</rt></ruby>い、ガラスのコップにオリジナルの<ruby>絵<rt>え</rt></ruby>や<ruby>模様<rt>もよう</rt></ruby>をつけます。
+                </p>
+                <div class="info-row"><span class="info-label"><ruby>費用<rt>ひよう</rt></ruby></span><span>1200 <ruby>円<rt>えん</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>対象年齢<rt>たいしょうねんれい</rt></ruby></span><span>5 <ruby>歳以上<rt>さいいじょう</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>予約<rt>よやく</rt></ruby></span><span><ruby>不要<rt>ふよう</rt></ruby></span></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>時間<rt>じかん</rt></ruby></span>
+                    <span>① 11：45 ～ 12：45<br>② 15：00 ～ 16：00</span>
+                </div>
+            </div>
+
+            <!-- Khóa B -->
+            <div class="course-cell">
+                <div class="course-header">B：ペンダントを<ruby>作<rt>つく</rt></ruby>ろう（60 <ruby>分<rt>ふん</rt></ruby>）</div>
+                <p class="text-sm mb-4">
+                    ガラス<ruby>棒<rt>ぼう</rt></ruby>を<ruby>熱<rt>ねっ</rt></ruby>して<ruby>溶<rt>と</rt></ruby>かし、ガラス<ruby>玉<rt>だま</rt></ruby>のペンダントを<ruby>作<rt>つく</rt></ruby>ります。
+                </p>
+                <div class="info-row"><span class="info-label"><ruby>費用<rt>ひよう</rt></ruby></span><span>1600 <ruby>円<rt>えん</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>対象年齢<rt>たいしょうねんれい</rt></ruby></span><span>10 <ruby>歳以上<rt>さいいじょう</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>予約<rt>よやく</rt></ruby></span><span><ruby>不要<rt>ふよう</rt></ruby></span></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>時間<rt>じかん</rt></ruby></span>
+                    <span>① 11：15 ～ 12：15<br>② 15：00 ～ 16：00</span>
+                </div>
+                <p class="wait-time text-sm">★<ruby>待<rt>ま</rt></ruby>ち<ruby>時間<rt>じかん</rt></ruby>：1 <ruby>時間<rt>じかん</rt></ruby></p>
+            </div>
+
+            <!-- Khóa C -->
+            <div class="course-cell">
+                <div class="course-header">C：キーホルダーを<ruby>作<rt>つく</rt></ruby>ろう（30 <ruby>分<rt>ふん</rt></ruby>）</div>
+                <p class="text-sm mb-4">
+                    カラフルなガラスを<ruby>並<rt>なら</rt></ruby>べ、<ruby>熱<rt>ねつ</rt></ruby>で<ruby>接着<rt>せっちゃく</rt></ruby>します（<ruby>接着<rt>せっちゃく</rt></ruby>はスタッフが<ruby>行<rt>おこな</rt></ruby>います）。
+                </p>
+                <div class="info-row"><span class="info-label"><ruby>費用<rt>ひよう</rt></ruby></span><span>1400 <ruby>円<rt>えん</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>対象年齢<rt>たいしょうねんれい</rt></ruby></span><span>5 <ruby>歳以上<rt>さいいじょう</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>予約<rt>よやく</rt></ruby></span><span><ruby>必要<rt>ひつよう</rt></ruby></span></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>時間<rt>じかん</rt></ruby></span>
+                    <span>① 11：00 ～ 11：30<br>② 14：00 ～ 14：30</span>
+                </div>
+                <p class="wait-time text-sm">★<ruby>待<rt>ま</rt></ruby>ち<ruby>時間<rt>じかん</rt></ruby>：2 <ruby>時間<rt>じかん</rt></ruby></p>
+            </div>
+
+            <!-- Khóa D -->
+            <div class="course-cell">
+                <div class="course-header">D：お<ruby>皿<rt>さら</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ろう（30 <ruby>分<rt>ふん</rt></ruby>）</div>
+                <p class="text-sm mb-4">
+                    <ruby>熱<rt>ねつ</rt></ruby>で<ruby>溶<rt>と</rt></ruby>かしたガラスを<ruby>延<rt>の</rt></ruby>ばし、<ruby>好<rt>す</rt></ruby>きな<ruby>形<rt>かたち</rt></ruby>のお<ruby>皿<rt>さら</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ります。
+                </p>
+                <div class="info-row"><span class="info-label"><ruby>費用<rt>ひよう</rt></ruby></span><span>2000 <ruby>円<rt>えん</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>対象年齢<rt>たいしょうねんれい</rt></ruby></span><span>8 <ruby>歳以上<rt>さいいじょう</rt></ruby></span></div>
+                <div class="info-row"><span class="info-label"><ruby>予約<rt>よやく</rt></ruby></span><span><ruby>必要<rt>ひつよう</rt></ruby></span></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>時間<rt>じかん</rt></ruby></span>
+                    <span>① 10：15 ～ 10：45<br>② 13：30 ～ 14：00</span>
+                </div>
+                <p class="wait-time text-sm">★<ruby>待<rt>ま</rt></ruby>ち<ruby>時間<rt>じかん</rt></ruby>：2 <ruby>時間<rt>じかん</rt></ruby></p>
+            </div>
+        </div>
+
+        <!-- Cách tham gia -->
+        <div class="section-box">
+            <h3 class="section-title">「<ruby>参加方法<rt>さんかほうほう</rt></ruby>」</h3>
+            <div class="list-bullet">
+                <ruby>予約<rt>よやく</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>なコースは、3 <ruby>日前<rt>にちまえ</rt></ruby>までにご<ruby>予約<rt>よやく</rt></ruby>ください。<ruby>予約不要<rt>よやくふよう</rt></ruby>のコースは、<ruby>当日<rt>とうじつ</rt></ruby>、<ruby>教室開始<rt>きょうしつかいし</rt></ruby>の 5 <ruby>分前<rt>ふんまえ</rt></ruby>までにお<ruby>集<rt>あつ</rt></ruby>まりください。
+            </div>
+            <div class="list-bullet">
+                <ruby>参加費<rt>さんかひ</rt></ruby>は、<ruby>開始前<rt>かいしまえ</rt></ruby>に<ruby>教室<rt>きょうしつ</rt></ruby>でお<ruby>支払<rt>しはら</rt></ruby>いいいただきます。
+            </div>
+            <div class="list-bullet">
+                <ruby>小学生以下<rt>しょうがくせいいか</rt></ruby>のお<ruby>子様<rt>こさま</rt></ruby>は<ruby>保護者<rt>ほごしゃ</rt></ruby>の<ruby>方<rt>かた</rt></ruby>とご<ruby>一緒<rt>いっしょ</rt></ruby>にご<ruby>参加<rt>さんか</rt></ruby>ください。
+            </div>
+        </div>
+
+        <!-- Chú ý -->
+        <div class="section-box">
+            <h3 class="section-title">「<ruby>注意<rt>ちゅうい</rt></ruby>」</h3>
+            <p class="font-bold text-sm mb-2">★<ruby>待<rt>ま</rt></ruby>ち<ruby>時間<rt>じかん</rt></ruby>について</p>
+            <p class="text-sm">
+                B～D のコースで<ruby>製作<rt>せいさく</rt></ruby>した<ruby>作品<rt>さくひん</rt></ruby>は、<ruby>教室終了後<rt>きょうしつしゅうりょうご</rt></ruby>、<ruby>完全<rt>かんぜん</rt></ruby>に<ruby>冷<rt>さ</rt></ruby>めるまでお<ruby>持<rt>も</rt></ruby>ち<ruby>帰<rt>かえ</rt></ruby>りいただけません。<ruby>当日<rt>とうじつ</rt></ruby>のお<ruby>持<rt>も</rt></ruby>ち<ruby>帰<rt>かえ</rt></ruby>りをご<ruby>希望<rt>きぼう</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は、それぞれの<ruby>待<rt>ま</rt></ruby>ち<ruby>時間<rt>じかん</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby>、<ruby>館内<rt>かんない</rt></ruby>を<ruby>鑑賞<rt>かんしょう</rt></ruby>しながらお<ruby>待<rt>ま</rt></ruby>ちになることをお<ruby>勧<rt>すす</rt></ruby>めします。<br>
+                <ruby>翌日以降<rt>よくじついこう</rt></ruby>の<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>り、<ruby>郵送<rt>ゆうそう</rt></ruby>も<ruby>可能<rt>かのう</rt></ruby>です。<ruby>詳細<rt>しょうさい</rt></ruby>はスタッフにお<ruby>尋<rt>たず</rt></ruby>ねください。
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

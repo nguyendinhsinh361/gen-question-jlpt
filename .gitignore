@@ -1,0 +1,14 @@
+# Credentials — NEVER commit
+secrets/
+*.json.bak
+
+# Drive upload artifacts
+_drive_links.json
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秋の日帰りバス旅行のご案内</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Lưới 2x2 cho các tour */
+        .tour-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #000;
+            margin-bottom: 1rem;
+        }
+
+        .tour-item {
+            border: 0.5px solid #000;
+            padding: 1rem;
+            min-height: 200px;
+        }
+
+        .tour-header {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-label {
+            letter-spacing: 0.5em;
+        }
+
+        .note-text {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .section-header {
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-content {
+            padding-left: 1rem;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .footer-info {
+            margin-top: 2rem;
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="document-container">
+        <!-- Tiêu đề -->
+        <header>
+            <h1 class="main-title">
+                <ruby>秋<rt>あき</rt></ruby>の<ruby>日帰<rt>ひがえ</rt></ruby>りバス<ruby>旅行<rt>りょこう</rt></ruby>のご<ruby>案内<rt>あんない</rt></ruby>
+            </h1>
+        </header>
+
+        <!-- Lưới Tour du lịch -->
+        <div class="tour-grid">
+            <!-- Tour 1 -->
+            <div class="tour-item">
+                <div class="tour-header">①<ruby>川中市内観光<rt>かわなかしないかんこう</rt></ruby>と<ruby>川中東温泉<rt>かわなかひがしおんせん</rt></ruby></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>料金<rt>りょうきん</rt></ruby>：</span>
+                    <div>
+                        <ruby>平日<rt>へいじつ</rt></ruby> &nbsp; 7,500 <ruby>円<rt>えん</rt></ruby><br>
+                        <ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby> &nbsp; 8,500 <ruby>円<rt>えん</rt></ruby>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>食事<rt>しょくじ</rt></ruby>：</span>
+                    <span>ついていません</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>出発日<rt>しゅっぱつび</rt></ruby>：</span>
+                    <div>
+                        10<ruby>月<rt>がつ</rt></ruby> 6<ruby>日<rt>にち</rt></ruby>(<ruby>土<rt>ど</rt></ruby>)<br>
+                        11<ruby>月<rt>がつ</rt></ruby> 12<ruby>日<rt>にち</rt></ruby>(<ruby>月<rt>げつ</rt></ruby>)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour 2 -->
+            <div class="tour-item">
+                <div class="tour-header">②<ruby>大岩<rt>おおいわ</rt></ruby>チーズ<ruby>場見学<rt>じょうけんがく</rt></ruby>と<ruby>川中美術館<rt>かわなかびじゅつかん</rt></ruby></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>料金<rt>りょうきん</rt></ruby>：</span>
+                    <div>
+                        <ruby>平日<rt>へいじつ</rt></ruby> &nbsp; 8,500 <ruby>円<rt>えん</rt></ruby><br>
+                        <ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby> &nbsp; 9,500 <ruby>円<rt>えん</rt></ruby>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>食事<rt>しょくじ</rt></ruby>：</span>
+                    <span><ruby>昼食<rt>ちゅうしょく</rt></ruby></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>出発日<rt>しゅっぱつび</rt></ruby>：</span>
+                    <div>
+                        10<ruby>月<rt>がつ</rt></ruby> 30<ruby>日<rt>にち</rt></ruby>(<ruby>火<rt>か</rt></ruby>)<br>
+                        11<ruby>月<rt>がつ</rt></ruby> 10<ruby>日<rt>にち</rt></ruby>(<ruby>土<rt>ど</rt></ruby>)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour 3 -->
+            <div class="tour-item">
+                <div class="tour-header">③<ruby>北森市立博物館<rt>きたもりしりつはくぶつかん</rt></ruby>と<ruby>花丸温泉<rt>はなまるおんせん</rt></ruby></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>料金<rt>りょうきん</rt></ruby>：</span>
+                    <div>
+                        <ruby>平日<rt>へいじつ</rt></ruby> &nbsp; 11,000 <ruby>円<rt>えん</rt></ruby><br>
+                        <ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby> &nbsp; 12,000 <ruby>円<rt>えん</rt></ruby>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>食事<rt>しょくじ</rt></ruby>：</span>
+                    <span><ruby>昼食<rt>ちゅうしょく</rt></ruby></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>出発日<rt>しゅっぱつび</rt></ruby>：</span>
+                    <div>
+                        10<ruby>月<rt>がつ</rt></ruby> 29<ruby>日<rt>にち</rt></ruby>(<ruby>月<rt>げつ</rt></ruby>)<br>
+                        11<ruby>月<rt>がつ</rt></ruby> 11<ruby>日<rt>にち</rt></ruby>(<ruby>日<rt>にち</rt></ruby>)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour 4 -->
+            <div class="tour-item">
+                <div class="tour-header">④<ruby>空石山<rt>そらいしやま</rt></ruby>ハイキングと<ruby>空石温泉<rt>そらいしおんせん</rt></ruby></div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>料金<rt>りょうきん</rt></ruby>：</span>
+                    <div>
+                        <ruby>平日<rt>へいじつ</rt></ruby> &nbsp; 10,000 <ruby>円<rt>えん</rt></ruby><br>
+                        <ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby> &nbsp; 11,000 <ruby>円<rt>えん</rt></ruby>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>食事<rt>しょくじ</rt></ruby>：</span>
+                    <span><ruby>昼食<rt>ちゅうしょく</rt></ruby></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><ruby>出発日<rt>しゅっぱつび</rt></ruby>：</span>
+                    <div>
+                        10<ruby>月<rt>がつ</rt></ruby> 25<ruby>日<rt>にち</rt></ruby>(<ruby>木<rt>もく</rt></ruby>)<br>
+                        11<ruby>月<rt>がつ</rt></ruby> 3<ruby>日<rt>にち</rt></ruby>(<ruby>土<rt>ど</rt></ruby>)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chú thích giá vé -->
+        <div class="note-text">
+            ※<ruby>料金<rt>りょうきん</rt></ruby>は<ruby>大人一人分<rt>おとなひとりぶん</rt></ruby>です。<ruby>小学生<rt>しょうがくせい</rt></ruby>は、<ruby>大人<rt>おとな</rt></ruby>の<ruby>半分<rt>はんぶん</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby>になります (5<ruby>歳以下<rt>さいいか</rt></ruby>は<ruby>無料<rt>むりょう</rt></ruby>)。
+        </div>
+        <div class="note-text">
+            ※<ruby>料金<rt>りょうきん</rt></ruby>には<ruby>入館料<rt>にゅうかんりょう</rt></ruby>などが<ruby>含<rt>ふく</rt></ruby>まれています。
+        </div>
+
+        <!-- Tập trung -->
+        <div class="section-header">【<ruby>当日<rt>とうじつ</rt></ruby>の<ruby>集合時間<rt>しゅうごうじかん</rt></ruby>と<ruby>集合場所<rt>しゅうごうばしょ</rt></ruby>】</div>
+        <div class="section-content">
+            ・①～④すべて、<ruby>午前<rt>ごぜん</rt></ruby> 8 <ruby>時<rt>じ</rt></ruby>に<ruby>西山駅北口<rt>にしやまえききたぐち</rt></ruby>にお<ruby>集<rt>あつ</rt></ruby>まりください。
+        </div>
+
+        <!-- Đăng ký -->
+        <div class="section-header">【お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み・お<ruby>支払<rt>しはら</rt></ruby>い】</div>
+        <div class="section-content">
+            ・お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みは、ご<ruby>出発日<rt>しゅっぱつび</rt></ruby>の 3 か<ruby>月前<rt>げつまえ</rt></ruby>から 10 <ruby>日前<rt>にちまえ</rt></ruby>まで、インターネット、お<ruby>電話<rt>でんわ</rt></ruby>、<ruby>窓口<rt>まどぐち</rt></ruby>で<ruby>受<rt>う</rt></ruby>け<ruby>付<rt>つ</rt></ruby>けます。<ruby>料金<rt>りょうきん</rt></ruby>は、お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>後<rt>ご</rt></ruby> 7 <ruby>日以内<rt>にちいない</rt></ruby>に、お<ruby>支払<rt>しはら</rt></ruby>いください。<ruby>現金<rt>げんきん</rt></ruby>のほか、クレジットカード、<ruby>銀行振込<rt>ぎんこうふりこみ</rt></ruby>もご<ruby>利用<rt>りよう</rt></ruby>になれる。
+        </div>
+
+        <!-- Hủy tour -->
+        <div class="section-header">【キャンセルのお<ruby>手続<rt>てつづ</rt></ruby>き】</div>
+        <div class="section-content">
+            ・お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>後<rt>ご</rt></ruby>のキャンセル<ruby>料<rt>りょう</rt></ruby>は、<ruby>出発日<rt>しゅっぱつび</rt></ruby>の 10 <ruby>日前<rt>にちまえ</rt></ruby>～ 8 <ruby>日前<rt>にちまえ</rt></ruby>までは<ruby>料金<rt>りょうきん</rt></ruby>の 20%、<ruby>出発日<rt>しゅっぱつび</rt></ruby>の 7 <ruby>日前<rt>にちまえ</rt></ruby>～ 2 <ruby>日前<rt>にちまえ</rt></ruby>までは 30%、<ruby>出発日<rt>しゅっぱつび</rt></ruby>の<ruby>前日<rt>ぜんじつ</rt></ruby>は 40%、<ruby>当日<rt>とうじつ</rt></ruby>の<ruby>出発前<rt>しゅっぱつまえ</rt></ruby>までは 50%、<ruby>出発後<rt>しゅっぱつご</rt></ruby>は 100%になります。<br>
+            ・キャンセルのご<ruby>連絡<rt>れんらく</rt></ruby>は、<ruby>受付時間内<rt>うけつけじかんない</rt></ruby>にお<ruby>願<rt>ねが</rt></ruby>いします。
+        </div>
+
+        <!-- Chân trang -->
+        <footer class="footer-info">
+            <p class="text-xl font-bold">ゆうやけ<ruby>観光<rt>かんこう</rt></ruby> &nbsp; <ruby>電話<rt>でんわ</rt></ruby> 06-6012-3456</p>
+            <p><ruby>受付時間<rt>うけつけじかん</rt></ruby> 7：30 ～ 18：00</p>
+        </footer>
+    </div>
+
+</body>
+</html>

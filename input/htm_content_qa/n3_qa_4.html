@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不用品をお売りください！ - リサイクル青島屋</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.2em;
+        }
+
+        .sub-title {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header::before {
+            content: "●";
+            margin-right: 0.5rem;
+        }
+
+        .box-outline {
+            border: 1px solid #000;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .bullet-list {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .bullet-item {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .bullet-item::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .note-star {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .note-star::before {
+            content: "＊";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-info {
+            margin-top: 3rem;
+            text-align: right;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: TỜ QUẢNG CÁO (Từ ảnh 1) -->
+        <header>
+            <h1 class="main-title">
+                <ruby>不用品<rt>ふようひん</rt></ruby>をお<ruby>売<rt>う</rt></ruby>りください！
+            </h1>
+            <p class="sub-title">
+                ご<ruby>自宅<rt>じたく</rt></ruby>やオフィスで<ruby>不用<rt>ふよう</rt></ruby>になったものをお<ruby>売<rt>う</rt></ruby>りください。<br>
+                1 <ruby>点<rt>てん</rt></ruby>でも<ruby>買<rt>か</rt></ruby>い<ruby>取<rt>と</rt></ruby>ります。
+            </p>
+        </header>
+
+        <section>
+            <h2 class="section-header"><ruby>買<rt>か</rt></ruby>い<ruby>取<rt>と</rt></ruby>り<ruby>可能<rt>かのう</rt></ruby>な<ruby>品物<rt>しなもの</rt></ruby>：</h2>
+            <p class="pl-4"><ruby>以下<rt>いか</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でひどい<ruby>汚れ<rt>よごれ</rt></ruby>や、<ruby>大<rt>おお</rt></ruby>きな<ruby>傷<rt>きず</rt></ruby>などがないもの：</p>
+            
+            <div class="box-outline">
+                <ruby>家具<rt>かぐ</rt></ruby>・<ruby>電気製品<rt>でんきせいひん</rt></ruby>・<ruby>衣服<rt>いふく</rt></ruby>・<ruby>生活用品<rt>せいかつようひん</rt></ruby>・オフィス<ruby>用品<rt>ようひん</rt></ruby>・スポーツ<ruby>用品<rt>ようひん</rt></ruby>・おもちゃ・<ruby>楽器<rt>がっき</rt></ruby>など
+            </div>
+
+            <p class="pl-4 mb-2"><ruby>使用<rt>しよう</rt></ruby>している<ruby>場合<rt>ばあい</rt></ruby>は、クリーニングしてあるもの：</p>
+            <div class="border border-black p-4 mb-4">
+                <p class="bullet-item"><ruby>食器<rt>しょっき</rt></ruby>、<ruby>料理用具<rt>りょうりようぐ</rt></ruby>は、<ruby>一度<rt>いちど</rt></ruby>も<ruby>使用<rt>しよう</rt></ruby>していないもの</p>
+                <p class="bullet-item"><ruby>電気製品<rt>でんきせいひん</rt></ruby>、おもちゃ、<ruby>楽器<rt>がっき</rt></ruby>は、<ruby>使用可能<rt>しようかのう</rt></ruby>なもの</p>
+            </div>
+
+            <div class="space-y-1">
+                <p class="note-star"><ruby>買<rt>か</rt></ruby>い<ruby>取<rt>と</rt></ruby>りのときは、<ruby>免許証<rt>めんきょしょう</rt></ruby>、パスポートなどの<ruby>写真<rt>しゃしん</rt></ruby>が<ruby>付<rt>つ</rt></ruby>いている<ruby>証明書<rt>しょうめいしょ</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>します。</p>
+                <p class="note-star">18 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>方<rt>かた</rt></ruby>からは<ruby>買<rt>か</rt></ruby>い<ruby>取<rt>と</rt></ruby>ることができません。</p>
+                <p class="note-star"><ruby>買<rt>か</rt></ruby>い<ruby>取<rt>と</rt></ruby>れなかった<ruby>品物<rt>しなもの</rt></ruby>は、<ruby>店<rt>みせ</rt></ruby>に<ruby>置<rt>お</rt></ruby>いていくことも<ruby>可能<rt>かのう</rt></ruby>です。こちらで<ruby>捨<rt>す</rt></ruby>てます。<br>（<ruby>有料<rt>ゆうりょう</rt></ruby>になる<ruby>場合<rt>ばあい</rt></ruby>もあります。）</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-header">ご<ruby>来店<rt>らいてん</rt></ruby>になれないお<ruby>客様<rt>きゃくさま</rt></ruby>へのご<ruby>案内<rt>あんない</rt></ruby>：</h2>
+            <div class="bullet-list">
+                <p class="bullet-item"><ruby>品物<rt>しなもの</rt></ruby>が<ruby>多数<rt>たすう</rt></ruby>ある<ruby>場合<rt>ばあい</rt></ruby>、または<ruby>重<rt>おも</rt></ruby>くて<ruby>運<rt>はこ</rt></ruby>べない<ruby>場合<rt>ばあい</rt></ruby>は、ご<ruby>希望<rt>きぼう</rt></ruby>の<ruby>日時<rt>にちじ</rt></ruby>にご<ruby>自宅<rt>じたく</rt></ruby>やオフィスまでうかがいます。ご<ruby>希望<rt>きぼう</rt></ruby>の<ruby>方<rt>かた</rt></ruby>は、<ruby>前日<rt>ぜんじつ</rt></ruby>までにお<ruby>電話<rt>でんわ</rt></ruby>でご<ruby>予約<rt>よやく</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。</p>
+                <p class="bullet-item"><ruby>品物<rt>しなもの</rt></ruby>は<ruby>郵送<rt>ゆうそう</rt></ruby>でも<ruby>受<rt>う</rt></ruby>け<ruby>付<rt>つ</rt></ruby>けます。ご<ruby>希望<rt>きぼう</rt></ruby>の<ruby>方<rt>かた</rt></ruby>は、まず、お<ruby>電話<rt>でんわ</rt></ruby>でご<ruby>連絡<rt>れんらく</rt></ruby>ください。ご<ruby>連絡<rt>れんらく</rt></ruby>がなかった<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>ることができません。</p>
+            </div>
+        </section>
+
+        <footer class="footer-info">
+            <p class="text-xl font-bold">リサイクル<ruby>青島屋<rt>あおしまや</rt></ruby></p>
+            <p><ruby>秋中市大田町<rt>あきなかしおおたまち</rt></ruby> 1-2-3 （<ruby>大田小学校前<rt>おおたしょうがっこうまえ</rt></ruby>）</p>
+            <p><ruby>電話<rt>でんわ</rt></ruby>：012-345-6789 &nbsp;&nbsp; FAX：012-345-6790</p>
+            <p><ruby>定休日<rt>ていきゅうび</rt></ruby>：<ruby>毎週水曜日<rt>まいしゅうすいようび</rt></ruby> &nbsp;&nbsp; <ruby>営業時間<rt>えいぎょうじかん</rt></ruby>：10：00 - 20：00</p>
+        </footer>
+
+        <!-- PHẦN 2: CÂU HỎI 38 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">38</span> ナターシャさんは<ruby>大学<rt>だいがく</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>して<ruby>帰国<rt>きこく</rt></ruby>することになったので、<ruby>不用品<rt>ふようひん</rt></ruby>を<ruby>売<rt>う</rt></ruby>りたいと<ruby>考<rt>かんが</rt></ruby>えている。<ruby>次<rt>つぎ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、この<ruby>店<rt>みせ</rt></ruby>に<ruby>売<rt>う</rt></ruby>れる<ruby>可能性<rt>かのうせい</rt></ruby>がないものはどれか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. まだ<ruby>一度<rt>いちど</rt></ruby>も<ruby>着<rt>き</rt></ruby>ていないシャツ</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    2. <ruby>少<rt>すこ</rt></ruby>ししか<ruby>使<rt>つか</rt></ruby>っていない<ruby>鍋<rt>なべ</rt></ruby>
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 3. 2 <ruby>年間<rt>ねんかん</rt></ruby>ずっと<ruby>使<rt>つか</rt></ruby>っているテレビ</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. <ruby>時々<rt>ときどき</rt></ruby>ひいているギター</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 2</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Quy định ghi rõ "<ruby>料理用具<rt>りょうりようぐ</rt></ruby>は、<ruby>一度<rt>いちど</rt></ruby>も<ruby>使用<rt>しよう</rt></ruby>していないもの" mới được thu mua. Nồi là dụng cụ nấu ăn đã qua sử dụng nên không thể bán)
+            </p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 39 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">39</span> この<ruby>店<rt>みせ</rt></ruby>に<ruby>不用品<rt>ふようひん</rt></ruby>を<ruby>売<rt>う</rt></ruby>るとき、<ruby>必<rt>かなら</rt></ruby>ずしなければならないことは<ruby>何<rt>なに</rt></ruby>か。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. <ruby>品物<rt>しなもの</rt></ruby>を<ruby>売<rt>う</rt></ruby>る<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>品物<rt>しなもの</rt></ruby>を<ruby>店<rt>みせ</rt></ruby>まで<ruby>運<rt>はこ</rt></ruby>ぶ</div>
+                <div class="option-item"><div class="radio-circle"></div> 2. <ruby>品物<rt>しなもの</rt></ruby>が<ruby>売<rt>う</rt></ruby>れなかった<ruby>場合<rt>ばあい</rt></ruby>は、その<ruby>品物<rt>しなもの</rt></ruby>を<ruby>持<rt>も</rt></ruby>って<ruby>帰<rt>かえ</rt></ruby>る</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    3. <ruby>品物<rt>しなもの</rt></ruby>を<ruby>郵便<rt>ゆうびん</rt></ruby>で<ruby>送<rt>おく</rt></ruby>る<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>先<rt>さき</rt></ruby>に<ruby>店<rt>みせ</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>をする
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 4. <ruby>品物<rt>しなもの</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていく<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>前日<rt>ぜんじつ</rt></ruby>までに<ruby>予約<rt>よやく</rt></ruby>する</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 3</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Quy định ghi rõ khi gửi đồ qua bưu điện "<ruby>まず、お電話でご連絡ください。ご連絡がなかった場合は、受け取ることができません。<rt>Trước hết hãy liên lạc qua điện thoại. Nếu không liên lạc trước sẽ không được tiếp nhận</rt></ruby>")
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

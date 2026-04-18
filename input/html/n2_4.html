@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留学生のための就職セミナー - 東西大学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-text {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+        }
+
+        /* Styles cho phần Chương trình (Program) */
+        .program-section {
+            margin-bottom: 2rem;
+        }
+
+        .program-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+        }
+
+        .program-table td {
+            border: 1px solid #000;
+            padding: 12px;
+            vertical-align: top;
+        }
+
+        .part-cell {
+            width: 15%;
+            text-align: center;
+            font-weight: bold;
+            background-color: #fdfdfd;
+        }
+
+        .content-cell {
+            width: 85%;
+        }
+
+        /* Styles cho phần Thời gian và Địa điểm (Time and Venue) */
+        .venue-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-top: 1rem;
+        }
+
+        .venue-table th, .venue-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .venue-table th {
+            font-weight: normal;
+            background-color: #fdfdfd;
+        }
+
+        .sub-group-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sub-group-table td {
+            border: 0.5px solid #000;
+            padding: 4px 8px;
+        }
+
+        .notes-section {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact {
+            text-align: left;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                <ruby>東西大学<rt>とうざいだいがく</rt></ruby> 「<ruby>留学生<rt>りゅうがくせい</rt></ruby>のための<ruby>就職<rt>しゅうしょく</rt></ruby>セミナー」
+            </h1>
+        </header>
+
+        <!-- Lời giới thiệu -->
+        <section class="intro-text">
+            <p>
+                このセミナーでは、<ruby>日本<rt>にほん</rt></ruby>で<ruby>就職活動<rt>しゅうしょくかつどう</rt></ruby>を<ruby>行<rt>おこな</rt></ruby>う<ruby>際<rt>さい</rt></ruby>に<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>情報<rt>じょうほう</rt></ruby>やセミナーなどについて<ruby>学<rt>まな</rt></ruby>びます。また、<ruby>企業<rt>きぎょう</rt></ruby>の<ruby>担当者<rt>たんとうしゃ</rt></ruby>から<ruby>具体的<rt>ぐたいてき</rt></ruby>な<ruby>業務内容<rt>ぎょうむないよう</rt></ruby>について<ruby>直接聞<rt>ちょくせつき</rt></ruby>くこともできます。<ruby>日本<rt>にほん</rt></ruby>での<ruby>就職<rt>しゅうしょく</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えている<ruby>人<rt>ひと</rt></ruby>は<ruby>積極的<rt>せっきょくてき</rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>してください。
+            </p>
+        </section>
+
+        <!-- Thông tin cơ bản -->
+        <section class="info-grid">
+            <div class="info-label"><ruby>日時<rt>にちじ</rt></ruby>：</div>
+            <div><ruby>平成<rt>へいせい</rt></ruby> 22 <ruby>年<rt>ねん</rt></ruby> 11 <ruby>月<rt>がつ</rt></ruby> 30 <ruby>日<rt>にち</rt></ruby> （<ruby>火<rt>か</rt></ruby>） 10：00 ～ 15：00</div>
+
+            <div class="info-label"><ruby>参加企業<rt>さんかきぎょう</rt></ruby>：</div>
+            <div><ruby>金融<rt>きんゆう</rt></ruby>・<ruby>小売業<rt>こうりぎょう</rt></ruby>・<ruby>情報<rt>じょうほう</rt></ruby>・<ruby>通信<rt>つうしん</rt></ruby>・<ruby>貿易<rt>ぼうえき</rt></ruby>・<ruby>商社<rt>しょうしゃ</rt></ruby>など 20 <ruby>社<rt>しゃ</rt></ruby></div>
+
+            <div class="info-label"><ruby>対象<rt>たいしょう</rt></ruby>：</div>
+            <div><ruby>平成<rt>へいせい</rt></ruby> 24 <ruby>年<rt>ねん</rt></ruby> 3 <ruby>月<rt>がつ</rt></ruby>までに<ruby>卒業予定<rt>そつぎょうよてい</rt></ruby>の<ruby>本学留学生<rt>ほんがくりゅうがくせい</rt></ruby></div>
+        </section>
+
+        <!-- Phần Chương trình -->
+        <section class="program-section">
+            <h2 class="font-bold mb-2">プログラム：</h2>
+            <table class="program-table">
+                <tbody>
+                    <tr>
+                        <td class="part-cell"><ruby>第<rt>だい</rt></ruby> 1 <ruby>部<rt>ぶ</rt></ruby></td>
+                        <td class="content-cell">
+                            <p class="font-bold"><ruby>日本<rt>にほん</rt></ruby>での<ruby>就職活動<rt>しゅうしょくかつどう</rt></ruby>の<ruby>進<rt>すす</rt></ruby>め<ruby>方<rt>かた</rt></ruby>について （<ruby>講師<rt>こうし</rt></ruby>：<ruby>本学就職課担当者<rt>ほんがくしゅうしょくかたんとうしゃ</rt></ruby>）</p>
+                            <p class="mt-2 text-sm"><ruby>就職活動<rt>しゅうしょくかつどう</rt></ruby>のマナー、<ruby>履歴書<rt>りれきしょ</rt></ruby>の<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>、ビザの<ruby>変更<rt>へんこう</rt></ruby>に<ruby>関<rt>かん</rt></ruby>する<ruby>諸手続<rt>しょてつづ</rt></ruby>きなど</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="part-cell"><ruby>第<rt>だい</rt></ruby> 2 <ruby>部<rt>ぶ</rt></ruby></td>
+                        <td class="content-cell">
+                            <p class="font-bold"><ruby>合同企業説明会<rt>ごうどうきぎょうせつめいかい</rt></ruby> （<ruby>講師<rt>こうし</rt></ruby>：<ruby>各企業採用担当者<rt>かくきぎょうさいようたんとうしゃ</rt></ruby>）</p>
+                            <p class="mt-2 text-sm"><ruby>各企業<rt>かくきぎょう</rt></ruby>の<ruby>事業内容<rt>じぎょうないよう</rt></ruby>、<ruby>採用方針<rt>さいようほうしん</rt></ruby>など （<ruby>質問<rt>しつもん</rt></ruby>は<ruby>第<rt>だい</rt></ruby> 3 <ruby>部<rt>ぶ</rt></ruby>で<ruby>受<rt>う</rt></ruby>ける）</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="part-cell"><ruby>第<rt>だい</rt></ruby> 3 <ruby>部<rt>ぶ</rt></ruby></td>
+                        <td class="content-cell">
+                            <p class="font-bold"><ruby>個別相談<rt>こべつそうだん</rt></ruby></p>
+                            <div class="mt-2 text-sm space-y-2">
+                                <p>①<ruby>各企業<rt>かくきぎょう</rt></ruby>の<ruby>採用担当者<rt>さいようたんとうしゃ</rt></ruby>による<ruby>業務説明<rt>ぎょうむせつめい</rt></ruby></p>
+                                <p class="pl-4"><ruby>個別<rt>こべつ</rt></ruby>の<ruby>質問<rt>しつもん</rt></ruby>を<ruby>希望<rt>きぼう</rt></ruby>する<ruby>者<rt>もの</rt></ruby>は、<ruby>休憩時間<rt>きゅうけいじかん</rt></ruby>を<ruby>利用<rt>りよう</rt></ruby>してあらかじめ<ruby>質問用紙<rt>しつもんようし</rt></ruby>に<ruby>記入<rt>きにゅう</rt></ruby>しておくこと。<ruby>用紙<rt>ようし</rt></ruby>は<ruby>会場受付<rt>かいじょううけつけ</rt></ruby>にあります。</p>
+                                <p>②<ruby>本学<rt>ほんがく</rt></ruby>の<ruby>就職課担当者<rt>しゅうしょくかたんとうしゃ</rt></ruby>による<ruby>履歴書<rt>りれきしょ</rt></ruby>の<ruby>書<rt>か</rt></ruby>き<ruby>方指導<rt>かたしどう</rt></ruby></p>
+                                <p class="pl-4"><ruby>履歴書<rt>りれきしょ</rt></ruby>の<ruby>書<rt>か</rt></ruby>き<ruby>方指導<rt>かたしどう</rt></ruby>を<ruby>希望<rt>きぼう</rt></ruby>する<ruby>者<rt>もの</rt></ruby>は、<ruby>自分<rt>じぶん</rt></ruby>で<ruby>書<rt>か</rt></ruby>いた<ruby>履歴書<rt>りれきしょ</rt></ruby>を<ruby>持参<rt>じさん</rt></ruby>すること。</p>
+                                <p class="font-bold">＊①②とも<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>不要<rt>ふよう</rt></ruby></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Phần Thời gian và Địa điểm -->
+        <section>
+            <h2 class="font-bold mb-2"><ruby>時間<rt>じかん</rt></ruby>と<ruby>会場<rt>かいじょう</rt></ruby>：</h2>
+            <table class="venue-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;"></th>
+                        <th style="width: 35%;"><ruby>時間<rt>じかん</rt></ruby></th>
+                        <th style="width: 50%;"><ruby>会場<rt>かいじょう</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="font-bold"><ruby>第<rt>だい</rt></ruby> 1 <ruby>部<rt>ぶ</rt></ruby></td>
+                        <td>10：00 ～ 10：50</td>
+                        <td>7 <ruby>号館<rt>ごうかん</rt></ruby> 1 <ruby>階大講義室<rt>かいだいこうぎしつ</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold"><ruby>第<rt>だい</rt></ruby> 2 <ruby>部<rt>ぶ</rt></ruby></td>
+                        <td>11：00 ～ 11：50</td>
+                        <td>7 <ruby>号館<rt>ごうかん</rt></ruby> 1 <ruby>階大講義室<rt>かいだいこうぎしつ</rt></ruby></td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="font-bold"><ruby>休憩<rt>きゅうけい</rt></ruby></td>
+                        <td>12：00 ～ 13：00</td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td class="font-bold"><ruby>第<rt>だい</rt></ruby> 3 <ruby>部<rt>ぶ</rt></ruby></td>
+                        <td>13：00 ～ 15：00</td>
+                        <td class="p-0">
+                            <!-- Bảng con phân phòng cho Part 3 -->
+                            <table class="sub-group-table">
+                                <tr>
+                                    <td rowspan="3" class="w-12">①</td>
+                                    <td class="text-left"><ruby>金融<rt>きんゆう</rt></ruby>・<ruby>小売関係企業<rt>こうりかんけいきぎょう</rt></ruby></td>
+                                    <td class="w-32">7 <ruby>号館<rt>ごうかん</rt></ruby> 2 <ruby>階<rt>かい</rt></ruby> 201</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><ruby>情報<rt>じょうほう</rt></ruby>・<ruby>通信関係企業<rt>つうしんかんけいきぎょう</rt></ruby></td>
+                                    <td>7 <ruby>号館<rt>ごうかん</rt></ruby> 2 <ruby>階<rt>かい</rt></ruby> 202</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><ruby>貿易<rt>ぼうえき</rt></ruby>・<ruby>商社関係企業<rt>しょうしゃかんけいきぎょう</rt></ruby></td>
+                                    <td>7 <ruby>号館<rt>ごうかん</rt></ruby> 2 <ruby>階<rt>かい</rt></ruby> 203</td>
+                                </tr>
+                                <tr>
+                                    <td>②</td>
+                                    <td class="text-left"><ruby>履歴書<rt>りれきしょ</rt></ruby>の<ruby>書<rt>か</rt></ruby>き<ruby>方指導<rt>かたしどう</rt></ruby></td>
+                                    <td>7 <ruby>号館<rt>ごうかん</rt></ruby> 2 <ruby>階<rt>かい</rt></ruby> 204</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Phần Chú ý -->
+        <section class="notes-section">
+            <p class="font-bold underline decoration-1 underline-offset-4">
+                <ruby>注意事項<rt>ちゅういじこう</rt></ruby>：<ruby>服装<rt>ふくそう</rt></ruby>はスーツとし、<ruby>筆記用具<rt>ひっきようぐ</rt></ruby>を<ruby>持参<rt>じさん</rt></ruby>すること。
+            </p>
+            <p class="pl-20 mt-1">
+                <ruby>第<rt>だい</rt></ruby> 1 <ruby>部<rt>ぶ</rt></ruby>、<ruby>第<rt>だい</rt></ruby> 2 <ruby>部<rt>ぶ</rt></ruby>では、<ruby>途中入場<rt>とちゅうにゅうじょう</rt></ruby>・<ruby>退場<rt>たいじょう</rt></ruby>をしないこと。
+            </p>
+        </section>
+
+        <!-- Liên hệ -->
+        <footer class="footer-contact font-bold">
+            <ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせ：<ruby>就職課山田<rt>しゅうしょくかやまだ</rt></ruby> （01-2345-6789）
+        </footer>
+    </div>
+
+</body>
+</html>

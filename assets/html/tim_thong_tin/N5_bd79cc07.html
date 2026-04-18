@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>まちの そうじの おしらせ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        ruby rt { font-size: 0.6em; color: #333; }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1.5px solid #000;
+            margin: 1.5rem 0;
+        }
+        .info-table td {
+            border: 1px solid #000;
+            padding: 10px 16px;
+        }
+        .label-cell {
+            width: 30%;
+            font-weight: bold;
+            text-align: center;
+            background-color: #f9fafb;
+        }
+        .note-box {
+            border: 2px dashed #666;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+<div class="container">
+    <h1 class="text-2xl font-bold text-center mb-2">まちの　そうじの　おしらせ</h1>
+    <p class="text-center mb-4">みんなで　まちを　きれいに　しましょう！</p>
+
+    <table class="info-table">
+        <tr>
+            <td class="label-cell"><ruby>日<rt>ひ</rt></ruby></td>
+            <td>6<ruby>月<rt>がつ</rt></ruby> 15<ruby>日<rt>にち</rt></ruby>（<ruby>日<rt>にち</rt></ruby>）</td>
+        </tr>
+        <tr>
+            <td class="label-cell">じかん</td>
+            <td>あさ 9:00 ～ 11:00</td>
+        </tr>
+        <tr>
+            <td class="label-cell">ところ</td>
+            <td>みどり<ruby>公園<rt>こうえん</rt></ruby>（<ruby>駅<rt>えき</rt></ruby>の　ちかく）</td>
+        </tr>
+        <tr>
+            <td class="label-cell">もってくるもの</td>
+            <td>ぼうし、<ruby>水<rt>みず</rt></ruby>、てぶくろ</td>
+        </tr>
+    </table>
+
+    <p>※ ごみぶくろは　こちらで　あげます。もってこなくて　いいです。</p>
+    <p>※ <ruby>雨<rt>あめ</rt></ruby>の　ときは　6<ruby>月<rt>がつ</rt></ruby> 22<ruby>日<rt>にち</rt></ruby>（<ruby>日<rt>にち</rt></ruby>）に　します。</p>
+
+    <div class="note-box">
+        <p>おわった　あとで、おちゃと　おかしが　あります。</p>
+        <p>みどりまち　やくしょ　（でんわ：045-123-4567）</p>
+    </div>
+</div>
+</body>
+</html>

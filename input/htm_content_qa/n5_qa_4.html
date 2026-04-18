@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高木大学への行き方 と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .instruction-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 12px;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Flyer Styles */
+        .flyer-box {
+            border: 2px solid #000;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .university-label {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            font-size: 0.85rem;
+            text-decoration: underline;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2.5rem;
+        }
+
+        .route-section {
+            margin-bottom: 2rem;
+        }
+
+        .route-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .station-box {
+            border: 1px solid #000;
+            padding: 10px;
+            width: 180px;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .connector {
+            flex-grow: 1;
+            height: 3px;
+            background-color: #333;
+            position: relative;
+            margin: 0 5px;
+            min-width: 60px;
+        }
+
+        .connector-label-top {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+
+        .connector-label-bottom {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+
+        /* Question Section Styles */
+        .options-list {
+            margin-top: 1.5rem;
+            padding-left: 3rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .radio-circle {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            padding-left: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- CHỈ DẪN ĐỀ BÀI -->
+        <div class="instruction-box">
+            <span class="q-number">32</span>
+            <p>
+                <ruby>右<rt>みぎ</rt></ruby>のページを <ruby>見<rt>み</rt></ruby>て、<ruby>下<rt>した</rt></ruby>の <ruby>質問<rt>しつもん</rt></ruby>に <ruby>答<rt>こた</rt></ruby>えてください。<ruby>答え<rt>こたえ</rt></ruby>は、1・2・3・4 から いちばん いい ものを <ruby>一<rt>ひと</rt></ruby>つ えらんでください。
+            </p>
+        </div>
+
+        <!-- PHẦN TỜ HƯỚNG DẪN ĐƯỜNG ĐI -->
+        <div class="flyer-box">
+            <div class="university-label"><ruby>高木大学<rt>たかぎだいがく</rt></ruby></div>
+            <h1 class="main-title">
+                <ruby>高木大学<rt>たかぎだいがく</rt></ruby>に <ruby>来<rt>き</rt></ruby>たい <ruby>人<rt>ひと</rt></ruby>へ
+            </h1>
+
+            <!-- Route 1 -->
+            <div class="route-section">
+                <div class="route-stats">
+                    <span>①かかる <ruby>時間<rt>じかん</rt></ruby>：46 <ruby>分<rt>ふん</rt></ruby></span>
+                    <span>かかる お<ruby>金<rt>かね</rt></ruby>：300 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+                <div class="flow-container">
+                    <div class="station-box">
+                        <ruby>寺西駅<rt>てらにしえき</rt></ruby><br />バスてい<br />1 ばん
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top">バス</span>
+                        <span class="connector-label-bottom">45 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box">
+                        バスてい<br />「<ruby>高木大学前<rt>たかぎだいがくまえ</rt></ruby>」
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                        <span class="connector-label-bottom">1 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box font-bold">
+                        <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Route 2 -->
+            <div class="route-section">
+                <div class="route-stats">
+                    <span>②かかる <ruby>時間<rt>じかん</rt></ruby>：30 <ruby>分<rt>ふん</rt></ruby></span>
+                    <span>かかる お<ruby>金<rt>かね</rt></ruby>：550 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+                <div class="flow-container">
+                    <div class="station-box">
+                        <ruby>花田駅<rt>はなだえき</rt></ruby>
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top"><ruby>電車<rt>でんしゃ</rt></ruby></span>
+                        <span class="connector-label-bottom">25 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box">
+                        <ruby>水村駅<rt>みずむらえき</rt></ruby>
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                        <span class="connector-label-bottom">5 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box font-bold">
+                        <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Route 3 -->
+            <div class="route-section">
+                <div class="route-stats">
+                    <span>③かかる <ruby>時間<rt>じかん</rt></ruby>：40 <ruby>分<rt>ふん</rt></ruby></span>
+                    <span>かかる お<ruby>金<rt>かね</rt></ruby>：450 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+                <div class="flow-container">
+                    <div class="station-box">
+                        <ruby>花田駅<rt>はなだえき</rt></ruby>
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top">ちかてつ</span>
+                        <span class="connector-label-bottom">30 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box">
+                        <ruby>木山駅<rt>きやまえき</rt></ruby>
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                        <span class="connector-label-bottom">10 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box font-bold">
+                        <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Route 4 -->
+            <div class="route-section mb-0">
+                <div class="route-stats">
+                    <span>④かかる <ruby>時間<rt>じかん</rt></ruby>：35 <ruby>分<rt>ふん</rt></ruby></span>
+                    <span>かかる お<ruby>金<rt>かね</rt></ruby>：430 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+                <div class="flow-container">
+                    <div class="station-box">
+                        <ruby>糸川駅<rt>いとかわえき</rt></ruby>
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top"><ruby>電車<rt>でんしゃ</rt></ruby></span>
+                        <span class="connector-label-bottom">25 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box">
+                        <ruby>木山駅<rt>きやまえき</rt></ruby>
+                    </div>
+                    <div class="connector">
+                        <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                        <span class="connector-label-bottom">10 <ruby>分<rt>ふん</rt></ruby></span>
+                    </div>
+                    <div class="station-box font-bold">
+                        <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PHẦN CÂU HỎI VÀ LỰA CHỌN -->
+        <div class="pl-4">
+            <p class="text-lg leading-relaxed mb-6">
+                パブロさんは <ruby>高木大学<rt>たかぎだいがく</rt></ruby>に <ruby>行<rt>い</rt></ruby>きたいです。<ruby>花田駅<rt>はなだえき</rt></ruby>か <ruby>糸川駅<rt>いとかわえき</rt></ruby>から <ruby>乗り<rt>のり</rt></ruby>ます。<ruby>駅<rt>えき</rt></ruby>から <ruby>大学<rt>だいがく</rt></ruby>まで かかる お<ruby>金<rt>かね</rt></ruby>は 500 <ruby>円<rt>えん</rt></ruby>までで、<ruby>時間<rt>じかん</rt></ruby>は <ruby>短い<rt>みじかい</rt></ruby> ほうが いいです。パブロさんは どの <ruby>行き方<rt>いきかた</rt></ruby>で <ruby>行き<rt>いき</rt></ruby>ますか。
+            </p>
+
+            <div class="options-list">
+                <div class="option-item"><div class="radio-circle"></div> 1. ①</div>
+                <div class="option-item"><div class="radio-circle"></div> 2. ②</div>
+                <div class="option-item"><div class="radio-circle"></div> 3. ③</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    4. ④
+                </div>
+            </div>
+
+            <div class="answer-highlight">
+                <p>Đáp án đúng: 4</p>
+                <div class="text-sm font-normal text-gray-600 mt-2 space-y-1">
+                    <p>Phân tích tình huống của Pablo:</p>
+                    <p>・Điểm xuất phát: Ga Hanada (Lộ trình ②, ③) hoặc Ga Itokawa (Lộ trình ④).</p>
+                    <p>・Chi phí: Tối đa 500 yên (500円まで).</p>
+                    <ul class="pl-4 list-disc">
+                        <li>Lộ trình ②: 550 yên (Loại vì quá ngân sách).</li>
+                        <li>Lộ trình ③: 450 yên (Thỏa mãn).</li>
+                        <li>Lộ trình ④: 430 yên (Thỏa mãn).</li>
+                    </ul>
+                    <p>・Thời gian: Ngắn nhất có thể (時間は短いほうがいい).</p>
+                    <ul class="pl-4 list-disc">
+                        <li>So sánh lộ trình ③ (40 phút) và ④ (35 phút) -> Chọn lộ trình ④.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

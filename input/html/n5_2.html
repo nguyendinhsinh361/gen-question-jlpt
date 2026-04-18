@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tờ quảng cáo tiệm bánh Marron</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+        }
+
+        .flyer-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2.5rem;
+            border: 2px solid #000;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+        }
+
+        .shop-name {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .shop-info {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-title {
+            text-align: center;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 0.75rem;
+            text-align: center;
+        }
+
+        th {
+            font-weight: normal;
+        }
+
+        .price-change {
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        .cake-illustration {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: -1rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #444;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="flyer-container">
+        <!-- Header Section -->
+        <h1 class="shop-name">ケーキ<ruby>屋<rt>や</rt></ruby> 「マロン」</h1>
+        
+        <div class="shop-info">
+            たかやま<ruby>町<rt>まち</rt></ruby> 235-8 &nbsp; <ruby>電話<rt>でんわ</rt></ruby>: 013-579-2468
+        </div>
+        
+        <div class="shop-info">
+            <ruby>休<rt>やす</rt></ruby>み: <ruby>日<rt>にち</rt></ruby>よう<ruby>日<rt>び</rt></ruby>
+        </div>
+
+        <div class="promo-title">
+            こんしゅう (9<ruby>月<rt>がつ</rt></ruby>7<ruby>日<rt>にち</rt></ruby>～9<ruby>月<rt>がつ</rt></ruby>12<ruby>日<rt>にち</rt></ruby>) の <ruby>安<rt>やす</rt></ruby>い もの
+        </div>
+
+        <!-- Price Table -->
+        <table>
+            <tbody>
+                <!-- First Row: Dates -->
+                <tr>
+                    <td>7<ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>)</td>
+                    <td>8<ruby>日<rt>にち</rt></ruby> (<ruby>火<rt>か</rt></ruby>)</td>
+                    <td>9<ruby>日<rt>にち</rt></ruby> (<ruby>水<rt>すい</rt></ruby>)</td>
+                </tr>
+                <!-- Second Row: Items -->
+                <tr>
+                    <td>いちごのケーキ</td>
+                    <td>チョコレートのケーキ</td>
+                    <td>バナナのケーキ</td>
+                </tr>
+                <!-- Third Row: Prices -->
+                <tr>
+                    <td>
+                        <div class="price-change">450 <ruby>円<rt>えん</rt></ruby> → 350 <ruby>円<rt>えん</rt></ruby></div>
+                    </td>
+                    <td>
+                        <div class="price-change">400 <ruby>円<rt>えん</rt></ruby> → 300 <ruby>円<rt>えん</rt></ruby></div>
+                    </td>
+                    <td>
+                        <div class="price-change">350 <ruby>円<rt>えん</rt></ruby> → 250 <ruby>円<rt>えん</rt></ruby></div>
+                    </td>
+                </tr>
+                <!-- Fourth Row: Second set of dates -->
+                <tr>
+                    <td>10<ruby>日<rt>にち</rt></ruby> (<ruby>木<rt>もく</rt></ruby>)</td>
+                    <td>11<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>)</td>
+                    <td>12<ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)</td>
+                </tr>
+                <!-- Fifth Row: Items (Repeated) -->
+                <tr>
+                    <td>いちごのケーキ</td>
+                    <td>チョコレートのケーキ</td>
+                    <td>バナナのケーキ</td>
+                </tr>
+                <!-- Sixth Row: Prices (Repeated) -->
+                <tr>
+                    <td>
+                        <div class="price-change">450 <ruby>円<rt>えん</rt></ruby> → 350 <ruby>円<rt>えん</rt></ruby></div>
+                    </td>
+                    <td>
+                        <div class="price-change">400 <ruby>円<rt>えん</rt></ruby> → 300 <ruby>円<rt>えん</rt></ruby></div>
+                    </td>
+                    <td>
+                        <div class="price-change">350 <ruby>円<rt>えん</rt></ruby> → 250 <ruby>円<rt>えん</rt></ruby></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Footer Note -->
+        <div class="footer-note">
+            まいしゅう、<ruby>水<rt>すい</rt></ruby>よう<ruby>日<rt>び</rt></ruby>・<ruby>木<rt>もく</rt></ruby>よう<ruby>日<rt>び</rt></ruby>・<ruby>金<rt>きん</rt></ruby>よう<ruby>日<rt>び</rt></ruby>は クッキーも <ruby>安<rt>やす</rt></ruby>いです。ぜんぶ 100<ruby>円<rt>えん</rt></ruby>です。
+        </div>
+
+        <!-- Illustration -->
+        <div class="cake-illustration">
+            <svg width="80" height="80" viewBox="0 0 100 100">
+                <!-- Cake base -->
+                <path d="M20 70 L80 70 L90 90 L10 90 Z" fill="#fff9e6" stroke="#000" stroke-width="2"/>
+                <!-- Cake filling layer -->
+                <rect x="18" y="78" width="64" height="6" fill="#ff4d4d"/>
+                <!-- Cream on top -->
+                <path d="M25 70 Q50 40 75 70" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+                <!-- Strawberry -->
+                <path d="M42 50 Q50 35 58 50 Q50 65 42 50" fill="#ff0000" stroke="#000" stroke-width="1"/>
+                <circle cx="47" cy="50" r="1" fill="#fff"/>
+                <circle cx="53" cy="53" r="1" fill="#fff"/>
+                <circle cx="50" cy="58" r="1" fill="#fff"/>
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>

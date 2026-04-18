@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quảng cáo cửa hàng Arakiya - Bản mới</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+        }
+
+        .flyer-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #999;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #444;
+        }
+
+        .promo-rect {
+            border: 1.5px solid #000;
+            padding: 1.5rem 2rem;
+            width: 100%;
+            margin-bottom: 2rem;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .star-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="flyer-container">
+        <!-- Header Info (Top Right) -->
+        <header class="text-right mb-4 pr-4">
+            <h1 class="text-3xl font-bold mb-1">あらきや</h1>
+            <div class="text-lg">
+                <p><ruby>朝<rt>あさ</rt></ruby>8:00 ～ <ruby>夜<rt>よる</rt></ruby>9:00</p>
+                <p>(<ruby>電話<rt>でんわ</rt></ruby>: 012-34-5678)</p>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="layout-grid">
+            <!-- Left Column: Starbursts -->
+            <div class="star-col">
+                <!-- Large Star 1 -->
+                <svg width="180" height="180" viewBox="0 0 200 200">
+                    <path d="M100 0 L115 40 L160 20 L150 65 L195 70 L160 100 L195 130 L150 135 L160 180 L115 160 L100 200 L85 160 L40 180 L50 135 L5 130 L40 100 L5 70 L50 65 L40 20 L85 40 Z" fill="none" stroke="black" stroke-width="1.5"/>
+                    <text x="100" y="115" text-anchor="middle" font-size="36" font-weight="bold">
+                        <tspan x="100" dy="-10" font-size="14">やす</tspan>
+                        <tspan x="100" dy="30">安い！</tspan>
+                    </text>
+                </svg>
+
+                <!-- Smaller Star 2 -->
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <path d="M50 0 L58 20 L80 10 L75 33 L98 35 L80 50 L98 65 L75 67 L80 90 L58 80 L50 100 L42 80 L20 90 L25 67 L2 65 L20 50 L2 35 L25 33 L20 10 L42 20 Z" fill="none" stroke="black" stroke-width="1"/>
+                    <text x="50" y="58" text-anchor="middle" font-size="18" font-weight="bold">
+                        <tspan x="50" dy="-5" font-size="8">やす</tspan>
+                        <tspan x="50" dy="16">安い！</tspan>
+                    </text>
+                </svg>
+
+                <!-- Smaller Star 3 -->
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <path d="M50 0 L58 20 L80 10 L75 33 L98 35 L80 50 L98 65 L75 67 L80 90 L58 80 L50 100 L42 80 L20 90 L25 67 L2 65 L20 50 L2 35 L25 33 L20 10 L42 20 Z" fill="none" stroke="black" stroke-width="1"/>
+                    <text x="50" y="58" text-anchor="middle" font-size="18" font-weight="bold">
+                        <tspan x="50" dy="-5" font-size="8">やす</tspan>
+                        <tspan x="50" dy="16">安い！</tspan>
+                    </text>
+                </svg>
+
+                <!-- Weekly Promo Star -->
+                <svg width="160" height="160" viewBox="0 0 200 200">
+                    <path d="M100 0 L115 40 L160 20 L150 65 L195 70 L160 100 L195 130 L150 135 L160 180 L115 160 L100 200 L85 160 L40 180 L50 135 L5 130 L40 100 L5 70 L50 65 L40 20 L85 40 Z" fill="none" stroke="black" stroke-width="1.5"/>
+                    <text x="100" y="100" text-anchor="middle" font-size="28" font-weight="bold">
+                        <tspan x="100" dy="-25" font-size="14">まいしゅう</tspan>
+                        <tspan x="100" dy="25">毎週</tspan>
+                        <tspan x="100" dy="15" font-size="14">やす</tspan>
+                        <tspan x="100" dy="25">安い！</tspan>
+                    </text>
+                </svg>
+            </div>
+
+            <!-- Right Column: Info Boxes -->
+            <div>
+                <!-- Box 1 -->
+                <div class="promo-rect">
+                    <p class="text-xl mb-3">
+                        6<ruby>月<rt>がつ</rt></ruby>11<ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>) ～ 14<ruby>日<rt>にち</rt></ruby> (<ruby>木<rt>もく</rt></ruby>)
+                    </p>
+                    <div class="flex justify-between items-end text-xl">
+                        <span>さとう &nbsp; 128<ruby>円<rt>えん</rt></ruby></span>
+                        <span>トイレットペーパー &nbsp; 490<ruby>円<rt>えん</rt></ruby></span>
+                    </div>
+                </div>
+
+                <!-- Box 2 -->
+                <div class="promo-rect">
+                    <p class="text-xl mb-3">
+                        6<ruby>月<rt>がつ</rt></ruby>15<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) ～ 18<ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>)
+                    </p>
+                    <div class="flex justify-between items-end text-xl">
+                        <span>しょうゆ &nbsp; 198<ruby>円<rt>えん</rt></ruby></span>
+                        <span>ティッシュペーパー &nbsp; 290<ruby>円<rt>えん</rt></ruby></span>
+                    </div>
+                </div>
+
+                <!-- Box 3: Weekly Specials -->
+                <div class="promo-rect">
+                    <div class="space-y-4 text-xl">
+                        <p>
+                            <span class="inline-block w-24 font-bold">
+                                <ruby>月<rt>げつ</rt></ruby>・<ruby>火<rt>か</rt></ruby>
+                            </span>
+                            くだもの、<ruby>魚<rt>さかな</rt></ruby>、ジュース
+                        </p>
+                        <p>
+                            <span class="inline-block w-24 font-bold">
+                                <ruby>水<rt>すい</rt></ruby>・<ruby>木<rt>もく</rt></ruby>
+                            </span>
+                            とうふ、にく、やさい
+                        </p>
+                        <p>
+                            <span class="inline-block w-24 font-bold">
+                                <ruby>金<rt>きん</rt></ruby>・<ruby>土<rt>ど</rt></ruby>
+                            </span>
+                            パン、ぎゅうにゅう、<ruby>魚<rt>さかな</rt></ruby>、やさい
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

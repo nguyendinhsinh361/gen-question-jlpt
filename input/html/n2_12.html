@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>着物レンタルのご案内 - はなかわ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .header-info {
+            text-align: right;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 1rem;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .flow-item {
+            margin-bottom: 0.25rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .note-text {
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        .indent-block {
+            padding-left: 1.5rem;
+        }
+
+        .bullet-point::before {
+            content: "▶";
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tên cửa hàng ở góc trên -->
+        <div class="header-info">
+            <ruby>着物<rt>きもの</rt></ruby>レンタル &nbsp; はなかわ
+        </div>
+
+        <!-- Tiêu đề và Minh họa -->
+        <div class="intro-section">
+            <div class="max-w-2xl">
+                <h1 class="main-title text-left ml-20">
+                    <ruby>着物<rt>きもの</rt></ruby>レンタルのご<ruby>案内<rt>あんない</rt></ruby>
+                </h1>
+                <p class="text-lg">
+                    <ruby>着物<rt>きもの</rt></ruby>を<ruby>着<rt>き</rt></ruby>て<ruby>水森市<rt>みずもりし</rt></ruby>を<ruby>観光<rt>かんこう</rt></ruby>しませんか。<br>
+                    「はなかわ」では、<ruby>山林店<rt>やまばやしてん</rt></ruby>、<ruby>古寺店<rt>こてらてん</rt></ruby>、<ruby>森島店<rt>もりしまてん</rt></ruby>の<ruby>三<rt>みっ</rt></ruby>つの<ruby>店<rt>みせ</rt></ruby>で、レンタルの<ruby>着物<rt>きもの</rt></ruby>をご<ruby>用意<rt>ようい</rt></ruby>しております。
+                </p>
+            </div>
+            <!-- Minh họa SVG đơn giản về cặp đôi mặc Kimono -->
+            <div class="hidden md:block">
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <!-- Nam -->
+                    <rect x="20" y="40" width="25" height="50" rx="2" fill="#e5e7eb" stroke="black"/>
+                    <circle cx="32.5" cy="30" r="10" fill="none" stroke="black"/>
+                    <path d="M25 50 L40 50" stroke="black"/>
+                    <!-- Nữ -->
+                    <rect x="55" y="35" width="25" height="55" rx="5" fill="#fecaca" stroke="black"/>
+                    <circle cx="67.5" cy="25" r="10" fill="none" stroke="black"/>
+                    <path d="M55 45 Q67.5 40 80 45" stroke="black" fill="none"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Quy trình -->
+        <section>
+            <h2 class="section-header">＜<ruby>着物<rt>きもの</rt></ruby>レンタルの<ruby>流<rt>なが</rt></ruby>れ＞</h2>
+            <div class="indent-block space-y-1">
+                <p class="flow-item">① ご<ruby>利用<rt>りよう</rt></ruby>になりたい<ruby>店<rt>みせ</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>でご<ruby>予約<rt>よやく</rt></ruby>ください。</p>
+                <p class="flow-item">② ご<ruby>予約<rt>よやく</rt></ruby>の<ruby>日時<rt>にちじ</rt></ruby>にご<ruby>来店<rt>らいてん</rt></ruby>になり、お<ruby>好<rt>す</rt></ruby>きな<ruby>着物<rt>きもの</rt></ruby>にお<ruby>着替<rt>きが</rt></ruby>えください。<ruby>必要<rt>ひつよう</rt></ruby>な<ruby>方<rt>かた</rt></ruby>には<ruby>無料<rt>むりょう</rt></ruby>でお<ruby>手伝<rt>てつだ</rt></ruby>いいたします。</p>
+                <p class="flow-item">③ お<ruby>支払<rt>しはら</rt></ruby>いのあと、<ruby>着物<rt>きもの</rt></ruby>で<ruby>観光<rt>かんこう</rt></ruby>をお<ruby>楽<rt>たの</rt></ruby>しみください。</p>
+                <p class="flow-item">④ <ruby>各店<rt>かくてん</rt></ruby>の<ruby>最終返却時間<rt>さいしゅうへんきゃくじかん</rt></ruby>までに<ruby>借<rt>か</rt></ruby>いた<ruby>店<rt>みせ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>り、<ruby>当日中<rt>とうじつちゅう</rt></ruby>に<ruby>着物<rt>きもの</rt></ruby>をご<ruby>返却<rt>へんきゃく</rt></ruby>ください（<ruby>翌日返却<rt>よくじつへんきゃく</rt></ruby>も<ruby>可能<rt>かのう</rt></ruby>です。ご<ruby>希望<rt>きぼう</rt></ruby>の<ruby>方<rt>かた</rt></ruby>は、＜<ruby>翌日返却<rt>よくじつへんきゃく</rt></ruby>について＞をお<ruby>読<rt>よ</rt></ruby>みください）。</p>
+            </div>
+        </section>
+
+        <!-- Chi phí -->
+        <section>
+            <h2 class="section-header">＜<ruby>料金<rt>りょうきん</rt></ruby>（1 <ruby>名様<rt>めいさま</rt></ruby>）＞</h2>
+            <div class="indent-block">
+                <ruby>基本料金<rt>きほんりょうきん</rt></ruby>：3,500 <ruby>円<rt>えん</rt></ruby>
+            </div>
+        </section>
+
+        <!-- Giảm giá -->
+        <section>
+            <h2 class="section-header">＜<ruby>割引<rt>わりびき</rt></ruby>について＞</h2>
+            <ul class="indent-block list-disc pl-5">
+                <li><ruby>早期予約割引<rt>そうきよやくわりびき</rt></ruby>：1 <ruby>週間前<rt>しゅうかんまえ</rt></ruby>までのご<ruby>予約<rt>よやく</rt></ruby>で<ruby>基本料金<rt>きほんりょうきん</rt></ruby>から 300 <ruby>円割引<rt>えんわりびき</rt></ruby>します。</li>
+                <li><ruby>学生割引<rt>がくせいわりびき</rt></ruby>：<ruby>学生<rt>がくせい</rt></ruby>の<ruby>方<rt>かた</rt></ruby>は<ruby>基本料金<rt>きほんりょうきん</rt></ruby>から 200 <ruby>円割引<rt>えんわりびき</rt></ruby>します。</li>
+            </ul>
+            <p class="note-text ml-6">※<ruby>早期予約割引<rt>そうきよやくわりびき</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>学生割引<rt>がくせいわりびき</rt></ruby>は<ruby>使<rt>つか</rt></ruby>えません。</p>
+        </section>
+
+        <!-- Đồ cần mang -->
+        <section>
+            <h2 class="section-header">＜お<ruby>持<rt>も</rt></ruby>ちになる<ruby>物<rt>もの</rt></ruby>＞</h2>
+            <div class="indent-block">
+                <ruby>特<rt>とく</rt></ruby>にありません。はき<ruby>物<rt>もの</rt></ruby>などもセットでお<ruby>貸<rt>か</rt></ruby>しします。
+            </div>
+        </section>
+
+        <!-- Trả đồ ngày hôm sau -->
+        <section>
+            <h2 class="section-header">＜<ruby>翌日返却<rt>よくじつへんきゃく</rt></ruby>について＞</h2>
+            <div class="indent-block space-y-4">
+                <div>
+                    <p class="bullet-point font-bold">ご<ruby>予約時<rt>よやくじ</rt></ruby>の<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み</p>
+                    <p class="pl-4">1,200 <ruby>円<rt>えん</rt></ruby>の<ruby>翌日返却料金<rt>よくじつへんきゃくりょうきん</rt></ruby>で、<ruby>返却時間<rt>へんきゃくじかん</rt></ruby>を<ruby>翌日<rt>よくじつ</rt></ruby>の<ruby>正午<rt>しょうご</rt></ruby>までに<ruby>延長<rt>えんちょう</rt></ruby>できます。</p>
+                </div>
+                <div>
+                    <p class="bullet-point font-bold">ご<ruby>来店時<rt>らいてんじ</rt></ruby>の<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み、またはお<ruby>出<rt>で</rt></ruby>かけ<ruby>後<rt>ご</rt></ruby>の<ruby>変更<rt>へんこう</rt></ruby></p>
+                    <p class="pl-4"><ruby>翌日返却料金<rt>よくじつへんきゃくりょうきん</rt></ruby>は 1,500 <ruby>円<rt>えん</rt></ruby>になります。</p>
+                    <p class="pl-4">お<ruby>出<rt>で</rt></ruby>かけ<ruby>後<rt>ご</rt></ruby>の<ruby>変更<rt>へんこう</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>借<rt>か</rt></ruby>いた<ruby>日<rt>ひ</rt></ruby>の<ruby>最終返却時間<rt>さいしゅうへんきゃくじかん</rt></ruby>までに<ruby>借<rt>か</rt></ruby>いた<ruby>店<rt>みせ</rt></ruby>にお<ruby>電話<rt>でんわ</rt></ruby>ください。<ruby>翌日返却料金<rt>よくじつへんきゃくりょうきん</rt></ruby>は、<ruby>返却<rt>へんきゃく</rt></ruby>の<ruby>際<rt>さい</rt></ruby>にお<ruby>支払<rt>しはら</rt></ruby>いください。</p>
+                </div>
+                <p class="note-text">
+                    ※<ruby>返却<rt>へんきゃく</rt></ruby>が<ruby>翌日<rt>よくじつ</rt></ruby>の<ruby>正午<rt>しょうご</rt></ruby>を<ruby>過<rt>す</rt></ruby>ぎる<ruby>場合<rt>ばあい</rt></ruby>、<ruby>追加料金<rt>ついかりょうきん</rt></ruby> 1,000 <ruby>円<rt>えん</rt></ruby>をいただきます。その<ruby>名後<rt>なご</rt></ruby>は、1 <ruby>日遅<rt>にちおく</rt></ruby>れるごとに 3,000 <ruby>円<rt>えん</rt></ruby>を<ruby>請求<rt>せいきゅう</rt></ruby>いたします。
+                </p>
+            </div>
+        </section>
+
+        <!-- Bảng giờ làm việc -->
+        <section>
+            <h2 class="section-header">＜<ruby>各店<rt>かくてん</rt></ruby>の<ruby>営業<rt>えいぎょう</rt></ruby>・<ruby>返却時間<rt>へんきゃくじかん</rt></ruby>＞</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;"></th>
+                        <th style="width: 30%;"><ruby>営業開始時間<rt>えいぎょうかいしじかん</rt></ruby></th>
+                        <th style="width: 35%;"><ruby>最終返却時間<rt>さいしゅうへんきゃくじかん</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><ruby>山林店<rt>やまばやしてん</rt></ruby>、<ruby>古寺店<rt>こてらてん</rt></ruby></td>
+                        <td rowspan="2" class="align-middle">9 <ruby>時<rt>じ</rt></ruby></td>
+                        <td>18 <ruby>時<rt>じ</rt></ruby> 30 <ruby>分<rt>ふん</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td><ruby>森島店<rt>もりしまてん</rt></ruby></td>
+                        <td>18 <ruby>時<rt>じ</rt></ruby></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="note-text">
+                ※<ruby>電話番号<rt>でんわばんごう</rt></ruby>など、<ruby>詳細<rt>しょうさい</rt></ruby>はホームページ<ruby>内<rt>ない</rt></ruby>の<ruby>各店<rt>かくてん</rt></ruby>のページをご<ruby>覧<rt>らん</rt></ruby>ください。
+            </p>
+        </section>
+    </div>
+
+</body>
+</html>

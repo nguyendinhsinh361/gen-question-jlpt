@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn rửa tay - Tiếng Nhật</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.8;
+        }
+
+        .hand-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+            position: relative;
+        }
+
+        ruby rt {
+            font-size: 0.65em;
+            color: #4b5563;
+        }
+
+        .intro-box {
+            border: 2px solid #374151;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background-color: #fff;
+        }
+
+        .step-list {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step-item {
+            padding: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .step-number {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-right: 0.5rem;
+            color: #111827;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="hand-container">
+        <!-- Tiêu đề chính -->
+        <header class="text-center mt-4">
+            <h1 class="text-3xl font-bold mb-3">
+                かぜをひかないように<ruby>手<rt>て</rt></ruby>をあらいましょう！
+            </h1>
+            <p class="text-gray-600">イラストのとおりに、あらえていますか？</p>
+        </header>
+
+        <!-- Khung giới thiệu -->
+        <section class="intro-box">
+            <p class="mb-4">
+                <ruby>家<rt>いえ</rt></ruby>に<ruby>帰<rt>かえ</rt></ruby>ったときや<ruby>料理<rt>りょうり</rt></ruby>をする<ruby>前<rt>まえ</rt></ruby>、トイレの<ruby>後<rt>あと</rt></ruby>、しょくじの<ruby>前<rt>まえ</rt></ruby>など、<br class="hidden md:block">
+                よく<ruby>手<rt>て</rt></ruby>をあらうようにしてください。せきやくしゃみを<ruby>手<rt>て</rt></ruby>でおさえた<ruby>後<rt>あと</rt></ruby>、<br class="hidden md:block">
+                <ruby>病気<rt>びょうき</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>のせわをするときも、わわすれないようにしましょう。
+            </p>
+            <p>
+                <ruby>正<rt>ただ</rt></ruby>しい<ruby>手<rt>て</rt></ruby>あらいの<ruby>習慣<rt>しゅうかん</rt></ruby>を<ruby>身<rt>み</rt></ruby>につけるために、イラストと<ruby>同<rt>おな</rt></ruby>じように、<br class="hidden md:block">
+                あらいましょう。
+            </p>
+        </section>
+
+        <!-- Danh sách các bước -->
+        <div class="step-list">
+            <div class="step-item">
+                <span class="step-number">1.</span>
+                <ruby>水<rt>みず</rt></ruby>で<ruby>手<rt>て</rt></ruby>をぬらしてから、せっけんを<ruby>使<rt>つか</rt></ruby>います。
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">2.</span>
+                <ruby>手<rt>て</rt></ruby>をあわせて、しっかりあらいます。
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">3.</span>
+                ゆびの<ruby>間<rt>あいだ</rt></ruby>をあらってから、<ruby>手首<rt>てくび</rt></ruby>もあらいます。
+            </div>
+
+            <div class="step-item">
+                <span class="step-number">4.</span>
+                あらい<ruby>終<rt>お</rt></ruby>わったら、せっけんがついている<ruby>手<rt>て</rt></ruby>を<ruby>水<rt>みず</rt></ruby>できれいにします。
+            </div>
+
+            <div class="step-item border-none">
+                <span class="step-number">5.</span>
+                <ruby>水<rt>みず</rt></ruby>でぬれた<ruby>手<rt>て</rt></ruby>をきれいなタオルやハンカチでふきます。
+            </div>
+        </div>
+
+        <!-- Chú ý cuối trang -->
+        <footer class="mt-10 pt-6 border-t-2 border-dashed border-gray-200">
+            <h3 class="text-xl font-bold mb-4 text-center">
+                ☆<ruby>注意<rt>ちゅうい</rt></ruby>してください☆
+            </h3>
+            <ul class="space-y-4 max-w-2xl mx-auto">
+                <li class="flex items-start">
+                    <span class="mr-3 text-xl font-bold">◎</span>
+                    <p><ruby>水<rt>みず</rt></ruby>だけであらわないで、かならずせっけんを<ruby>使<rt>つか</rt></ruby>ってください。</p>
+                </li>
+                <li class="flex items-start">
+                    <span class="mr-3 text-xl font-bold">◎</span>
+                    <div>
+                        <p class="font-bold mb-1"><ruby>手<rt>て</rt></ruby>にせっけんがのこらないように！</p>
+                        <p class="text-gray-700">
+                            <ruby>水<rt>みず</rt></ruby>できれいにした<ruby>後<rt>あと</rt></ruby>で、せっけんがのこっていないかどうか、たしかめてください。
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+</body>
+</html>

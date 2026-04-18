@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn đổ rác - Apartment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 2px double #333;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .section-label {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Bảng phân loại rác */
+        table.garbage-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1.5px solid #000;
+            margin-bottom: 2rem;
+        }
+
+        table.garbage-table th, table.garbage-table td {
+            border: 1px solid #000;
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        table.garbage-table th {
+            font-weight: normal;
+            height: 40px;
+        }
+
+        /* Sơ đồ bản đồ */
+        .map-container {
+            border: 2px solid #000;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            min-height: 250px;
+        }
+
+        .apartment-box {
+            border: 1px solid #000;
+            width: 250px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem auto;
+        }
+
+        .bin-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .bin-shape {
+            width: 40px;
+            height: 20px;
+            background-color: #666;
+            clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+            margin-bottom: 4px;
+        }
+
+        /* Lịch */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            border-top: 1.5px solid #000;
+            border-left: 1.5px solid #000;
+            max-width: 600px;
+        }
+
+        .calendar-cell {
+            border-right: 1.5px solid #000;
+            border-bottom: 1.5px solid #000;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .calendar-header {
+            font-weight: bold;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Phần A -->
+        <div class="section-label">A</div>
+        
+        <header class="text-center mb-6">
+            <h1 class="text-2xl font-bold mb-4">アパートのみなさんへ</h1>
+            <p class="text-lg text-left pl-4 leading-relaxed">
+                <ruby>四山市<rt>しやまし</rt></ruby>のごみの<ruby>捨<rt>す</rt></ruby>て<ruby>方<rt>かた</rt></ruby>をお<ruby>知<rt>し</rt></ruby>らせします。4つのごみ<ruby>箱<rt>ばこ</rt></ruby>がありま<br>
+                す。そして、<ruby>捨<rt>す</rt></ruby>てる<ruby>日<rt>ひ</rt></ruby>が<ruby>違<rt>ちが</rt></ruby>います。また、<ruby>捨<rt>す</rt></ruby>てる<ruby>所<rt>ところ</rt></ruby>も<ruby>決<rt>き</rt></ruby>まっていま<br>
+                す。<ruby>注意<rt>ちゅうい</rt></ruby>してください。
+            </p>
+        </header>
+
+        <!-- Bảng phân loại rác -->
+        <table class="garbage-table">
+            <thead>
+                <tr>
+                    <th style="width: 15%;"></th>
+                    <th style="width: 35%;"></th>
+                    <th style="width: 25%;"><ruby>捨<rt>す</rt></ruby>てる<ruby>所<rt>ところ</rt></ruby></th>
+                    <th style="width: 25%;"><ruby>捨<rt>す</rt></ruby>てる<ruby>日<rt>ひ</rt></ruby></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center font-bold">
+                        <ruby>燃<rt>も</rt></ruby>える<br>ごみ
+                    </td>
+                    <td>
+                        <ruby>紙<rt>かみ</rt></ruby>、<ruby>台所<rt>だいどころ</rt></ruby>のごみ、<ruby>古<rt>ふる</rt></ruby>い<ruby>洋服<rt>ようふく</rt></ruby>、など
+                    </td>
+                    <td class="text-center">ごみ<ruby>箱<rt>ばこ</rt></ruby>A</td>
+                    <td>
+                        <ruby>毎週月曜日<rt>まいしゅうげつようび</rt></ruby><br>と<ruby>木曜日<rt>もくようび</rt></ruby>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center font-bold">
+                        <ruby>燃<rt>も</rt></ruby>えない<br>ごみ
+                    </td>
+                    <td>プラスチック、カセットテープ、CD、ガラス、など</td>
+                    <td class="text-center">ごみ<ruby>箱<rt>ばこ</rt></ruby>B</td>
+                    <td><ruby>毎週水曜日<rt>まいしゅうすいようび</rt></ruby></td>
+                </tr>
+                <tr>
+                    <td class="text-center font-bold">
+                        <ruby>瓶<rt>びん</rt></ruby>・<ruby>缶<rt>かん</rt></ruby>
+                    </td>
+                    <td>ビールやジュースなどの<ruby>瓶<rt>びん</rt></ruby>と<ruby>缶<rt>かん</rt></ruby>、など</td>
+                    <td class="text-center">ごみ<ruby>箱<rt>ばこ</rt></ruby>C</td>
+                    <td><ruby>毎週金曜日<rt>まいしゅうきんようび</rt></ruby></td>
+                </tr>
+                <tr>
+                    <td class="text-center font-bold">
+                        <ruby>大<rt>おお</rt></ruby>きい<br>ごみ
+                    </td>
+                    <td><ruby>机<rt>つくえ</rt></ruby>、テーブル、いす、<ruby>本棚<rt>ほんだな</rt></ruby>、など</td>
+                    <td class="text-center">ごみ<ruby>箱<rt>ばこ</rt></ruby>D</td>
+                    <td>
+                        <ruby>毎月最初<rt>まいつきさいしょ</rt></ruby>の<br><ruby>火曜日<rt>かようび</rt></ruby>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Sơ đồ vị trí thùng rác -->
+        <div class="map-container">
+            <div class="apartment-box">アパート</div>
+            
+            <!-- Thùng rác bên phải -->
+            <div class="absolute right-20 top-32 flex gap-12">
+                <div class="bin-item">
+                    <div class="bin-shape"></div>
+                    <div>ごみ<ruby>箱<rt>ばこ</rt></ruby>A</div>
+                </div>
+                <div class="bin-item">
+                    <div class="bin-shape"></div>
+                    <div>ごみ<ruby>箱<rt>ばこ</rt></ruby>B</div>
+                </div>
+            </div>
+
+            <!-- Thùng rác bên dưới -->
+            <div class="absolute left-20 bottom-8 flex gap-12">
+                <div class="bin-item">
+                    <div class="bin-shape"></div>
+                    <div>ごみ<ruby>箱<rt>ばこ</rt></ruby>C</div>
+                </div>
+                <div class="bin-item">
+                    <div class="bin-shape"></div>
+                    <div>ごみ<ruby>箱<rt>ばこ</rt></ruby>D</div>
+                </div>
+            </div>
+
+            <!-- Đường kẻ sơ đồ -->
+            <div class="absolute bottom-4 left-10 right-10 h-1 border-b-2 border-black"></div>
+            <div class="absolute bottom-4 left-40 w-1 h-4 border-l-2 border-black"></div>
+            <div class="absolute bottom-4 right-40 w-1 h-4 border-l-2 border-black"></div>
+        </div>
+
+        <!-- Phần B: Lịch -->
+        <div class="section-label">B</div>
+        <div class="calendar-grid mx-auto">
+            <!-- Header -->
+            <div class="calendar-cell calendar-header">日</div>
+            <div class="calendar-cell calendar-header">月</div>
+            <div class="calendar-cell calendar-header">火</div>
+            <div class="calendar-cell calendar-header">水</div>
+            <div class="calendar-cell calendar-header">木</div>
+            <div class="calendar-cell calendar-header">金</div>
+            <div class="calendar-cell calendar-header">土</div>
+            
+            <!-- Hàng 1 (Bắt đầu từ thứ 5) -->
+            <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+            <div class="calendar-cell"></div>
+            <div class="calendar-cell">1</div>
+            <div class="calendar-cell">2</div>
+            <div class="calendar-cell">3</div>
+            
+            <!-- Hàng 2 -->
+            <div class="calendar-cell text-red-500">4</div>
+            <div class="calendar-cell">5</div>
+            <div class="calendar-cell">6</div>
+            <div class="calendar-cell">7</div>
+            <div class="calendar-cell">8</div>
+            <div class="calendar-cell">9</div>
+            <div class="calendar-cell">10</div>
+
+            <!-- Hàng 3 -->
+            <div class="calendar-cell text-red-500">11</div>
+            <div class="calendar-cell">12</div>
+            <div class="calendar-cell">13</div>
+            <div class="calendar-cell">14</div>
+            <div class="calendar-cell">15</div>
+            <div class="calendar-cell">16</div>
+            <div class="calendar-cell">17</div>
+
+            <!-- Hàng 4 -->
+            <div class="calendar-cell text-red-500">18</div>
+            <div class="calendar-cell">19</div>
+            <div class="calendar-cell">20</div>
+            <div class="calendar-cell">21</div>
+            <div class="calendar-cell">22</div>
+            <div class="calendar-cell">23</div>
+            <div class="calendar-cell">24</div>
+
+            <!-- Hàng 5 -->
+            <div class="calendar-cell text-red-500">25</div>
+            <div class="calendar-cell">26</div>
+            <div class="calendar-cell">27</div>
+            <div class="calendar-cell">28</div>
+            <div class="calendar-cell">29</div>
+            <div class="calendar-cell">30</div>
+            <div class="calendar-cell">31</div>
+        </div>
+
+        <div class="text-right mt-12 text-sm text-gray-400">209</div>
+    </div>
+
+</body>
+</html>

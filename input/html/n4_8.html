@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日のカレー - カレーや「デリー」</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #cbd5e0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4a5568;
+        }
+
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #333;
+            margin: 1.5rem 0;
+        }
+
+        .menu-table td {
+            border: 1px solid #333;
+            padding: 12px 15px;
+            vertical-align: top;
+        }
+
+        .menu-name {
+            font-weight: bold;
+            font-size: 1.15rem;
+        }
+
+        .price {
+            float: right;
+            font-weight: normal;
+        }
+
+        .group-label {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-note {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-top: 0.25rem;
+            padding-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề -->
+        <header class="text-center mb-8">
+            <h1 class="text-2xl font-bold mb-6 tracking-widest">
+                <ruby>今日<rt>きょう</rt></ruby>のカレー
+            </h1>
+        </header>
+
+        <!-- Lời dẫn -->
+        <section class="mb-6 space-y-2 text-lg">
+            <p>メニューは、ABCD の 4 <ruby>種類<rt>しゅるい</rt></ruby>から<ruby>選<rt>えら</rt></ruby>べます。</p>
+            <p>
+                カレーの<ruby>種類<rt>しゅるい</rt></ruby>は<ruby>下<rt>した</rt></ruby>の①、②のグループから<ruby>選<rt>えら</rt></ruby>べます。
+            </p>
+        </section>
+
+        <!-- Bảng thực đơn A, B, C, D -->
+        <table class="menu-table">
+            <tbody>
+                <!-- Menu A -->
+                <tr>
+                    <td>
+                        <div class="menu-name">
+                            A メニュー <span class="price">850 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                        <div class="mt-1">
+                            カレー ＋ サラダ　か　<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>
+                        </div>
+                        <div class="section-note">
+                            （カレーは、①グループから<ruby>選<rt>えら</rt></ruby>んでください。）
+                        </div>
+                    </td>
+                </tr>
+                <!-- Menu B -->
+                <tr>
+                    <td>
+                        <div class="menu-name">
+                            B メニュー <span class="price">950 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                        <div class="mt-1">
+                            カレー ＋ サラダ　か　<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>
+                        </div>
+                        <div class="section-note">
+                            （カレーは、②グループから<ruby>選<rt>えら</rt></ruby>んでください。）
+                        </div>
+                    </td>
+                </tr>
+                <!-- Menu C -->
+                <tr>
+                    <td>
+                        <div class="menu-name">
+                            C メニュー <span class="price">1100 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                        <div class="mt-1">
+                            カレー ＋ スープ ＋ サラダ ＋ <ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>
+                        </div>
+                        <div class="section-note">
+                            （カレーは、①グループと②グループのどちらからでも<ruby>選<rt>えら</rt></ruby>べます。）
+                        </div>
+                    </td>
+                </tr>
+                <!-- Menu D -->
+                <tr>
+                    <td>
+                        <div class="menu-name">
+                            D メニュー <span class="price">1300 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                        <div class="mt-1">
+                            カレー ＋ スープ ＋ サラダ ＋ <ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby> ＋ アイスクリーム
+                        </div>
+                        <div class="section-note">
+                            （カレーは、①グループと②グループのどちらからでも<ruby>選<rt>えら</rt></ruby>べます。）
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Chi tiết các nhóm -->
+        <section class="space-y-6 mt-8">
+            <!-- Nhóm Cà ri -->
+            <div>
+                <h3 class="group-label">カレーの<ruby>種類<rt>しゅるい</rt></ruby></h3>
+                <div class="pl-4 space-y-1 text-lg">
+                    <p>①グループ：たまごカレー、<ruby>野菜<rt>やさい</rt></ruby>カレー、チキンカレー</p>
+                    <p>②グループ：ハンバーグカレー、えびカレー</p>
+                </div>
+            </div>
+
+            <!-- Nhóm Đồ uống -->
+            <div>
+                <h3 class="group-label"><ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>の<ruby>種類<rt>しゅるい</rt></ruby></h3>
+                <div class="pl-4 text-lg">
+                    <p>コーヒー、<ruby>紅茶<rt>こうちゃ</rt></ruby>、オレンジジュース</p>
+                    <p class="section-note mt-2 italic">
+                        （コーヒーと<ruby>紅茶<rt>こうちゃ</rt></ruby>は、<ruby>温<rt>あたた</rt></ruby>かいものと<ruby>冷<rt>つめ</rt></ruby>たいものがご<ruby>用意<rt>ようい</rt></ruby>できます。）
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chân trang -->
+        <footer class="mt-12">
+            <p class="text-xl font-medium">カレーや 「デリー」</p>
+        </footer>
+    </div>
+
+</body>
+</html>

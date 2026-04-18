@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清森市 秋の美術コンクール 作品募集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-label {
+            font-weight: bold;
+        }
+
+        .award-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1rem 0;
+        }
+
+        .award-table th, .award-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .award-table th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 3rem;
+            padding-top: 2rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: THÔNG BÁO CUỘC THI (Từ ảnh 1) -->
+        <header>
+            <h1 class="main-title">
+                <ruby>清森市<rt>きよもりし</rt></ruby> <ruby>秋<rt>あき</rt></ruby>の<ruby>美術<rt>びじゅつ</rt></ruby>コンクール<br>
+                <ruby>作品募集<rt>さくひんぼしゅう</rt></ruby>
+            </h1>
+        </header>
+
+        <section class="space-y-2">
+            <div class="section-grid">
+                <span class="section-label"><ruby>部門<rt>ぶもん</rt></ruby></span>
+                <span><ruby>絵画部門<rt>かいがぶもん</rt></ruby>、<ruby>写真部門<rt>しゃしんぶもん</rt></ruby></span>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>募集期間<rt>ぼしゅうきかん</rt></ruby></span>
+                <span>2010 <ruby>年<rt>ねん</rt></ruby> 11 <ruby>月<rt>がつ</rt></ruby> 1 <ruby>日<rt>ついたち</rt></ruby> ～ 11 <ruby>月<rt>がつ</rt></ruby> 30 <ruby>日<rt>さんじゅうにち</rt></ruby></span>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>審査員<rt>しんさいん</rt></ruby></span>
+                <span><ruby>山田太郎<rt>やまだたろう</rt></ruby>（日本アート<ruby>協会会長<rt>きょうかいかいちょう</rt></ruby>）、<ruby>山本花子<rt>やまもとはなこ</rt></ruby>（<ruby>画家<rt>がか</rt></ruby>）、<ruby>川上次郎<rt>かわかみじろう</rt></ruby>（<ruby>写真家<rt>しゃしんか</rt></ruby>）</span>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>応募規定<rt>おうぼきてい</rt></ruby></span>
+                <div class="space-y-1">
+                    <p>1 &nbsp; <ruby>清森市内<rt>きよもりしない</rt></ruby>の<ruby>秋<rt>あき</rt></ruby>を<ruby>題材<rt>だいざい</rt></ruby>にしたもの。</p>
+                    <p>2 &nbsp; <ruby>絵画部門<rt>かいがぶもん</rt></ruby>に<ruby>出品<rt>しゅっぴん</rt></ruby>する<ruby>作品<rt>さくひん</rt></ruby>は、イラスト、<ruby>水彩画<rt>すいさいが</rt></ruby>、<ruby>油絵<rt>あぶらえ</rt></ruby>、どれでも<ruby>可<rt>か</rt></ruby>。<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ruby>写真部門<rt>しゃしんぶもん</rt></ruby>に<ruby>出品<rt>しゅっぴん</rt></ruby>する<ruby>写真<rt>しゃしん</rt></ruby>は、フィルム<ruby>写真<rt>しゃしん</rt></ruby>、デジタル<ruby>写真<rt>しゃしん</rt></ruby>、どちらも<ruby>可<rt>か</rt></ruby>。</p>
+                    <p>※ <ruby>応募作品<rt>おうぼさくひん</rt></ruby>は<ruby>各部門<rt>かくぶもん</rt></ruby> 1 <ruby>人<rt>にん</rt></ruby> 1 <ruby>点<rt>てん</rt></ruby>に<ruby>限<rt>かぎ</rt></ruby>ります。</p>
+                    <p>※ <ruby>作品<rt>さくひん</rt></ruby>の<ruby>制作年<rt>せいさくねん</rt></ruby>は<ruby>問<rt>と</rt></ruby>わないが、<ruby>未発表<rt>みはっぴょう</rt></ruby>のものに<ruby>限<rt>かぎ</rt></ruby>ります。<br>
+                    （<ruby>他<rt>た</rt></ruby>のコンクールに<ruby>入賞<rt>にゅうしょう</rt></ruby>していたり、<ruby>出版物<rt>しゅっぱんぶつ</rt></ruby>や<ruby>展示会<rt>てんじかい</rt></ruby>などで<ruby>公表<rt>こうひょう</rt></ruby>されたりしていないものであること。）</p>
+                </div>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>応募方法<rt>おうぼほうほう</rt></ruby></span>
+                <span><ruby>郵送<rt>ゆうそう</rt></ruby>、または<ruby>持参<rt>じさん</rt></ruby>。ただし、<ruby>郵送中<rt>ゆうそうちゅう</rt></ruby>の<ruby>事故<rt>じこ</rt></ruby>について、<ruby>市<rt>し</rt></ruby>は<ruby>責任<rt>せきにん</rt></ruby>を<ruby>負<rt>お</rt></ruby>いません。<br>
+                <ruby>指定<rt>してい</rt></ruby>の<ruby>応募用紙<rt>おうぼようし</rt></ruby>を<ruby>作品裏側<rt>さくひんうらがわ</rt></ruby>に<ruby>添付<rt>てんぷ</rt></ruby>のこと。<ruby>応募用紙<rt>おうぼようし</rt></ruby>は<ruby>市役所<rt>しやくしょ</rt></ruby>の<ruby>窓口<rt>まどぐち</rt></ruby>で、または<ruby>市<rt>し</rt></ruby>のホームページから<ruby>入手可能<rt>にゅうしゅかのう</rt></ruby>。</span>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>応募先<rt>おうぼさき</rt></ruby></span>
+                <span><ruby>清森市商業観光課観光係<rt>きよもりししょうぎょうかんこうかかんこうがかり</rt></ruby><br>
+                （〒951-0022 <ruby>清森市清森<rt>きよもりしきよもり</rt></ruby> 2-8、TEL 084-874-83524）</span>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>賞<rt>しょう</rt></ruby></span>
+                <table class="award-table">
+                    <tbody>
+                        <tr>
+                            <th><ruby>最優秀賞<rt>さいゆうしゅうしょう</rt></ruby></th>
+                            <td><ruby>各部門<rt>かくぶもん</rt></ruby> 1 <ruby>点<rt>てん</rt></ruby></td>
+                            <td><ruby>賞状<rt>しょうじょう</rt></ruby>と<ruby>副賞<rt>ふくしょう</rt></ruby>（デジタル<ruby>一眼<rt>いちがん</rt></ruby>レフカメラ）</td>
+                        </tr>
+                        <tr>
+                            <th><ruby>優秀賞<rt>ゆうしゅうしょう</rt></ruby></th>
+                            <td><ruby>各部門<rt>かくぶもん</rt></ruby> 2 <ruby>点<rt>てん</rt></ruby></td>
+                            <td><ruby>賞状<rt>しょうじょう</rt></ruby>と<ruby>副賞<rt>ふくしょう</rt></ruby>（<ruby>清森<rt>きよもり</rt></ruby>ホテルのペア<ruby>宿泊券<rt>しゅくはくけん</rt></ruby>）</td>
+                        </tr>
+                        <tr>
+                            <th><ruby>清森賞<rt>きよもりしょう</rt></ruby></th>
+                            <td><ruby>各部門<rt>かくぶもん</rt></ruby> 20 <ruby>点以内<rt>てんいない</rt></ruby></td>
+                            <td><ruby>賞状<rt>しょうじょう</rt></ruby>と<ruby>副賞<rt>ふくしょう</rt></ruby>（<ruby>図書<rt>としょ</rt></ruby>カード 5 <ruby>千円分<rt>せんえんぶん</rt></ruby>）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>審査結果<rt>しんさけっか</rt></ruby></span>
+                <span><ruby>清森市<rt>きよもりし</rt></ruby>のホームページ<ruby>上<rt>じょう</rt></ruby>に 1 <ruby>月<rt>がつ</rt></ruby> 15 <ruby>日<rt>じゅうごにち</rt></ruby>に<ruby>発表<rt>はっぴょう</rt></ruby>します。<ruby>入賞者<rt>にゅうしょうしゃ</rt></ruby>には 1 <ruby>月中<rt>がつちゅう</rt></ruby>に<ruby>結果<rt>けっか</rt></ruby>を<ruby>郵送<rt>ゆうそう</rt></ruby>します。<ruby>電話<rt>でんわ</rt></ruby>および<ruby>窓口<rt>まどぐち</rt></ruby>での<ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせには<ruby>応<rt>おう</rt></ruby>じられません。</span>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>表彰式<rt>ひょうしょうしき</rt></ruby></span>
+                <span>2011 <ruby>年<rt>ねん</rt></ruby> 2 <ruby>月下旬<rt>がつげじゅん</rt></ruby>（<ruby>予定<rt>よてい</rt></ruby>） <ruby>最優秀賞<rt>さいゆうしゅうしょう</rt></ruby>と<ruby>優秀賞<rt>ゆうしゅうしょう</rt></ruby>の<ruby>方<rt>かた</rt></ruby>には、<ruby>表彰式<rt>ひょうしょうしき</rt></ruby>で<ruby>賞状<rt>しょうじょう</rt></ruby>および<ruby>副賞<rt>ふくしょう</rt></ruby>をお<ruby>渡<rt>わた</rt></ruby>しします。</span>
+            </div>
+            <div class="section-grid">
+                <span class="section-label"><ruby>注意事項<rt>ちゅういじこう</rt></ruby></span>
+                <div class="text-sm">
+                    <p>※ <ruby>入賞作品<rt>にゅうしょうさくひん</rt></ruby>は、1 <ruby>年<rt>ねん</rt></ruby>を<ruby>限度<rt>げんど</rt></ruby>に<ruby>主催者<rt>しゅさいしゃ</rt></ruby>がお<ruby>預<rt>あず</rt></ruby>かりして<ruby>広報活動<rt>こうほうかつどう</rt></ruby>などに<ruby>使用<rt>しよう</rt></ruby>し、1 <ruby>年後<rt>ねんご</rt></ruby>にお<ruby>返<rt>かえ</rt></ruby>しします。</p>
+                    <p>※ <ruby>上記<rt>じょうき</rt></ruby>の<ruby>応募規定<rt>おうぼきてい</rt></ruby>を<ruby>守<rt>まも</rt></ruby>っていなかった<ruby>場合<rt>ばあい</rt></ruby>には<ruby>入賞<rt>にゅうしょう</rt></ruby>が<ruby>取<rt>と</rt></ruby>り<ruby>消<rt>け</rt></ruby>されることがあります。</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-4 flex justify-between text-sm italic">
+            <span>＜<ruby>主催<rt>しゅさい</rt></ruby>＞ <ruby>清森市<rt>きよもりし</rt></ruby></span>
+            <span>＜<ruby>協賛<rt>きょうさん</rt></ruby>＞ <ruby>昭和<rt>しょうわ</rt></ruby>デザイン<ruby>株式会社<rt>かぶしきがいしゃ</rt></ruby>、<ruby>山手百貨店<rt>やまてひゃっかてん</rt></ruby>、<ruby>新東京鉄道<rt>しんとうきょうてつどう</rt></ruby>、<ruby>清森<rt>きよもり</rt></ruby>ホテル</span>
+        </footer>
+
+        <!-- PHẦN 2: CÂU HỎI 70 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">70</span> <ruby>高木<rt>たかぎ</rt></ruby>さんが<ruby>制作<rt>せいさく</rt></ruby>した<ruby>以下<rt>いか</rt></ruby>の<ruby>作品<rt>さくひん</rt></ruby>のうち、<ruby>応募<rt>おうぼ</rt></ruby>できるものはどれか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. <ruby>清森高校<rt>きよもりこうこう</rt></ruby>に<ruby>通<rt>かよ</rt></ruby>っていたとき<ruby>入賞<rt>にゅうしょう</rt></ruby>した<ruby>秋<rt>あき</rt></ruby>の<ruby>風景画<rt>ふうけいが</rt></ruby></div>
+                <div class="option-item"><div class="radio-circle"></div> 2. <ruby>清森市<rt>きよもりし</rt></ruby>にある<ruby>青森温泉<rt>あおもりおんせん</rt></ruby>の<ruby>紅葉<rt>こうよう</rt></ruby>の<ruby>油絵<rt>あぶらえ</rt></ruby>とイラスト</div>
+                <div class="option-item"><div class="radio-circle"></div> 3. <ruby>清森市<rt>きよもりし</rt></ruby>にある<ruby>青森公園<rt>あおもりこうえん</rt></ruby>で<ruby>撮<rt>と</rt></ruby>った<ruby>春<rt>はる</rt></ruby>の<ruby>木々<rt>きぎ</rt></ruby>の<ruby>写真<rt>しゃしん</rt></ruby></div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    4. <ruby>去年清森市<rt>きょねんきよもりし</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>われた<ruby>秋祭<rt>あきまつり</rt></ruby>の<ruby>写真<rt>しゃしん</rt></ruby>と<ruby>水彩画<rt>すいさいが</rt></ruby>
+                </div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 4</p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 71 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">71</span> <ruby>入賞<rt>にゅうしょう</rt></ruby>したかどうかを<ruby>知<rt>し</rt></ruby>るには、<ruby>高木<rt>たかぎ</rt></ruby>さんはどうしたらよいか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    1. 1 <ruby>月中旬<rt>がつちゅうじゅん</rt></ruby>に<ruby>清森市<rt>きよもりし</rt></ruby>のホームページを<ruby>見<rt>み</rt></ruby>る。
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 2. 1 <ruby>月中旬<rt>がつちゅうじゅん</rt></ruby>に<ruby>直接<rt>ちょくせつ</rt></ruby>、<ruby>観光係<rt>かんこうがかり</rt></ruby>に<ruby>電話<rt>でんわ</rt></ruby>して<ruby>聞<rt>き</rt></ruby>く。</div>
+                <div class="option-item"><div class="radio-circle"></div> 3. 2 <ruby>月下旬<rt>がつげじゅん</rt></ruby>に<ruby>市役所<rt>しやくしょ</rt></ruby>の<ruby>窓口<rt>まどぐち</rt></ruby>に<ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせる。</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. 2 <ruby>月下旬<rt>がつげじゅん</rt></ruby>に<ruby>届<rt>とど</rt></ruby>く<ruby>予定<rt>よてい</rt></ruby>の<ruby>通知<rt>つうち</rt></ruby>を<ruby>待<rt>ま</rt></ruby>つ。</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 1</p>
+        </div>
+    </div>
+
+</body>
+</html>

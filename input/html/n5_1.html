@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách cửa hàng giá rẻ - Nakai-machi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+        }
+
+        .flyer-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #000;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .header-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-date {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #333;
+        }
+
+        table.main-grid {
+            width: 100%;
+            border: 2px solid #000;
+            border-collapse: collapse;
+        }
+
+        table.main-grid > tbody > tr > td {
+            border: 1px solid #000;
+            width: 50%;
+            padding: 1rem;
+            vertical-align: top;
+        }
+
+        .store-header {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-number {
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 1rem;
+        }
+
+        .date-label {
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            margin-bottom: 0.25rem;
+        }
+
+        .price-text {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="flyer-container">
+        <!-- Header Section -->
+        <div class="header-title">
+            なかい<ruby>町<rt>まち</rt></ruby>の <ruby>今週<rt>こんしゅう</rt></ruby>の <ruby>安<rt>やす</rt></ruby>い <ruby>店<rt>みせ</rt></ruby>
+        </div>
+        <div class="header-date">
+            12<ruby>月<rt>がつ</rt></ruby>13<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) ・ 14<ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>) ・ 15<ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>)
+        </div>
+
+        <div class="intro-text">
+            <ruby>今週<rt>こんしゅう</rt></ruby>は、<ruby>下<rt>した</rt></ruby>の <ruby>四<rt>よ</rt></ruby>つの <ruby>店<rt>みせ</rt></ruby>が <ruby>安<rt>やす</rt></ruby>いですよ！
+        </div>
+
+        <!-- Store Grid -->
+        <table class="main-grid">
+            <tbody>
+                <tr>
+                    <!-- Store 1 -->
+                    <td>
+                        <div class="store-header">
+                            ①<ruby>六八<rt>ろくはち</rt></ruby>くだもの
+                        </div>
+                        <div class="phone-number">
+                            <ruby>電話<rt>でんわ</rt></ruby>：722 － 7868
+                        </div>
+
+                        <div>
+                            <span class="date-label">13<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>みかん</span>
+                                <span class="price-text">198<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">14<ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>バナナ</span>
+                                <span class="price-text">89<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">15<ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>いちご</span>
+                                <span class="price-text">300<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+                    </td>
+
+                    <!-- Store 2 -->
+                    <td>
+                        <div class="store-header">②とりの たかだ</div>
+                        <div class="phone-number">
+                            <ruby>電話<rt>でんわ</rt></ruby>：728 － 0193
+                        </div>
+
+                        <div>
+                            <span class="date-label">13<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>とり<ruby>肉<rt>にく</rt></ruby></span>
+                                <span class="price-text">150<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">14<ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>たまご</span>
+                                <span class="price-text">99<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">15<ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>とり<ruby>肉<rt>にく</rt></ruby></span>
+                                <span class="price-text">150<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <!-- Store 3 -->
+                    <td>
+                        <div class="store-header">③すずきスーパー</div>
+                        <div class="phone-number">
+                            <ruby>電話<rt>でんわ</rt></ruby>：725 － 8531
+                        </div>
+
+                        <div>
+                            <span class="date-label">13<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>ジュース</span>
+                                <span class="price-text">50<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">14<ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>とうふ</span>
+                                <span class="price-text">48<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">15<ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>チョコレート</span>
+                                <span class="price-text">88<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+                    </td>
+
+                    <!-- Store 4 -->
+                    <td>
+                        <div class="store-header">④スーパーやまだ</div>
+                        <div class="phone-number">
+                            <ruby>電話<rt>でんわ</rt></ruby>：721 － 9040
+                        </div>
+
+                        <div>
+                            <span class="date-label">13<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>りんご</span>
+                                <span class="price-text">50<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">14<ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>ぎゅうにゅう</span>
+                                <span class="price-text">120<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <span class="date-label">15<ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>)</span>
+                            <div class="item-row">
+                                <span>アイスクリーム</span>
+                                <span class="price-text">80<ruby>円<rt>えん</rt></ruby></span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

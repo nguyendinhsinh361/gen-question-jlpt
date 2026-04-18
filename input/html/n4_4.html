@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留学生のための日本文化教室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #333;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #fff;
+            font-weight: normal;
+        }
+
+        .category-cell {
+            text-align: center;
+            width: 20%;
+            font-weight: bold;
+        }
+
+        .content-cell {
+            text-align: left;
+            width: 40%;
+        }
+
+        .time-cell {
+            text-align: center;
+            width: 25%;
+        }
+
+        .fee-cell {
+            text-align: center;
+            width: 15%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header class="text-center mb-10">
+            <h1 class="text-2xl font-bold mb-2">
+                <ruby>留学生<rt>りゅうがくせい</rt></ruby>のための<ruby>日本文化教室<rt>にほんぶんかきょうしつ</rt></ruby>
+            </h1>
+            <p class="text-lg">
+                やさしい<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>教<rt>おし</rt></ruby>えます！
+            </p>
+        </header>
+
+        <!-- Bảng chương trình học -->
+        <table>
+            <thead>
+                <tr>
+                    <th class="category-cell"></th>
+                    <th class="content-cell"><ruby>内容<rt>ないよう</rt></ruby></th>
+                    <th class="time-cell"><ruby>曜日<rt>ようび</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby></th>
+                    <th class="fee-cell"><ruby>費用<rt>ひよう</rt></ruby></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1: Cắm hoa Ikebana -->
+                <tr>
+                    <td class="category-cell">いけ<ruby>花<rt>ばな</rt></ruby></td>
+                    <td class="content-cell">
+                        <ruby>初<rt>はじ</rt></ruby>めての<ruby>人<rt>ひと</rt></ruby>でも<ruby>安心<rt>あんしん</rt></ruby>！<ruby>日本<rt>にほん</rt></ruby>の<ruby>伝統的<rt>でんとうてき</rt></ruby>な<ruby>美<rt>うつく</rt></ruby>しいいけ<ruby>花<rt>ばな</rt></ruby>をやってみませんか。
+                    </td>
+                    <td class="time-cell">
+                        <ruby>月曜<rt>げつよう</rt></ruby>／<ruby>木曜<rt>もくよう</rt></ruby><br>
+                        19:00～20:00
+                    </td>
+                    <td class="fee-cell">
+                        800 <ruby>円<rt>えん</rt></ruby>
+                    </td>
+                </tr>
+
+                <!-- Row 2: Văn hóa ẩm thực -->
+                <tr>
+                    <td class="category-cell">
+                        <ruby>日本料理<rt>にほんりょうり</rt></ruby>のマナー
+                    </td>
+                    <td class="content-cell">
+                        <ruby>日本料理<rt>にほんりょうり</rt></ruby>の<ruby>正<rt>ただ</rt></ruby>しい<ruby>食<rt>た</rt></ruby>べ<ruby>方<rt>かた</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えます！<br>
+                        おいしい<ruby>料理<rt>りょうり</rt></ruby>を<ruby>食<rt>た</rt></ruby>べながら<ruby>日本文化<rt>にほんぶんか</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しませんか。
+                    </td>
+                    <td class="time-cell">
+                        <ruby>金曜<rt>きんよう</rt></ruby><br>
+                        18:30～20:30
+                    </td>
+                    <td class="fee-cell">
+                        2,500 <ruby>円<rt>えん</rt></ruby>
+                    </td>
+                </tr>
+
+                <!-- Row 3: Mặc Kimono -->
+                <tr>
+                    <td class="category-cell">
+                        <ruby>着物<rt>きもの</rt></ruby>の<ruby>着付<rt>きつ</rt></ruby>け～<br>
+                        ひとりで<ruby>浴衣<rt>ゆかた</rt></ruby>を<ruby>着<rt>き</rt></ruby>てみよう～
+                    </td>
+                    <td class="content-cell">
+                        <ruby>浴衣<rt>ゆかた</rt></ruby>を<ruby>使<rt>つか</rt></ruby>って、かんたんな<ruby>着物<rt>きもの</rt></ruby>の<ruby>着方<rt>きかた</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えます。
+                    </td>
+                    <td class="time-cell">
+                        <ruby>火曜<rt>かよう</rt></ruby>／<ruby>水曜<rt>すいよう</rt></ruby><br>
+                        18:30～20:30<br>
+                        <div class="mt-2 pt-2 border-t border-gray-300 border-dashed">
+                            <ruby>土曜<rt>どよう</rt></ruby><br>
+                            16:00～18:00
+                        </div>
+                    </td>
+                    <td class="fee-cell">
+                        <ruby>無料<rt>むりょう</rt></ruby>
+                    </td>
+                </tr>
+
+                <!-- Row 4: Làm Sushi -->
+                <tr>
+                    <td class="category-cell">
+                        すし<ruby>作<rt>づく</rt></ruby>り～<br>
+                        <ruby>巻<rt>ま</rt></ruby>き<ruby>寿司<rt>ずし</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ろう～
+                    </td>
+                    <td class="content-cell">
+                        ひとりでもかんたんに<ruby>作<rt>つく</rt></ruby>れる<ruby>巻<rt>ま</rt></ruby>き<ruby>寿司<rt>ずし</rt></ruby>の<ruby>作<rt>つく</rt></ruby>り<ruby>方<rt>かた</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えます。
+                    </td>
+                    <td class="time-cell">
+                        <ruby>日曜<rt>にちよう</rt></ruby><br>
+                        10:00～12:00
+                    </td>
+                    <td class="fee-cell">
+                        2,000 <ruby>円<rt>えん</rt></ruby>
+                    </td>
+                </tr>
+
+                <!-- Row 5: Làm Tempura -->
+                <tr>
+                    <td class="category-cell">
+                        <ruby>天<rt>てん</rt></ruby>ぷら<ruby>作<rt>づく</rt></ruby>り
+                    </td>
+                    <td class="content-cell">
+                        <ruby>野菜<rt>やさい</rt></ruby>と<ruby>魚<rt>さかな</rt></ruby>の<ruby>天<rt>てん</rt></ruby>ぷらを<ruby>作<rt>つく</rt></ruby>ってみましょう。
+                    </td>
+                    <td class="time-cell">
+                        <ruby>月曜<rt>げつよう</rt></ruby>／<ruby>水曜<rt>すいよう</rt></ruby><br>
+                        18:00～19:00
+                    </td>
+                    <td class="fee-cell">
+                        700 <ruby>円<rt>えん</rt></ruby>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

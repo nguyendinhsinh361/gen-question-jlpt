@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn đi đến Đại học Takagi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #999;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .route-box {
+            border: 1px solid #000;
+            width: 180px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.95rem;
+            background-color: white;
+        }
+
+        .connector-line {
+            height: 4px;
+            background-color: #4b5563;
+            flex-grow: 1;
+            position: relative;
+            min-width: 80px;
+            margin: 0 4px;
+        }
+
+        .connector-label-top {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+
+        .connector-label-bottom {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+
+        .main-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .university-label {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #000;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="document-container relative">
+        <!-- University name on top right -->
+        <div class="university-label">
+            <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="main-title">
+            <ruby>高木大学<rt>たかぎだいがく</rt></ruby>に<ruby>来<rt>き</rt></ruby>たい<ruby>人<rt>ひと</rt></ruby>へ
+        </h1>
+
+        <!-- Route 1 -->
+        <section class="mb-12">
+            <div class="flex gap-8 mb-2 ml-4">
+                <p>①かかる <ruby>時間<rt>じかん</rt></ruby>：46 <ruby>分<rt>ふん</rt></ruby></p>
+                <p>かかる お<ruby>金<rt>かね</rt></ruby>：300 <ruby>円<rt>えん</rt></ruby></p>
+            </div>
+            <div class="flex items-center">
+                <!-- Start -->
+                <div class="route-box">
+                    <ruby>寺西駅<rt>てらにしえき</rt></ruby><br>
+                    バスてい<br>
+                    1ばん
+                </div>
+                <!-- Connector 1 -->
+                <div class="connector-line">
+                    <span class="connector-label-top">バス</span>
+                    <span class="connector-label-bottom">45 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <!-- Mid -->
+                <div class="route-box">
+                    バスてい<br>
+                    「<ruby>高木大学前<rt>たかぎだいがくまえ</rt></ruby>」
+                </div>
+                <!-- Connector 2 -->
+                <div class="connector-line">
+                    <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                    <span class="connector-label-bottom">1 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <!-- End -->
+                <div class="route-box font-bold">
+                    <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route 2 -->
+        <section class="mb-12">
+            <div class="flex gap-8 mb-2 ml-4">
+                <p>②かかる <ruby>時間<rt>じかん</rt></ruby>：30 <ruby>分<rt>ふん</rt></ruby></p>
+                <p>かかる お<ruby>金<rt>かね</rt></ruby>：550 <ruby>円<rt>えん</rt></ruby></p>
+            </div>
+            <div class="flex items-center">
+                <div class="route-box">
+                    <ruby>花田駅<rt>はなだえき</rt></ruby>
+                </div>
+                <div class="connector-line">
+                    <span class="connector-label-top"><ruby>電車<rt>でんしゃ</rt></ruby></span>
+                    <span class="connector-label-bottom">25 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <div class="route-box">
+                    <ruby>水村駅<rt>みずむらえき</rt></ruby>
+                </div>
+                <div class="connector-line">
+                    <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                    <span class="connector-label-bottom">5 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <div class="route-box font-bold">
+                    <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route 3 -->
+        <section class="mb-12">
+            <div class="flex gap-8 mb-2 ml-4">
+                <p>③かかる <ruby>時間<rt>じかん</rt></ruby>：40 <ruby>分<rt>ふん</rt></ruby></p>
+                <p>かかる お<ruby>金<rt>かね</rt></ruby>：450 <ruby>円<rt>えん</rt></ruby></p>
+            </div>
+            <div class="flex items-center">
+                <div class="route-box">
+                    <ruby>花田駅<rt>はなだえき</rt></ruby>
+                </div>
+                <div class="connector-line">
+                    <span class="connector-label-top">ちかてつ</span>
+                    <span class="connector-label-bottom">30 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <div class="route-box">
+                    <ruby>木山駅<rt>きやまえき</rt></ruby>
+                </div>
+                <div class="connector-line">
+                    <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                    <span class="connector-label-bottom">10 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <div class="route-box font-bold">
+                    <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route 4 -->
+        <section class="mb-4">
+            <div class="flex gap-8 mb-2 ml-4">
+                <p>④かかる <ruby>時間<rt>じかん</rt></ruby>：35 <ruby>分<rt>ふん</rt></ruby></p>
+                <p>かかる お<ruby>金<rt>かね</rt></ruby>：430 <ruby>円<rt>えん</rt></ruby></p>
+            </div>
+            <div class="flex items-center">
+                <div class="route-box">
+                    <ruby>糸川駅<rt>いとかわえき</rt></ruby>
+                </div>
+                <div class="connector-line">
+                    <span class="connector-label-top"><ruby>電車<rt>でんしゃ</rt></ruby></span>
+                    <span class="connector-label-bottom">25 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <div class="route-box">
+                    <ruby>木山駅<rt>きやまえき</rt></ruby>
+                </div>
+                <div class="connector-line">
+                    <span class="connector-label-top"><ruby>歩<rt>ある</rt></ruby>く</span>
+                    <span class="connector-label-bottom">10 <ruby>分<rt>ふん</rt></ruby></span>
+                </div>
+                <div class="route-box font-bold">
+                    <ruby>高木大学<rt>たかぎだいがく</rt></ruby>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

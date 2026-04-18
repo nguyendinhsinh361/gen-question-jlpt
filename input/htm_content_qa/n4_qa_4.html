@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あおい市生活相談事務所 と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .section-label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Styles cho Bảng A */
+        .table-a {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 2rem;
+        }
+
+        .table-a th, .table-a td {
+            border: 1px solid #000;
+            padding: 10px 4px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.95rem;
+        }
+
+        .table-a th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .diag-header {
+            position: relative;
+            width: 140px;
+            height: 80px;
+        }
+
+        .diag-header .text-time {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .diag-header .text-day {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .diag-header svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Styles cho Bảng B */
+        .table-b {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 1rem;
+        }
+
+        .table-b th, .table-b td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table-b th {
+            background-color: #fdfdfd;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN A: BẢNG TƯ VẤN (Từ ảnh 1) -->
+        <span class="section-label">A</span>
+        <header>
+            <h1 class="main-title">
+                あおい<ruby>市<rt>し</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいる<ruby>外国人<rt>がいこくじん</rt></ruby>のみなさんへ
+            </h1>
+            <div class="intro-text text-sm">
+                <p><ruby>生活<rt>せいかつ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>困<rt>こま</rt></ruby>っていることはありませんか。</p>
+                <p><ruby>住<rt>す</rt></ruby>むところ、<ruby>病院<rt>びょういん</rt></ruby>、<ruby>子<rt>こ</rt></ruby>どもの<ruby>学校<rt>がっこう</rt></ruby>や<ruby>教育<rt>きょういく</rt></ruby>、<ruby>国際結婚<rt>こくさいけっこん</rt></ruby>について<ruby>相談<rt>そうだん</rt></ruby>ができます。</p>
+                <p><ruby>専門<rt>せんもん</rt></ruby>の<ruby>相談員<rt>そうだんいん</rt></ruby>がいます。<ruby>相談<rt>そうだん</rt></ruby>は、<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>います。</p>
+                <p>お<ruby>金<rt>かね</rt></ruby>はかかりません。</p>
+            </div>
+        </header>
+
+        <table class="table-a">
+            <thead>
+                <tr>
+                    <th class="diag-header">
+                        <svg><line x1="0" y1="0" x2="100%" y2="100%" stroke="black" stroke-width="1"/></svg>
+                        <span class="text-time"><ruby>時間<rt>じかん</rt></ruby></span>
+                        <span class="text-day"><ruby>曜日<rt>ようび</rt></ruby></span>
+                    </th>
+                    <th style="width: 25%;"><ruby>午前<rt>ごぜん</rt></ruby> 10：00 ～ 12：00</th>
+                    <th style="width: 25%;"><ruby>午後<rt>ごご</rt></ruby> 14：00 ～ 16：00</th>
+                    <th style="width: 25%;"><ruby>夜<rt>よる</rt></ruby> 18：00 ～ 20：00</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th><ruby>月<rt>げつ</rt></ruby></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th><ruby>火<rt>か</rt></ruby></th>
+                    <td class="bg-blue-50 font-bold"><ruby>住<rt>す</rt></ruby>むところ・<ruby>病院<rt>びょういん</rt></ruby></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th><ruby>水<rt>すい</rt></ruby></th>
+                    <td></td>
+                    <td class="bg-green-50 font-bold"><ruby>子<rt>こ</rt></ruby>どもの<ruby>学校<rt>がっこう</rt></ruby>や<ruby>教育<rt>きょういく</rt></ruby></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th><ruby>木<rt>もく</rt></ruby></th>
+                    <td></td>
+                    <td></td>
+                    <td class="bg-blue-50 font-bold"><ruby>住<rt>す</rt></ruby>むところ・<ruby>病院<rt>びょういん</rt></ruby></td>
+                </tr>
+                <tr>
+                    <th><ruby>金<rt>きん</rt></ruby></th>
+                    <td></td>
+                    <td class="bg-red-50 font-bold"><ruby>国際結婚<rt>こくさいけっこん</rt></ruby></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th><ruby>土<rt>ど</rt></ruby></th>
+                    <td class="bg-red-50 font-bold"><ruby>国際結婚<rt>こくさいけっこん</rt></ruby></td>
+                    <td></td>
+                    <td class="bg-green-50 font-bold"><ruby>子<rt>こ</rt></ruby>どもの<ruby>学校<rt>がっこう</rt></ruby>や<ruby>教育<rt>きょういく</rt></ruby></td>
+                </tr>
+                <tr>
+                    <th><ruby>日<rt>にち</rt></ruby></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-sm mb-10 pl-2">
+            <p>【<ruby>場所<rt>ばしょ</rt></ruby>】 あおい<ruby>市生活相談事務所<rt>しせいかつそうだんじむしょ</rt></ruby></p>
+            <p><ruby>住所<rt>じゅうしょ</rt></ruby>：あおい<ruby>市中町<rt>しなかまち</rt></ruby> 2-2 （あおい<ruby>駅西改札口<rt>えきにしかいさつぐち</rt></ruby>から<ruby>歩<rt>ある</rt></ruby>いて 5 <ruby>分<rt>ふん</rt></ruby>）</p>
+            <p><ruby>電話<rt>でんわ</rt></ruby>：077-123-1122</p>
+            <p>E メール：soudan@aoi.lg.jp</p>
+        </div>
+
+        <!-- PHẦN B: LỊCH TRÌNH CỦA LEE-SAN (Từ ảnh 1) -->
+        <span class="section-label">B</span>
+        <div class="mb-4">
+            <p class="font-bold">リーさんの<ruby>今週<rt>こんしゅう</rt></ruby>と<ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>予定<rt>よてい</rt></ruby></p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Tuần 1 -->
+            <table class="table-b">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;"><ruby>日<rt>ひ</rt></ruby></th>
+                        <th style="width: 15%;"><ruby>曜日<rt>ようび</rt></ruby></th>
+                        <th><ruby>予定<rt>よてい</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>5</td><td><ruby>月<rt>げつ</rt></ruby></td><td></td></tr>
+                    <tr><td>6</td><td><ruby>火<rt>か</rt></ruby></td><td>12:00 ～ 19:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>7</td><td><ruby>水<rt>すい</rt></ruby></td><td>14:00 ～ 21:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>8</td><td><ruby>木<rt>もく</rt></ruby></td><td>12:00 ～ 19:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>9</td><td><ruby>金<rt>きん</rt></ruby></td><td>14:00 ～ 21:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>10</td><td><ruby>土<rt>ど</rt></ruby></td><td>9:00 ～ 15:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>11</td><td><ruby>日<rt>にち</rt></ruby></td><td><ruby>旅行<rt>りょこう</rt></ruby></td></tr>
+                </tbody>
+            </table>
+
+            <!-- Tuần 2 -->
+            <table class="table-b">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;"><ruby>日<rt>ひ</rt></ruby></th>
+                        <th style="width: 15%;"><ruby>曜日<rt>ようび</rt></ruby></th>
+                        <th><ruby>予定<rt>よてい</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>12</td><td><ruby>月<rt>げつ</rt></ruby></td><td><ruby>旅行<rt>りょこう</rt></ruby></td></tr>
+                    <tr><td>13</td><td><ruby>火<rt>か</rt></ruby></td><td>9:00 ～ 17:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>14</td><td><ruby>水<rt>すい</rt></ruby></td><td>9:00 ～ 17:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>15</td><td><ruby>木<rt>もく</rt></ruby></td><td>9:00 ～ 17:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>16</td><td><ruby>金<rt>きん</rt></ruby></td><td>9:00 ～ 17:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr class="bg-yellow-50"><td>17</td><td><ruby>土<rt>ど</rt></ruby></td><td>14:00 ～ 21:00 &nbsp; <ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                    <tr><td>18</td><td><ruby>日<rt>にち</rt></ruby></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PHẦN 2: CÂU HỎI 34 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">34</span> <ruby>住<rt>す</rt></ruby>むところについて<ruby>相談<rt>そうだん</rt></ruby>できるのはいつですか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. <ruby>火曜日<rt>かようび</rt></ruby>の<ruby>午前<rt>ごぜん</rt></ruby>か<ruby>木曜日<rt>もくようび</rt></ruby>の<ruby>午前<rt>ごぜん</rt></ruby></div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    2. <ruby>火曜日<rt>かようび</rt></ruby>の<ruby>午前<rt>ごぜん</rt></ruby>か<ruby>木曜日<rt>もくようび</rt></ruby>の<ruby>夜<rt>よる</rt></ruby>
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 3. <ruby>木曜日<rt>もくようび</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby>か<ruby>土曜日<rt>どようび</rt></ruby>の<ruby>午前<rt>ごぜん</rt></ruby></div>
+                <div class="option-item"><div class="radio-circle"></div> 4. <ruby>木曜日<rt>もくようび</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby>か<ruby>土曜日<rt>どようび</rt></ruby>の<ruby>夜<rt>よる</rt></ruby></div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 2</p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 35 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">35</span> リーさんは<ruby>国際結婚<rt>こくさいけっこん</rt></ruby>について<ruby>相談<rt>そうだん</rt></ruby>をしたいと<ruby>思<rt>おも</rt></ruby>っています。<ruby>今週<rt>こんしゅう</rt></ruby>と<ruby>来週<rt>らいしゅう</rt></ruby>で、いつ<ruby>相談<rt>そうだん</rt></ruby>ができますか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. 9 <ruby>日<rt>にち</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby></div>
+                <div class="option-item"><div class="radio-circle"></div> 2. 10 <ruby>日<rt>にち</rt></ruby>の<ruby>午前<rt>ごぜん</rt></ruby></div>
+                <div class="option-item"><div class="radio-circle"></div> 3. 16 <ruby>日<rt>にち</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby></div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    4. 17 <ruby>日<rt>にち</rt></ruby>の<ruby>午前<rt>ごぜん</rt></ruby>
+                </div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 4</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Tư vấn kết hôn vào Sáng Thứ 7 hoặc Chiều Thứ 6. Ngày 17 là Thứ 7, Lee-san làm việc từ 14h, nên rảnh buổi sáng 10h-12h để đi tư vấn.)
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

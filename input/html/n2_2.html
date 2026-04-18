@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hội chợ việc làm nhân sự toàn cầu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .black-banner {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transform: rotate(-1deg);
+        }
+
+        .admission-box {
+            border: 2px solid #000;
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .date-time {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .description {
+            margin-bottom: 2.5rem;
+            text-align: justify;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .list-item::before {
+            content: "＊";
+            margin-right: 0.5rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #444;
+        }
+
+        .unit-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            text-align: right;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="container">
+
+        <!-- Tiêu đề lớn -->
+        <header class="text-center pt-8">
+            <h1 class="main-title">
+                グローバル<ruby>人材就職<rt>じんざいしゅうしょく</rt></ruby>フェア
+            </h1>
+        </header>
+
+        <!-- Banner đen -->
+        <div class="flex justify-center">
+            <div class="black-banner w-full max-w-2xl">
+                <p class="text-lg mb-1">
+                    <ruby>日本<rt>にほん</rt></ruby>での<ruby>仕事<rt>しごと</rt></ruby>をここで<ruby>見<rt>み</rt></ruby>つけよう！
+                </p>
+                <p class="text-xl font-bold">
+                    <ruby>外国人留学生<rt>がいこくじんりゅうがくせい</rt></ruby>を<ruby>採用<rt>さいよう</rt></ruby>したい<ruby>企業約<rt>きぎょうやく</rt></ruby> 50 <ruby>社<rt>しゃ</rt></ruby>が<ruby>参加<rt>さんか</rt></ruby>！
+                </p>
+            </div>
+        </div>
+
+        <!-- Box vào cửa miễn phí -->
+        <div class="text-center">
+            <div class="admission-box">
+                <ruby>入場無料<rt>にゅうじょうむりょう</rt></ruby> ♪ <ruby>入退場自由<rt>にゅうたいじょうじゆう</rt></ruby> ♪
+            </div>
+        </div>
+
+        <!-- Ngày giờ -->
+        <div class="date-time">
+            <div>2XX8年 3月 8日 (日)</div>
+            <div class="text-4xl mt-2">10 : 30 〜 16 : 30</div>
+        </div>
+
+        <!-- Đoạn giới thiệu -->
+        <div class="description text-lg px-4">
+            <p>
+                <ruby>外国人向<rt>がいこくじんむ</rt></ruby>け<ruby>就職<rt>しゅうしょく</rt></ruby>フェアを<ruby>開催<rt>かいさい</rt></ruby>します。<ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>きたい<ruby>人<rt>ひと</rt></ruby>、<ruby>日系企業<rt>にっけいきぎょう</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>きたい<ruby>人<rt>ひと</rt></ruby>はぜひご<ruby>参加<rt>さんか</rt></ruby>ください。みなさんを<ruby>採用<rt>さいよう</rt></ruby>したいグローバル<ruby>企業約<rt>きぎょうやく</rt></ruby> 50 <ruby>社<rt>しゃ</rt></ruby>が<ruby>集合<rt>しゅうごう</rt></ruby>します。<ruby>当日<rt>とうじつ</rt></ruby>は、<ruby>会社説明会<rt>かいしゃせつめいかい</rt></ruby>のほか、<ruby>各種相談<rt>かくしゅそうだん</rt></ruby>コーナー（<ruby>就職相談<rt>しゅうしょくそうだん</rt></ruby>、ビザ・<ruby>住<rt>す</rt></ruby>まいの<ruby>相談<rt>そうだん</rt></ruby>）や、<ruby>就活<rt>しゅうかつ</rt></ruby>を<ruby>経験<rt>けいけん</rt></ruby>して<ruby>日本企業<rt>にほんきぎょう</rt></ruby>で<ruby>活躍<rt>かつやく</rt></ruby>する<ruby>留学生<rt>りゅうがくせい</rt></ruby> OB、OG（<ruby>先輩<rt>せんぱい</rt></ruby>たち）の<ruby>体験発表<rt>たいけんはっぴょう</rt></ruby>なども<ruby>予定<rt>よてい</rt></ruby>しております。
+            </p>
+        </div>
+
+        <!-- Địa điểm -->
+        <div class="info-grid px-4">
+            <div class="info-label"><ruby>場所<rt>ばしょ</rt></ruby></div>
+            <div class="space-y-2">
+                <p class="font-bold text-xl">
+                    <ruby>都立産業貿易<rt>とりつさんぎょうぼうえき</rt></ruby>センター 5F <ruby>展示場<rt>てんじじょう</rt></ruby>
+                </p>
+                <p>〒 105-0123 <ruby>東京都<rt>とうきょうと</rt></ruby>〇〇<ruby>区<rt>く</rt></ruby>〇〇<ruby>町<rt>まち</rt></ruby> 1 - 7 - 5</p>
+                <ul class="space-y-1">
+                    <li class="list-item">JR <ruby>大谷駅<rt>おおたにえき</rt></ruby> （<ruby>北口<rt>きたぐち</rt></ruby>）から 350m <ruby>徒歩<rt>とほ</rt></ruby> 5 <ruby>分<rt>ふん</rt></ruby></li>
+                    <li class="list-item">モノレール <ruby>大谷駅<rt>おおたにえき</rt></ruby> （<ruby>北口<rt>きたぐち</rt></ruby>）から 350m <ruby>徒歩<rt>とほ</rt></ruby> 5 <ruby>分<rt>ふん</rt></ruby></li>
+                    <li class="list-item"><ruby>地下鉄大谷駅<rt>ちかてつおおたにえき</rt></ruby>から 450m <ruby>徒歩<rt>とほ</rt></ruby> 8 <ruby>分<rt>ふん</rt></ruby></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Đối tượng tham gia -->
+        <div class="info-grid px-4 mt-8">
+            <div class="info-label"><ruby>参加対象者<rt>さんかたいしょうしゃ</rt></ruby></div>
+            <ul class="space-y-2">
+                <li class="list-item">グローバル<ruby>人材<rt>じんざい</rt></ruby>の<ruby>方<rt>かた</rt></ruby>すべて</li>
+                <li class="list-item">2XX9<ruby>年<rt>ねん</rt></ruby>に<ruby>大学<rt>だいがく</rt></ruby>・<ruby>大学院<rt>だいがくいん</rt></ruby>・<ruby>専門学校<rt>せんもんがっこう</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>する<ruby>外国人留学生<rt>がいこくじんりゅうがくせい</rt></ruby></li>
+                <li class="list-item">2XX8<ruby>年以前<rt>ねんいぜん</rt></ruby>に<ruby>日本<rt>にほん</rt></ruby>の<ruby>大学<rt>だいがく</rt></ruby>・<ruby>大学院等<rt>だいがくいんとう</rt></ruby>を<ruby>卒業<rt>そつぎょう</rt></ruby>した<ruby>外国人<rt>がいこくじん</rt></ruby></li>
+                <li class="list-item"><ruby>転職<rt>てんしょく</rt></ruby>を<ruby>希望<rt>きぼう</rt></ruby>する<ruby>日本<rt>にほん</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>く<ruby>外国人<rt>がいこくじん</rt></ruby></li>
+                <li class="list-item"><ruby>海外<rt>かいがい</rt></ruby>で<ruby>生活<rt>せいかつ</rt></ruby>する<ruby>日本語学習者<rt>にほんごがくしゅうしゃ</rt></ruby></li>
+                <li class="list-item">グローバル<ruby>企業<rt>きぎょう</rt></ruby>に<ruby>就職<rt>しゅうしょく</rt></ruby>したい<ruby>日本人学生<rt>にほんじんがくせい</rt></ruby></li>
+                <li class="list-item">グローバル<ruby>企業<rt>きぎょう</rt></ruby>に<ruby>転職<rt>てんしょく</rt></ruby>したい<ruby>日本人<rt>にほんじん</rt></ruby></li>
+            </ul>
+        </div>
+
+        <footer class="text-right text-sm text-gray-500 mt-12">
+            209
+        </footer>
+    </div>
+
+</body>
+</html>

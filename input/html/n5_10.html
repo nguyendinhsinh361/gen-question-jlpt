@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu lạc bộ thể thao Fuji - Lịch trình</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            padding: 2rem 1rem;
+        }
+
+        .notice-sheet {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #000;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hiệu ứng góc cuộn nhẹ */
+        .notice-sheet::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, transparent 50%, #f3f4f6 50%);
+            border-top: 1px solid #d1d5db;
+            border-left: 1px solid #d1d5db;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1.5px solid #333;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+            text-align: center;
+            font-size: 1.1rem;
+            height: 60px;
+        }
+
+        .main-title {
+            font-size: 2.25rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .intro-text {
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .section-header {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-cta {
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notice-sheet">
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">ふじスポーツクラブ</h1>
+        </header>
+
+        <!-- Lời mời gọi -->
+        <section class="intro-text">
+            <p>いっしょに スポーツを しませんか！</p>
+            <p class="text-lg">
+                ※よるの <ruby>時間<rt>じかん</rt></ruby>も ありますから、しごとが おわった あとでも<br>
+                だいじょうぶです。
+            </p>
+        </section>
+
+        <!-- Lịch trình -->
+        <section>
+            <div class="section-header">
+                <span class="text-2xl">●</span>
+                <span>4<ruby>月<rt>がつ</rt></ruby>からの <ruby>時間<rt>じかん</rt></ruby></span>
+            </div>
+
+            <table>
+                <tbody>
+                    <!-- Swimming -->
+                    <tr>
+                        <td class="font-bold">すいえい</td>
+                        <td>
+                            <ruby>火<rt>か</rt></ruby>・<ruby>木<rt>もく</rt></ruby>
+                        </td>
+                        <td>
+                            <ruby>午前<rt>ごぜん</rt></ruby> 7:00 ～ <ruby>午後<rt>ごご</rt></ruby> 8:30
+                        </td>
+                    </tr>
+                    <!-- Tennis -->
+                    <tr>
+                        <td class="font-bold">テニス</td>
+                        <td>
+                            <ruby>月<rt>げつ</rt></ruby>・<ruby>水<rt>すい</rt></ruby>・<ruby>金<rt>きん</rt></ruby>
+                        </td>
+                        <td>
+                            <ruby>午前<rt>ごぜん</rt></ruby> 6:30 ～ <ruby>午後<rt>ごご</rt></ruby> 8:30
+                        </td>
+                    </tr>
+                    <!-- Dance -->
+                    <tr>
+                        <td class="font-bold">ダンス</td>
+                        <td>
+                            <ruby>月<rt>げつ</rt></ruby>・<ruby>金<rt>きん</rt></ruby>
+                        </td>
+                        <td>
+                            <ruby>午前<rt>ごぜん</rt></ruby> 6:00 ～ <ruby>午後<rt>ごご</rt></ruby> 8:00
+                        </td>
+                    </tr>
+                    <!-- Golf -->
+                    <tr>
+                        <td class="font-bold">ゴルフ</td>
+                        <td>
+                            <ruby>土<rt>ど</rt></ruby>
+                        </td>
+                        <td>
+                            <ruby>午前<rt>ごぜん</rt></ruby> 10:00 ～ <ruby>午後<rt>ごご</rt></ruby> 12:00
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Liên hệ -->
+        <footer class="footer-cta">
+            <div class="flex items-start gap-2">
+                <span class="text-2xl">◎</span>
+                <p>
+                    <ruby>好<rt>す</rt></ruby>きな スポーツ、したい スポーツを えらんで、お<ruby>電話<rt>でんわ</rt></ruby>ください！
+                </p>
+            </div>
+            <div class="mt-4 text-2xl font-bold tracking-widest pl-8">
+                TEL : 012 - 345 - 6789
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

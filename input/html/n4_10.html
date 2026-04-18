@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青野市ニュース - 春を楽しもう</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f9fafb;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        .document-page {
+            max-width: 950px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #ccc;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #444;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1.5px solid #000;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 12px 8px;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #fdfdfd;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .col-name { width: 42%; text-align: left; }
+        .col-date { width: 13%; text-align: center; }
+        .col-place { width: 25%; text-align: center; }
+        .col-gather { width: 20%; text-align: center; }
+
+        .tulip-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="document-page">
+        <!-- Tiêu đề chính -->
+        <header class="text-center mb-8">
+            <h1 class="text-xl font-bold tracking-widest">
+                <ruby>青野市<rt>あおのし</rt></ruby>ニュース
+            </h1>
+        </header>
+
+        <!-- Phần giới thiệu và hình minh họa -->
+        <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+            <div class="space-y-4">
+                <h2 class="text-lg font-bold">「<ruby>春<rt>はる</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しもう」</h2>
+                <p class="text-lg">
+                    <ruby>青野市<rt>あおのし</rt></ruby>では、<ruby>毎月<rt>まいつき</rt></ruby>、<ruby>食事会<rt>しょくじかい</rt></ruby>や<ruby>音楽会<rt>おんがくかい</rt></ruby>など<br>
+                    を<ruby>開<rt>ひら</rt></ruby>いています。
+                </p>
+                <p class="text-lg pt-4">3<ruby>月<rt>がつ</rt></ruby>と4<ruby>月<rt>がつ</rt></ruby>の<ruby>予定<rt>よてい</rt></ruby></p>
+            </div>
+            
+            <!-- Minh họa hoa Tulip bằng SVG -->
+            <div class="tulip-container w-full md:w-auto mt-4 md:mt-0">
+                <svg width="180" height="100" viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Vẽ 4 bông hoa tulip -->
+                    <g transform="translate(10, 10)">
+                        <rect x="35" y="60" width="2" height="30" fill="#2d5a27"/>
+                        <path d="M30 60 Q36 30 42 60 Z" fill="#ff6b6b"/>
+                        <path d="M36 60 L36 90" stroke="#2d5a27" stroke-width="2"/>
+                    </g>
+                    <g transform="translate(50, 10)">
+                        <rect x="35" y="60" width="2" height="30" fill="#2d5a27"/>
+                        <path d="M30 60 Q36 30 42 60 Z" fill="#ffd93d"/>
+                        <path d="M36 60 L36 90" stroke="#2d5a27" stroke-width="2"/>
+                    </g>
+                    <g transform="translate(90, 10)">
+                        <rect x="35" y="60" width="2" height="30" fill="#2d5a27"/>
+                        <path d="M30 60 Q36 30 42 60 Z" fill="#ff6b6b"/>
+                        <path d="M36 60 L36 90" stroke="#2d5a27" stroke-width="2"/>
+                    </g>
+                    <g transform="translate(130, 10)">
+                        <rect x="35" y="60" width="2" height="30" fill="#2d5a27"/>
+                        <path d="M30 60 Q36 30 42 60 Z" fill="#ffd93d"/>
+                        <path d="M36 60 L36 90" stroke="#2d5a27" stroke-width="2"/>
+                    </g>
+                    <!-- Lá/Cỏ ở dưới -->
+                    <path d="M20 90 Q90 80 160 90" fill="none" stroke="#2d5a27" stroke-width="3"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Bảng lịch trình -->
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-name"><ruby>名前<rt>なまえ</rt></ruby>（<ruby>料金<rt>りょうきん</rt></ruby>）</th>
+                    <th class="col-date"><ruby>月<rt>つき</rt></ruby>・<ruby>日<rt>ひ</rt></ruby></th>
+                    <th class="col-place"><ruby>場所<rt>ばしょ</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby></th>
+                    <th class="col-gather"><ruby>集<rt>あつ</rt></ruby>まる<ruby>時間<rt>じかん</rt></ruby></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dòng 1 -->
+                <tr>
+                    <td class="col-name">
+                        ① <ruby>食事会<rt>しょくじかい</rt></ruby> (500 <ruby>円<rt>えん</rt></ruby>) <ruby>青野市<rt>あおのし</rt></ruby>の<ruby>有名<rt>ゆうめい</rt></ruby>な<ruby>料理<rt>りょうり</rt></ruby>を<ruby>一<rt>いっ</rt></ruby><ruby>緒<rt>しょ</rt></ruby>に<ruby>作<rt>つく</rt></ruby>って、<ruby>食<rt>た</rt></ruby>べます。
+                    </td>
+                    <td class="col-date">3/5<br>(<ruby>日<rt>にち</rt></ruby>)</td>
+                    <td class="col-place"><ruby>花村小学校<rt>はなむらしょうがっこう</rt></ruby><br>11 <ruby>時<rt>じ</rt></ruby>～14 <ruby>時<rt>じ</rt></ruby></td>
+                    <td class="col-gather">11 <ruby>時<rt>じ</rt></ruby></td>
+                </tr>
+                <!-- Dòng 2 -->
+                <tr>
+                    <td class="col-name">
+                        ② <ruby>音楽会<rt>おんがくかい</rt></ruby> (800 <ruby>円<rt>えん</rt></ruby>) お<ruby>茶<rt>ちゃ</rt></ruby>とお<ruby>菓子<rt>かし</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しみながら、<ruby>音楽<rt>おんがく</rt></ruby>を<ruby>聞<rt>き</rt></ruby>きます。
+                    </td>
+                    <td class="col-date">3/11<br>(<ruby>土<rt>ど</rt></ruby>)</td>
+                    <td class="col-place"><ruby>さくら寺<rt>てら</rt></ruby><br>14 <ruby>時<rt>じ</rt></ruby>～16 <ruby>時<rt>じ</rt></ruby></td>
+                    <td class="col-gather">13 <ruby>時<rt>じ</rt></ruby> 50 <ruby>分<rt>ふん</rt></ruby></td>
+                </tr>
+                <!-- Dòng 3 -->
+                <tr>
+                    <td class="col-name">
+                        ③ <ruby>音楽会<rt>おんがくかい</rt></ruby> (950 <ruby>円<rt>えん</rt></ruby>) ピアノやバイオリンのコンサートです。
+                    </td>
+                    <td class="col-date">4/8<br>(<ruby>土<rt>ど</rt></ruby>)</td>
+                    <td class="col-place"><ruby>市民体育館<rt>しみんたいいくかん</rt></ruby><br>17 <ruby>時<rt>じ</rt></ruby>～19 <ruby>時<rt>じ</rt></ruby></td>
+                    <td class="col-gather">16 <ruby>時<rt>じ</rt></ruby> 50 <ruby>分<rt>ふん</rt></ruby></td>
+                </tr>
+                <!-- Dòng 4 -->
+                <tr>
+                    <td class="col-name">
+                        ④ バス<ruby>旅行<rt>りょこう</rt></ruby> (800 <ruby>円<rt>えん</rt></ruby>) バスで<ruby>東川海岸<rt>ひがしかわかいがん</rt></ruby>に<ruby>行<rt>い</rt></ruby>って、<ruby>海<rt>うみ</rt></ruby>を<ruby>見<rt>み</rt></ruby>ながらお<ruby>弁当<rt>べんとう</rt></ruby>を<ruby>食<rt>た</rt></ruby>べます。
+                    </td>
+                    <td class="col-date">4/15<br>(<ruby>土<rt>ど</rt></ruby>)</td>
+                    <td class="col-place"><ruby>東川海岸<rt>ひがしかわかいがん</rt></ruby><br>8 <ruby>時<rt>じ</rt></ruby>～14 <ruby>時<rt>じ</rt></ruby></td>
+                    <td class="col-gather"><ruby>市民体育館<rt>しみんたいいくかん</rt></ruby>に<br>8 <ruby>時<rt>じ</rt></ruby></td>
+                </tr>
+                <!-- Dòng 5 -->
+                <tr>
+                    <td class="col-name">
+                        ⑤ お<ruby>祭<rt>まつり</rt></ruby> (お<ruby>金<rt>かね</rt></ruby>はかかりません) <ruby>毎年行<rt>まいとしおこな</rt></ruby>われているお<ruby>祭<rt>まつり</rt></ruby>です。<ruby>歌<rt>うた</rt></ruby>や<ruby>踊<rt>おど</rt></ruby>りを<ruby>楽<rt>たの</rt></ruby>しみましょう。
+                    </td>
+                    <td class="col-date">4/23<br>(<ruby>日<rt>にち</rt></ruby>)</td>
+                    <td class="col-place"><ruby>東公園<rt>ひがしこうえん</rt></ruby><br>17 <ruby>時<rt>じ</rt></ruby>～21 <ruby>時<rt>じ</rt></ruby></td>
+                    <td class="col-gather">17 <ruby>時<rt>じ</rt></ruby>より<ruby>後<rt>あと</rt></ruby>の<br><ruby>好<rt>す</rt></ruby>きなとき</td>
+                </tr>
+                <!-- Dòng 6 -->
+                <tr>
+                    <td class="col-name">
+                        ⑥ <ruby>音楽会<rt>おんがくかい</rt></ruby> (1,200 <ruby>円<rt>えん</rt></ruby>) レストランで<ruby>食事<rt>しょくじ</rt></ruby>をしながら、ピアノを<ruby>楽<rt>たの</rt></ruby>しみましょう。
+                    </td>
+                    <td class="col-date">4/29<br>(<ruby>土<rt>ど</rt></ruby>)</td>
+                    <td class="col-place">レストラン「<ruby>黒川<rt>くろかわ</rt></ruby>」<br>12 <ruby>時<rt>じ</rt></ruby>～14 <ruby>時<rt>じ</rt></ruby></td>
+                    <td class="col-gather">11 <ruby>時<rt>じ</rt></ruby> 50 <ruby>分<rt>ふん</rt></ruby></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Chân trang -->
+        <footer class="mt-8 pt-4 border-t border-gray-300">
+            <div class="flex flex-col md:flex-row justify-between items-start text-sm">
+                <p>
+                    <ruby>青野市<rt>あおのし</rt></ruby>「<ruby>春<rt>はる</rt></ruby>を<ruby>楽<rt>たの</rt></ruby>しもう」<ruby>係<rt>かかり</rt></ruby>
+                    &nbsp; <ruby>電話<rt>でんわ</rt></ruby>：(0410) 28-1002
+                </p>
+                <p>
+                    E メール：tanoshimo@aono.jp
+                </p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

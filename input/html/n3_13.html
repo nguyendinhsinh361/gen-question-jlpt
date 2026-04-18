@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本語クラス参加者のお知らせ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .info-header {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px 4px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #fff;
+            font-weight: normal;
+        }
+
+        .legend-section {
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .text-block {
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .note-list {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .note-list li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .note-list li::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+        }
+
+        .footer-info {
+            text-align: right;
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề -->
+        <header>
+            <h1 class="main-title">
+                <ruby>日本語<rt>にほんご</rt></ruby>クラス<ruby>参加者<rt>さんかしゃ</rt></ruby>のお<ruby>知<rt>し</rt></ruby>らせ
+            </h1>
+        </header>
+
+        <!-- Thông tin chung -->
+        <div class="info-header space-y-1">
+            <p>「<ruby>期間<rt>きかん</rt></ruby>」 2015<ruby>年<rt>ねん</rt></ruby>2<ruby>月<rt>がつ</rt></ruby>2<ruby>日<rt>にち</rt></ruby>（<ruby>月<rt>げつ</rt></ruby>） ～ 5<ruby>月<rt>がつ</rt></ruby>23<ruby>日<rt>にち</rt></ruby>（<ruby>土<rt>ど</rt></ruby>） <ruby>週一回全<rt>しゅういっかいぜん</rt></ruby>15<ruby>回<rt>かい</rt></ruby></p>
+            <p>「<ruby>料金<rt>りょうきん</rt></ruby>」 5000 <ruby>円<rt>えん</rt></ruby></p>
+            
+            <div class="pt-4">
+                <p>「レベル」 <ruby>初級<rt>しょきゅう</rt></ruby>：<ruby>初<rt>はじ</rt></ruby>めて<ruby>日本語勉強<rt>にほんごべんきょう</rt></ruby>する<ruby>人<rt>ひと</rt></ruby></p>
+                <p class="pl-14"><ruby>中級<rt>ちゅうきゅう</rt></ruby>：<ruby>日常生活<rt>にちじょうせいかつ</rt></ruby>の<ruby>会話<rt>かいわ</rt></ruby>がたいへんできる<ruby>人<rt>ひと</rt></ruby></p>
+            </div>
+        </div>
+
+        <!-- Bảng danh sách lớp học -->
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 25%;"><ruby>クラス名<rt>めい</rt></ruby></th>
+                    <th rowspan="2" style="width: 15%;">レベル</th>
+                    <th colspan="4" style="width: 32%;"><ruby>内容<rt>ないよう</rt></ruby></th>
+                    <th colspan="2" style="width: 28%;"><ruby>日時<rt>にちじ</rt></ruby></th>
+                </tr>
+                <tr>
+                    <th style="font-size: 0.8rem;"><ruby>話<rt>はな</rt></ruby>す</th>
+                    <th style="font-size: 0.8rem;"><ruby>聞<rt>き</rt></ruby>く</th>
+                    <th style="font-size: 0.8rem;"><ruby>書<rt>か</rt></ruby>く</th>
+                    <th style="font-size: 0.8rem;"><ruby>読<rt>よ</rt></ruby>む</th>
+                    <th><ruby>曜日<rt>ようび</rt></ruby></th>
+                    <th><ruby>時間<rt>じかん</rt></ruby></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><ruby>日本語<rt>にほんご</rt></ruby> 1</td>
+                    <td><ruby>初級<rt>しょきゅう</rt></ruby></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><ruby>土<rt>ど</rt></ruby></td>
+                    <td>15:00-17:00</td>
+                </tr>
+                <tr>
+                    <td><ruby>日本語<rt>にほんご</rt></ruby> 2</td>
+                    <td><ruby>中級<rt>ちゅうきゅう</rt></ruby></td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td>○</td>
+                    <td><ruby>金<rt>きん</rt></ruby></td>
+                    <td>15:00-17:00</td>
+                </tr>
+                <tr>
+                    <td><ruby>会話<rt>かいわ</rt></ruby> 1</td>
+                    <td><ruby>初級<rt>しょきゅう</rt></ruby></td>
+                    <td>＊</td>
+                    <td>＊</td>
+                    <td>×</td>
+                    <td>×</td>
+                    <td><ruby>木<rt>もく</rt></ruby></td>
+                    <td>19:00-21:00</td>
+                </tr>
+                <tr>
+                    <td><ruby>会話<rt>かいわ</rt></ruby> 2</td>
+                    <td><ruby>中級<rt>ちゅうきゅう</rt></ruby></td>
+                    <td>＊</td>
+                    <td>＊</td>
+                    <td>×</td>
+                    <td>×</td>
+                    <td><ruby>木<rt>もく</rt></ruby></td>
+                    <td>15:00-17:00</td>
+                </tr>
+                <tr>
+                    <td><ruby>会話<rt>かいわ</rt></ruby> 3</td>
+                    <td><ruby>中級以上<rt>ちゅうきゅういじょう</rt></ruby></td>
+                    <td>＊</td>
+                    <td>＊</td>
+                    <td>×</td>
+                    <td>□</td>
+                    <td><ruby>土<rt>ど</rt></ruby></td>
+                    <td>19:00-21:00</td>
+                </tr>
+                <tr>
+                    <td>ニュースについて<ruby>話<rt>はな</rt></ruby>そう</td>
+                    <td><ruby>中級以上<rt>ちゅうきゅういじょう</rt></ruby></td>
+                    <td>＊</td>
+                    <td>＊</td>
+                    <td>□</td>
+                    <td>×</td>
+                    <td><ruby>水<rt>すい</rt></ruby></td>
+                    <td>19:00-21:00</td>
+                </tr>
+                <tr>
+                    <td><ruby>小説<rt>しょうせつ</rt></ruby>を<ruby>読<rt>よ</rt></ruby>もう</td>
+                    <td><ruby>中級以上<rt>ちゅうきゅういじょう</rt></ruby></td>
+                    <td>□</td>
+                    <td>×</td>
+                    <td>□</td>
+                    <td>＊</td>
+                    <td><ruby>金<rt>きん</rt></ruby></td>
+                    <td>19:00-21:00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Chú giải ký hiệu -->
+        <div class="legend-section">
+            <span>＊<ruby>中心<rt>ちゅうしん</rt></ruby>に<ruby>勉強<rt>べんきょう</rt></ruby>します</span>
+            <span>○<ruby>勉強<rt>べんきょう</rt></ruby>します</span>
+            <span>□すこし<ruby>勉強<rt>べんきょう</rt></ruby>します</span>
+            <span>×<ruby>勉強<rt>べんきょう</rt></ruby>しません</span>
+        </div>
+
+        <!-- Cách đăng ký -->
+        <section class="text-block">
+            <h3 class="section-title">「<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>方法<rt>ほうほう</rt></ruby>」</h3>
+            <p>
+                <ruby>名前<rt>なまえ</rt></ruby>、<ruby>住所<rt>じゅうしょ</rt></ruby>、<ruby>電話番号<rt>でんわばんごう</rt></ruby>、<ruby>希望<rt>きぼう</rt></ruby>クラス<ruby>名<rt>めい</rt></ruby>を<ruby>書<rt>か</rt></ruby>いて、<ruby>下<rt>した</rt></ruby>のメールアドレスに<ruby>送<rt>おく</rt></ruby>ってください。<ruby>受付後<rt>うけつけご</rt></ruby>、レベルを<ruby>決<rt>き</rt></ruby>めるためのインタビューをします。センターからメールを<ruby>送<rt>おく</rt></ruby>りますので、<ruby>指定<rt>してい</rt></ruby>した<ruby>日<rt>ひ</rt></ruby>に<ruby>受<rt>う</rt></ruby>けてください。<ruby>指定<rt>してい</rt></ruby>した<ruby>日<rt>ひ</rt></ruby>に<ruby>来<rt>こ</rt></ruby>られない<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>別<rt>べつ</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>に<ruby>受<rt>う</rt></ruby>けてもらいますので、ご<ruby>連絡<rt>れんらく</rt></ruby>ください。
+            </p>
+        </section>
+
+        <!-- Chú ý -->
+        <section class="text-block">
+            <h3 class="section-title">「<ruby>注意<rt>ちゅうい</rt></ruby>」</h3>
+            <ul class="note-list">
+                <li>インタビューの<ruby>結果<rt>けっか</rt></ruby>によって、<ruby>希望<rt>きぼう</rt></ruby>するクラスを<ruby>受<rt>う</rt></ruby>けられない<ruby>場合<rt>ばあい</rt></ruby>があります。</li>
+                <li><ruby>希望者<rt>きぼうしゃ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ない<ruby>場合<rt>ばあい</rt></ruby>、クラスが<ruby>開<rt>ひら</rt></ruby>かれないことがあります。</li>
+                <li><ruby>料金<rt>りょうきん</rt></ruby>はクラス<ruby>開始日<rt>かいしび</rt></ruby>までにお<ruby>支払<rt>しはら</rt></ruby>い<ruby>下<rt>くだ</rt></ruby>さい。<ruby>一度支払<rt>いちどしはら</rt></ruby>った<ruby>料金<rt>りょうきん</rt></ruby>は<ruby>理由<rt>りゆう</rt></ruby>は<ruby>関係<rt>かんけい</rt></ruby>なくお<ruby>返<rt>かえ</rt></ruby>しできません。</li>
+                <li><ruby>連絡<rt>れんらく</rt></ruby>をしないで 2 <ruby>回以上欠席<rt>かいいじょうけっせき</rt></ruby>した<ruby>場合<rt>ばあい</rt></ruby>、それ<ruby>以降<rt>いこう</rt></ruby>の<ruby>出席<rt>しゅっせき</rt></ruby>をお<ruby>断<rt>ことわ</rt></ruby>りすることがあります。</li>
+            </ul>
+        </section>
+
+        <!-- Chân trang -->
+        <footer class="footer-info">
+            <p class="font-bold"><ruby>関東市国際交流<rt>かんとうしこくさいこうりゅう</rt></ruby>センター</p>
+            <p><ruby>電話<rt>でんわ</rt></ruby>：01-5678-98760 （<ruby>平日<rt>へいじつ</rt></ruby>：13:00-21:30）</p>
+            <p>Eメール：kokusaionanto_city.com</p>
+        </footer>
+    </div>
+
+</body>
+</html>

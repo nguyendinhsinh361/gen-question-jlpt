@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương trình du lịch hè - XYZ Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .flyer-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .header-top {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+
+        .main-header {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.2em;
+        }
+
+        table {
+            width: 100%;
+            border: 1.5px solid #000;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 1.5rem;
+            vertical-align: top;
+        }
+
+        .option-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .option-detail {
+            padding-left: 2rem;
+        }
+
+        .price-tag {
+            text-align: right;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .date-range {
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.15rem;
+            margin-top: 0.5rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #444;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="flyer-container">
+        <!-- Thông tin công ty ở góc trên bên phải -->
+        <div class="header-top">
+            <div class="text-xl font-bold">XYZ <ruby>旅行<rt>りょこう</rt></ruby></div>
+            <div class="text-lg"><ruby>電話<rt>でんわ</rt></ruby>：012-34-5678</div>
+        </div>
+
+        <!-- Tiêu đề chính -->
+        <h1 class="main-header">
+            <ruby>夏<rt>なつ</rt></ruby>の <ruby>旅行<rt>りょこう</rt></ruby>
+        </h1>
+
+        <!-- Bảng danh sách các lựa chọn du lịch -->
+        <table>
+            <tbody>
+                <!-- Option 1 -->
+                <tr>
+                    <td>
+                        <div class="option-title">①<ruby>山<rt>やま</rt></ruby>の <ruby>花<rt>はな</rt></ruby>の しゃしんを とりましょう。</div>
+                        <div class="option-detail">
+                            <ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>立木町<rt>たちきまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="date-range">
+                                    8<ruby>月<rt>がつ</rt></ruby> 20<ruby>日<rt>にち</rt></ruby>(<ruby>火<rt>か</rt></ruby>) ～ 21<ruby>日<rt>にち</rt></ruby>(<ruby>水<rt>すい</rt></ruby>)
+                                </div>
+                                <div class="price-tag text-2xl">
+                                    15,000 <ruby>円<rt>えん</rt></ruby>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Option 2 -->
+                <tr>
+                    <td>
+                        <div class="option-title">②すずしい <ruby>山<rt>やま</rt></ruby>で <ruby>休<rt>やす</rt></ruby>みましょう。</div>
+                        <div class="option-detail">
+                            バスで <ruby>川北町<rt>かわきたまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="date-range">
+                                    8<ruby>月<rt>がつ</rt></ruby> 20<ruby>日<rt>にち</rt></ruby>(<ruby>火<rt>か</rt></ruby>) ～ 22<ruby>日<rt>にち</rt></ruby>(<ruby>木<rt>もく</rt></ruby>)
+                                </div>
+                                <div class="price-tag text-2xl">
+                                    23,000 <ruby>円<rt>えん</rt></ruby>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Option 3 -->
+                <tr>
+                    <td>
+                        <div class="option-title">③<ruby>海<rt>うみ</rt></ruby>で <ruby>魚<rt>さかな</rt></ruby>と あそびましょう。</div>
+                        <div class="option-detail">
+                            ひこうきで <ruby>花中町<rt>はななかまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="date-range">
+                                    8<ruby>月<rt>がつ</rt></ruby> 21<ruby>日<rt>にち</rt></ruby>(<ruby>水<rt>すい</rt></ruby>) ～ 24<ruby>日<rt>にち</rt></ruby>(<ruby>土<rt>ど</rt></ruby>)
+                                </div>
+                                <div class="price-tag text-2xl">
+                                    28,000 <ruby>円<rt>えん</rt></ruby>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Option 4 -->
+                <tr>
+                    <td>
+                        <div class="option-title">④きれいな <ruby>海<rt>うみ</rt></ruby>で <ruby>泳<rt>およ</rt></ruby>ぎましょう。</div>
+                        <div class="option-detail">
+                            <ruby>電車<rt>でんしゃ</rt></ruby>と バスで <ruby>西田町<rt>にしだまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。
+                            <div class="flex justify-between items-end mt-4">
+                                <div class="date-range">
+                                    8<ruby>月<rt>がつ</rt></ruby> 21<ruby>日<rt>にち</rt></ruby>(<ruby>水<rt>すい</rt></ruby>) ～ 22<ruby>日<rt>にち</rt></ruby>(<ruby>木<rt>もく</rt></ruby>)
+                                </div>
+                                <div class="price-tag text-2xl">
+                                    18,000 <ruby>円<rt>えん</rt></ruby>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

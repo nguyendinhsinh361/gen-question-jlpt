@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自然教室に参加しませんか</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-tag {
+            border: 1.5px solid #333;
+            padding: 4px 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .section-tag::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background-color: #333;
+            margin-right: 8px;
+        }
+
+        /* Lưới chương trình */
+        .program-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-box {
+            border: 1px solid #333;
+            padding: 1rem;
+            min-height: 200px;
+        }
+
+        .program-header {
+            font-weight: bold;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .info-list {
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            margin-bottom: 0.25rem;
+        }
+
+        .bank-info-box {
+            border: 1px solid #ccc;
+            padding: 0.75rem;
+            text-align: center;
+            margin: 1rem auto;
+            max-width: 600px;
+            font-size: 1.1rem;
+        }
+
+        .footer-contact {
+            text-align: right;
+            margin-top: 2rem;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                <ruby>自然教室<rt>しぜんきょうしつ</rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>しませんか
+            </h1>
+            <p class="mb-8 text-lg">
+                <ruby>青山自然<rt>あおやましぜん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>では、<ruby>夏休<rt>なつやす</rt></ruby>み<ruby>期間中<rt>きかんちゅう</rt></ruby>に<ruby>自然<rt>しぜん</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>遊<rt>あそ</rt></ruby>んだり<ruby>勉強<rt>べんきょう</rt></ruby>したりする<ruby>自然教室<rt>しぜんきょうしつ</rt></ruby>を<ruby>開<rt>ひら</rt></ruby>きます。ぜひ<ruby>親子<rt>おやこ</rt></ruby>でご<ruby>参加<rt>さんか</rt></ruby>ください。
+            </p>
+        </header>
+
+        <!-- PHẦN 1: CHƯƠNG TRÌNH ĐI TRONG NGÀY -->
+        <section class="mb-12">
+            <div class="flex items-center gap-4 mb-2">
+                <div class="section-tag">
+                    <ruby>日帰<rt>ひがえ</rt></ruby>りプログラム
+                </div>
+                <p class="text-sm"><ruby>期間中<rt>きかんちゅう</rt></ruby>は<ruby>毎日行<rt>まいにちおこな</rt></ruby>っています。<ruby>予約<rt>よやく</rt></ruby>はいりません。</p>
+            </div>
+
+            <div class="program-grid">
+                <!-- Chương trình 1 -->
+                <div class="program-box">
+                    <div class="program-header">①<ruby>森<rt>もり</rt></ruby>を<ruby>歩<rt>ある</rt></ruby>こう</div>
+                    <p class="text-sm">
+                        <ruby>地図<rt>ちず</rt></ruby>を<ruby>見<rt>み</rt></ruby>ながら、<ruby>森林散歩<rt>しんりんさんぽ</rt></ruby>コースを<ruby>散歩<rt>さんぽ</rt></ruby>します。
+                    </p>
+                    <div class="info-list">
+                        <div class="info-row">
+                            <span><ruby>期間<rt>きかん</rt></ruby></span>
+                            <span>：8 <ruby>月<rt>がつ</rt></ruby> 1 <ruby>日<rt>にち</rt></ruby> ～ 15 <ruby>日<rt>にち</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span><ruby>料金<rt>りょうきん</rt></ruby></span>
+                            <span>：<ruby>大人<rt>おとな</rt></ruby> 800 <ruby>円<rt>えん</rt></ruby> &nbsp; <ruby>子<rt>こ</rt></ruby>ども 600 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span><ruby>集合時間<rt>しゅうごうじかん</rt></ruby></span>
+                            <span>：<ruby>初級<rt>しょきゅう</rt></ruby>コース<ruby>午前<rt>ごぜん</rt></ruby> 9 <ruby>時<rt>じ</rt></ruby><br><ruby>上級<rt>じょうきゅう</rt></ruby>コース<ruby>午後<rt>ごご</rt></ruby> 1 <ruby>時<rt>じ</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chương trình 2 -->
+                <div class="program-box">
+                    <div class="program-header">②<ruby>自然<rt>しぜん</rt></ruby>を<ruby>観察<rt>かんさつ</rt></ruby>しよう</div>
+                    <p class="text-sm">
+                        <ruby>自然観察<rt>しぜんかんさつ</rt></ruby>ノートを<ruby>見<rt>み</rt></ruby>ながら、<ruby>鳥<rt>とり</rt></ruby>や<ruby>動物<rt>どうぶつ</rt></ruby>、<ruby>花<rt>はな</rt></ruby>などを<ruby>観察<rt>かんさつ</rt></ruby>します。
+                    </p>
+                    <div class="info-list">
+                        <div class="info-row">
+                            <span><ruby>期間<rt>きかん</rt></ruby></span>
+                            <span>：8 <ruby>月<rt>がつ</rt></ruby> 16 <ruby>日<rt>にち</rt></ruby> ～ 31 <ruby>日<rt>にち</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span><ruby>料金<rt>りょうきん</rt></ruby></span>
+                            <span>：<ruby>大人<rt>おとな</rt></ruby> 600 <ruby>円<rt>えん</rt></ruby> &nbsp;&nbsp;&nbsp; <ruby>子<rt>こ</rt></ruby>ども 300 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span><ruby>集合時間<rt>しゅうごうじかん</rt></ruby></span>
+                            <span>：<ruby>午前<rt>ごぜん</rt></ruby> 10 <ruby>時<rt>じ</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm ml-4 mt-2">
+                <ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>方法<rt>ほうほう</rt></ruby>：<ruby>当日<rt>とうじつ</rt></ruby>、<ruby>自然<rt>しぜん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>の<ruby>受付<rt>うけつけ</rt></ruby>で<ruby>直接<rt>ちょくせつ</rt></ruby>お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。
+            </p>
+        </section>
+
+        <!-- PHẦN 2: CHƯƠNG TRÌNH QUA ĐÊM -->
+        <section class="mb-12">
+            <div class="flex items-center gap-4 mb-2">
+                <div class="section-tag">
+                    1 <ruby>泊<rt>はく</rt></ruby> 2 <ruby>日<rt>にち</rt></ruby>プログラム
+                </div>
+                <p class="text-sm">1 <ruby>週間前<rt>しゅうかんまえ</rt></ruby>までに<ruby>予約<rt>よやく</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>です。</p>
+            </div>
+
+            <div class="program-grid">
+                <!-- Chương trình 3 -->
+                <div class="program-box">
+                    <div class="program-header">③<ruby>自然<rt>しぜん</rt></ruby>と<ruby>遊<rt>あそ</rt></ruby>ぼう</div>
+                    <p class="text-sm">
+                        <ruby>湖<rt>みずうみ</rt></ruby>で<ruby>小船<rt>こぶね</rt></ruby>に<ruby>乗<rt>の</rt></ruby>ったり、<ruby>魚<rt>さかな</rt></ruby>を<ruby>捕<rt>と</rt></ruby>ったり、<ruby>森<rt>もり</rt></ruby>で<ruby>木<rt>き</rt></ruby>に<ruby>登<rt>のぼ</rt></ruby>ったりします。
+                    </p>
+                    <div class="info-list mt-8">
+                        <div class="info-row">
+                            <span><ruby>日時<rt>にちじ</rt></ruby></span>
+                            <span>：8 <ruby>月<rt>がつ</rt></ruby> 15 <ruby>日<rt>にち</rt></ruby> ～ 16 <ruby>日<rt>にち</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span><ruby>料金<rt>りょうきん</rt></ruby></span>
+                            <span>：<ruby>大人<rt>おとな</rt></ruby> 10,000 <ruby>円<rt>えん</rt></ruby> &nbsp; <ruby>子<rt>こ</rt></ruby>ども 7,000 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chương trình 4 -->
+                <div class="program-box">
+                    <div class="program-header">④<ruby>星空<rt>ほしぞら</rt></ruby>を<ruby>観察<rt>かんさつ</rt></ruby>しよう</div>
+                    <p class="text-sm">
+                        <ruby>昼<rt>ひる</rt></ruby>は<ruby>星<rt>ほし</rt></ruby>についての<ruby>話<rt>はなし</rt></ruby>を<ruby>聞<rt>き</rt></ruby>き、<ruby>夜<rt>よる</rt></ruby>は<ruby>星<rt>ほし</rt></ruby>を<ruby>観察<rt>かんさつ</rt></ruby>します。
+                    </p>
+                    <div class="info-list mt-8">
+                        <div class="info-row">
+                            <span><ruby>日時<rt>にちじ</rt></ruby></span>
+                            <span>：8 <ruby>月<rt>がつ</rt></ruby> 17 <ruby>日<rt>にち</rt></ruby> ～ 18 <ruby>日<rt>にち</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span><ruby>料金<rt>りょうきん</rt></ruby></span>
+                            <span>：<ruby>大人<rt>おとな</rt></ruby> 12,000 <ruby>円<rt>えん</rt></ruby> &nbsp; <ruby>子<rt>こ</rt></ruby>ども 9,000 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm ml-4 mt-2">
+                <ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>方法<rt>ほうほう</rt></ruby>：お<ruby>電話<rt>でんわ</rt></ruby>でご<ruby>予約<rt>よやく</rt></ruby>ください。<ruby>料金<rt>りょうきん</rt></ruby>のお<ruby>振込確認後<rt>ふりこみかくにんご</rt></ruby>、<ruby>自然<rt>しぜん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>から<ruby>詳<rt>くわ</rt></ruby>しい<ruby>案内<rt>あんない</rt></ruby>をお<ruby>送<rt>おく</rt></ruby>りします。
+            </p>
+        </section>
+
+        <!-- Phương thức thanh toán -->
+        <section class="mt-8 border-t border-gray-300 pt-4">
+            <h3 class="font-bold mb-2"><ruby>支払<rt>しはら</rt></ruby>い<ruby>方法<rt>ほうほう</rt></ruby>：</h3>
+            <ul class="list-disc pl-8 space-y-1">
+                <li><ruby>日帰<rt>ひがえ</rt></ruby>りプログラムは、<ruby>当日<rt>とうじつ</rt></ruby>、お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みと<ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>現金<rt>げんきん</rt></ruby>でお<ruby>支払<rt>しはら</rt></ruby>いください。</li>
+                <li>1 <ruby>泊<rt>はく</rt></ruby> 2 <ruby>日<rt>にち</rt></ruby>プログラムは、お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みの<ruby>後<rt>あと</rt></ruby> 3 <ruby>日以内<rt>にちいない</rt></ruby>に、<ruby>以下<rt>いか</rt></ruby>の<ruby>銀行口座<rt>ぎんこうこうざ</rt></ruby>にお<ruby>振込<rt>ふりこみ</rt></ruby>ください。</li>
+            </ul>
+
+            <div class="bank-info-box">
+                [ <ruby>大山銀行<rt>おおやまぎんこう</rt></ruby> &nbsp; <ruby>青山支店<rt>あおやましてん</rt></ruby> &nbsp; <ruby>普通<rt>ふつう</rt></ruby> &nbsp; 1548697 &nbsp; <ruby>青山市自然<rt>あおやまししぜん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby> ]
+            </div>
+        </section>
+
+        <!-- Thông tin liên hệ chân trang -->
+        <footer class="footer-contact">
+            <p><ruby>予約<rt>よやく</rt></ruby>・お<ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせ：<ruby>青山自然<rt>あおやましぜん</rt></ruby>の<ruby>家<rt>いえ</rt></ruby>（<ruby>電話<rt>でんわ</rt></ruby>：05-1123-4555）</p>
+            <p><ruby>青山市<rt>あおやまし</rt></ruby>あおい<ruby>町<rt>まち</rt></ruby> 2-1</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng hướng dẫn thuốc - Tanaka Hanako</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            line-height: 1.4;
+        }
+
+        .document-page {
+            max-width: 900px;
+            margin: 1.5rem auto;
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Khung Unit 4 ở góc phải */
+        .unit-tag {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50px;
+            text-align: center;
+            border-left: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        .unit-tag-label { font-size: 10px; border-bottom: 1px solid #000; padding: 2px 0; }
+        .unit-tag-num { font-size: 20px; font-weight: bold; padding: 2px 0; border-bottom: 1px solid #000; }
+        .unit-tag-type { font-size: 11px; font-weight: bold; padding: 4px 0; writing-mode: vertical-rl; margin: 0 auto; }
+
+        ruby rt {
+            font-size: 0.55em;
+            color: #333;
+            transform: translateY(-2px);
+        }
+
+        table {
+            width: 100%;
+            border: 1.5px solid #000;
+            border-collapse: collapse;
+            margin-top: 0.5rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px 8px;
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #e5e7eb;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .no-col { width: 40px; text-align: center; }
+        .name-col { width: 22%; }
+        .work-col { width: 26%; }
+        .note-col { width: 33%; }
+        .usage-col { width: 15%; }
+
+        .footer-text {
+            font-size: 0.85rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body class="p-2 md:p-6">
+
+    <div class="document-page">
+
+        <!-- Header -->
+        <header class="flex justify-between items-start mb-2">
+            <div>
+                <h1 class="text-xl font-bold">
+                    <ruby>田中花子<rt>たなかはなこ</rt></ruby>さんのお<ruby>薬<rt>くすり</rt></ruby>
+                </h1>
+                <p class="text-xs font-bold mt-2">
+                    【この<ruby>薬<rt>くすり</rt></ruby>はあなたのお<ruby>薬<rt>くすり</rt></ruby>のはたらきや<ruby>飲<rt>の</rt></ruby>み<ruby>方<rt>かた</rt></ruby>を<ruby>説明<rt>せつめい</rt></ruby>したものです】
+                </p>
+            </div>
+            <div class="text-right text-xs mt-1">
+                <p><ruby>医療機関名<rt>いりょうきかんめい</rt></ruby>：<ruby>鈴木耳鼻咽喉科<rt>すずきじびいんこうか</rt></ruby>クリニック</p>
+                <p class="mt-1">Tel 0120-01-2345</p>
+            </div>
+        </header>
+
+        <!-- Bảng thuốc -->
+        <table>
+            <thead>
+                <tr>
+                    <th class="no-col">No.</th>
+                    <th class="name-col"><ruby>薬<rt>くすり</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby></th>
+                    <th class="work-col"><ruby>薬<rt>くすり</rt></ruby>の<ruby>働<rt>はたら</rt></ruby>き</th>
+                    <th class="note-col"><ruby>注意事項<rt>ちゅういじこう</rt></ruby></th>
+                    <th class="usage-col"><ruby>用法<rt>ようほう</rt></ruby></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                    <td class="no-col">1</td>
+                    <td>
+                        タカフルカプセル<br>
+                        <ruby>淡<rt>あわ</rt></ruby>い<ruby>黄色<rt>きいろ</rt></ruby><br>
+                        カプセル<ruby>剤<rt>ざい</rt></ruby>
+                    </td>
+                    <td>
+                        インフルエンザウイルスによる<ruby>感染<rt>かんせん</rt></ruby>の<ruby>治療<rt>ちりょう</rt></ruby>に<ruby>用<rt>もち</rt></ruby>いる<ruby>薬<rt>くすり</rt></ruby>です。
+                    </td>
+                    <td>
+                        <ruby>事前<rt>じぜん</rt></ruby>にカプセルをはずしたり<ruby>口<rt>くち</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>砕<rt>くだ</rt></ruby>いたりして<ruby>飲<rt>の</rt></ruby>まないでください。
+                    </td>
+                    <td>
+                        1<ruby>日<rt>にち</rt></ruby>2<ruby>回<rt>かい</rt></ruby><br>
+                        <ruby>朝<rt>あさ</rt></ruby>・<ruby>夕食後<rt>ゆうしょくご</rt></ruby><br>
+                        5<ruby>日分<rt>にちぶん</rt></ruby>
+                    </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                    <td class="no-col">2</td>
+                    <td>
+                        カロモックス<ruby>錠<rt>じょう</rt></ruby><br>
+                        <ruby>薄<rt>うす</rt></ruby>い<ruby>赤<rt>あか</rt></ruby><br>
+                        <ruby>錠剤<rt>じょうざい</rt></ruby>
+                    </td>
+                    <td>
+                        <ruby>細菌<rt>さいきん</rt></ruby>による<ruby>感染症<rt>かんせんしょう</rt></ruby>の<ruby>治療<rt>ちりょう</rt></ruby>に<ruby>用<rt>もち</rt></ruby>いる<ruby>薬<rt>くすり</rt></ruby>です。
+                    </td>
+                    <td>
+                        <ruby>不快感<rt>ふかいかん</rt></ruby>、めまい、<ruby>耳鳴<rt>みみなり</rt></ruby>り<ruby>等<rt>とう</rt></ruby>の<ruby>症状<rt>しょうじょう</rt></ruby>が<ruby>表<rt>あらわ</rt></ruby>れた<ruby>場合<rt>ばあい</rt></ruby>は<ruby>主治医<rt>しゅじい</rt></ruby>または<ruby>薬剤師<rt>やくざいし</rt></ruby>に<ruby>連絡<rt>れんらく</rt></ruby>してください。
+                    </td>
+                    <td>
+                        1<ruby>日<rt>にち</rt></ruby>2<ruby>回<rt>かい</rt></ruby><br>
+                        <ruby>朝<rt>あさ</rt></ruby>・<ruby>夕食後<rt>ゆうしょくご</rt></ruby><br>
+                        4<ruby>日分<rt>にちぶん</rt></ruby>
+                    </td>
+                </tr>
+                <!-- Row 3 -->
+                <tr>
+                    <td class="no-col">3</td>
+                    <td>
+                        マコダイン<ruby>錠<rt>じょう</rt></ruby><br>
+                        <ruby>白色<rt>はくしょく</rt></ruby><br>
+                        <ruby>錠剤<rt>じょうざい</rt></ruby>
+                    </td>
+                    <td>
+                        <ruby>痰<rt>たん</rt></ruby>の<ruby>切<rt>き</rt></ruby>れを<ruby>良<rt>よ</rt></ruby>くする<ruby>薬<rt>くすり</rt></ruby>です。<ruby>出<rt>で</rt></ruby>にくい<ruby>鼻汁<rt>はなじる</rt></ruby>の<ruby>排出<rt>はいしゅつ</rt></ruby>を<ruby>促<rt>うなが</rt></ruby>す<ruby>薬<rt>くすり</rt></ruby>です。
+                    </td>
+                    <td>
+                        <ruby>室温<rt>しつおん</rt></ruby>で<ruby>保管<rt>ほかん</rt></ruby>してください。
+                    </td>
+                    <td>
+                        1<ruby>日<rt>にち</rt></ruby>3<ruby>回<rt>かい</rt></ruby><br>
+                        <ruby>毎食後<rt>まいしょくご</rt></ruby><br>
+                        4<ruby>日分<rt>にちぶん</rt></ruby>
+                    </td>
+                </tr>
+                <!-- Row 4 -->
+                <tr>
+                    <td class="no-col">4</td>
+                    <td>
+                        カズコン<ruby>錠<rt>じょう</rt></ruby><br>
+                        <ruby>白色<rt>はくしょく</rt></ruby><br>
+                        <ruby>錠剤<rt>じょうざい</rt></ruby>
+                    </td>
+                    <td>
+                        <ruby>咳<rt>せき</rt></ruby>を<ruby>鎮<rt>しず</rt></ruby>める<ruby>薬<rt>くすり</rt></ruby>です。
+                    </td>
+                    <td>
+                        <ruby>眠気<rt>ねむけ</rt></ruby>を<ruby>催<rt>もよお</rt></ruby>すことがありますので、<ruby>車<rt>くるま</rt></ruby>の<ruby>運転<rt>うんてん</rt></ruby>や<ruby>危険<rt>きけん</rt></ruby>をともなう<ruby>機械<rt>きかい</rt></ruby>の<ruby>操作等<rt>そうさとう</rt></ruby>は<ruby>注意<rt>ちゅうい</rt></ruby>してください。
+                    </td>
+                    <td>
+                        1<ruby>日<rt>にち</rt></ruby>3<ruby>回<rt>かい</rt></ruby><br>
+                        <ruby>毎食後<rt>まいしょくご</rt></ruby><br>
+                        4<ruby>日分<rt>にちぶん</rt></ruby>
+                    </td>
+                </tr>
+                <!-- Row 5 -->
+                <tr>
+                    <td class="no-col">5</td>
+                    <td>
+                        トローチSP<br>
+                        <ruby>青色<rt>あおいろ</rt></ruby><br>
+                        トローチ<ruby>剤<rt>ざい</rt></ruby>
+                    </td>
+                    <td>
+                        <ruby>口<rt>くち</rt></ruby>の<ruby>中<rt>なか</rt></ruby> của <ruby>傷口<rt>きずぐち</rt></ruby>や<ruby>炎症部分<rt>えんしょうぶぶん</rt></ruby>を<ruby>殺菌<rt>さっきん</rt></ruby>・<ruby>消毒<rt>しょうどく</rt></ruby>する<ruby>薬<rt>くすり</rt></ruby>です。
+                    </td>
+                    <td>
+                        <ruby>飲<rt>の</rt></ruby>み<ruby>込<rt>こ</rt></ruby>まないでください。<ruby>噛<rt>か</rt></ruby>まずに、<ruby>口<rt>くち</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でゆっくり<ruby>溶<rt>と</rt></ruby>かしてください。<ruby>室温<rt>しつおん</rt></ruby>で<ruby>保管<rt>ほかん</rt></ruby>してください。
+                    </td>
+                    <td>
+                        1<ruby>日<rt>にち</rt></ruby>3<ruby>回<rt>かい</rt></ruby>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Footer -->
+        <div class="mt-4">
+            <p class="font-bold text-sm">※<ruby>備考<rt>びこう</rt></ruby></p>
+        </div>
+
+        <div class="footer-text flex justify-between items-end">
+            <div>
+                <p>
+                    <ruby>他<rt>ほか</rt></ruby>の<ruby>医療機関<rt>いりょうきかん</rt></ruby>にかかるときは、この<ruby>表<rt>ひょう</rt></ruby>を<ruby>提示<rt>ていじ</rt></ruby>してください。
+                </p>
+            </div>
+            <div class="text-right">
+                <p><ruby>薬局名<rt>やっきょくめい</rt></ruby>：<ruby>田辺調剤薬局<rt>たなべちょうざいやっきょく</rt></ruby></p>
+                <p>Tel 012-345-6789</p>
+                <p class="text-[10px] mt-1 text-gray-600">
+                    ご<ruby>不明<rt>ふめい</rt></ruby>な<ruby>点<rt>てん</rt></ruby>がありましたら、お<ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせください。
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

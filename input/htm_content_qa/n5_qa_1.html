@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>読解練習 - あらきやのお買い物</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 12px;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .flyer-box {
+            border: 1px solid #cbd5e0;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .shop-info {
+            text-align: right;
+            margin-bottom: 1.5rem;
+        }
+
+        .promo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-left: 2rem;
+        }
+
+        .promo-item {
+            border: 1px solid #000;
+            padding: 1rem 1.5rem;
+            width: fit-content;
+            min-width: 400px;
+            background-color: #fff;
+        }
+
+        .starburst-label {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option-list {
+            margin-top: 2rem;
+            padding-left: 1rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .radio-circle {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .answer-box {
+            margin-top: 1.5rem;
+            color: #2f855a;
+            font-weight: bold;
+            padding-left: 3rem;
+        }
+
+        /* SVG Starburst Helper */
+        .star-svg {
+            width: 100px;
+            height: 90px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN CÂU HỎI -->
+        <header class="question-header">
+            <span class="q-number">32</span>
+            <div class="text-lg">
+                <p class="mb-4 font-medium">
+                    <ruby>右<rt>みぎ</rt></ruby>のページを<ruby>見<rt>み</rt></ruby>て、<ruby>下<rt>した</rt></ruby>の<ruby>質問<rt>しつもん</rt></ruby>に<ruby>答<rt>こた</rt></ruby>えてください。<ruby>答<rt>こた</rt></ruby>えは、1 2 3 4から、いちばんいいものを<ruby>一<rt>ひと</rt></ruby>つえらんでください。
+                </p>
+                <p class="font-bold">
+                    あらきやでトイレットペーパーとにくとやさいを<ruby>同<rt>おな</rt></ruby>じ<ruby>日<rt>ひ</rt></ruby>に<ruby>買<rt>か</rt></ruby>いたいです。いつが<ruby>安<rt>やす</rt></ruby>いですか。
+                </p>
+            </div>
+        </header>
+
+        <!-- PHẦN TỜ QUẢNG CÁO -->
+        <div class="flyer-box">
+            <!-- Shop Header -->
+            <div class="shop-info">
+                <h1 class="text-2xl font-bold mb-2">あらきや</h1>
+                <p><ruby>朝<rt>あさ</rt></ruby> 8:00 ～ <ruby>夜<rt>よる</rt></ruby> 9:00</p>
+                <p>(<ruby>電話<rt>でんわ</rt></ruby>：012-34-5678)</p>
+            </div>
+
+            <!-- Starbursts and Promo boxes -->
+            <div class="relative min-h-[400px]">
+                <div class="starburst-label">
+                    <!-- Star 1 -->
+                    <svg class="star-svg" viewBox="0 0 100 90">
+                        <path d="M50 0 L58 15 L75 8 L73 25 L93 25 L83 40 L100 50 L83 60 L93 75 L73 75 L75 93 L58 85 L50 100 L42 85 L25 93 L27 75 L7 75 L17 60 L0 50 L17 40 L7 25 L27 25 L25 8 L42 15 Z" fill="none" stroke="black" stroke-width="1"/>
+                        <text x="50" y="55" text-anchor="middle" font-size="16" font-weight="bold"><tspan x="50" dy="-8" font-size="10">やす</tspan><tspan x="50" dy="20">安い！</tspan></text>
+                    </svg>
+                    <!-- Star 2 -->
+                    <svg class="star-svg" viewBox="0 0 100 90">
+                        <path d="M50 0 L58 15 L75 8 L73 25 L93 25 L83 40 L100 50 L83 60 L93 75 L73 75 L75 93 L58 85 L50 100 L42 85 L25 93 L27 75 L7 75 L17 60 L0 50 L17 40 L7 25 L27 25 L25 8 L42 15 Z" fill="none" stroke="black" stroke-width="1"/>
+                        <text x="50" y="55" text-anchor="middle" font-size="16" font-weight="bold"><tspan x="50" dy="-8" font-size="10">やす</tspan><tspan x="50" dy="20">安い！</tspan></text>
+                    </svg>
+                    <!-- Star 3 -->
+                    <svg class="star-svg" viewBox="0 0 100 90">
+                        <path d="M50 0 L58 15 L75 8 L73 25 L93 25 L83 40 L100 50 L83 60 L93 75 L73 75 L75 93 L58 85 L50 100 L42 85 L25 93 L27 75 L7 75 L17 60 L0 50 L17 40 L7 25 L27 25 L25 8 L42 15 Z" fill="none" stroke="black" stroke-width="1"/>
+                        <text x="50" y="55" text-anchor="middle" font-size="16" font-weight="bold"><tspan x="50" dy="-8" font-size="10">やす</tspan><tspan x="50" dy="20">安い！</tspan></text>
+                    </svg>
+                    <!-- Weekly Star -->
+                    <svg class="star-svg" viewBox="0 0 100 90">
+                        <path d="M50 0 L58 15 L75 8 L73 25 L93 25 L83 40 L100 50 L83 60 L93 75 L73 75 L75 93 L58 85 L50 100 L42 85 L25 93 L27 75 L7 75 L17 60 L0 50 L17 40 L7 25 L27 25 L25 8 L42 15 Z" fill="none" stroke="black" stroke-width="1"/>
+                        <text x="50" y="48" text-anchor="middle" font-size="14" font-weight="bold">
+                            <tspan x="50" dy="-18" font-size="8">まいしゅう</tspan>
+                            <tspan x="50" dy="16">毎週</tspan>
+                            <tspan x="50" dy="12" font-size="8">やす</tspan>
+                            <tspan x="50" dy="16">安い！</tspan>
+                        </text>
+                    </svg>
+                </div>
+
+                <div class="promo-container">
+                    <!-- Box 1 -->
+                    <div class="promo-item">
+                        <p class="text-xl mb-2 font-bold">6 <ruby>月<rt>がつ</rt></ruby> 11 <ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>) ～ 14 <ruby>日<rt>にち</rt></ruby> (<ruby>木<rt>もく</rt></ruby>)</p>
+                        <div class="flex justify-between items-center pr-4">
+                            <span>さとう &nbsp; 128 <ruby>円<rt>えん</rt></ruby></span>
+                            <span class="bg-yellow-50 px-2 py-1 border border-dashed border-red-500">トイレットペーパー &nbsp; 490 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                    </div>
+                    <!-- Box 2 -->
+                    <div class="promo-item">
+                        <p class="text-xl mb-2 font-bold">6 <ruby>月<rt>がつ</rt></ruby> 15 <ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) ～ 18 <ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>)</p>
+                        <div class="flex justify-between items-center pr-4">
+                            <span>しょうゆ &nbsp; 198 <ruby>円<rt>えん</rt></ruby></span>
+                            <span>ティッシュペーパー &nbsp; 290 <ruby>円<rt>えん</rt></ruby></span>
+                        </div>
+                    </div>
+                    <!-- Box 3 (Weekly) -->
+                    <div class="promo-item">
+                        <div class="space-y-4 text-xl">
+                            <p><span class="font-bold inline-block w-20"><ruby>月<rt>げつ</rt></ruby>・<ruby>火<rt>か</rt></ruby></span> くだもの、<ruby>魚<rt>さかな</rt></ruby>、ジュース</p>
+                            <p class="bg-yellow-50 px-2 py-1 border border-dashed border-red-500"><span class="font-bold inline-block w-20"><ruby>水<rt>すい</rt></ruby>・<ruby>木<rt>もく</rt></ruby></span> とうふ、<span class="font-bold underline">にく</span>、<span class="font-bold underline">やさい</span></p>
+                            <p><span class="font-bold inline-block w-20"><ruby>金<rt>きん</rt></ruby>・<ruby>土<rt>ど</rt></ruby></span> パン、ぎゅうにゅう、<ruby>魚<rt>さかな</rt></ruby>、<ruby>やさい<rt>野菜</rt></ruby></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LỰA CHỌN ĐÁP ÁN -->
+        <div class="option-list">
+            <div class="option-item">
+                <div class="radio-circle"></div>
+                <span>1. 6 <ruby>月<rt>がつ</rt></ruby> 17 <ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>) と 18 <ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>)</span>
+            </div>
+            <div class="option-item font-bold text-green-700">
+                <div class="radio-circle border-green-600 bg-green-600 flex items-center justify-center">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <span>2. 6 <ruby>月<rt>がつ</rt></ruby> 13 <ruby>日<rt>にち</rt></ruby> (<ruby>水<rt>すい</rt></ruby>) と 14 <ruby>日<rt>にち</rt></ruby> (<ruby>木<rt>もく</rt></ruby>)</span>
+            </div>
+            <div class="option-item">
+                <div class="radio-circle"></div>
+                <span>3. 6 <ruby>月<rt>がつ</rt></ruby> 15 <ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) と 16 <ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)</span>
+            </div>
+            <div class="option-item">
+                <div class="radio-circle"></div>
+                <span>4. 6 <ruby>月<rt>がつ</rt></ruby> 11 <ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>) と 12 <ruby>日<rt>にち</rt></ruby> (<ruby>火<rt>か</rt></ruby>)</span>
+            </div>
+        </div>
+
+        <div class="answer-box">
+            <p>Đáp án đúng: 2</p>
+            <p class="text-sm text-gray-500 font-normal mt-1">
+                Giải thích: Giấy vệ sinh giảm giá từ ngày 11 (Thứ 2) đến ngày 14 (Thứ 5). Thịt và Rau giảm giá vào các ngày Thứ 4 và Thứ 5 hàng tuần. Do đó, ngày có thể mua cả 3 món với giá rẻ là ngày 13 (Thứ 4) và 14 (Thứ 5).
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

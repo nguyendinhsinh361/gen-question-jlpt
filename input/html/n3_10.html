@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大原動物園をもっと楽しむために</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .section-box {
+            border: 1px solid #000;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding: 8px;
+            font-weight: bold;
+            background-color: #fdfdfd;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid #000;
+        }
+
+        .event-cell {
+            padding: 1rem;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            min-height: 150px;
+        }
+
+        .event-cell:nth-child(even) {
+            border-right: none;
+        }
+
+        .event-cell:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .event-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .info-notes {
+            padding: 0.5rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        .night-zoo-content {
+            padding: 1.5rem;
+        }
+
+        .night-zoo-row {
+            display: flex;
+            margin-bottom: 0.75rem;
+        }
+
+        .night-zoo-label {
+            font-weight: bold;
+            min-width: 100px;
+        }
+
+        .indent-text {
+            padding-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề -->
+        <header>
+            <h1 class="main-title">
+                <ruby>大原動物園<rt>おおはらどうぶつえん</rt></ruby>をもっと<ruby>楽<rt>たの</rt></ruby>しむために
+            </h1>
+        </header>
+
+        <!-- Sự kiện ban ngày -->
+        <div class="section-box">
+            <div class="section-header">
+                <ruby>昼<rt>ひる</rt></ruby>のイベント<br>
+                <span class="font-normal text-sm">いろいろなイベントに<ruby>参加<rt>さんか</rt></ruby>して、<ruby>動物<rt>どうぶつ</rt></ruby>のことをもっとよく<ruby>知<rt>し</rt></ruby>ってください。</span>
+            </div>
+
+            <div class="event-grid">
+                <!-- A: Zoo Tour -->
+                <div class="event-cell">
+                    <div class="event-title">
+                        <span>A</span>
+                        <span><ruby>動物園<rt>どうぶつえん</rt></ruby></span>
+                    </div>
+                    <p class="text-sm">
+                        <ruby>専門<rt>せんもん</rt></ruby>の<ruby>係<rt>かかり</rt></ruby>の<ruby>説明<rt>せつめい</rt></ruby>を<ruby>受<rt>う</rt></ruby>けながら、<ruby>動物園<rt>どうぶつえん</rt></ruby>の<ruby>中<rt>なか</rt></ruby>を<ruby>歩<rt>ある</rt></ruby>きます。<ruby>必要時間<rt>ひつようじかん</rt></ruby>は<ruby>約<rt>やく</rt></ruby> 1 <ruby>時間<rt>じかん</rt></ruby>です。<br>
+                        <ruby>毎日<rt>まいにち</rt></ruby> 3 <ruby>回<rt>かい</rt></ruby><br>
+                        ①10 <ruby>時半<rt>じはん</rt></ruby>～ &nbsp; ②14 <ruby>時半<rt>じはん</rt></ruby>～ &nbsp; ③16 <ruby>時<rt>じ</rt></ruby>～
+                    </p>
+                </div>
+
+                <!-- B: Animal Classroom -->
+                <div class="event-cell">
+                    <div class="event-title">
+                        <span>B</span>
+                        <span><ruby>動物教室<rt>どうぶつきょうしつ</rt></ruby></span>
+                    </div>
+                    <p class="text-sm">
+                        <ruby>普段知<rt>ふだんし</rt></ruby>ることのできない、<ruby>動物<rt>どうぶつ</rt></ruby>たちの<ruby>生活<rt>せいかつ</rt></ruby>について<ruby>話<rt>はなし</rt></ruby>を<ruby>聞<rt>き</rt></ruby>くことができます。<br>
+                        <ruby>毎週日曜<rt>まいしゅうにちよう</rt></ruby> 13 <ruby>時半<rt>じはん</rt></ruby>～15 <ruby>時<rt>じ</rt></ruby><br>
+                        （<ruby>途中<rt>とちゅう</rt></ruby>からでも<ruby>参加<rt>さんか</rt></ruby>できます）
+                    </p>
+                </div>
+
+                <!-- C: Kitchen Tour -->
+                <div class="event-cell">
+                    <div class="event-title">
+                        <span>C</span>
+                        <span><ruby>台所見学<rt>だいどころけんがく</rt></ruby></span>
+                    </div>
+                    <p class="text-sm">
+                        <ruby>動物<rt>どうぶつ</rt></ruby>たちのえさを<ruby>準備<rt>じゅんび</rt></ruby>しているところが<ruby>見<rt>み</rt></ruby>られます。<ruby>必要時間<rt>ひつようじかん</rt></ruby>は<ruby>約<rt>やく</rt></ruby> 45 <ruby>分<rt>ふん</rt></ruby>～1 <ruby>時間<rt>じかん</rt></ruby>です。<br>
+                        <ruby>毎週土曜<rt>まいしゅうどよう</rt></ruby> 14 <ruby>時半<rt>じはん</rt></ruby>
+                    </p>
+                </div>
+
+                <!-- D: River Life -->
+                <div class="event-cell">
+                    <div class="event-title">
+                        <span>D</span>
+                        <span><ruby>川<rt>かわ</rt></ruby>の<ruby>生<rt>い</rt></ruby>き<ruby>物教室<rt>ものきょうしつ</rt></ruby></span>
+                    </div>
+                    <p class="text-sm">
+                        <ruby>川<rt>かわ</rt></ruby>の<ruby>生<rt>い</rt></ruby>き<ruby>物<rt>もの</rt></ruby>に<ruby>実際<rt>じっさい</rt></ruby>に<ruby>触<rt>さわ</rt></ruby>ったりしながら、<ruby>楽<rt>たの</rt></ruby>しく<ruby>学<rt>まな</rt></ruby>べます。<br>
+                        <ruby>毎週火曜<rt>まいしゅうかよう</rt></ruby>、<ruby>木曜<rt>もくよう</rt></ruby> &nbsp; 15 <ruby>時<rt>じ</rt></ruby>～16 <ruby>時<rt>じ</rt></ruby><br>
+                        <ruby>毎週土曜<rt>まいしゅうどよう</rt></ruby> &nbsp; 13 <ruby>時<rt>じ</rt></ruby>～14 <ruby>時<rt>じ</rt></ruby><br>
+                        <ruby>毎週日曜<rt>まいしゅうにちよう</rt></ruby> &nbsp; 11 <ruby>時<rt>じ</rt></ruby>～12 <ruby>時<rt>じ</rt></ruby>
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-notes space-y-1">
+                <p>＜<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み、<ruby>参加料金<rt>さんかりょうきん</rt></ruby>＞ &nbsp; <ruby>全<rt>すべ</rt></ruby>て<ruby>不要<rt>ふよう</rt></ruby></p>
+                <p>＜<ruby>集合場所<rt>しゅうごうばしょ</rt></ruby>＞ &nbsp; A, C, D：<ruby>正面口<rt>しょうめんぐち</rt></ruby> &nbsp;&nbsp;&nbsp;&nbsp; B：<ruby>資料館<rt>しりょうかん</rt></ruby> 1 <ruby>階受付<rt>かいうけつけ</rt></ruby> (<ruby>途中参加<rt>とちゅうさんか</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>も)</p>
+            </div>
+        </div>
+
+        <!-- Vườn thú đêm -->
+        <div class="section-box">
+            <div class="section-header">
+                <ruby>夜<rt>よる</rt></ruby>の<ruby>動物園<rt>どうぶつえん</rt></ruby><br>
+                <span class="font-normal text-sm"><ruby>昼<rt>ひる</rt></ruby>とは<ruby>違<rt>ちが</rt></ruby>う、<ruby>夜<rt>よる</rt></ruby>の<ruby>動物<rt>どうぶつ</rt></ruby>たちの<ruby>様子<rt>ようす</rt></ruby>を<ruby>見<rt>み</rt></ruby>てください。</span>
+            </div>
+            
+            <div class="night-zoo-content text-sm space-y-4">
+                <div class="night-zoo-row">
+                    <span class="night-zoo-label"><ruby>日　時<rt>にちじ</rt></ruby>：</span>
+                    <div>
+                        8 <ruby>月<rt>がつ</rt></ruby> 2 <ruby>日<rt>にち</rt></ruby>、9 <ruby>日<rt>にち</rt></ruby>、16 <ruby>日<rt>にち</rt></ruby>、23 <ruby>日<rt>にち</rt></ruby>、30 <ruby>日<rt>にち</rt></ruby><br>
+                        <ruby>各日<rt>かくじつ</rt></ruby> 17 <ruby>時半<rt>じはん</rt></ruby>～21 <ruby>時<rt>じ</rt></ruby> (<ruby>入園<rt>にゅうえん</rt></ruby>は 19 <ruby>時半<rt>じはん</rt></ruby>まで)
+                    </div>
+                </div>
+
+                <div class="night-zoo-row">
+                    <span class="night-zoo-label"><ruby>入園料<rt>にゅうえんりょう</rt></ruby>：</span>
+                    <div>
+                        <ruby>昼<rt>ひる</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じ<ruby>入園料<rt>にゅうえんりょう</rt></ruby>がかかります。<br>
+                        <ruby>昼<rt>ひる</rt></ruby>の<ruby>最終入園時間<rt>さいしゅうにゅうえんじかん</rt></ruby> (16 <ruby>時半<rt>じはん</rt></ruby>) までに<ruby>入園<rt>にゅうえん</rt></ruby>された<ruby>方<rt>かた</rt></ruby>は、17 <ruby>時<rt>じ</rt></ruby>の<ruby>閉園時<rt>へいえんじ</rt></ruby>に<ruby>一度園<rt>いちどえん</rt></ruby>の<ruby>外<rt>そと</rt></ruby>に<ruby>出<rt>で</rt></ruby>て、17 <ruby>時半<rt>じはん</rt></ruby>に<ruby>夜<rt>よる</rt></ruby>の<ruby>動物園<rt>どうぶつえん</rt></ruby>が<ruby>開園後<rt>かいえんご</rt></ruby>、もう<ruby>一度入園料<rt>いちどにゅうえんりょう</rt></ruby>を<ruby>支払<rt>しはら</rt></ruby>って<ruby>入園<rt>にゅうえん</rt></ruby>していただく<ruby>必要<rt>ひつよう</rt></ruby>があります。
+                    </div>
+                </div>
+
+                <div class="night-zoo-row">
+                    <span class="night-zoo-label"><ruby>入　口<rt>いりぐち</rt></ruby>：</span>
+                    <div>
+                        <ruby>東口<rt>ひがしぐち</rt></ruby>は 17 <ruby>時<rt>じ</rt></ruby>で<ruby>閉<rt>し</rt></ruby>めますので、<ruby>正面口<rt>しょうめんぐち</rt></ruby>からお<ruby>入<rt>はい</rt></ruby>りください
+                    </div>
+                </div>
+
+                <p>レストラン、<ruby>売店<rt>ばいてん</rt></ruby> &nbsp; <ruby>営業<rt>えいぎょう</rt></ruby>しています。</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

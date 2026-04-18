@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夏の旅行 - 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            letter-spacing: 0.2em;
+        }
+
+        .instruction-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 12px;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Flyer Styles */
+        .flyer-box {
+            border: 2px solid #000;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .flyer-header {
+            text-align: right;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        table.travel-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table.travel-table td {
+            border: 1px solid #000;
+            padding: 1.5rem;
+            vertical-align: top;
+        }
+
+        .tour-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tour-detail {
+            padding-left: 2rem;
+        }
+
+        .price-info {
+            text-align: right;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        /* Question and Options */
+        .options-list {
+            margin-top: 1.5rem;
+            padding-left: 3rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .radio-circle {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            padding-left: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- CHỈ DẪN ĐỀ BÀI -->
+        <div class="instruction-box">
+            <span class="q-number">32</span>
+            <p>
+                <ruby>右<rt>みぎ</rt></ruby>のページを <ruby>見<rt>み</rt></ruby>て、<ruby>下<rt>した</rt></ruby>の しつもんに こたえてください。<ruby>答<rt>こた</rt></ruby>えは、1・2・3・4 から いちばん いい ものを <ruby>一<rt>ひと</rt></ruby>つ えらんでください。
+            </p>
+        </div>
+
+        <!-- PHẦN TỜ QUẢNG CÁO DU LỊCH -->
+        <div class="flyer-box">
+            <div class="flyer-header">
+                <p>XYZ <ruby>旅行<rt>りょこう</rt></ruby></p>
+                <p><ruby>電話<rt>でんわ</rt></ruby>：012-34-5678</p>
+            </div>
+
+            <h1 class="main-title">
+                <ruby>夏<rt>なつ</rt></ruby>の <ruby>旅行<rt>りょこう</rt></ruby>
+            </h1>
+
+            <table class="travel-table">
+                <tbody>
+                    <!-- Tour 1 -->
+                    <tr>
+                        <td>
+                            <div class="tour-title">①<ruby>山<rt>やま</rt></ruby>の <ruby>花<rt>はな</rt></ruby>の しゃしんを とりましょう。</div>
+                            <div class="tour-detail">
+                                <ruby>電車<rt>でんしゃ</rt></ruby>で <ruby>立木町<rt>たちきまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。<br />
+                                <div class="flex justify-between items-end mt-4">
+                                    <span class="font-bold">8 <ruby>月<rt>がつ</rt></ruby> 20 <ruby>日<rt>にち</rt></ruby> (<ruby>火<rt>か</rt></ruby>) ～ 21 <ruby>日<rt>にち</rt></ruby> (<ruby>水<rt>すい</rt></ruby>)</span>
+                                    <span class="price-info">15,000 <ruby>円<rt>えん</rt></ruby></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Tour 2 -->
+                    <tr>
+                        <td>
+                            <div class="tour-title">②すずしい <ruby>山<rt>やま</rt></ruby>で <ruby>休<rt>やす</rt></ruby>みましょう。</div>
+                            <div class="tour-detail">
+                                バスで <ruby>川北町<rt>かわきたまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。<br />
+                                <div class="flex justify-between items-end mt-4">
+                                    <span class="font-bold">8 <ruby>月<rt>がつ</rt></ruby> 20 <ruby>日<rt>にち</rt></ruby> (<ruby>火<rt>か</rt></ruby>) ～ 22 <ruby>日<rt>にち</rt></ruby> (<ruby>木<rt>もく</rt></ruby>)</span>
+                                    <span class="price-info">23,000 <ruby>円<rt>えん</rt></ruby></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Tour 3 -->
+                    <tr>
+                        <td>
+                            <div class="tour-title">③<ruby>海<rt>うみ</rt></ruby>で <ruby>魚<rt>さかな</rt></ruby>と あそびましょう。</div>
+                            <div class="tour-detail">
+                                ひこうきで <ruby>花中町<rt>はななかまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。<br />
+                                <div class="flex justify-between items-end mt-4">
+                                    <span class="font-bold">8 <ruby>月<rt>がつ</rt></ruby> 21 <ruby>日<rt>にち</rt></ruby> (<ruby>水<rt>すい</rt></ruby>) ～ 24 <ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>)</span>
+                                    <span class="price-info">28,000 <ruby>円<rt>えん</rt></ruby></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Tour 4 -->
+                    <tr class="bg-yellow-50">
+                        <td>
+                            <div class="tour-title">④きれいな <ruby>海<rt>うみ</rt></ruby>で <ruby>泳<rt>およ</rt></ruby>ぎましょう。</div>
+                            <div class="tour-detail">
+                                <ruby>電車<rt>でんしゃ</rt></ruby>と バスで <ruby>西田町<rt>にしだまち</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。<br />
+                                <div class="flex justify-between items-end mt-4">
+                                    <span class="font-bold">8 <ruby>月<rt>がつ</rt></ruby> 21 <ruby>日<rt>にち</rt></ruby> (<ruby>水<rt>すい</rt></ruby>) ～ 22 <ruby>日<rt>にち</rt></ruby> (<ruby>木<rt>もく</rt></ruby>)</span>
+                                    <span class="price-info text-2xl">18,000 <ruby>円<rt>えん</rt></ruby></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- PHẦN CÂU HỎI VÀ LỰA CHỌN -->
+        <div class="pl-4">
+            <p class="text-xl font-bold mb-4">
+                フォンさんの <ruby>休み<rt>やすみ</rt></ruby>は <ruby>二日間<rt>ふつかかん</rt></ruby>です。<ruby>休み<rt>やすみ</rt></ruby>に <ruby>海<rt>うみ</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きたいです。どの <ruby>旅行<rt>りょこう</rt></ruby>に <ruby>行<rt>い</rt></ruby>きますか。
+            </p>
+
+            <div class="options-list">
+                <div class="option-item"><div class="radio-circle"></div> 1. ①</div>
+                <div class="option-item"><div class="radio-circle"></div> 2. ②</div>
+                <div class="option-item"><div class="radio-circle"></div> 3. ③</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    4. ④
+                </div>
+            </div>
+
+            <div class="answer-highlight">
+                <p>Đáp án đúng: 4</p>
+                <p class="text-sm font-normal text-gray-600 mt-1">
+                    (Giải thích: Fon-san muốn đi biển ("海へ行きたい") nên chỉ có thể chọn tour ③ hoặc ④. Tuy nhiên, Fon-san chỉ có 2 ngày nghỉ ("二日間"), trong khi tour ③ kéo dài 4 ngày (21-24) và tour ④ kéo dài đúng 2 ngày (21-22). Do đó chọn tour ④.)
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中村ギター教室生徒募集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Khung thông tin đầu trang */
+        .intro-box {
+            border: 1.5px solid #666;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .star-item::before {
+            content: "★";
+            margin-right: 0.5rem;
+        }
+
+        /* Bảng học phí */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .section-header {
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .triangle-item::before {
+            content: "▲";
+            margin-right: 0.5rem;
+        }
+
+        .note-text {
+            font-size: 0.95rem;
+            padding-left: 1rem;
+        }
+
+        .lesson-details {
+            margin-top: 2rem;
+        }
+
+        .lesson-details p {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .lesson-details p::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .footer-info {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                <ruby>中村<rt>なかむら</rt></ruby>ギター<ruby>教室生徒募集<rt>きょうしつせいとぼしゅう</rt></ruby>
+            </h1>
+        </header>
+
+        <!-- Khung giới thiệu -->
+        <div class="intro-box">
+            <p class="star-item">
+                <ruby>初<rt>はじ</rt></ruby>めての<ruby>方<rt>かた</rt></ruby>にもわかりやすく<ruby>教<rt>おし</rt></ruby>えます。
+            </p>
+            <p class="star-item">
+                <ruby>教室<rt>きょうしつ</rt></ruby>に<ruby>通<rt>かよ</rt></ruby>うかどうか<ruby>決<rt>き</rt></ruby>める<ruby>前<rt>まえ</rt></ruby>に、60<ruby>分<rt>ふん</rt></ruby>の【<ruby>特別割引<rt>とくべつわりびき</rt></ruby>レッスン】（1,000<ruby>円<rt>えん</rt></ruby>）を 1 <ruby>回受<rt>かいう</rt></ruby>けることができます。
+            </p>
+        </div>
+
+        <!-- Thông tin chi tiết -->
+        <div class="space-y-4">
+            <p>
+                <span class="font-bold">【<ruby>講師<rt>こうし</rt></ruby>】</span>
+                <ruby>中村<rt>なかむら</rt></ruby>カズオ（<ruby>西日本音楽大学卒業<rt>にしにほんおんがくだいがくそつぎょう</rt></ruby>）
+            </p>
+            <p>
+                <span class="font-bold">【<ruby>時間<rt>じかん</rt></ruby>】</span>
+                1 <ruby>回<rt>かい</rt></ruby> 90 <ruby>分<rt>ふん</rt></ruby> （<ruby>毎日<rt>まいにち</rt></ruby> 10 <ruby>時<rt>じ</rt></ruby>～21 <ruby>時<rt>じ</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby>） ※<ruby>日時<rt>にちじ</rt></ruby>は、<ruby>講師<rt>こうし</rt></ruby>と<ruby>予定<rt>よてい</rt></ruby>を<ruby>相談<rt>そうだん</rt></ruby>して<ruby>決<rt>き</rt></ruby>めます。
+            </p>
+            <p>
+                <span class="font-bold">【レッスンのタイプ】</span>
+                <ruby>個人<rt>こじん</rt></ruby>レッスンと、2～3 <ruby>名<rt>めい</rt></ruby>で<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>めるグループレッスンがあります。
+            </p>
+            
+            <div>
+                <p class="font-bold">【1 か<ruby>月<rt>げつ</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby>】（グループレッスンは 1 <ruby>名分<rt>めいぶん</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby>）</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;"></th>
+                            <th style="width: 35%;"><ruby>個人<rt>こじん</rt></ruby></th>
+                            <th style="width: 35%;">グループ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><ruby>月<rt>つき</rt></ruby> 2 <ruby>回<rt>かい</rt></ruby></td>
+                            <td>7,000 <ruby>円<rt>えん</rt></ruby></td>
+                            <td>6,000 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                        <tr>
+                            <td><ruby>月<rt>つき</rt></ruby> 3 <ruby>回<rt>かい</rt></ruby></td>
+                            <td>10,000 <ruby>円<rt>えん</rt></ruby></td>
+                            <td>8,000 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                        <tr>
+                            <td><ruby>月<rt>つき</rt></ruby> 4 <ruby>回<rt>かい</rt></ruby></td>
+                            <td>13,000 <ruby>円<rt>えん</rt></ruby></td>
+                            <td>10,000 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Giảm giá -->
+        <div class="mt-4 space-y-2">
+            <p class="triangle-item">
+                <ruby>学生割引<rt>がくせいわりびき</rt></ruby> &nbsp; <ruby>学生<rt>がくせい</rt></ruby>の<ruby>方<rt>かた</rt></ruby>は、<ruby>上<rt>うえ</rt></ruby>の<ruby>表<rt>ひょう</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby>から<ruby>毎月<rt>まいつき</rt></ruby> 1,000 <ruby>円割引<rt>えんわりびき</rt></ruby>します。
+            </p>
+            <p class="triangle-item">
+                <ruby>平日昼間割引<rt>へいじつひるまわりびき</rt></ruby> &nbsp; <ruby>平日昼間<rt>へいじつひるま</rt></ruby>（<ruby>月<rt>げつ</rt></ruby>～<ruby>金<rt>きん</rt></ruby> 17 <ruby>時<rt>じ</rt></ruby>までに<ruby>終了<rt>しゅうりょう</rt></ruby>）にレッスンを<ruby>受<rt>う</rt></ruby>ける<ruby>方<rt>かた</rt></ruby>は、<ruby>上<rt>うえ</rt></ruby>の<ruby>表<rt>ひょう</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby>から<ruby>毎月<rt>まいつき</rt></ruby> 2,000 <ruby>円割引<rt>えんわりびき</rt></ruby>します。
+            </p>
+            <p class="note-text">※<ruby>二<rt>ふた</rt></ruby>つの<ruby>割引<rt>わりびき</rt></ruby>を<ruby>同時<rt>どうじ</rt></ruby>に<ruby>使<rt>つか</rt></ruby>うことはできません。</p>
+            <p class="note-text">※<ruby>毎月<rt>まいつき</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby>は、<ruby>前<rt>まえ</rt></ruby>の<ruby>月<rt>つき</rt></ruby>の<ruby>最終日<rt>さいしゅうび</rt></ruby>までにお<ruby>支払<rt>しはら</rt></ruby>いください。</p>
+        </div>
+
+        <!-- Bài học đặc biệt -->
+        <div class="lesson-details">
+            <h3 class="font-bold">【<ruby>特別割引<rt>とくべつわりびき</rt></ruby>レッスン】</h3>
+            <p>メールに、お<ruby>名前<rt>なまえ</rt></ruby>、<ruby>連絡先<rt>れんらくさき</rt></ruby>、レッスンのタイプ、<ruby>希望日時<rt>きぼうにちじ</rt></ruby>を<ruby>書<rt>か</rt></ruby>いてお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。</p>
+            <p>グループレッスンを<ruby>希望<rt>きぼう</rt></ruby>する<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>代表<rt>だいひょう</rt></ruby>の<ruby>方<rt>かた</rt></ruby>がお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。</p>
+            <p><ruby>料金<rt>りょうきん</rt></ruby>（<ruby>一人<rt>ひとり</rt></ruby> 1,000 <ruby>円<rt>えん</rt></ruby>）は、<ruby>当日<rt>とうじつ</rt></ruby>お<ruby>支払<rt>しはら</rt></ruby>いください。</p>
+            <p><ruby>自分<rt>じぶん</rt></ruby>のギターでレッスンを<ruby>受<rt>う</rt></ruby>けたい<ruby>方<rt>かた</rt></ruby>は<ruby>持<rt>も</rt></ruby>ってきてください。<ruby>持<rt>も</rt></ruby>ってこられない<ruby>方<rt>かた</rt></ruby>には、<ruby>無料<rt>むりょう</rt></ruby>で<ruby>教室<rt>きょうしつ</rt></ruby>のギターをお<ruby>貸<rt>か</rt></ruby>しします。</p>
+        </div>
+
+        <!-- Chân trang -->
+        <footer class="footer-info">
+            <p>
+                <ruby>中村<rt>なかむら</rt></ruby>ギター<ruby>教室<rt>きょうしつ</rt></ruby> &nbsp; 〒120-5599 &nbsp; <ruby>春中市高木町<rt>はるなかしたかぎまち</rt></ruby> 6-2-3 （<ruby>春中駅<rt>はるなかえき</rt></ruby>から<ruby>徒歩<rt>とほ</rt></ruby> 1 <ruby>分<rt>ふん</rt></ruby>）
+            </p>
+            <p>
+                ホームページ：https://nakamuraguitar.jp &nbsp; E メール：k-nakamura@guitar.com
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

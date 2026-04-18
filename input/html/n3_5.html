@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あおい市市立図書館のご利用案内</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .section-box {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .part-label {
+            position: absolute;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .sub-title {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: normal;
+        }
+
+        .bullet-point {
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bullet-point::before {
+            content: "◆";
+            margin-right: 0.5rem;
+        }
+
+        .indent-para {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-info {
+            text-align: right;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        
+        <!-- PHẦN A -->
+        <div class="section-box">
+            <div class="part-label">A</div>
+            <h1 class="main-title">
+                あおい<ruby>市市立図書館<rt>ししりつとしょかん</rt></ruby>のご<ruby>利用案内<rt>りようあんない</rt></ruby>
+            </h1>
+
+            <!-- Bảng thời gian -->
+            <h2 class="sub-title">
+                <ruby>図書館<rt>としょかん</rt></ruby>の<ruby>開館時間<rt>かいかんじかん</rt></ruby>・<ruby>休館日<rt>きゅうかんび</rt></ruby>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;"><ruby>図書館名<rt>としょかんめい</rt></ruby></th>
+                        <th style="width: 35%;"><ruby>開館時間<rt>かいかんじかん</rt></ruby></th>
+                        <th style="width: 30%;"><ruby>休館日<rt>きゅうかんび</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><ruby>深川区図書館<rt>ふかがわくとしょかん</rt></ruby></td>
+                        <td>9 <ruby>時<rt>じ</rt></ruby>～18 <ruby>時<rt>じ</rt></ruby></td>
+                        <td><ruby>毎週月曜<rt>まいしゅうげつよう</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td><ruby>南田町区図書館<rt>みなみだまちくとしょかん</rt></ruby></td>
+                        <td>9 <ruby>時<rt>じ</rt></ruby>～20 <ruby>時<rt>じ</rt></ruby></td>
+                        <td><ruby>毎週火曜<rt>まいしゅうかよう</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td><ruby>大山町区図書館<rt>おおやままちくとしょかん</rt></ruby></td>
+                        <td>9 <ruby>時<rt>じ</rt></ruby>～20 <ruby>時<rt>じ</rt></ruby></td>
+                        <td><ruby>毎週月曜<rt>まいしゅうげつよう</rt></ruby></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Cách mượn trả -->
+            <h2 class="sub-title"><ruby>借<rt>か</rt></ruby>り<ruby>方<rt>かた</rt></ruby>・<ruby>返<rt>かえ</rt></ruby>し<ruby>方<rt>かた</rt></ruby></h2>
+            
+            <div class="bullet-point"><ruby>本<rt>ほん</rt></ruby>・<ruby>雑誌<rt>ざっし</rt></ruby></div>
+            <div class="indent-para">
+                <ruby>借<rt>か</rt></ruby>りる：<ruby>三<rt>みっ</rt></ruby>つの<ruby>図書館<rt>としょかん</rt></ruby>から<ruby>合計<rt>ごうけい</rt></ruby> 10 <ruby>冊<rt>さつ</rt></ruby>、2 <ruby>週間<rt>しゅうかん</rt></ruby>まで<ruby>借<rt>か</rt></ruby>りることができます。<br>
+                <ruby>返<rt>かえ</rt></ruby>す：<ruby>三<rt>みっ</rt></ruby>つの<ruby>図書館<rt>としょかん</rt></ruby>のどちらでも<ruby>返<rt>かえ</rt></ruby>すことができます。
+            </div>
+            <div class="indent-para">
+                <ruby>開館中<rt>かいかんちゅう</rt></ruby>：<ruby>窓口<rt>まどぐち</rt></ruby>にお<ruby>返<rt>かえ</rt></ruby>しください。<br>
+                <ruby>閉館中<rt>へいかんちゅう</rt></ruby>：<ruby>入口<rt>いりぐち</rt></ruby>にあるブックポストに<ruby>入<rt>い</rt></ruby>れてください。
+            </div>
+
+            <div class="bullet-point">CD・DVD</div>
+            <div class="indent-para">
+                <ruby>借<rt>か</rt></ruby>りる：<ruby>三<rt>みっ</rt></ruby>つの<ruby>図書館<rt>としょかん</rt></ruby>から<ruby>合計<rt>ごうけい</rt></ruby> 5 <ruby>枚<rt>まい</rt></ruby>、1 <ruby>週間<rt>しゅうかん</rt></ruby>まで<ruby>借<rt>か</rt></ruby>りることができます。<br>
+                <ruby>返<rt>かえ</rt></ruby>す：<ruby>開館中<rt>かいかんちゅう</rt></ruby>に、お<ruby>借<rt>か</rt></ruby>りになった<ruby>図書館<rt>としょかん</rt></ruby>の<ruby>窓口<rt>まどぐち</rt></ruby>にお<ruby>返<rt>かえ</rt></ruby>しください。
+            </div>
+        </div>
+
+        <!-- PHẦN B -->
+        <div class="section-box">
+            <div class="part-label">B</div>
+            <h1 class="main-title">
+                あおい<ruby>市市立図書館<rt>ししりつとしょかん</rt></ruby><br>
+                4 <ruby>月<rt>がつ</rt></ruby>の<ruby>読書会<rt>どくしょかい</rt></ruby>のお<ruby>知<rt>し</rt></ruby>らせ
+            </h1>
+
+            <div class="space-y-6">
+                <!-- Sự kiện 1 -->
+                <div>
+                    <div class="bullet-point font-bold"><ruby>大山町区図書館<rt>おおやままちくとしょかん</rt></ruby></div>
+                    <div class="pl-4">
+                        <p>4 <ruby>月<rt>がつ</rt></ruby> 12 <ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>) 10：00～11：00／<ruby>大山町区図書館<rt>おおやままちくとしょかん</rt></ruby>ロビー</p>
+                        <p class="mt-2">
+                            <ruby>今月<rt>こんげつ</rt></ruby>のテーマは「<ruby>大人<rt>おとな</rt></ruby>も<ruby>楽<rt>たの</rt></ruby>しめる<ruby>絵本<rt>えほん</rt></ruby>」です。<ruby>親子<rt>おやこ</rt></ruby>での<ruby>参加<rt>さんか</rt></ruby>も<ruby>可能<rt>かのう</rt></ruby>です。<ruby>昔<rt>むかし</rt></ruby>から<ruby>人気<rt>にんき</rt></ruby>の<br>
+                            ある<ruby>絵本<rt>えほん</rt></ruby>、<ruby>最近人気<rt>さいきんにんき</rt></ruby>のある<ruby>絵本<rt>えほん</rt></ruby>、<ruby>世界中<rt>せかいじゅう</rt></ruby>で<ruby>読<rt>よ</rt></ruby>まれている<ruby>絵本<rt>えほん</rt></ruby>など、さまざまな<ruby>絵本<rt>えほん</rt></ruby>を<ruby>読<rt>よ</rt></ruby><br>
+                            んでみましょう。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sự kiện 2 -->
+                <div>
+                    <div class="bullet-point font-bold"><ruby>南田町区図書館<rt>みなみだまちくとしょかん</rt></ruby></div>
+                    <div class="pl-4">
+                        <p>4 <ruby>月<rt>がつ</rt></ruby> 19 <ruby>日<rt>にち</rt></ruby> (<ruby>土<rt>ど</rt></ruby>) 14：00～15：00／<ruby>南田町区図書館<rt>みなみだまちくとしょかん</rt></ruby> 2 <ruby>階会議室<rt>かいかいぎしつ</rt></ruby></p>
+                        <p class="mt-2">
+                            <ruby>今月<rt>こんげつ</rt></ruby>のテキストは、<ruby>小林<rt>こばやし</rt></ruby>ゆり『<ruby>手<rt>て</rt></ruby>ぶくろ』です。<br>
+                            <ruby>本<rt>ほん</rt></ruby>が<ruby>好<rt>す</rt></ruby>きな<ruby>方<rt>かた</rt></ruby>、<ruby>図書館<rt>としょかん</rt></ruby>で<ruby>語<rt>かた</rt></ruby>り<ruby>合<rt>あ</rt></ruby>ってみませんか。<ruby>大学生<rt>だいがくせい</rt></ruby>から<ruby>参加<rt>さんか</rt></ruby>できます。<ruby>主<rt>おも</rt></ruby><br>
+                            に<ruby>感想<rt>かんそう</rt></ruby>を<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>いますので、テキストを<ruby>読<rt>よ</rt></ruby>んでからご<ruby>参加<rt>さんか</rt></ruby>ください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cách tham gia -->
+            <div class="mt-8">
+                <h3 class="font-bold underline"><ruby>ご参加方法<rt>ごさんかほうほう</rt></ruby></h3>
+                <p><ruby>参加希望日<rt>さんかきぼうび</rt></ruby>の<ruby>三日前<rt>みっかまえ</rt></ruby>までに、それぞれの<ruby>図書館<rt>としょかん</rt></ruby>の<ruby>窓口<rt>まどぐち</rt></ruby>か、お<ruby>電話<rt>でんわ</rt></ruby>で<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>んでください。</p>
+            </div>
+
+            <!-- Chân trang -->
+            <div class="contact-info">
+                <p><ruby>南田町区図書館電話<rt>みなみだまちくとしょかんでんわ</rt></ruby>：056-123-4567</p>
+                <p><ruby>大山町区図書館電話<rt>おおやままちくとしょかんでんわ</rt></ruby>：056-123-4578</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

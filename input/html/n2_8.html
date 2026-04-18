@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美木の海を綺麗にしよう！ - 美木 海の会</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        table.info-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+
+        table.info-table td {
+            border: 1px solid #000;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .label-cell {
+            width: 20%;
+            font-weight: bold;
+            background-color: #fdfdfd;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .recruit-box {
+            border: 1px solid #000;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .list-item {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .list-item::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .footer-info {
+            text-align: right;
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Header (Tên hội ở góc trên phải) -->
+        <div class="text-right font-bold text-lg mb-2">
+            <ruby>美木<rt>みき</rt></ruby> <ruby>海の会<rt>うみのかい</rt></ruby>
+        </div>
+
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                ご<ruby>家族<rt>かぞく</rt></ruby>で、<ruby>仲間<rt>なかま</rt></ruby>で、<ruby>美木<rt>みき</rt></ruby>の<ruby>海<rt>うみ</rt></ruby>を<ruby>綺麗<rt>きれい</rt></ruby>にしよう！
+            </h1>
+            <p class="intro-text">
+                <ruby>今年<rt>ことし</rt></ruby>も<ruby>美木市内<rt>みきしない</rt></ruby>の<ruby>海岸<rt>かいがん</rt></ruby>の<ruby>清掃活動<rt>せいそうかつどう</rt></ruby>を<ruby>実施<rt>じっし</rt></ruby>します。<ruby>皆様<rt>みなさま</rt></ruby>のご<ruby>協力<rt>きょうりょく</rt></ruby>をお<ruby>願<rt>ねが</rt></ruby>いします。
+            </p>
+        </header>
+
+        <!-- Bảng thông tin chính -->
+        <table class="info-table">
+            <tbody>
+                <tr>
+                    <td class="label-cell"><ruby>日時<rt>にちじ</rt></ruby></td>
+                    <td>
+                        5<ruby>月<rt>がつ</rt></ruby> 15<ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>) 9<ruby>時<rt>じ</rt></ruby>～12<ruby>時<rt>じ</rt></ruby><br>
+                        *<ruby>雨天中止<rt>うてんちゅうし</rt></ruby> (<ruby>中止<rt>ちゅうし</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>、ホームページにて<ruby>当日<rt>とうじつ</rt></ruby>6<ruby>時<rt>じ</rt></ruby>までにお<ruby>知<rt>し</rt></ruby>らせします。)<br>
+                        お<ruby>電話<rt>でんわ</rt></ruby>でのお<ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせはご<ruby>遠慮願<rt>えんりょねが</rt></ruby>います
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-cell"><ruby>実施会場<rt>じっしかいじょう</rt></ruby></td>
+                    <td>
+                        <ruby>緑浜海水浴場<rt>みどりはまかいすいよくじょう</rt></ruby>、<ruby>白波海水浴場<rt>しらなみかいすいよくじょう</rt></ruby>、みなと<ruby>海浜公園<rt>かいひんこうえん</rt></ruby>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-cell"><ruby>参加資格<rt>さんかしかく</rt></ruby></td>
+                    <td>
+                        <ruby>原則<rt>げんそく</rt></ruby>、<ruby>中学生以上<rt>ちゅうがくせいいじょう</rt></ruby><br>
+                        *<ruby>小学生以下<rt>しょうがくせいいか</rt></ruby>のお<ruby>子様<rt>こさま</rt></ruby>は<ruby>保護者<rt>ほごしゃ</rt></ruby>が<ruby>一緒<rt>いっしょ</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>に<ruby>限<rt>かぎ</rt></ruby>りご<ruby>参加<rt>さんか</rt></ruby>いただけます。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Cách tham gia -->
+        <section>
+            <h2 class="section-header">「<ruby>参加方法<rt>さんかほうほう</rt></ruby>」</h2>
+            <div class="pl-4 space-y-4">
+                <div>
+                    <p class="font-bold">a. <ruby>団体<rt>だんたい</rt></ruby>（20 <ruby>名以上<rt>めいいじょう</rt></ruby>）で<ruby>参加<rt>さんか</rt></ruby>する<ruby>場合<rt>ばあい</rt></ruby></p>
+                    <p><ruby>下記<rt>かき</rt></ruby>①②③をイーメールに<ruby>書<rt>か</rt></ruby>き、4 <ruby>月<rt>がつ</rt></ruby> 23 <ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) までに<ruby>事務局<rt>じむきょく</rt></ruby>へお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。</p>
+                    <p class="pl-4 text-sm mt-1">①<ruby>代表者氏名<rt>だいひょうしゃしめい</rt></ruby>および<ruby>連絡先<rt>れんらくさき</rt></ruby> &nbsp; ②<ruby>参加希望会場<rt>さんかきぼうかいじょう</rt></ruby> &nbsp; ③<ruby>参加者<rt>さんかしゃ</rt></ruby>の<ruby>人数<rt>にんずう</rt></ruby></p>
+                </div>
+                <div>
+                    <p class="font-bold">b. <ruby>個人<rt>こじん</rt></ruby>で<ruby>参加<rt>さんか</rt></ruby>する<ruby>場合<rt>ばあい</rt></ruby></p>
+                    <p><ruby>事前申<rt>じぜんもう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みは<ruby>不要<rt>ふよう</rt></ruby>です。<ruby>当日直接会場<rt>とうじつちょくせつかいじょう</rt></ruby>でお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tuyển nhân viên đồng thời -->
+        <div class="recruit-box">
+            <h2 class="font-bold mb-2"><ruby>同時募集<rt>どうじぼしゅう</rt></ruby></h2>
+            <p>
+                <ruby>前日<rt>ぜんじつ</rt></ruby>と<ruby>当日<rt>とうじつ</rt></ruby>の<ruby>準備<rt>じゅんび</rt></ruby>、<ruby>片付<rt>かたづ</rt></ruby>けもお<ruby>手伝<rt>てつだ</rt></ruby>いいただく<ruby>臨時<rt>りんじ</rt></ruby>スタッフも<ruby>同時<rt>どうじ</rt></ruby>に<ruby>募集<rt>ぼしゅう</rt></ruby>しています。<br>
+                （5 <ruby>月<rt>がつ</rt></ruby> 14 <ruby>日<rt>にち</rt></ruby> 13～15 <ruby>時<rt>じ</rt></ruby>、および 15 <ruby>日<rt>にち</rt></ruby> 8～15 <ruby>時<rt>じ</rt></ruby>の<ruby>両日参加<rt>りょうじつさんか</rt></ruby>できる<ruby>方<rt>かた</rt></ruby>に<ruby>限<rt>かぎ</rt></ruby>ります）<br>
+                ご<ruby>協力<rt>きょうりょく</rt></ruby>いただける<ruby>方<rt>かた</rt></ruby>は 4 <ruby>月<rt>がつ</rt></ruby> 23 <ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) 17 <ruby>時<rt>じ</rt></ruby>までに<ruby>事務局<rt>じむきょく</rt></ruby>へお<ruby>電話<rt>でんわ</rt></ruby>でお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。
+            </p>
+        </div>
+
+        <!-- Lịch trình ngày dọn dẹp -->
+        <section>
+            <h2 class="section-header">「<ruby>当日<rt>とうじつ</rt></ruby>の<ruby>流<rt>なが</rt></ruby>れ」</h2>
+            <div class="pl-4 space-y-1">
+                <p>1. <ruby>受付<rt>うけつけ</rt></ruby> &nbsp; ゴミ<ruby>袋<rt>ぶくろ</rt></ruby>を<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>る</p>
+                <p>2. <ruby>清掃<rt>せいそう</rt></ruby> &nbsp; ゴミを<ruby>拾<rt>ひろ</rt></ruby>い、ゴミ<ruby>袋<rt>ぶくろ</rt></ruby>に<ruby>入<rt>い</rt></ruby>れる</p>
+                <p>3. <ruby>分別<rt>ぶんべつ</rt></ruby> &nbsp; <ruby>分別<rt>ぶんべつ</rt></ruby>スペースにて、ゴミを<ruby>分別<rt>ぶんべつ</rt></ruby>する</p>
+            </div>
+        </section>
+
+        <!-- Lưu ý -->
+        <section>
+            <h2 class="section-header">「<ruby>注意事項<rt>ちゅういじこう</rt></ruby>」</h2>
+            <div class="pl-4">
+                <p class="list-item">けがや<ruby>急病<rt>きゅうびょう</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>に<ruby>備<rt>そな</rt></ruby>え、<ruby>健康保険証<rt>けんこうほけんしょう</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れずにお<ruby>持<rt>も</rt></ruby>ちください。</p>
+                <p class="list-item"><ruby>長袖<rt>ながそで</rt></ruby>シャツと<ruby>長<rt>なが</rt></ruby>ズボンでの<ruby>参加<rt>さんか</rt></ruby>をお<ruby>勧<rt>すす</rt></ruby>めします。<ruby>作業用手袋<rt>さぎょうようてぶくろ</rt></ruby>をお<ruby>持<rt>も</rt></ruby>ちの<ruby>場合<rt>ばあい</rt></ruby>はご<ruby>持参<rt>じさん</rt></ruby>ください。</p>
+                <p class="list-item"><ruby>強<rt>つよ</rt></ruby>い<ruby>日<rt>ひ</rt></ruby>ざしに<ruby>備<rt>そな</rt></ruby>え、<ruby>帽子<rt>ぼうし</rt></ruby>、タオル、<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>などをご<ruby>用意<rt>ようい</rt></ruby>ください。<ruby>体調管理<rt>たいちょうかんり</rt></ruby>はご<ruby>自身<rt>じしん</rt></ruby>でお<ruby>願<rt>ねが</rt></ruby>いいたします。</p>
+                <p class="list-item"><ruby>駐車<rt>ちゅうしゃ</rt></ruby>スペースには<ruby>限<rt>かぎ</rt></ruby>りがありますので、できるだけ<ruby>公共交通機関<rt>こうきょうこうつうきかん</rt></ruby>をご<ruby>利用<rt>りよう</rt></ruby>ください。</p>
+            </div>
+        </section>
+
+        <!-- Chân trang -->
+        <footer class="footer-info">
+            <p>「<ruby>美木<rt>みき</rt></ruby> <ruby>海の会<rt>うみのかい</rt></ruby>」 <ruby>事務局<rt>じむきょく</rt></ruby> <ruby>電話<rt>でんわ</rt></ruby>：01-4321-5577</p>
+            <p>イーメール：eco-sea@miki-city.com</p>
+        </footer>
+    </div>
+
+</body>
+</html>

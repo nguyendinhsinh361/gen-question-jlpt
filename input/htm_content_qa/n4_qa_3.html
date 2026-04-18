@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山の森ホテル ご利用案内 と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .sub-info {
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 12px 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .label-cell {
+            background-color: #f9fafb;
+            width: 30%;
+        }
+
+        .note-list {
+            margin-top: 1.5rem;
+            padding-left: 1rem;
+            font-size: 1rem;
+        }
+
+        .note-item {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .note-item::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: THÔNG TIN KHÁCH SẠN (Từ ảnh 1) -->
+        <header>
+            <h1 class="main-title">
+                <ruby>山<rt>やま</rt></ruby>の<ruby>森<rt>もり</rt></ruby>ホテル
+            </h1>
+            <div class="sub-info">
+                <p><ruby>土田市前田町<rt>つちだしまえだまち</rt></ruby> 1-23 （<ruby>前田駅<rt>まえだえき</rt></ruby>から<ruby>歩<rt>ある</rt></ruby>いて 2 <ruby>分<rt>ふん</rt></ruby>）</p>
+                <p><ruby>電話<rt>でんわ</rt></ruby>：012-345-6789 &nbsp; FAX：012-345-6790</p>
+                <p>ホームページ：http : // www . yamanomori-hotel . com/</p>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="section-header">インターネットで<ruby>予約<rt>よやく</rt></ruby>するとき</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="label-cell"><ruby>部屋<rt>へや</rt></ruby>の<ruby>種類<rt>しゅるい</rt></ruby> ＼ <ruby>泊<rt>と</rt></ruby>まる<ruby>曜日<rt>ようび</rt></ruby></th>
+                        <th><ruby>日曜日<rt>にちようび</rt></ruby> ～ <ruby>木曜日<rt>もくようび</rt></ruby></th>
+                        <th><ruby>金曜日<rt>きんようび</rt></ruby> ～ <ruby>土曜日<rt>どようび</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="label-cell">シングル</td>
+                        <td>8,000 <ruby>円<rt>えん</rt></ruby></td>
+                        <td class="bg-yellow-50 font-bold">10,000 <ruby>円<rt>えん</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">ツイン</td>
+                        <td>14,000 <ruby>円<rt>えん</rt></ruby></td>
+                        <td>16,000 <ruby>円<rt>えん</rt></ruby></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-header"><ruby>電話<rt>でんわ</rt></ruby>で<ruby>予約<rt>よやく</rt></ruby>するとき</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="label-cell"><ruby>部屋<rt>へや</rt></ruby>の<ruby>種類<rt>しゅるい</rt></ruby> ＼ <ruby>泊<rt>と</rt></ruby>まる<ruby>曜日<rt>ようび</rt></ruby></th>
+                        <th><ruby>日曜日<rt>にちようび</rt></ruby> ～ <ruby>木曜日<rt>もくようび</rt></ruby></th>
+                        <th><ruby>金曜日<rt>きんようび</rt></ruby> ～ <ruby>土曜日<rt>どようび</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="label-cell">シングル</td>
+                        <td>8,500 <ruby>円<rt>えん</rt></ruby></td>
+                        <td>10,500 <ruby>円<rt>えん</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">ツイン</td>
+                        <td>14,500 <ruby>円<rt>えん</rt></ruby></td>
+                        <td>16,500 <ruby>円<rt>えん</rt></ruby></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-list">
+                <p class="note-item">ツインの<ruby>部屋<rt>へや</rt></ruby>にもう 1 <ruby>台<rt>だい</rt></ruby>ベッドを<ruby>入<rt>い</rt></ruby>れて、3 <ruby>人<rt>にん</rt></ruby>で<ruby>泊<rt>と</rt></ruby>まれます。ベッド 1 <ruby>台<rt>だい</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby>は 1 <ruby>晩<rt>ばん</rt></ruby> 3,000 <ruby>円<rt>えん</rt></ruby>です。</p>
+                <p class="note-item">ホテルの<ruby>食堂<rt>しょくどう</rt></ruby>で<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>が<ruby>食<rt>た</rt></ruby>べられます。1 <ruby>人<rt>にん</rt></ruby> 1,000 <ruby>円<rt>えん</rt></ruby>で、<ruby>和食<rt>わしょく</rt></ruby>と<ruby>洋食<rt>ようしょく</rt></ruby>が<ruby>選<rt>えら</rt></ruby>べます。</p>
+                <p class="note-item"><ruby>全部<rt>ぜんぶ</rt></ruby>の<ruby>部屋<rt>へや</rt></ruby>で、インターネットをただで<ruby>利用<rt>りよう</rt></ruby>できます。パソコンは<ruby>受付<rt>うけつけ</rt></ruby>で<ruby>借<rt>か</rt></ruby>られます。12 <ruby>時間<rt>じかん</rt></ruby> 1,000 <ruby>円<rt>えん</rt></ruby>です。</p>
+                <p class="note-item">ホテルにはプールがあります。ホテルに<ruby>泊<rt>と</rt></ruby>まっている<ruby>人<rt>ひと</rt></ruby>は、ただで<ruby>利用<rt>りよう</rt></ruby>できます。<ruby>泊<rt>と</rt></ruby>まっていない<ruby>人<rt>ひと</rt></ruby>も 1 <ruby>日<rt>にち</rt></ruby> 2,000 <ruby>円<rt>えん</rt></ruby>で<ruby>利用<rt>りよう</rt></ruby>できます。</p>
+            </div>
+        </section>
+
+        <!-- PHẦN 2: CÂU HỎI 34 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">34</span> マイさんは<ruby>今週<rt>こんしゅう</rt></ruby>の<ruby>金曜日<rt>きんようび</rt></ruby>に、<ruby>山<rt>やま</rt></ruby>の<ruby>森<rt>もり</rt></ruby>ホテルに<ruby>一人<rt>ひとり</rt></ruby>で<ruby>泊<rt>と</rt></ruby>まろうと<ruby>思<rt>おも</rt></ruby>います。インターネットでシングルの<ruby>部屋<rt>へや</rt></ruby>を<ruby>予約<rt>よやく</rt></ruby>したら、いくらですか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. 8,000 <ruby>円<rt>えん</rt></ruby></div>
+                <div class="option-item"><div class="radio-circle"></div> 2. 8,500 <ruby>円<rt>えん</rt></ruby></div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    3. 10,000 <ruby>円<rt>えん</rt></ruby>
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 4. 10,500 <ruby>円<rt>えん</rt></ruby></div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 3</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: <ruby>予約方法<rt>よやくほうほう</rt></ruby>：インターネット ＋ <ruby>部屋<rt>へや</rt></ruby>：シングル ＋ <ruby>曜日<rt>ようび</rt></ruby>：<ruby>金曜日<rt>きんようび</rt></ruby> ＝ 10,000 <ruby>円<rt>えん</rt></ruby>)
+            </p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 35 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">35</span> <ruby>山<rt>やま</rt></ruby>の<ruby>森<rt>もり</rt></ruby>ホテルに<ruby>泊<rt>と</rt></ruby>まる<ruby>人<rt>ひと</rt></ruby>が、お<ruby>金<rt>かね</rt></ruby>を<ruby>払<rt>はら</rt></ruby>わないでできることは、どれですか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. ツインの<ruby>部屋<rt>へや</rt></ruby>でもう 1 <ruby>台<rt>だい</rt></ruby>ベッドを<ruby>借<rt>か</rt></ruby>ること</div>
+                <div class="option-item"><div class="radio-circle"></div> 2. ホテルの<ruby>食堂<rt>しょくどう</rt></ruby>で<ruby>朝<rt>あさ</rt></ruby>ご<ruby>飯<rt>はん</rt></ruby>を<ruby>食<rt>た</rt></ruby>べること</div>
+                <div class="option-item"><div class="radio-circle"></div> 3. ホテルでパソコンを<ruby>借<rt>か</rt></ruby>ること</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    4. ホテルのプールで<ruby>泳<rt>およ</rt></ruby>ぐこと
+                </div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 4</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: <ruby>案内<rt>あんない</rt></ruby>に「ホテルに<ruby>泊<rt>と</rt></ruby>まっている<ruby>人<rt>ひと</rt></ruby>は、ただで<ruby>利用<rt>りよう</rt></ruby>できます」と<ruby>記載<rt>きさい</rt></ruby>されています)
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

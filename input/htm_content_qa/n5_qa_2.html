@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>はじめましてパーティー と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Bảng thông báo chính */
+        .notice-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+
+        .notice-table td {
+            border: 1px solid #000;
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .label-cell {
+            width: 25%;
+            text-align: center;
+            background-color: #fdfdfd;
+            font-weight: bold;
+        }
+
+        .content-cell {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Bảng phân chia đồ ăn bên trong */
+        .food-table {
+            width: 80%;
+            margin: 1rem auto;
+            border-collapse: collapse;
+            border: 1px solid #000;
+        }
+
+        .food-table th, .food-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .food-table th {
+            font-weight: normal;
+            background-color: #f9fafb;
+        }
+
+        .note-text {
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-sign {
+            text-align: right;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: THÔNG BÁO BỮA TIỆC (Từ ảnh) -->
+        <header>
+            <h1 class="main-title">はじめましてパーティー</h1>
+        </header>
+
+        <section>
+            <div class="intro-text">
+                <p><ruby>来週<rt>らいしゅう</rt></ruby>「はじめましてパーティー」を　します。</p>
+                <p>みなさん、<ruby>来<rt>き</rt></ruby>てください！</p>
+            </div>
+
+            <table class="notice-table">
+                <tbody>
+                    <tr>
+                        <td class="label-cell"><ruby>時間<rt>じかん</rt></ruby></td>
+                        <td class="content-cell">
+                            4 <ruby>月<rt>がつ</rt></ruby> 20 <ruby>日<rt>にち</rt></ruby> （<ruby>金<rt>きん</rt></ruby>） <ruby>午後<rt>ごご</rt></ruby> 5 <ruby>時<rt>じ</rt></ruby> ～ 7 <ruby>時<rt>じ</rt></ruby>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">ところ</td>
+                        <td class="content-cell">
+                            <ruby>水口日本語学校<rt>みずぐちにほんごがっこう</rt></ruby> 302 きょうしつ<br />
+                            <span class="text-sm">※3 <ruby>階<rt>かい</rt></ruby>の いちばん <ruby>大<rt>おお</rt></ruby>きい へやです。</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell"><ruby>持<rt>も</rt></ruby>ってくるもの</td>
+                        <td class="content-cell">
+                            <p>300 <ruby>円<rt>えん</rt></ruby>ぐらいの <ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby></p>
+                            
+                            <table class="food-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50%;"><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby></th>
+                                        <th style="width: 50%;">クラス</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">おかし</td>
+                                        <td>A クラスの<ruby>人<rt>ひと</rt></ruby></td>
+                                    </tr>
+                                    <tr>
+                                        <td>B クラスの<ruby>人<rt>ひと</rt></ruby></td>
+                                    </tr>
+                                    <tr class="bg-yellow-50 font-bold">
+                                        <td>くだもの</td>
+                                        <td>C クラスの<ruby>人<rt>ひと</rt></ruby></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <p class="note-text">※<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>は <ruby>学校<rt>がっこう</rt></ruby>が <ruby>買<rt>か</rt></ruby>います。</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="mt-4 text-center">
+                みんなで <ruby>自己紹介<rt>じこしょうかい</rt></ruby>を してから、<ruby>話<rt>はな</rt></ruby>したり <ruby>歌<rt>うた</rt></ruby>ったり しましょう。
+            </p>
+
+            <div class="footer-sign">
+                <ruby>水口日本語学校<rt>みずぐちにほんごがっこう</rt></ruby>
+            </div>
+        </section>
+
+        <!-- PHẦN 2: CÂU HỎI 32 -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <ruby>右<rt>みぎ</rt></ruby>のページを <ruby>見<rt>み</rt></ruby>て、<ruby>下<rt>した</rt></ruby>の ぶんしょうを <ruby>読<rt>よ</rt></ruby>んで、しつもんに こたえてください。<ruby>答<rt>こた</rt></ruby>えは、1・2・3・4 から いちばん いい ものを <ruby>一<rt>ひと</rt></ruby>つ えらんでください。
+            </p>
+
+            <p class="text-xl font-bold mb-6 pl-4">
+                <span class="q-number">32</span> アンさんは、「はじめまして パーティー」に <ruby>行<rt>い</rt></ruby>きます。アンさんは C クラスです。<ruby>何<rt>なに</rt></ruby>を <ruby>持<rt>も</rt></ruby>っていきますか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. 300 <ruby>円<rt>えん</rt></ruby></div>
+                <div class="option-item"><div class="radio-circle"></div> 2. おかし</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    3. くだもの
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 4. <ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby></div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 3</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Theo bảng phân chia, học sinh lớp C ("Cクラスの人") được yêu cầu mang theo trái cây ("くだもの").)
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

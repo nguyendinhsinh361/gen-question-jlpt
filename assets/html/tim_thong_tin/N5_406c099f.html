@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>やまだくだものてん セール</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        ruby rt { font-size: 0.6em; color: #333; }
+        .sale-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 4px 16px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transform: rotate(-2deg);
+            margin-bottom: 1rem;
+        }
+        .item-box {
+            border: 2px solid #000;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price { font-size: 1.3rem; font-weight: bold; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 0.95rem; margin-right: 0.5rem; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+<div class="container">
+    <div style="text-align:right; margin-bottom:1rem;">
+        <span class="text-xl font-bold">やまだ くだものてん</span><br>
+        <span>あさ 9:00 ～ よる 7:00</span>
+    </div>
+
+    <div class="sale-badge">どようび・にちようび セール！</div>
+
+    <p class="mb-4 text-lg">5<ruby>月<rt>がつ</rt></ruby> 10<ruby>日<rt>にち</rt></ruby>（<ruby>土<rt>ど</rt></ruby>）と 11<ruby>日<rt>にち</rt></ruby>（<ruby>日<rt>にち</rt></ruby>）</p>
+
+    <div class="item-box">
+        <span class="text-lg">りんご（5こ）</span>
+        <span><span class="old-price">500<ruby>円<rt>えん</rt></ruby></span> <span class="price">300<ruby>円<rt>えん</rt></ruby></span></span>
+    </div>
+    <div class="item-box">
+        <span class="text-lg">みかん（8こ）</span>
+        <span><span class="old-price">400<ruby>円<rt>えん</rt></ruby></span> <span class="price">250<ruby>円<rt>えん</rt></ruby></span></span>
+    </div>
+    <div class="item-box">
+        <span class="text-lg">バナナ（1ふくろ）</span>
+        <span class="price">150<ruby>円<rt>えん</rt></ruby></span>
+    </div>
+    <div class="item-box">
+        <span class="text-lg">いちご（1はこ）</span>
+        <span class="price">600<ruby>円<rt>えん</rt></ruby></span>
+    </div>
+
+    <p class="mt-4 text-center font-bold">★ 1,000<ruby>円<rt>えん</rt></ruby> いじょう かうと、ジュースを 1つ あげます！</p>
+</div>
+</body>
+</html>

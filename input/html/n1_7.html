@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPJカードの案内</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 1rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px 5px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .label-cell {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .section-header {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 2.5rem 0 1.5rem 0;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .instruction-list {
+            padding-left: 0.5rem;
+            text-align: justify;
+        }
+
+        .sub-list {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-note {
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        .indent-2 {
+            padding-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                CPJ カードの<ruby>案内<rt>あんない</rt></ruby>
+            </h1>
+        </header>
+
+        <!-- Bảng so sánh các loại thẻ -->
+        <table>
+            <thead>
+                <tr>
+                    <th class="label-cell" style="width: 20%;"><ruby>カードの種類<rt>かーどのしゅるい</rt></ruby></th>
+                    <th style="width: 20%;">A</th>
+                    <th style="width: 20%;">B</th>
+                    <th style="width: 20%;">C</th>
+                    <th style="width: 20%;">D</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="label-cell">お<ruby>申し込み<rt>もうしこみ</rt></ruby>の<ruby>資格<rt>しかく</rt></ruby></td>
+                    <td>30 <ruby>歳以上<rt>さいいじょう</rt></ruby>＊</td>
+                    <td>18 <ruby>歳以上<rt>さいいじょう</rt></ruby>＊<br>29 <ruby>歳以下<rt>さいいか</rt></ruby></td>
+                    <td>18 <ruby>歳以上<rt>さいいじょう</rt></ruby>＊</td>
+                    <td>18 <ruby>歳以上<rt>さいいじょう</rt></ruby></td>
+                </tr>
+                <tr>
+                    <td class="label-cell" rowspan="2"><ruby>年会費<rt>ねんかいひ</rt></ruby></td>
+                    <td class="label-cell">ご<ruby>本人<rt>ほんにん</rt></ruby></td>
+                    <td>10,500 <ruby>円<rt>えん</rt></ruby></td>
+                    <td>3,150 <ruby>円<rt>えん</rt></ruby></td>
+                    <td>2,625 <ruby>円<rt>えん</rt></ruby></td>
+                    <td>1,050 <ruby>円<rt>えん</rt></ruby></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">ご<ruby>家族<rt>かぞく</rt></ruby></td>
+                    <td>お 1 <ruby>人<rt>にん</rt></ruby> 1,050 <ruby>円<rt>えん</rt></ruby></td>
+                    <td>お 1 <ruby>人<rt>にん</rt></ruby> 420 <ruby>円<rt>えん</rt></ruby></td>
+                    <td>お 1 <ruby>人<rt>にん</rt></ruby> 420 <ruby>円<rt>えん</rt></ruby></td>
+                    <td><ruby>無料<rt>むりょう</rt></ruby></td>
+                </tr>
+                <tr>
+                    <td class="label-cell" colspan="2">ご<ruby>利用可能枠<rt>りようかのうわく</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 500 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 300 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 300 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 200 <ruby>万円<rt>まんえん</rt></ruby></td>
+                </tr>
+                <tr>
+                    <td class="label-cell" rowspan="2"><ruby>旅行保険<rt>りょこうほけん</rt></ruby></td>
+                    <td class="label-cell"><ruby>国内<rt>こくない</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 5,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 5,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 3,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 2,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                </tr>
+                <tr>
+                    <td class="label-cell"><ruby>海外<rt>かいがい</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 8,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 5,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 3,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                    <td><ruby>最高<rt>さいこう</rt></ruby> 2,000 <ruby>万円<rt>まんえん</rt></ruby></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer-note">
+            ＊1 &nbsp; <ruby>学生<rt>がくせい</rt></ruby>は<ruby>除<rt>のぞ</rt></ruby>きます
+        </div>
+
+        <!-- Hướng dẫn đăng ký -->
+        <section>
+            <h2 class="section-header">お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>み<ruby>方法<rt>ほうほう</rt></ruby></h2>
+            
+            <div class="instruction-list space-y-4">
+                <p>1. インターネットまたは<ruby>電話<rt>でんわ</rt></ruby>で<ruby>資料<rt>しりょう</rt></ruby>をご<ruby>請求<rt>せいきゅう</rt></ruby>ください。</p>
+                
+                <p>
+                    2. <ruby>資料<rt>しりょう</rt></ruby>が<ruby>到着<rt>とうちゃく</rt></ruby>しましたら、<ruby>入会申込書<rt>にゅうかいもうしこみしょ</rt></ruby>にご<ruby>記入<rt>きにゅう</rt></ruby>のうえ、<ruby>本人確認書類<rt>ほんにんかくにんしょるい</rt></ruby>と<ruby>一<rt>いっ</rt></ruby><ruby>緒<rt>しょ</rt></ruby>にご<ruby>返送<rt>へんそう</rt></ruby>ください。<br>
+                    （D カードをお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みの<ruby>方<rt>かた</rt></ruby>は、<ruby>学生証<rt>がくせいしょう</rt></ruby>のコピーも<ruby>同封<rt>どうふう</rt></ruby>してください。）
+                </p>
+
+                <div>
+                    <p>
+                        3. <ruby>当社<rt>とうしゃ</rt></ruby>に<ruby>入会申込書到着後<rt>にゅうかいもうしこみしょとうちゃくご</rt></ruby>、1 か<ruby>月前後<rt>げつぜんご</rt></ruby>でカードを<ruby>発行<rt>はっこう</rt></ruby>いたします。<br>
+                        <ruby>当社<rt>とうしゃ</rt></ruby>の<ruby>判断<rt>はんだん</rt></ruby>で、ご<ruby>希望<rt>きぼう</rt></ruby>に<ruby>添<rt>そ</rt></ruby>えない<ruby>場合<rt>ばあい</rt></ruby>もございます。<br>
+                        <ruby>本人確認書類<rt>ほんにんかくにんしょるい</rt></ruby>は、<ruby>次<rt>つぎ</rt></ruby>のいずれか 1 <ruby>点<rt>てん</rt></ruby>のコピー（お<ruby>名前<rt>なまえ</rt></ruby>、<ruby>生年月日<rt>せいねんがっぴ</rt></ruby>、<ruby>現住所<rt>げんじゅうしょ</rt></ruby>の<ruby>記載面<rt>きさいめん</rt></ruby>）をご<ruby>用意<rt>ようい</rt></ruby>ください。
+                    </p>
+                    
+                    <div class="sub-list space-y-2">
+                        <p>(1) &nbsp; <ruby>運転免許<rt>うんてんめんきょ</rt></ruby>をお<ruby>持<rt>も</rt></ruby>ちの<ruby>方<rt>かた</rt></ruby>は、<ruby>必<rt>かなら</rt></ruby>ず<ruby>運転免許証<rt>うんてんめんきょしょう</rt></ruby></p>
+                        <p>(2) &nbsp; <ruby>運転免許<rt>うんてんめんきょ</rt></ruby>をお<ruby>持<rt>も</rt></ruby>ちでない<ruby>方<rt>かた</rt></ruby>は、<ruby>以下<rt>いか</rt></ruby>のいずれか 1 <ruby>点<rt>てん</rt></ruby>のコピー</p>
+                        <div class="flex flex-wrap gap-4 pl-8">
+                            <span>①パスポート</span>
+                            <span>②<ruby>健康保険証<rt>けんこうほけんしょう</rt></ruby></span>
+                            <span>③<ruby>住民票<rt>じゅうみんひょう</rt></ruby></span>
+                            <span>④<ruby>在留<rt>ざいりゅう</rt></ruby>カードまたは<ruby>特別永住者証明書<rt>とくべつえいじゅうしゃしょうめいしょ</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <p>
+                        ＊2 &nbsp; (1) もしくは (2) に<ruby>書<rt>か</rt></ruby>かれた<ruby>住所<rt>じゅうしょ</rt></ruby>と<ruby>入会申込書<rt>にゅうかいもうしこみしょ</rt></ruby>の<ruby>現住所<rt>げんじゅうしょ</rt></ruby>が<ruby>異<rt>こと</rt></ruby>なる<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>現住所<rt>げんじゅうしょ</rt></ruby>が<ruby>記載<rt>きさい</rt></ruby>されている<ruby>以下<rt>いか</rt></ruby>の<ruby>書類<rt>しょるい</rt></ruby>のうち、いずれか 1 <ruby>点<rt>てん</rt></ruby>のコピーを<ruby>並<rt>なら</rt></ruby>べてご<ruby>提出<rt>ていしゅつ</rt></ruby>ください。
+                    </p>
+                    <div class="sub-list space-y-1">
+                        <p>a. &nbsp; <ruby>公共料金<rt>こうきょうりょうきん</rt></ruby>（<ruby>電気<rt>でんき</rt></ruby>、ガス、<ruby>水道<rt>すいどう</rt></ruby>のいずれかひとつ）の<ruby>領収書<rt>りょうしゅうしょ</rt></ruby></p>
+                        <p>b. &nbsp; <ruby>社会保険料<rt>しゃかいほけんりょう</rt></ruby>（<ruby>健康保険<rt>けんこうほけん</rt></ruby>、<ruby>年金<rt>ねんきん</rt></ruby>など）の<ruby>領収書<rt>りょうしゅうしょ</rt></ruby></p>
+                        <p>c. &nbsp; <ruby>税金<rt>ぜいきん</rt></ruby>を<ruby>納<rt>おさ</rt></ruby>めたときの<ruby>証明書<rt>しょうめいしょ</rt></ruby></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

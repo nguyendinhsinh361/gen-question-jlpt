@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デジタルカメラ教室のご案内 と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .intro-text {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .info-list {
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .info-dot {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            margin-top: -0.1rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+            min-width: 100px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .sub-note {
+            padding-left: 1rem;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        table.postcard-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1.5rem 0;
+        }
+
+        table.postcard-table td {
+            border: 1px solid #000;
+            padding: 12px;
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+
+        .num-cell {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: THÔNG BÁO LỚP HỌC (Từ ảnh 1) -->
+        <header>
+            <h1 class="main-title">
+                デジタルカメラ<ruby>教室<rt>きょうしつ</rt></ruby>のご<ruby>案内<rt>あんない</rt></ruby>
+            </h1>
+        </header>
+
+        <section class="intro-text">
+            <p>
+                デジタルカメラを<ruby>使<rt>つか</rt></ruby>ったことがある<ruby>方<rt>かた</rt></ruby>もない<ruby>方<rt>かた</rt></ruby>も、この<ruby>教室<rt>きょうしつ</rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>すると<ruby>楽<rt>たの</rt></ruby>しみが<ruby>広<rt>ひろ</rt></ruby>がります。きっとあなたの<ruby>撮<rt>と</rt></ruby>った<ruby>写真<rt>しゃしん</rt></ruby>をだれかに<ruby>見<rt>み</rt></ruby>せたくなるでしょう。
+            </p>
+        </section>
+
+        <div class="info-list">
+            <!-- Nội dung -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>内　　容<rt>ないよう</rt></ruby>：</div>
+                <div class="info-content">
+                    <p><ruby>上手<rt>じょうず</rt></ruby>な<ruby>写真<rt>しゃしん</rt></ruby>の<ruby>撮<rt>と</rt></ruby>り<ruby>方<rt>かた</rt></ruby>をわかりやすくお<ruby>教<rt>おし</rt></ruby>えします。<br><ruby>景色<rt>けしき</rt></ruby>などを<ruby>撮<rt>と</rt></ruby>って、その<ruby>写真<rt>しゃしん</rt></ruby>をはがきに<ruby>印刷<rt>いんさつ</rt></ruby>します。</p>
+                    <div class="sub-note">
+                        <p>＊デジタルカメラをお<ruby>持<rt>も</rt></ruby>ちの<ruby>方<rt>かた</rt></ruby>は、ご<ruby>持参<rt>じさん</rt></ruby>ください。<ruby>持<rt>も</rt></ruby>っていない<ruby>方<rt>かた</rt></ruby>には、お<ruby>貸<rt>か</rt></ruby>しします。</p>
+                        <p>＊はがきはこちらでご<ruby>用意<rt>ようい</rt></ruby>します（<ruby>無料<rt>むりょう</rt></ruby>）。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Giảng viên -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>講　　師<rt>こうし</rt></ruby>：</div>
+                <div class="info-content"><ruby>山本<rt>やまもと</rt></ruby>たかし（<ruby>写真家<rt>しゃしんか</rt></ruby>）</div>
+            </div>
+
+            <!-- Thời gian -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>日　　時<rt>にちじ</rt></ruby>：</div>
+                <div class="info-content">8 <ruby>月<rt>がつ</rt></ruby> 23 <ruby>日<rt>にち</rt></ruby>（<ruby>土<rt>ど</rt></ruby>） 10:00 - 15:00</div>
+            </div>
+
+            <!-- Địa điểm tập trung -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>集合場所<rt>しゅうごうばしょ</rt></ruby>：</div>
+                <div class="info-content">
+                    <p>ひまわり<ruby>写真館<rt>しゃしんかん</rt></ruby></p>
+                    <p class="sub-note">＊<ruby>撮影<rt>さつえい</rt></ruby>は<ruby>近<rt>ちか</rt></ruby>くの<ruby>大田公園<rt>おおたこうえん</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>います。</p>
+                </div>
+            </div>
+
+            <!-- Chi phí -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>参加費<rt>さんかひ</rt></ruby>：</div>
+                <div class="info-content">1 <ruby>人<rt>にん</rt></ruby> 500 <ruby>円<rt>えん</rt></ruby>（<ruby>当日<rt>とうじつ</rt></ruby>お<ruby>支払<rt>しはら</rt></ruby>いください）</div>
+            </div>
+
+            <!-- Định mức -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>定　　員<rt>ていいん</rt></ruby>：</div>
+                <div class="info-content">20 <ruby>名<rt>めい</rt></ruby></div>
+            </div>
+
+            <!-- Đối tượng -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>参加<rt>さんか</rt></ruby>できる<ruby>方<rt>かた</rt></ruby>：</div>
+                <div class="info-content"><ruby>小学<rt>しょうがく</rt></ruby> 5 <ruby>年生以上<rt>ねんせいいじょう</rt></ruby>（<ruby>小学生<rt>しょうがくせい</rt></ruby>は<ruby>家族<rt>かぞく</rt></ruby>の<ruby>大人<rt>おとな</rt></ruby>の<ruby>方<rt>かた</rt></ruby>がいっしょに<ruby>参加<rt>さんか</rt></ruby>してください。）</div>
+            </div>
+
+            <!-- Cách đăng ký -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>申込方法<rt>もうしこみほうほう</rt></ruby>：</div>
+                <div class="info-content">
+                    <p>はがきに、①<ruby>住所<rt>じゅうしょ</rt></ruby> ②<ruby>氏名<rt>しめい</rt></ruby>（<ruby>小学生<rt>しょうがくせい</rt></ruby>も<ruby>学年<rt>がくねん</rt></ruby>も） ③<ruby>電話番号<rt>でんわばんごう</rt></ruby> ④デジタルカメラの<ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>しを<ruby>希望<rt>きぼう</rt></ruby>するかどうかお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。</p>
+                    <p class="sub-note">＊<ruby>家族<rt>かぞく</rt></ruby>でお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みの<ruby>場合<rt>ばあい</rt></ruby>は、<ruby>全員<rt>ぜんいん</rt></ruby>お<ruby>書<rt>か</rt></ruby>きください。</p>
+                </div>
+            </div>
+
+            <!-- Hạn chót -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label"><ruby>締<rt>し</rt></ruby>め<ruby>切<rt>き</rt></ruby>り：</div>
+                <div class="info-content">8 <ruby>月<rt>がつ</rt></ruby> 8 <ruby>日<rt>にち</rt></ruby>（<ruby>金<rt>きん</rt></ruby>）（<ruby>当日<rt>とうじつ</rt></ruby>の<ruby>消印<rt>けしいん</rt></ruby>があるものに<ruby>限<rt>かぎ</rt></ruby>り<ruby>有効<rt>ゆうこう</rt></ruby>とする。）</div>
+            </div>
+
+            <!-- Khác -->
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="info-label">そ &nbsp; の &nbsp; <ruby>他<rt>た</rt></ruby>：</div>
+                <div class="info-content">
+                    <p><ruby>動<rt>うご</rt></ruby>きやすい<ruby>服装<rt>ふくそう</rt></ruby>でご<ruby>参加<rt>さんか</rt></ruby>ください。<br><ruby>昼食<rt>ちゅうしょく</rt></ruby>はご<ruby>持参<rt>じさん</rt></ruby>ください。（<ruby>公園<rt>こうえん</rt></ruby>のまわり）</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-right font-bold">
+            Tel：031-849-764
+        </div>
+
+        <!-- PHẦN 2: CÂU HỎI 38 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">38</span> この<ruby>案内<rt>あんない</rt></ruby>によると、<ruby>参加者<rt>さんかしゃ</rt></ruby>が<ruby>必<rt>かなら</rt></ruby>ず<ruby>持<rt>も</rt></ruby>って<ruby>来<rt>こ</rt></ruby>なければならないものは<ruby>何<rt>なに</rt></ruby>か。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. <ruby>参加費<rt>さんかひ</rt></ruby>とはがき</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    2. <ruby>参加費<rt>さんかひ</rt></ruby>と<ruby>昼食<rt>ちゅうしょく</rt></ruby>
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 3. <ruby>昼食<rt>ちゅうしょく</rt></ruby>だけ</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. <ruby>参加費<rt>さんかひ</rt></ruby>だけ</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 2</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: <ruby>参加費<rt>さんかひ</rt></ruby>は<ruby>当日支払<rt>とうじつしはらい</rt></ruby>、<ruby>昼食<rt>ちゅうしょく</rt></ruby>は<ruby>持参<rt>じさん</rt></ruby>と<ruby>記載<rt>きさい</rt></ruby>されています)
+            </p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 39 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">39</span> <ruby>小学校<rt>しょうがっこう</rt></ruby> 6 <ruby>年生<rt>ねんせい</rt></ruby>の<ruby>小林一郎<rt>こばやしいちろう</rt></ruby>くんは、この<ruby>教室<rt>きょうしつ</rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>したいと<ruby>思<rt>おも</rt></ruby>っている。デジタルカメラを<ruby>持<rt>も</rt></ruby>っていないので、<ruby>写真館<rt>しゃしんかん</rt></ruby>で<ruby>借<rt>か</rt></ruby>るつもりだ。<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みのはがきの<ruby>正<rt>ただ</rt></ruby>しい<ruby>書<rt>か</rt></ruby>き<ruby>方<rt>かた</rt></ruby>はどれか。
+            </p>
+
+            <table class="postcard-table">
+                <tbody>
+                    <tr class="bg-yellow-50 font-bold">
+                        <td class="num-cell">1</td>
+                        <td>
+                            デジタルカメラ<ruby>教室<rt>きょうしつ</rt></ruby>への<ruby>参加<rt>さんか</rt></ruby>をお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みします。<br>
+                            ①<ruby>中川市大田<rt>なかがわしおおた</rt></ruby> 2-5-1 &nbsp; ②<ruby>小林花子<rt>こばやしはなこ</rt></ruby> &nbsp; <ruby>小林一郎<rt>こばやしいちろう</rt></ruby>（6 <ruby>年生<rt>ねんせい</rt></ruby>） &nbsp; ③031-849-8713 &nbsp; ④カメラを<ruby>借<rt>か</rt></ruby>ります
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="num-cell">2</td>
+                        <td>
+                            デジタルカメラ<ruby>教室<rt>きょうしつ</rt></ruby>への<ruby>参加<rt>さんか</rt></ruby>をお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みします。<br>
+                            ①<ruby>中川市大田<rt>なかがわしおおた</rt></ruby> 2-5-1 &nbsp; ②<ruby>小林花子<rt>こばやしはなこ</rt></ruby> &nbsp; <ruby>小林一郎<rt>こばやしいちろう</rt></ruby>（6 <ruby>年生<rt>ねんせい</rt></ruby>） &nbsp; ③031-849-8713
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="num-cell">3</td>
+                        <td>
+                            デジタルカメラ<ruby>教室<rt>きょうしつ</rt></ruby>への<ruby>参加<rt>さんか</rt></ruby>をお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みします。<br>
+                            ①<ruby>中川市大田<rt>なかがわしおおた</rt></ruby> 2-5-1 &nbsp; ②<ruby>小林花子<rt>こばやしはなこ</rt></ruby> &nbsp; <ruby>子供一名<rt>こどもいちめい</rt></ruby>（6 <ruby>年生<rt>ねんせい</rt></ruby>） &nbsp; ③031-849-8713 &nbsp; ④カメラを<ruby>借<rt>か</rt></ruby>ります
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="num-cell">4</td>
+                        <td>
+                            デジタルカメラ<ruby>教室<rt>きょうしつ</rt></ruby>への<ruby>参加<rt>さんか</rt></ruby>をお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みします。<br>
+                            ①<ruby>中川市大田<rt>なかがわしおおた</rt></ruby> 2-5-1 &nbsp; ②<ruby>小林一郎<rt>こばやしいちろう</rt></ruby>（6 <ruby>年生<rt>ねんせい</rt></ruby>） &nbsp; ③031-849-8713
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    1. 1
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 2. 2</div>
+                <div class="option-item"><div class="radio-circle"></div> 3. 3</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. 4</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 1</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: <ruby>小学生<rt>しょうがくせい</rt></ruby>は<ruby>大人<rt>おとな</rt></ruby>との<ruby>参加<rt>さんか</rt></ruby>が<ruby>必須<rt>ひっす</rt></ruby>なため<ruby>両方<rt>りょうほう</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>で、かつカメラを<ruby>借<rt>か</rt></ruby>る<ruby>旨<rt>むね</rt></ruby>も<ruby>明記<rt>めいき</rt></ruby>しなければなりません)
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

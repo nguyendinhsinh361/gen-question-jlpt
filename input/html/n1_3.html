@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>募集中（ぼしゅうちゅう）の奨学金（しょうがくきん）リスト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        /* Trang trí tiêu đề kiểu cuộn giấy */
+        .title-scroll {
+            position: relative;
+            display: inline-block;
+            padding: 10px 60px;
+            border: 2px solid #333;
+            border-radius: 4px;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        .title-scroll::before, .title-scroll::after {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            background: white;
+        }
+        .title-scroll::before { top: -10px; left: -10px; }
+        .title-scroll::after { bottom: -10px; right: -10px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px double #333;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px 8px;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .center-text { text-align: center; }
+        .amount-cell { min-width: 110px; }
+        .period-cell { min-width: 100px; }
+        .name-cell { font-weight: 500; }
+        
+        .row-number {
+            width: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề -->
+        <header class="text-center mb-6">
+            <div class="title-scroll">
+                <ruby>募集<rt>ぼしゅう</rt></ruby><ruby>中<rt>ちゅう</rt></ruby>の<ruby>奨学金<rt>しょうがくきん</rt></ruby>リスト
+            </div>
+        </header>
+
+        <!-- Bảng danh sách học bổng -->
+        <table>
+            <thead>
+                <tr>
+                    <th class="row-number"></th>
+                    <th style="width: 25%;"><ruby>奨学金名<rt>しょうがくきんめい</rt></ruby></th>
+                    <th style="width: 15%;"><ruby>月額<rt>げつがく</rt></ruby></th>
+                    <th style="width: 15%;"><ruby>支給期間<rt>しきゅうきかん</rt></ruby></th>
+                    <th style="width: 45%;"><ruby>対象<rt>たいしょう</rt></ruby></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 1 -->
+                <tr>
+                    <td class="row-number">1</td>
+                    <td class="name-cell"><ruby>朝夕奨学会<rt>あさゆうしょうがくかい</rt></ruby></td>
+                    <td class="center-text amount-cell">
+                        <ruby>大学院<rt>だいがくいん</rt></ruby><br>¥80,000
+                    </td>
+                    <td class="center-text period-cell">2<ruby>年<rt>ねん</rt></ruby>まで</td>
+                    <td>
+                        タイ・インドネシア<ruby>出身者<rt>しゅっしんしゃ</rt></ruby>。<br>
+                        <ruby>修士<rt>しゅうし</rt></ruby>1<ruby>年<rt>ねん</rt></ruby>、<ruby>博士<rt>はかせ</rt></ruby>1、2<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>する<ruby>者<rt>もの</rt></ruby>。
+                    </td>
+                </tr>
+                <!-- 2 -->
+                <tr>
+                    <td class="row-number">2</td>
+                    <td class="name-cell"><ruby>大友国際奨学基金<rt>おおともこくさいしょうがくききん</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>大学院<rt>だいがくいん</rt></ruby><br>¥100,000
+                    </td>
+                    <td class="center-text">2<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td>アジア<ruby>諸国出身者<rt>しょこくしゅっしんしゃ</rt></ruby>。<ruby>学部生<rt>がくぶせい</rt></ruby>は<ruby>除<rt>のぞ</rt></ruby>く。</td>
+                </tr>
+                <!-- 3 -->
+                <tr>
+                    <td class="row-number">3</td>
+                    <td class="name-cell">KANSAI <ruby>奨学財団<rt>しょうがくざいだん</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>大学院<rt>だいがくいん</rt></ruby><br>¥120,000
+                    </td>
+                    <td class="center-text">2<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td>
+                        インド・インドネシア・ベトナム・タイ・<ruby>中国出身者<rt>ちゅうごくしゅっしんしゃ</rt></ruby>。<br>
+                        <ruby>修士<rt>しゅうし</rt></ruby>1<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>する<ruby>者<rt>もの</rt></ruby>。
+                    </td>
+                </tr>
+                <!-- 4 -->
+                <tr>
+                    <td class="row-number">4</td>
+                    <td class="name-cell"><ruby>黒井商事国際奨学会<rt>くろいしょうじこくさいしょうがくかい</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>大学院<rt>だいがくいん</rt></ruby><br>¥100,000
+                    </td>
+                    <td class="center-text">2<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td>
+                        <ruby>経済学専攻者<rt>けいざいがくせんこうしゃ</rt></ruby>で、<ruby>修士<rt>しゅうし</rt></ruby>1<ruby>年次<rt>ねんじ</rt></ruby>または<ruby>博士<rt>はかせ</rt></ruby>2<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>し、35 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>者<rt>もの</rt></ruby>。
+                    </td>
+                </tr>
+                <!-- 5 -->
+                <tr>
+                    <td class="row-number">5</td>
+                    <td class="name-cell">さくら<ruby>留学生奨学金<rt>りゅうがくせいしょうがくきん</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby><br>¥150,000
+                    </td>
+                    <td class="center-text">4<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td><ruby>学部<rt>がくぶ</rt></ruby>1<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>する<ruby>女子留学生<rt>じょしりゅうがくせい</rt></ruby>。</td>
+                </tr>
+                <!-- 6 -->
+                <tr>
+                    <td class="row-number">6</td>
+                    <td class="name-cell"><ruby>島田記念奨学基金会<rt>しまだきねんしょうがくききんかい</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby><br>¥50,000
+                    </td>
+                    <td class="center-text">4<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td><ruby>経済学部<rt>けいざいがくぶ</rt></ruby>1<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>する<ruby>者<rt>もの</rt></ruby>。</td>
+                </tr>
+                <!-- 7 -->
+                <tr>
+                    <td class="row-number">7</td>
+                    <td class="name-cell">NAフレンドシップ<ruby>財団<rt>ざいだん</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby>・¥40,000<br>
+                        <ruby>大学院<rt>だいがくいん</rt></ruby>・¥80,000
+                    </td>
+                    <td class="center-text">2<ruby>年以内<rt>ねんいない</rt></ruby></td>
+                    <td>
+                        アメリカ・カナダ<ruby>出身者<rt>しゅっしんしゃ</rt></ruby>。<br>
+                        <ruby>学部<rt>がくぶ</rt></ruby>3、4<ruby>年次<rt>ねんじ</rt></ruby>、<ruby>修士<rt>しゅうし</rt></ruby>・<ruby>博士課程<rt>はかせかてい</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>する<ruby>者<rt>もの</rt></ruby>。<ruby>東京都<rt>とうきょうと</rt></ruby>に<ruby>在住<rt>ざいじゅう</rt></ruby>する<ruby>者<rt>もの</rt></ruby>。
+                    </td>
+                </tr>
+                <!-- 8 -->
+                <tr>
+                    <td class="row-number">8</td>
+                    <td class="name-cell"><ruby>橋田化学奨学会<rt>はしだかがくしょうがくかい</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby>・<br>
+                        <ruby>大学院<rt>だいがくいん</rt></ruby><br>
+                        ¥100,000
+                    </td>
+                    <td class="center-text">2<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td><ruby>医学<rt>いがく</rt></ruby>、<ruby>薬学<rt>やくがく</rt></ruby>、<ruby>工学専攻者<rt>こうがくせんこうしゃ</rt></ruby>。</td>
+                </tr>
+                <!-- 9 -->
+                <tr>
+                    <td class="row-number">9</td>
+                    <td class="name-cell"><ruby>平和電機奨学会<rt>へいわでんきしょうがくかい</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby>・<br>
+                        <ruby>大学院<rt>だいがくいん</rt></ruby><br>
+                        ¥100,000
+                    </td>
+                    <td class="center-text">2<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td>
+                        アジア<ruby>諸国出身者<rt>しょこくしゅっしんしゃ</rt></ruby>。<br>
+                        <ruby>学部<rt>がくぶ</rt></ruby>1、2、3<ruby>年次<rt>ねんじ</rt></ruby>、<ruby>修士<rt>しゅうし</rt></ruby>1<ruby>年次及<rt>ねんじおよび</rt></ruby>び<ruby>博士<rt>はかせ</rt></ruby>1、2<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>する<ruby>者<rt>もの</rt></ruby>。
+                    </td>
+                </tr>
+                <!-- 10 -->
+                <tr>
+                    <td class="row-number">10</td>
+                    <td class="name-cell"><ruby>馬来友好支援奨学金<rt>まらいゆうこうしえんしょうがくきん</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby>・¥75,000<br>
+                        <ruby>大学院<rt>だいがくいん</rt></ruby>・¥100,000
+                    </td>
+                    <td class="center-text">4<ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td>
+                        マレーシア<ruby>出身者<rt>しゅっしんしゃ</rt></ruby>。<br>
+                        <ruby>学部<rt>がくぶ</rt></ruby>1<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>し、23 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>者<rt>もの</rt></ruby>。<br>
+                        <ruby>博士<rt>はかせ</rt></ruby>1<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>し、30 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>者<rt>もの</rt></ruby>。
+                    </td>
+                </tr>
+                <!-- 11 -->
+                <tr>
+                    <td class="row-number">11</td>
+                    <td class="name-cell">山本スカラーシップ</td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby>・<br>
+                        <ruby>大学院<rt>だいがくいん</rt></ruby><br>
+                        ¥100,000
+                    </td>
+                    <td class="center-text">1 <ruby>年間<rt>ねんかん</rt></ruby></td>
+                    <td>
+                        35 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>者<rt>もの</rt></ruby>。<br>
+                        ただし、<ruby>申請<rt>しんせい</rt></ruby>は1<ruby>回<rt>かい</rt></ruby>のみ。
+                    </td>
+                </tr>
+                <!-- 12 -->
+                <tr>
+                    <td class="row-number">12</td>
+                    <td class="name-cell"><ruby>若人会奨学会<rt>じゃくじんかいしょうがくかい</rt></ruby></td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby>・¥120,000<br>
+                        <ruby>大学院<rt>だいがくいん</rt></ruby>・¥160,000
+                    </td>
+                    <td class="center-text">
+                        <ruby>学部<rt>がくぶ</rt></ruby>2<ruby>年間<rt>ねんかん</rt></ruby><br>
+                        <ruby>大学院<rt>だいがくいん</rt></ruby>2<ruby>年間<rt>ねんかん</rt></ruby>
+                    </td>
+                    <td>
+                        <ruby>学部<rt>がくぶ</rt></ruby>1、2<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>し、25 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>者<rt>もの</rt></ruby>。<br>
+                        <ruby>修士<rt>しゅうし</rt></ruby>1<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>し、33 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>者<rt>もの</rt></ruby>。<br>
+                        <ruby>博士<rt>はかせ</rt></ruby>1、2<ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>し、39 <ruby>歳未満<rt>さいみまん</rt></ruby>の<ruby>者<rt>もの</rt></ruby>。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

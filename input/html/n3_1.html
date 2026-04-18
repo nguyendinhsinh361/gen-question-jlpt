@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo lớp học tiếng Nhật</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.8;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 2rem auto;
+            background: white;
+            padding: 4rem;
+            border: 1px solid #999;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .info-list {
+            margin-bottom: 2.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .info-dot {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            margin-top: -0.2rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+            min-width: 100px;
+            white-space: nowrap;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #000;
+            margin-bottom: 2rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #fff;
+            font-weight: normal;
+        }
+
+        .circle-mark {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            border-radius: 50%;
+        }
+
+        .notes-section {
+            margin-top: 2rem;
+            padding-left: 1rem;
+        }
+
+        .note-item {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-item::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header class="text-center mb-12">
+            <h1 class="text-xl font-medium tracking-wider">
+                <ruby>外国人<rt>がいこくじん</rt></ruby>のなみなさん、<ruby>日本語<rt>にほんご</rt></ruby>を<ruby>勉強<rt>べんきょう</rt></ruby>しませんか
+            </h1>
+        </header>
+
+        <!-- Danh sách thông tin -->
+        <div class="info-list">
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="flex">
+                    <span class="info-label"><ruby>場所<rt>ばしょ</rt></ruby>…</span>
+                    <span><ruby>市民<rt>しみん</rt></ruby>センター</span>
+                </div>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="flex">
+                    <span class="info-label"><ruby>先生<rt>せんせい</rt></ruby>…</span>
+                    <span><ruby>国際交流<rt>こくさいこうりゅう</rt></ruby>しよう<ruby>市民<rt>しみん</rt></ruby>の<ruby>会<rt>かい</rt></ruby></span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="flex flex-col">
+                    <div class="flex">
+                        <span class="info-label"><ruby>申込方法<rt>もうしこみほうほう</rt></ruby>…</span>
+                        <span>3<ruby>月<rt>がつ</rt></ruby>1<ruby>日<rt>にち</rt></ruby>から4<ruby>月<rt>がつ</rt></ruby>5<ruby>日<rt>にち</rt></ruby>までの<ruby>間<rt>あいだ</rt></ruby>に、<ruby>申込書<rt>もうしこみしょ</rt></ruby>に<ruby>必要<rt>ひつよう</rt></ruby>なことを<ruby>書<rt>か</rt></ruby>いて、</span>
+                    </div>
+                    <p><ruby>市民<rt>しみん</rt></ruby>センターに<ruby>出<rt>だ</rt></ruby>してください。<ruby>申込書<rt>もうしこみしょ</rt></ruby>は、<ruby>市民<rt>しみん</rt></ruby>センターにおいてあります。</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="flex">
+                    <span class="info-label"><ruby>説明会<rt>せつめいかい</rt></ruby>…</span>
+                    <span>4<ruby>月<rt>がつ</rt></ruby>8<ruby>日<rt>にち</rt></ruby> (<ruby>日<rt>にち</rt></ruby>) の<ruby>午前<rt>ごぜん</rt></ruby> 11 <ruby>時<rt>じ</rt></ruby>から<ruby>市民<rt>しみん</rt></ruby>センターで、<ruby>説明会<rt>せつめいかい</rt></ruby>をします。</span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="flex">
+                    <span class="info-label"><ruby>期間<rt>きかん</rt></ruby>…</span>
+                    <span><ruby>授業<rt>じゅぎょう</rt></ruby>は4<ruby>月<rt>がつ</rt></ruby>10<ruby>日<rt>にち</rt></ruby> (<ruby>火<rt>か</rt></ruby>) ～ 9<ruby>月<rt>がつ</rt></ruby>14<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) です。</span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="flex">
+                    <span class="info-label"><ruby>費用<rt>ひよう</rt></ruby>…</span>
+                    <span>テキスト<ruby>代<rt>だい</rt></ruby>だけ<ruby>払<rt>はら</rt></ruby>ってください。</span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="info-dot">●</span>
+                <div class="flex">
+                    <span class="info-label"><ruby>時間割<rt>じかんわり</rt></ruby></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bảng thời gian biểu -->
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2" style="width: 25%;">クラス<ruby>名<rt>めい</rt></ruby></th>
+                    <th rowspan="2" style="width: 10%;"><ruby>曜日<rt>ようび</rt></ruby></th>
+                    <th style="width: 21.6%;">
+                        <ruby>午前<rt>ごぜん</rt></ruby><br>
+                        ( 10 <ruby>時<rt>じ</rt></ruby> ～<br>
+                        11 <ruby>時<rt>じ</rt></ruby> 30 <ruby>分<rt>ふん</rt></ruby>)
+                    </th>
+                    <th style="width: 21.6%;">
+                        <ruby>午後<rt>ごご</rt></ruby><br>
+                        ( 13 <ruby>時<rt>じ</rt></ruby> ～<br>
+                        14 <ruby>時<rt>じ</rt></ruby> 30 <ruby>分<rt>ふん</rt></ruby>)
+                    </th>
+                    <th style="width: 21.6%;">
+                        <ruby>夜<rt>よる</rt></ruby><br>
+                        ( 19 <ruby>時<rt>じ</rt></ruby> ～<br>
+                        20 <ruby>時<rt>じ</rt></ruby> 30 <ruby>分<rt>ふん</rt></ruby>)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1: Hội thoại A -->
+                <tr>
+                    <td class="text-left pl-6">( 1 ) <ruby>会話<rt>かいわ</rt></ruby> A</td>
+                    <td><ruby>火<rt>か</rt></ruby></td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="circle-mark"></span></td>
+                </tr>
+                <!-- Row 2: Hội thoại B -->
+                <tr>
+                    <td class="text-left pl-6">( 2 ) <ruby>会話<rt>かいわ</rt></ruby> B</td>
+                    <td><ruby>水<rt>すい</rt></ruby></td>
+                    <td></td>
+                    <td><span class="circle-mark"></span></td>
+                    <td></td>
+                </tr>
+                <!-- Row 3: Tiếng Nhật A -->
+                <tr>
+                    <td class="text-left pl-6">( 3 ) <ruby>日本語<rt>にほんご</rt></ruby> A</td>
+                    <td><ruby>木<rt>もく</rt></ruby></td>
+                    <td></td>
+                    <td></td>
+                    <td><span class="circle-mark"></span></td>
+                </tr>
+                <!-- Row 4: Tiếng Nhật B -->
+                <tr>
+                    <td class="text-left pl-6">( 4 ) <ruby>日本語<rt>にほんご</rt></ruby> B</td>
+                    <td><ruby>金<rt>きん</rt></ruby></td>
+                    <td><span class="circle-mark"></span></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!-- Row 5: Hán tự A -->
+                <tr>
+                    <td class="text-left pl-6">( 5 ) <ruby>漢字<rt>かんじ</rt></ruby> A</td>
+                    <td><ruby>土<rt>ど</rt></ruby></td>
+                    <td></td>
+                    <td><span class="circle-mark"></span></td>
+                    <td></td>
+                </tr>
+                <!-- Row 6: Hán tự B -->
+                <tr>
+                    <td class="text-left pl-6">( 6 ) <ruby>漢字<rt>かんじ</rt></ruby> B</td>
+                    <td><ruby>日<rt>にち</rt></ruby></td>
+                    <td><span class="circle-mark"></span></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Ghi chú -->
+        <div class="notes-section">
+            <h3 class="font-bold mb-2">【<ruby>注意<rt>ちゅうい</rt></ruby>】</h3>
+            <div class="note-item">
+                A と B の<ruby>内容<rt>ないよう</rt></ruby>は<ruby>同<rt>おな</rt></ruby>じです。
+            </div>
+            <div class="note-item">
+                「<ruby>漢字<rt>かんじ</rt></ruby>」のクラスをとる<ruby>人<rt>ひと</rt></ruby>は、「<ruby>日本語<rt>にほんご</rt></ruby>」のクラスもとってください。
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

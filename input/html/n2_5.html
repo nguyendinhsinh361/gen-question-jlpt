@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビュッフェのご案内</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header::before {
+            content: "●";
+            margin-right: 0.5rem;
+        }
+
+        .sub-header {
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .sub-header::before {
+            content: "◆";
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .price-row {
+            display: grid;
+            grid-template-columns: 180px 150px 150px 150px;
+            padding-left: 2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .price-label {
+            font-weight: normal;
+        }
+
+        .info-block {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                ビュッフェのご<ruby>案内<rt>あんない</rt></ruby>
+            </h1>
+            <p class="mb-8 text-center">
+                レストラン「ベルン」および「みよし」では、<ruby>以下<rt>いか</rt></ruby>のビュッフェをご<ruby>用意<rt>ようい</rt></ruby>しており<br>
+                ます。お<ruby>好<rt>この</rt></ruby>みの<ruby>料理<rt>りょうり</rt></ruby>を<ruby>食<rt>た</rt></ruby>べ<ruby>放題<rt>ほうだい</rt></ruby>でお<ruby>楽<rt>たの</rt></ruby>しみください。
+            </p>
+        </header>
+
+        <!-- NHÀ HÀNG BERN -->
+        <section>
+            <h2 class="section-header">ベルン（<ruby>洋食<rt>ようしょく</rt></ruby>）</h2>
+            
+            <!-- Lunch -->
+            <div class="info-block">
+                <div class="sub-header">ランチ &nbsp; 11:30 ～ 14:00 （<ruby>制限時間<rt>せいげんじかん</rt></ruby> 90 <ruby>分<rt>ふん</rt></ruby>）</div>
+                <div class="price-row">
+                    <span class="price-label"><ruby>料金<rt>りょうきん</rt></ruby>（<ruby>平日<rt>へいじつ</rt></ruby>）</span>
+                    <span>おとな 3,300 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>シニア 3,000 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>こども 1,700 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">（<ruby>土日<rt>どにち</rt></ruby>・<ruby>祝日<rt>しゅくじつ</rt></ruby>）</span>
+                    <span>おとな 4,000 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>シニア 3,700 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>こども 2,000 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+            </div>
+
+            <!-- Dessert -->
+            <div class="info-block">
+                <div class="sub-header">デザート 15:00 ～ 17:00 （<ruby>制限時間<rt>せいげんじかん</rt></ruby> 60 <ruby>分<rt>ふん</rt></ruby>）</div>
+                <div class="price-row">
+                    <span class="price-label"><ruby>料金<rt>りょうきん</rt></ruby>（<ruby>平日<rt>へいじつ</rt></ruby>）</span>
+                    <span>おとな 2,500 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>シニア 2,200 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>こども 1,500 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">（<ruby>土日<rt>どにち</rt></ruby>・<ruby>祝日<rt>しゅくじつ</rt></ruby>）</span>
+                    <span>おとな 3,000 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>シニア 2,700 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>こども 1,800 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+            </div>
+
+            <!-- Dinner -->
+            <div class="info-block">
+                <div class="sub-header"><ruby>夕食料金<rt>ゆうしょくりょうきん</rt></ruby> 18:00 ～ 21:00 （<ruby>制限時間<rt>せいげんじかん</rt></ruby> 2 <ruby>時間<rt>じかん</rt></ruby>）</div>
+                <div class="price-row">
+                    <span class="price-label"><ruby>料金<rt>りょうきん</rt></ruby>（<ruby>平日<rt>へいじつ</rt></ruby>）</span>
+                    <span>おとな 5,500 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>シニア 5,000 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>こども 2,000 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">（<ruby>土日<rt>どにち</rt></ruby>・<ruby>祝日<rt>しゅくじつ</rt></ruby>）</span>
+                    <span>おとな 6,000 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>シニア 5,500 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>こども 2,500 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECIAL WINDOW TABLES -->
+        <section>
+            <h2 class="section-header"><ruby>窓際特別<rt>まどぎわとくべつ</rt></ruby>テーブルのご<ruby>案内<rt>あんない</rt></ruby></h2>
+            <div class="info-block text-justify">
+                レストラン「ベルン」では、<ruby>海<rt>うみ</rt></ruby>が<ruby>見渡<rt>みわた</rt></ruby>せる<ruby>窓際<rt>まどぎわ</rt></ruby>の<ruby>特別席<rt>とくべつせき</rt></ruby>をご<ruby>用意<rt>ようい</rt></ruby>しております。<br>
+                <ruby>最高<rt>さいこう</rt></ruby>の<ruby>眺<rt>なが</rt></ruby>めとともにビュッフェをお<ruby>楽<rt>たの</rt></ruby>しみください。ビュッフェ<ruby>料金<rt>りょうきん</rt></ruby>に、1 テーブル（2 ～ 4 <ruby>名様<rt>めいさま</rt></ruby>） 1,000 <ruby>円<rt>えん</rt></ruby>の<ruby>追加料金<rt>ついかりょうきん</rt></ruby>でご<ruby>利用<rt>りよう</rt></ruby>いただけます。
+            </div>
+        </section>
+
+        <!-- NHÀ HÀNG MIYOSHI -->
+        <section>
+            <h2 class="section-header">みよし（<ruby>和食<rt>わしょく</rt></ruby>）</h2>
+            <div class="info-block">
+                <div class="sub-header">ランチ &nbsp; 11:00 ～ 16:00 （<ruby>制限時間<rt>せいげんじかん</rt></ruby> 2 <ruby>時間<rt>じかん</rt></ruby>）</div>
+                <div class="price-row">
+                    <span class="price-label"><ruby>料金<rt>りょうきん</rt></ruby>（<ruby>土日<rt>どにち</rt></ruby>・<ruby>祝日<rt>しゅくじつ</rt></ruby>のみ）</span>
+                    <span>おとな 4,500 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>シニア 4,200 <ruby>円<rt>えん</rt></ruby></span>
+                    <span>こども 2,200 <ruby>円<rt>えん</rt></ruby></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICE CLASSIFICATION -->
+        <section>
+            <h2 class="section-header">ビュッフェ<ruby>料金<rt>りょうきん</rt></ruby>の<ruby>区分<rt>くぶん</rt></ruby>について（ベルン・みよし<ruby>共通<rt>きょうつう</rt></ruby>）</h2>
+            <div class="info-block space-y-1">
+                <p>おとな … <ruby>中学生<rt>ちゅうがくせい</rt></ruby>から 64 <ruby>歳<rt>さい</rt></ruby>までのお<ruby>客様<rt>きゃくさま</rt></ruby></p>
+                <p>シニア … 64 <ruby>歳以上<rt>さいいじょう</rt></ruby>のお<ruby>客様<rt>きゃくさま</rt></ruby></p>
+                <p>こども … 4 <ruby>歳<rt>さい</rt></ruby>から<ruby>小学生<rt>しょうがくせい</rt></ruby>までのお<ruby>子様<rt>こさま</rt></ruby> （3 <ruby>歳以下<rt>さいいか</rt></ruby>のお<ruby>子様<rt>こさま</rt></ruby>は<ruby>無料<rt>むりょう</rt></ruby>です。）</p>
+            </div>
+        </section>
+
+        <!-- RESERVATION -->
+        <section>
+            <h2 class="section-header">ご<ruby>予約<rt>よやく</rt></ruby>・お<ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせ</h2>
+            <div class="footer-contact">
+                <span>ベルン &nbsp; 031-277-1116 （<ruby>直通<rt>ちょくつう</rt></ruby>）</span>
+                <span>/</span>
+                <span>みよし &nbsp; 031-277-1119 （<ruby>直通<rt>ちょくつう</rt></ruby>）</span>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

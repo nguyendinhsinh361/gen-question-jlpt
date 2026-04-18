@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海外引越サービス 比較と診断</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-box {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .company-label {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Styles cho Bảng Công ty A */
+        .plan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #000;
+            margin-bottom: 1rem;
+        }
+
+        .plan-item {
+            border: 0.5px solid #000;
+        }
+
+        .plan-header {
+            background-color: #e5e7eb;
+            text-align: center;
+            font-weight: bold;
+            padding: 4px;
+            border-bottom: 1px solid #000;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            border-bottom: 0.5px solid #ccc;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            background-color: #f9fafb;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            border-right: 0.5px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-content {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        /* Styles cho Sơ đồ Công ty B */
+        .flow-box {
+            border: 1px solid #000;
+            padding: 6px 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            background: white;
+            display: inline-block;
+        }
+
+        .connector-line {
+            width: 1px;
+            height: 30px;
+            background-color: #000;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .connector-line::after {
+            content: "▼";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+        }
+
+        .decision-node {
+            display: flex;
+            justify-content: space-around;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .option-branch {
+            padding: 4px 10px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .option-branch:first-child {
+            border-right: 1px solid #000;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid #000;
+            margin-top: 10px;
+        }
+
+        .result-cell {
+            border-right: 1px solid #000;
+            padding: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .result-cell:last-child {
+            border-right: none;
+        }
+
+        .note-list {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .note-item {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .note-item::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        
+        <!-- CÔNG TY A -->
+        <div class="section-box">
+            <div class="company-label">A <ruby>社<rt>しゃ</rt></ruby></div>
+            <h1 class="main-title">
+                <ruby>海外引越<rt>かいがいひっこし</rt></ruby>サービ &nbsp; スプラン<ruby>比較<rt>ひかく</rt></ruby>
+            </h1>
+
+            <div class="plan-grid">
+                <!-- Plan 1 -->
+                <div class="plan-item">
+                    <div class="plan-header">プラン ①</div>
+                    <div class="info-row">
+                        <div class="info-label">こんな<ruby>方<rt>かた</rt></ruby>に</div>
+                        <div class="info-content">・<ruby>荷物<rt>にもつ</rt></ruby>が<ruby>多<rt>おお</rt></ruby>い<ruby>方<rt>かた</rt></ruby><br>・<ruby>手間<rt>てま</rt></ruby>をかけたくない<ruby>方<rt>かた</rt></ruby></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷造<rt>にづく</rt></ruby>り</div>
+                        <div class="info-content"><ruby>当社<rt>とうしゃ</rt></ruby>スタッフが<ruby>行<rt>おこな</rt></ruby>います</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷物量<rt>にもつりょう</rt></ruby></div>
+                        <div class="info-content">M サイズ 10 <ruby>箱未満<rt>はこみまん</rt></ruby></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>料金<rt>りょうきん</rt></ruby></div>
+                        <div class="info-content">1 <ruby>箱<rt>はこ</rt></ruby> 12,000 <ruby>円<rt>えん</rt></ruby> ～</div>
+                    </div>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="plan-item">
+                    <div class="plan-header">プラン ②</div>
+                    <div class="info-row">
+                        <div class="info-label">こんな<ruby>方<rt>かた</rt></ruby>に</div>
+                        <div class="info-content">・<ruby>荷物<rt>にもつ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ない<ruby>方<rt>かた</rt></ruby><br>・<ruby>手間<rt>てま</rt></ruby>をかけたくない<ruby>方<rt>かた</rt></ruby></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷造<rt>にづく</rt></ruby>り</div>
+                        <div class="info-content"><ruby>当社<rt>とうしゃ</rt></ruby>スタッフが<ruby>行<rt>おこな</rt></ruby>います</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷物量<rt>にもつりょう</rt></ruby></div>
+                        <div class="info-content">M サイズ 10 <ruby>箱以上<rt>はこいじょう</rt></ruby></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>料金<rt>りょうきん</rt></ruby></div>
+                        <div class="info-content">1 <ruby>箱<rt>はこ</rt></ruby> 15,000 <ruby>円<rt>えん</rt></ruby> ～</div>
+                    </div>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="plan-item">
+                    <div class="plan-header">プラン ③</div>
+                    <div class="info-row">
+                        <div class="info-label">こんな<ruby>方<rt>かた</rt></ruby>に</div>
+                        <div class="info-content">・<ruby>予算<rt>よさん</rt></ruby>を<ruby>抑<rt>おさ</rt></ruby>えたい<ruby>方<rt>かた</rt></ruby><br>・<ruby>必要<rt>ひつよう</rt></ruby>なサービスだけ<ruby>利用<rt>りよう</rt></ruby>したい</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷造<rt>にづく</rt></ruby>り</div>
+                        <div class="info-content">お<ruby>客様<rt>きゃくさま</rt></ruby>ご<ruby>自身<rt>じしん</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>ってください</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷物量<rt>にもつりょう</rt></ruby></div>
+                        <div class="info-content">M サイズ 5 <ruby>箱以上<rt>はこいじょう</rt></ruby></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>料金<rt>りょうきん</rt></ruby></div>
+                        <div class="info-content">1 <ruby>箱<rt>はこ</rt></ruby> 10,000 <ruby>円<rt>えん</rt></ruby> ～</div>
+                    </div>
+                </div>
+
+                <!-- Plan 4 -->
+                <div class="plan-item">
+                    <div class="plan-header">プラン ④</div>
+                    <div class="info-row">
+                        <div class="info-label">こんな<ruby>方<rt>かた</rt></ruby>に</div>
+                        <div class="info-content">・<ruby>荷物<rt>にもつ</rt></ruby>が<ruby>少<rt>すく</rt></ruby>ない<ruby>方<rt>かた</rt></ruby><br>・<ruby>早<rt>はや</rt></ruby>く<ruby>荷物<rt>にもつ</rt></ruby>を<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>りたい<ruby>方<rt>かた</rt></ruby></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷造<rt>にづく</rt></ruby>り</div>
+                        <div class="info-content">お<ruby>客様<rt>きゃくさま</rt></ruby>ご<ruby>自身<rt>じしん</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>ってください</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>荷物量<rt>にもつりょう</rt></ruby></div>
+                        <div class="info-content">M サイズ 5 <ruby>箱<rt>はこ</rt></ruby>まで</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label"><ruby>料金<rt>りょうきん</rt></ruby></div>
+                        <div class="info-content">1 <ruby>箱<rt>はこ</rt></ruby> 15,000 <ruby>円<rt>えん</rt></ruby> ～</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note-list">
+                <div class="note-item"><ruby>料金<rt>りょうきん</rt></ruby>には、<ruby>荷物<rt>にもつ</rt></ruby>の<ruby>日本<rt>にほん</rt></ruby>でのお<ruby>引<rt>ひ</rt></ruby>き<ruby>取<rt>と</rt></ruby>り、<ruby>輸出入税関手続<rt>ゆしゅつにゅうぜいかんてつづ</rt></ruby>き、<ruby>海外<rt>かいがい</rt></ruby>でのお<ruby>届<rt>とど</rt></ruby>け<ruby>費用<rt>ひよう</rt></ruby>を<ruby>含<rt>ふく</rt></ruby>みます。</div>
+                <div class="note-item">プラン ①は、<ruby>海外<rt>かいがい</rt></ruby>での<ruby>荷物<rt>にもつ</rt></ruby>のお<ruby>届<rt>とど</rt></ruby>けの<ruby>際<rt>さい</rt></ruby>に<ruby>日本語<rt>にほんご</rt></ruby>がわかるスタッフがうかがうので<ruby>安心<rt>あんしん</rt></ruby>です。</div>
+                <div class="note-item">プラン ④のみ、<ruby>他<rt>ほか</rt></ruby>のプランに<ruby>追加<rt>ついか</rt></ruby>してのご<ruby>利用<rt>りよう</rt></ruby>が<ruby>可能<rt>かのう</rt></ruby>です。</div>
+            </div>
+        </div>
+
+        <!-- CÔNG TY B -->
+        <div class="section-box">
+            <div class="company-label">B <ruby>社<rt>しゃ</rt></ruby></div>
+            <h1 class="main-title">
+                <ruby>海外引越<rt>かいがいひっこし</rt></ruby>サービ &nbsp; スプラン<ruby>診断<rt>しんだん</rt></ruby>
+            </h1>
+
+            <div class="text-sm mb-6">
+                お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>状況<rt>じょうきょう</rt></ruby>やご<ruby>希望<rt>きぼう</rt></ruby>に<ruby>合<rt>あ</rt></ruby>わせて、<ruby>最適<rt>さいてき</rt></ruby>なプランをお<ruby>選<rt>えら</rt></ruby>びします。<br>
+                （<ruby>以下<rt>いか</rt></ruby>はすべて、<ruby>当社<rt>とうしゃ</rt></ruby>のスタッフが<ruby>荷造<rt>にづく</rt></ruby>りからお<ruby>手伝<rt>てつだ</rt></ruby>いする「らくらくプラン」になります。）
+            </div>
+
+            <!-- Flowchart Logic -->
+            <div class="flex flex-col items-center">
+                <!-- Root -->
+                <div class="decision-node">
+                    <div class="option-branch">a. <ruby>単身<rt>たんしん</rt></ruby>でのお<ruby>引越<rt>ひっこ</rt></ruby>し</div>
+                    <div class="option-branch">b. ご<ruby>家族<rt>かぞく</rt></ruby>でのお<ruby>引越<rt>ひっこ</rt></ruby>し</div>
+                </div>
+
+                <div class="flex w-full justify-around relative">
+                    <!-- Branch A -->
+                    <div class="flex flex-col items-center w-1/4">
+                        <div class="text-xs">a</div>
+                        <div class="h-40 w-px bg-black relative">
+                            <div class="absolute bottom-0 -left-1">▼</div>
+                        </div>
+                    </div>
+
+                    <!-- Branch B -->
+                    <div class="flex flex-col items-center w-3/4">
+                        <div class="text-xs">b</div>
+                        <div class="connector-line"></div>
+                        
+                        <!-- Second Level -->
+                        <div class="decision-node w-4/5">
+                            <div class="option-branch">a. <ruby>海外生活<rt>かいがいせいかつ</rt></ruby>はベテラン</div>
+                            <div class="option-branch">b. <ruby>海外生活<rt>かいがいせいかつ</rt></ruby>ははじめて</div>
+                        </div>
+
+                        <div class="flex w-full justify-around">
+                            <!-- Veteran Branch -->
+                            <div class="flex flex-col items-center">
+                                <div class="text-xs">a</div>
+                                <div class="h-24 w-px bg-black relative">
+                                    <div class="absolute bottom-0 -left-1">▼</div>
+                                </div>
+                            </div>
+
+                            <!-- First Timer Branch -->
+                            <div class="flex flex-col items-center w-1/2">
+                                <div class="text-xs">b</div>
+                                <div class="connector-line"></div>
+                                <div class="text-center text-xs mb-2"><ruby>海外<rt>かいがい</rt></ruby>で<ruby>荷物<rt>にもつ</rt></ruby>を<ruby>受<rt>う</rt></ruby>け<ruby>取<rt>と</rt></ruby>るときは：</div>
+                                <div class="decision-node w-full">
+                                    <div class="option-branch text-xs"><ruby>日本語<rt>にほんご</rt></ruby>ができるスタッフに<ruby>来<rt>き</rt></ruby>てほしい。</div>
+                                    <div class="option-branch text-xs"><ruby>日本語<rt>にほんご</rt></ruby>ができるスタッフでなくてもかまわない。</div>
+                                </div>
+                                <div class="flex w-full justify-around">
+                                    <div class="text-xs">a<br>│<br>▼</div>
+                                    <div class="text-xs">b<br>│<br>▼</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final Results -->
+                <div class="result-grid w-full">
+                    <div class="result-cell">プラン I</div>
+                    <div class="result-cell">プラン II</div>
+                    <div class="result-cell">プラン III</div>
+                    <div class="result-cell">プラン IV</div>
+                </div>
+            </div>
+
+            <div class="note-list">
+                <div class="note-item"><ruby>以上<rt>いじょう</rt></ruby>の<ruby>診断結果<rt>しんだんけっか</rt></ruby>だけではなく、<ruby>各<rt>かく</rt></ruby>プランの<ruby>詳<rt>くわ</rt></ruby>しい<ruby>内容<rt>ないよう</rt></ruby>を<ruby>ご確認<rt>かくにん</rt></ruby>のうえ、お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。</div>
+                <div class="note-item">プラン II、IV をお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みのお<ruby>客様<rt>きゃくさま</rt></ruby>は、<ruby>当社主催<rt>とうしゃしゅさい</rt></ruby>「<ruby>海外生活情報<rt>かいがいせいかつじょうほう</rt></ruby>セミナー」にご<ruby>招待<rt>しょうたい</rt></ruby>いたします。</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

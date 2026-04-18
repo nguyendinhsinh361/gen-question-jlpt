@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ旅行社 2月の旅行案内 と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-bottom: 1.5rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px 8px;
+            vertical-align: middle;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .col-num { width: 5%; text-align: center; }
+        .col-name { width: 25%; text-align: center; }
+        .col-date { width: 25%; text-align: center; }
+        .col-price { width: 15%; text-align: center; }
+        .col-note { width: 30%; text-align: left; }
+
+        .note-list {
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .note-item {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .note-item::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: BẢN HƯỚNG DẪN DU LỊCH (Từ ảnh 1) -->
+        <header>
+            <h1 class="main-title">
+                XYZ <ruby>旅行社<rt>りょこうしゃ</rt></ruby> 2 <ruby>月<rt>がつ</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby> （<ruby>東京出発<rt>とうきょうしゅっぱつ</rt></ruby>） <ruby>案内<rt>あんない</rt></ruby>
+            </h1>
+        </header>
+
+        <section>
+            <h2 class="section-title">1. スキー<ruby>旅行<rt>りょこう</rt></ruby></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num"></th>
+                        <th class="col-name"><ruby>旅行名<rt>りょこうめい</rt></ruby></th>
+                        <th class="col-date"><ruby>出発日<rt>しゅっぱつび</rt></ruby></th>
+                        <th class="col-price"><ruby>料金<rt>りょうきん</rt></ruby>（<ruby>円<rt>えん</rt></ruby>）</th>
+                        <th class="col-note"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>①</td>
+                        <td><ruby>飛行機<rt>ひこうき</rt></ruby>で<ruby>行<rt>い</rt></ruby>く<br><ruby>北海道<rt>ほっかいどう</rt></ruby>スキーの<ruby>旅<rt>たび</rt></ruby><br>4 <ruby>日間<rt>にちかん</rt></ruby></td>
+                        <td>4 <ruby>日<rt>にち</rt></ruby>、18 <ruby>日<rt>にち</rt></ruby>、25 <ruby>日<rt>にち</rt></ruby><br>（<ruby>金<rt>きん</rt></ruby>）</td>
+                        <td>42,000</td>
+                        <td>・<ruby>温泉旅館<rt>おんせんりょかん</rt></ruby>に<ruby>泊<rt>と</rt></ruby>まります<br>・スキー<ruby>用具<rt>ようぐ</rt></ruby>の<ruby>貸出<rt>かしだし</rt></ruby>は<ruby>有料<rt>ゆうりょう</rt></ruby>です</td>
+                    </tr>
+                    <tr class="bg-yellow-50">
+                        <td>②</td>
+                        <td><ruby>新幹線<rt>しんかんせん</rt></ruby>で<ruby>行<rt>い</rt></ruby>く<br><ruby>丸山<rt>まるやま</rt></ruby>スキー<ruby>場<rt>じょう</rt></ruby><br>4 <ruby>日間<rt>にちかん</rt></ruby></td>
+                        <td>4 <ruby>日<rt>にち</rt></ruby>、18 <ruby>日<rt>にち</rt></ruby>、25 <ruby>日<rt>にち</rt></ruby><br>（<ruby>金<rt>きん</rt></ruby>）</td>
+                        <td>28,000</td>
+                        <td>・お<ruby>泊<rt>と</rt></ruby>まりは<ruby>温泉旅館<rt>おんせんりょかん</rt></ruby>です<br>・スキー<ruby>用具<rt>ようぐ</rt></ruby>が<ruby>無料<rt>むりょう</rt></ruby>で<ruby>借<rt>か</rt></ruby>りられます</td>
+                    </tr>
+                    <tr>
+                        <td>③</td>
+                        <td>バス<ruby>旅行<rt>りょこう</rt></ruby><br><ruby>花見山<rt>はなみやま</rt></ruby>スキー<ruby>場<rt>じょう</rt></ruby><br>3 <ruby>日間<rt>にちかん</rt></ruby></td>
+                        <td>4 <ruby>日<rt>にち</rt></ruby>、18 <ruby>日<rt>にち</rt></ruby>、25 <ruby>日<rt>にち</rt></ruby><br>（<ruby>金<rt>きん</rt></ruby>）</td>
+                        <td>21,000</td>
+                        <td>・<ruby>金曜日<rt>きんようび</rt></ruby>の<ruby>夜出発<rt>よるしゅっぱつ</rt></ruby>。ビジネスホテル<ruby>利用<rt>りよう</rt></ruby><br>・スキー<ruby>用具<rt>ようぐ</rt></ruby>が<ruby>無料<rt>むりょう</rt></ruby>で<ruby>借<rt>か</rt></ruby>りられます</td>
+                    </tr>
+                    <tr>
+                        <td>④</td>
+                        <td>バス<ruby>旅行<rt>りょこう</rt></ruby><br><ruby>河口湖<rt>かわぐちこ</rt></ruby><br>スケートの<ruby>日<rt>ひ</rt></ruby></td>
+                        <td>6 <ruby>日<rt>にち</rt></ruby>、20 <ruby>日<rt>にち</rt></ruby>、27 <ruby>日<rt>にち</rt></ruby><br>（<ruby>日<rt>にち</rt></ruby>）</td>
+                        <td>9,800</td>
+                        <td>・<ruby>大型<rt>おおがた</rt></ruby>バスでの<ruby>日帰<rt>ひがえ</rt></ruby>り<ruby>旅行<rt>りょこう</rt></ruby><br>・ホテルのランチと<ruby>温泉<rt>おんせん</rt></ruby>が<ruby>楽<rt>たの</rt></ruby>しめます。</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="section-title">2. <ruby>沖縄旅行<rt>おきなわりょこう</rt></ruby></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="col-num"></th>
+                        <th class="col-name"><ruby>旅行名<rt>りょこうめい</rt></ruby></th>
+                        <th class="col-date"><ruby>出発日<rt>しゅっぱつび</rt></ruby></th>
+                        <th class="col-price"><ruby>料金<rt>りょうきん</rt></ruby></th>
+                        <th class="col-note"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>⑤</td>
+                        <td>ゆっくり<ruby>沖縄<rt>おきなわ</rt></ruby><br>3 <ruby>日間<rt>にちかん</rt></ruby></td>
+                        <td>5 <ruby>日<rt>にち</rt></ruby>、19 <ruby>日<rt>にち</rt></ruby>、26 <ruby>日<rt>にち</rt></ruby><br>（<ruby>土<rt>ど</rt></ruby>）</td>
+                        <td>29,000</td>
+                        <td>・<ruby>夕食<rt>ゆうしょく</rt></ruby>は<ruby>沖縄料理<rt>おきなわりょうり</rt></ruby>のバイキングです<br>・レンタカーが<ruby>無料<rt>むりょう</rt></ruby>です</td>
+                    </tr>
+                    <tr>
+                        <td>⑥</td>
+                        <td>みんなで<ruby>沖縄<rt>おきなわ</rt></ruby><br>4 <ruby>日間<rt>にちかん</rt></ruby></td>
+                        <td>4 <ruby>日<rt>にち</rt></ruby>、18 <ruby>日<rt>にち</rt></ruby>、25 <ruby>日<rt>にち</rt></ruby><br>（<ruby>金<rt>きん</rt></ruby>）</td>
+                        <td>48,000</td>
+                        <td>・ホテルには<ruby>屋内<rt>おくない</rt></ruby>プールがあります<br>・レンタカーが<ruby>無料<rt>むりょう</rt></ruby>です</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note-list">
+                <p>（このほかにも、お<ruby>楽<rt>たの</rt></ruby>しみいただける<ruby>旅行<rt>りょこう</rt></ruby>を<ruby>多数用意<rt>たすうようい</rt></ruby>しております。）</p>
+                <p class="note-item">お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みは<ruby>旅行社窓口<rt>りょこうしゃまどぐち</rt></ruby>、<ruby>電話<rt>でんわ</rt></ruby>、メールで、<ruby>出発日<rt>しゅっぱつび</rt></ruby>の 1 <ruby>週間前<rt>しゅうかんまえ</rt></ruby>までにお<ruby>願<rt>ねが</rt></ruby>いします。</p>
+                <p class="note-item"><ruby>料金<rt>りょうきん</rt></ruby>のお<ruby>支払<rt>しはら</rt></ruby>いは、<ruby>銀行<rt>ぎんこう</rt></ruby>またはコンビニの<ruby>場合<rt>ばあい</rt></ruby>、<ruby>出発<rt>しゅっぱつ</rt></ruby>の 5 <ruby>日前<rt>にちまえ</rt></ruby>までにお<ruby>願<rt>ねが</rt></ruby>いします。</p>
+                <p class="note-item"><ruby>旅行社<rt>りょこうしゃ</rt></ruby>で<ruby>直接<rt>ちょくせつ</rt></ruby>お<ruby>支払<rt>しはら</rt></ruby>いされる<ruby>場合<rt>ばあい</rt></ruby>、<ruby>出発<rt>しゅっぱつ</rt></ruby>の 3 <ruby>日前<rt>にちまえ</rt></ruby>までにお<ruby>願<rt>ねが</rt></ruby>いします。</p>
+                <p class="note-item">お<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みのキャンセルには、キャンセル<ruby>料<rt>りょう</rt></ruby>がかかります。</p>
+            </div>
+        </section>
+
+        <!-- PHẦN 2: CÂU HỎI 38 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">38</span> リンさんは、スキーをしたいと<ruby>考<rt>かんが</rt></ruby>えている。スキー<ruby>用具<rt>ようぐ</rt></ruby>を<ruby>持<rt>も</rt></ruby>っていないので、<ruby>無料<rt>むりょう</rt></ruby>で<ruby>用具<rt>ようぐ</rt></ruby>を<ruby>借<rt>か</rt></ruby>りられる<ruby>旅行<rt>りょこう</rt></ruby>がいい。また、ぜひ<ruby>温泉旅館<rt>おんせんりょかん</rt></ruby>に<ruby>泊<rt>と</rt></ruby>まりたいと<ruby>考<rt>かんが</rt></ruby>えている。リンさんの<ruby>希望<rt>きぼう</rt></ruby>に<ruby>合<rt>あ</rt></ruby>うのは、どの<ruby>旅行<rt>りょこう</rt></ruby>か。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. ①</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    2. ②
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 3. ③</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. ④</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 2</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Chuyến đi ② thỏa mãn cả 3 điều kiện: スキーをする, <ruby>無料<rt>むりょう</rt></ruby>で<ruby>用具貸出<rt>ようぐかしだし</rt></ruby>, <ruby>温泉旅館<rt>おんせんりょかん</rt></ruby>に<ruby>宿泊<rt>しゅくはく</rt></ruby>)
+            </p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 39 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">39</span> キムさんは、「みんなで<ruby>沖縄<rt>おきなわ</rt></ruby> 4 <ruby>日間<rt>にちかん</rt></ruby>」の 2 <ruby>月<rt>がつ</rt></ruby> 25 <ruby>日出発<rt>にちしゅっぱつ</rt></ruby>の<ruby>旅行<rt>りょこう</rt></ruby>に<ruby>参加<rt>さんか</rt></ruby>する。<ruby>料金<rt>りょうきん</rt></ruby>を<ruby>旅行社<rt>りょこうしゃ</rt></ruby>で<ruby>支払<rt>しはら</rt></ruby>う<ruby>場合<rt>ばあい</rt></ruby>、いつまでに<ruby>払<rt>はら</rt></ruby>わなければならないか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. 2 <ruby>月<rt>がつ</rt></ruby> 18 <ruby>日<rt>にち</rt></ruby></div>
+                <div class="option-item"><div class="radio-circle"></div> 2. 2 <ruby>月<rt>がつ</rt></ruby> 20 <ruby>日<rt>にち</rt></ruby></div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    3. 2 <ruby>月<rt>がつ</rt></ruby> 22 <ruby>日<rt>にち</rt></ruby>
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 4. 2 <ruby>月<rt>がつ</rt></ruby> 25 <ruby>日<rt>にち</rt></ruby></div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 3</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Quy định ghi "<ruby>旅行社<rt>りょこうしゃ</rt></ruby>で<ruby>直接支払<rt>ちょくせつしはら</rt></ruby>う<ruby>場合<rt>ばあい</rt></ruby>、<ruby>出発<rt>しゅっぱつ</rt></ruby>の 3 <ruby>日前<rt>にちまえ</rt></ruby>まで". Ngày khởi hành là 25/2, nên hạn chót là ngày 22/2)
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>かすみ市立図書館利用案内</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Flowchart Styles */
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .flow-row {
+            display: grid;
+            grid-template-columns: 280px 60px 180px 1fr;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .question-box {
+            border: 2px solid #000;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-text {
+            font-weight: bold;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .doc-desc {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            padding-left: 1rem;
+        }
+
+        .vertical-arrow-container {
+            height: 40px;
+            padding-left: 70px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .bullet-point::before {
+            content: "※";
+            margin-right: 0.5rem;
+        }
+
+        .grid-list {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            margin-left: 1.5rem;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề -->
+        <header>
+            <h1 class="main-title">
+                かすみ<ruby>市立図書館利用案内<rt>しりつとしょかんりようあんない</rt></ruby>
+            </h1>
+        </header>
+
+        <!-- PHẦN 1: TẠO THẺ MỚI -->
+        <section>
+            <h2 class="section-header">☆<ruby>図書館<rt>としょかん</rt></ruby>カードの<ruby>新規作成<rt>しんきさくせい</rt></ruby></h2>
+            <p class="mb-4 text-sm font-medium">※ <ruby>図書<rt>としょ</rt></ruby>やCD<ruby>等<rt>とう</rt></ruby>の<ruby>資料<rt>しりょう</rt></ruby>を<ruby>借<rt>か</rt></ruby>りるには<ruby>図書館<rt>としょかん</rt></ruby>カードが<ruby>必要<rt>ひつよう</rt></ruby>です。</p>
+
+            <div class="flow-container">
+                <!-- Step 1 -->
+                <div class="flow-row">
+                    <div class="question-box">
+                        あなたは、かすみ<ruby>市<rt>し</rt></ruby>に<br>お<ruby>住<rt>す</rt></ruby>まいですか。
+                    </div>
+                    <div class="arrow-right">
+                        <span>──▶</span><br><span class="text-xs">はい</span>
+                    </div>
+                    <div class="result-text">
+                        <ruby>図書館<rt>としょかん</rt></ruby>カードが<br><ruby>作<rt>つく</rt></ruby>れます。
+                    </div>
+                    <div class="doc-desc">
+                        <ruby>運転免許証<rt>うんてんめんきょしょう</rt></ruby>、<ruby>健康保険証<rt>けんこうほけんしょう</rt></ruby>、<ruby>自分<rt>じぶん</rt></ruby>あての<ruby>郵便物<rt>ゆうびんぶつ</rt></ruby>など<ruby>現住所<rt>げんじゅうしょ</rt></ruby>が<ruby>確認<rt>かくにん</rt></ruby>できるものをお<ruby>持<rt>も</rt></ruby>ちください。<br>
+                        <ruby>外国人<rt>がいこくじん</rt></ruby>の<ruby>方<rt>かた</rt></ruby>で6か<ruby>月以上滞在<rt>げついじょうたいざい</rt></ruby>の<ruby>場合<rt>ばあい</rt></ruby>は<ruby>外国人登録証<rt>がいこくじんとうろくしょう</rt></ruby>があればカードが<ruby>作<rt>つく</rt></ruby>れます。
+                    </div>
+                </div>
+
+                <!-- Vertical Arrow 1 -->
+                <div class="vertical-arrow-container">
+                    <div class="flex flex-col items-center ml-24">
+                        <span class="text-sm">いいえ</span>
+                        <span>│</span>
+                        <span>▼</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flow-row">
+                    <div class="question-box">
+                        あなたは、かすみ<ruby>市<rt>し</rt></ruby>に<br><ruby>通勤<rt>つうきん</rt></ruby>または<ruby>通学<rt>つうがく</rt></ruby>してい<br>ますか。
+                    </div>
+                    <div class="arrow-right">
+                        <span>──▶</span><br><span class="text-xs">はい</span>
+                    </div>
+                    <div class="result-text">
+                        <ruby>図書館<rt>としょかん</rt></ruby>カードが<br><ruby>作<rt>つく</rt></ruby>れます。
+                    </div>
+                    <div class="doc-desc">
+                        <ruby>上記<rt>じょうき</rt></ruby>の<ruby>現住所<rt>げんじゅうしょ</rt></ruby>が<ruby>確認<rt>かくにん</rt></ruby>できるものに<ruby>加<rt>くわ</rt></ruby>えて、<ruby>学生証<rt>がくせいしょう</rt></ruby>、<ruby>社員証<rt>しゃいんしょう</rt></ruby>など<ruby>通勤<rt>つうきん</rt></ruby>・<ruby>通学<rt>つうがく</rt></ruby>が<ruby>確認<rt>かくにん</rt></ruby>できるものをお<ruby>持<rt>も</rt></ruby>ちください。
+                    </div>
+                </div>
+
+                <!-- Vertical Arrow 2 -->
+                <div class="vertical-arrow-container">
+                    <div class="flex flex-col items-center ml-24">
+                        <span class="text-sm">いいえ</span>
+                        <span>│</span>
+                        <span>▼</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="pl-4">
+                    <p class="font-bold text-lg"><ruby>図書館<rt>としょかん</rt></ruby>カードは<ruby>作<rt>つく</rt></ruby>れませんが、<ruby>館内<rt>かんない</rt></ruby>での<ruby>図書<rt>としょ</rt></ruby>の<ruby>利用<rt>りよう</rt></ruby>は<ruby>可能<rt>かのう</rt></ruby>です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHẦN 2: CẬP NHẬT THẺ -->
+        <section class="mb-8">
+            <h2 class="section-header">☆<ruby>図書館<rt>としょかん</rt></ruby>カードの<ruby>更新<rt>こうしん</rt></ruby></h2>
+            <div class="pl-4 space-y-1">
+                <p><ruby>図書館<rt>としょかん</rt></ruby>カードの<ruby>有効期限<rt>ゆうこうきげん</rt></ruby>は3<ruby>年間<rt>ねんかん</rt></ruby>です。<ruby>有効期限<rt>ゆうこうきげん</rt></ruby>が<ruby>過<rt>す</rt></ruby>ぎる<ruby>前<rt>まえ</rt></ruby>に、カードの<ruby>更新<rt>こうしん</rt></ruby>をしてください。</p>
+                <p><ruby>更新<rt>こうしん</rt></ruby>に<ruby>必要<rt>ひつよう</rt></ruby>なもの：<ruby>古<rt>ふる</rt></ruby>いカードおよび<ruby>新規申込時<rt>しんきもうしこみじ</rt></ruby>と<ruby>同様<rt>どうよう</rt></ruby>の<ruby>証明書<rt>しょうめいしょ</rt></ruby>をお<ruby>持<rt>も</rt></ruby>ちください。</p>
+                <p class="bullet-point font-medium text-sm"><ruby>古<rt>ふる</rt></ruby>いカードで<ruby>借<rt>か</rt></ruby>いたまま<ruby>返<rt>かえ</rt></ruby>していない<ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>し<ruby>図書<rt>としょ</rt></ruby>がある<ruby>場合<rt>ばあい</rt></ruby>は<ruby>更新<rt>こうしん</rt></ruby>できません。</p>
+            </div>
+        </section>
+
+        <!-- PHẦN 3: SỐ LƯỢNG MƯỢN -->
+        <section class="mb-8">
+            <h2 class="section-header">☆<ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>し<ruby>冊数<rt>さっすう</rt></ruby></h2>
+            <div class="grid-list">
+                <div class="font-medium"><ruby>図書<rt>としょ</rt></ruby>（<ruby>本<rt>ほん</rt></ruby>・<ruby>雑誌<rt>ざっし</rt></ruby>）</div>
+                <div>1<ruby>人<rt>にん</rt></ruby> 5<ruby>冊<rt>さつ</rt></ruby>まで</div>
+                
+                <div class="font-medium">CD・カセットテープ・ビデオテープ・DVD</div>
+                <div>1<ruby>人<rt>にん</rt></ruby> 3<ruby>点<rt>てん</rt></ruby>まで</div>
+            </div>
+            <p class="pl-4 mt-2"><ruby>合計<rt>ごうけい</rt></ruby> 8<ruby>点<rt>てん</rt></ruby>まで<ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>しできます。</p>
+            <p class="pl-4 text-sm">※ただし、<ruby>雑誌<rt>ざっし</rt></ruby>の<ruby>最新号<rt>さいしんごう</rt></ruby>は<ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>しできません。</p>
+        </section>
+
+        <!-- PHẦN 4: THỜI HẠN MƯỢN -->
+        <section>
+            <h2 class="section-header">☆<ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>し<ruby>期間<rt>きかん</rt></ruby></h2>
+            <div class="grid-list">
+                <div class="font-medium"><ruby>図書<rt>としょ</rt></ruby>（<ruby>本<rt>ほん</rt></ruby>・<ruby>雑誌<rt>ざっし</rt></ruby>）</div>
+                <div>2<ruby>週間以内<rt>しゅうかんいない</rt></ruby></div>
+                
+                <div class="font-medium">CD・カセットテープ・ビデオテープ・DVD</div>
+                <div>1<ruby>週間以内<rt>しゅうかんいない</rt></ruby></div>
+            </div>
+            
+            <div class="pl-4 mt-4 space-y-1">
+                <p class="bullet-point"><ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>し<ruby>期間<rt>きかん</rt></ruby>の<ruby>算定<rt>さんてい</rt></ruby>は、<ruby>貸<rt>か</rt></ruby>し<ruby>出し日<rt>だしび</rt></ruby>の<ruby>翌日<rt>よくじつ</rt></ruby>からとなります。</p>
+                <p class="bullet-point">
+                    <ruby>貸<rt>か</rt></ruby>し<ruby>出<rt>だ</rt></ruby>し<ruby>期間<rt>きかん</rt></ruby>は、<ruby>申<rt>もう</rt></ruby>し<ruby>出<rt>で</rt></ruby>のあった<ruby>日<rt>ひ</rt></ruby>から2<ruby>週間<rt>しゅうかん</rt></ruby>だけ<ruby>延長<rt>えんちょう</rt></ruby>することができます。<br>
+                    <ruby>電話<rt>でんわ</rt></ruby>でのお<ruby>申<rt>もう</rt></ruby>し<ruby>出<rt>で</rt></ruby>も<ruby>受<rt>う</rt></ruby>け<ruby>付<rt>つ</rt></ruby>けます。
+                </p>
+                <p class="footer-note pl-6">
+                    （ただし、<ruby>期限切<rt>きげんき</rt></ruby>れや<ruby>予約<rt>よやく</rt></ruby>が<ruby>入<rt>い</rt></ruby>っている<ruby>図書<rt>としょ</rt></ruby>の<ruby>延長<rt>えんちょう</rt></ruby>はできません。また、CDやビデオなどの<ruby>視聴覚資料<rt>しちょうかくしりょう</rt></ruby>の<ruby>延長<rt>えんちょう</rt></ruby>はできませんのでご<ruby>了承<rt>りょうしょう</rt></ruby>ください。）
+                </p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

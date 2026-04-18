@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quảng cáo cửa hàng Arakiya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        .flyer-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            min-height: 900px;
+        }
+
+        /* Góc giấy cuộn ở dưới */
+        .flyer-container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, transparent 50%, #e5e7eb 50%);
+            border-top: 1px solid #d1d5db;
+            border-left: 1px solid #d1d5db;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #444;
+        }
+
+        .starburst-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .promo-box {
+            border: 2px solid #9ca3af;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .weekly-box {
+            border: 2px solid #9ca3af;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .day-group {
+            margin-bottom: 0.75rem;
+        }
+
+        .day-label {
+            display: inline-block;
+            width: 60px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="flyer-container">
+        <!-- Header Section -->
+        <header class="flex justify-between items-start mb-12">
+            <!-- Large Starburst -->
+            <div class="starburst-container">
+                <svg width="220" height="200" viewBox="0 0 200 180">
+                    <path d="M100 0 L115 30 L150 15 L145 50 L185 50 L165 80 L200 100 L165 120 L185 150 L145 150 L150 185 L115 170 L100 200 L85 170 L50 185 L55 150 L15 150 L35 120 L0 100 L35 80 L15 50 L55 50 L50 15 L85 30 Z" fill="none" stroke="black" stroke-width="1.5"/>
+                    <text x="100" y="115" text-anchor="middle" font-size="44" font-weight="bold" font-family="sans-serif">
+                        <tspan x="100" dy="-15" font-size="16">やす</tspan>
+                        <tspan x="100" dy="35">安い！</tspan>
+                    </text>
+                </svg>
+            </div>
+
+            <!-- Shop Info -->
+            <div class="text-right pt-4">
+                <h2 class="text-4xl font-bold mb-4 tracking-wider">あらきや</h2>
+                <div class="text-xl space-y-1">
+                    <p>
+                        <ruby>朝<rt>あさ</rt></ruby>8：00 ～ <ruby>夜<rt>よる</rt></ruby>9：00
+                    </p>
+                    <p class="text-lg">
+                        (<ruby>電話<rt>でんわ</rt></ruby>：012 - 34 - 5678)
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Promotion Box 1 -->
+        <div class="promo-box">
+            <div class="flex-shrink-0">
+                <svg width="100" height="90" viewBox="0 0 100 90">
+                    <path d="M50 0 L58 15 L75 8 L73 25 L93 25 L83 40 L100 50 L83 60 L93 75 L73 75 L75 93 L58 85 L50 100 L42 85 L25 93 L27 75 L7 75 L17 60 L0 50 L17 40 L7 25 L27 25 L25 8 L42 15 Z" fill="none" stroke="black" stroke-width="1"/>
+                    <text x="50" y="58" text-anchor="middle" font-size="18" font-weight="bold">
+                        <tspan x="50" dy="-8" font-size="10">やす</tspan>
+                        <tspan x="50" dy="18">安い！</tspan>
+                    </text>
+                </svg>
+            </div>
+            <div class="flex-grow">
+                <p class="text-xl mb-2">
+                    6<ruby>月<rt>がつ</rt></ruby>11<ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>) ～ 14<ruby>日<rt>にち</rt></ruby> (<ruby>木<rt>もく</rt></ruby>)
+                </p>
+                <div class="flex justify-between text-xl pr-8">
+                    <span>さとう &nbsp; 128<ruby>円<rt>えん</rt></ruby></span>
+                    <span>トイレットペーパー &nbsp; 490<ruby>円<rt>えん</rt></ruby></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Promotion Box 2 -->
+        <div class="promo-box">
+            <div class="flex-shrink-0">
+                <svg width="100" height="90" viewBox="0 0 100 90">
+                    <path d="M50 0 L58 15 L75 8 L73 25 L93 25 L83 40 L100 50 L83 60 L93 75 L73 75 L75 93 L58 85 L50 100 L42 85 L25 93 L27 75 L7 75 L17 60 L0 50 L17 40 L7 25 L27 25 L25 8 L42 15 Z" fill="none" stroke="black" stroke-width="1"/>
+                    <text x="50" y="58" text-anchor="middle" font-size="18" font-weight="bold">
+                        <tspan x="50" dy="-8" font-size="10">やす</tspan>
+                        <tspan x="50" dy="18">安い！</tspan>
+                    </text>
+                </svg>
+            </div>
+            <div class="flex-grow">
+                <p class="text-xl mb-2">
+                    6<ruby>月<rt>がつ</rt></ruby>15<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>) ～ 18<ruby>日<rt>にち</rt></ruby> (<ruby>月<rt>げつ</rt></ruby>)
+                </p>
+                <div class="flex justify-between text-xl pr-8">
+                    <span>しょうゆ &nbsp; 198<ruby>円<rt>えん</rt></ruby></span>
+                    <span>ティッシュペーパー &nbsp; 290<ruby>円<rt>えん</rt></ruby></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly Specials Box -->
+        <div class="weekly-box">
+            <div class="flex-shrink-0">
+                <svg width="130" height="120" viewBox="0 0 130 120">
+                    <path d="M65 0 L75 20 L97 10 L95 33 L121 33 L108 53 L130 66 L108 80 L121 100 L95 100 L97 123 L75 113 L65 133 L55 113 L33 123 L35 100 L9 100 L22 80 L0 66 L22 53 L9 33 L35 33 L33 10 L55 20 Z" fill="none" stroke="black" stroke-width="1"/>
+                    <text x="65" y="66" text-anchor="middle" font-size="18" font-weight="bold">
+                        <tspan x="65" dy="-22" font-size="10">まいしゅう</tspan>
+                        <tspan x="65" dy="20">毎週</tspan>
+                        <tspan x="65" dy="12" font-size="10">やす</tspan>
+                        <tspan x="65" dy="22">安い！</tspan>
+                    </text>
+                </svg>
+            </div>
+            <div class="flex-grow pt-4 text-xl">
+                <div class="day-group">
+                    <p>
+                        <span class="day-label">
+                            <ruby>月<rt>げつ</rt></ruby>・<ruby>火<rt>か</rt></ruby>
+                        </span>
+                        くだもの、<ruby>魚<rt>さかな</rt></ruby>、ジュース
+                    </p>
+                </div>
+                <div class="day-group">
+                    <p>
+                        <span class="day-label">
+                            <ruby>水<rt>すい</rt></ruby>・<ruby>木<rt>もく</rt></ruby>
+                        </span>
+                        とうふ、にく、やさい
+                    </p>
+                </div>
+                <div class="day-group">
+                    <p>
+                        <span class="day-label">
+                            <ruby>金<rt>きん</rt></ruby>・<ruby>土<rt>ど</rt></ruby>
+                        </span>
+                        パン、ぎゅうにゅう、<ruby>魚<rt>さかな</rt></ruby>、やさい
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

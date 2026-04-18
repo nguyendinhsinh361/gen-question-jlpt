@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>故障かな？ - 冷蔵庫トラブルシューティング</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            vertical-align: top;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .col-issue { width: 22%; }
+        .col-check { width: 39%; }
+        .col-action { width: 39%; }
+
+        .warning-section {
+            margin-top: 2rem;
+            padding-left: 0.5rem;
+        }
+
+        .bullet-point {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .bullet-point::before {
+            content: "・";
+            position: absolute;
+            left: 0.25rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề -->
+        <header class="mb-4">
+            <h1 class="text-xl font-bold">
+                <ruby>故障<rt>こしょう</rt></ruby>かな？
+            </h1>
+            <p class="mt-2">
+                ●こんな<ruby>時<rt>とき</rt></ruby>は、まず<ruby>次<rt>つぎ</rt></ruby>の<ruby>点<rt>てん</rt></ruby>をお<ruby>確<rt>たし</rt></ruby>かめください。
+            </p>
+        </header>
+
+        <!-- Bảng tra cứu sự cố -->
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-issue">こんなとき</th>
+                    <th class="col-check">お<ruby>確<rt>たし</rt></ruby>かめください</th>
+                    <th class="col-action">こうしてください</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1: Không lạnh -->
+                <tr>
+                    <td rowspan="3" class="font-medium text-center align-middle">
+                        よく<ruby>冷<rt>ひ</rt></ruby>えない
+                    </td>
+                    <td>
+                        <ruby>大量<rt>たいりょう</rt></ruby>の<ruby>食品<rt>しょくひん</rt></ruby>を<ruby>入<rt>い</rt></ruby>れていませんか？
+                    </td>
+                    <td>
+                        <ruby>食品<rt>しょくひん</rt></ruby>はすき<ruby>間<rt>ま</rt></ruby>をあけて<ruby>収納<rt>しゅうのう</rt></ruby>してください。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ruby>温度設定<rt>おんどせってい</rt></ruby>が「<ruby>弱<rt>じゃく</rt></ruby>」になっていませんか？
+                    </td>
+                    <td>
+                        <ruby>温度設定<rt>おんどせってい</rt></ruby>を「<ruby>中<rt>ちゅう</rt></ruby>」か「<ruby>強<rt>きょう</rt></ruby>」にしてください。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>の<ruby>周囲<rt>しゅうい</rt></ruby>に<ruby>熱<rt>ねつ</rt></ruby>を<ruby>逃<rt>に</rt></ruby>がすスペースがありますか？
+                    </td>
+                    <td>
+                        <ruby>据<rt>す</rt></ruby>え<ruby>付<rt>つ</rt></ruby>けの<ruby>位置<rt>いち</rt></ruby>をチェックしてください。
+                    </td>
+                </tr>
+
+                <!-- Row 2: Quá lạnh / Đóng băng -->
+                <tr>
+                    <td rowspan="2" class="font-medium text-center align-middle">
+                        <ruby>冷<rt>ひ</rt></ruby>えすぎる、<ruby>凍<rt>こお</rt></ruby>ってしまう
+                    </td>
+                    <td>
+                        <ruby>温度設定<rt>おんどせってい</rt></ruby>が「<ruby>強<rt>きょう</rt></ruby>」になっていませんか？
+                    </td>
+                    <td>
+                        <ruby>温度設定<rt>おんどせってい</rt></ruby>を「<ruby>中<rt>ちゅう</rt></ruby>」にしてください。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>がある<ruby>場所<rt>ばしょ</rt></ruby>の<ruby>気温<rt>きおん</rt></ruby>が 5 <ruby>度以下<rt>どいか</rt></ruby>になっていませんか？
+                    </td>
+                    <td>
+                        <ruby>温度設定<rt>おんどせってい</rt></ruby>を「<ruby>弱<rt>じゃく</rt></ruby>」にしてください。
+                    </td>
+                </tr>
+
+                <!-- Row 3: Mặt bên bị nóng -->
+                <tr>
+                    <td class="font-medium text-center align-middle">
+                        <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>の<ruby>側面<rt>そくめん</rt></ruby>が<ruby>熱<rt>あつ</rt></ruby>くなることがある
+                    </td>
+                    <td>
+                        <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>は、<ruby>内部<rt>ないぶ</rt></ruby>の<ruby>熱<rt>ねつ</rt></ruby>を<ruby>外側<rt>そとがわ</rt></ruby>に<ruby>出<rt>だ</rt></ruby>すことで、<ruby>内部<rt>ないぶ</rt></ruby>を<ruby>冷<rt>ひ</rt></ruby>やしています。それで、<ruby>側面<rt>そくめん</rt></ruby>が<ruby>熱<rt>あつ</rt></ruby>くなることがあります。
+                    </td>
+                    <td>
+                        <ruby>異常<rt>いじょう</rt></ruby>に<ruby>熱<rt>あつ</rt></ruby>くならないか<ruby>注意<rt>ちゅうい</rt></ruby>してください。そうでなければ<ruby>心配<rt>しんぱい</rt></ruby>ありません。
+                    </td>
+                </tr>
+
+                <!-- Row 4: Rung lắc -->
+                <tr>
+                    <td class="font-medium text-center align-middle">
+                        <ruby>揺<rt>ゆ</rt></ruby>れることがある
+                    </td>
+                    <td>
+                        <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>が<ruby>水平<rt>すいへい</rt></ruby>に<ruby>設置<rt>せっち</rt></ruby>されていますか？
+                    </td>
+                    <td>
+                        <ruby>冷蔵庫<rt>れいぞうこ</rt></ruby>が<ruby>水平<rt>すいへい</rt></ruby>に<ruby>設置<rt>せっち</rt></ruby>されているかどうか<ruby>確認<rt>かくにん</rt></ruby>してください。<ruby>水平<rt>すいへい</rt></ruby>になっていなかったら、<ruby>左右<rt>さゆう</rt></ruby>の<ruby>高<rt>たか</rt></ruby>さを<ruby>調節<rt>ちょうせつ</rt></ruby>してください。
+                    </td>
+                </tr>
+
+                <!-- Row 5: Mùi hôi -->
+                <tr>
+                    <td rowspan="2" class="font-medium text-center align-middle">
+                        においが<ruby>気<rt>き</rt></ruby>になる
+                    </td>
+                    <td>
+                        においの<ruby>強<rt>つよ</rt></ruby>い<ruby>食品<rt>しょくひん</rt></ruby>をそのまま<ruby>収納<rt>しゅうのう</rt></ruby>したりしていませんか？
+                    </td>
+                    <td>
+                        ラップをかけるなどして<ruby>収納<rt>しゅうのう</rt></ruby>してください。
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <ruby>内部<rt>ないぶ</rt></ruby>にプラスチック<ruby>部品<rt>ぶひん</rt></ruby>を<ruby>多<rt>おお</rt></ruby>く<ruby>使用<rt>しよう</rt></ruby>しているので、においがすることがあります。
+                    </td>
+                    <td>
+                        <ruby>冷<rt>ひ</rt></ruby>えるまでお<ruby>待<rt>ま</rt></ruby>ちください。プラスチックのにおいは<ruby>庫内<rt>こない</rt></ruby>が<ruby>冷<rt>ひ</rt></ruby>えてくると<ruby>少<rt>すく</rt></ruby>なくなります。
+                    </td>
+                </tr>
+
+                <!-- Row 6: Tiếng ồn -->
+                <tr>
+                    <td class="font-medium text-center align-middle">
+                        <ruby>音<rt>おと</rt></ruby>が<ruby>気<rt>き</rt></ruby>になる
+                    </td>
+                    <td>
+                        <ruby>庫内<rt>こない</rt></ruby>の<ruby>温度<rt>おんど</rt></ruby>が<ruby>高<rt>たか</rt></ruby>くなって、<ruby>再<rt>ふたた</rt></ruby>び<ruby>冷<rt>ひ</rt></ruby>やし<ruby>始<rt>はじ</rt></ruby>めたときに<ruby>音<rt>おと</rt></ruby>が<ruby>出<rt>で</rt></ruby>ることがあります。
+                    </td>
+                    <td>
+                        <ruby>冷<rt>ひ</rt></ruby>えるまでお<ruby>待<rt>ま</rt></ruby>ちください。<ruby>十分冷<rt>じゅうぶんひ</rt></ruby>えると<ruby>音<rt>おと</rt></ruby>が<ruby>小<rt>ちい</rt></ruby>さくなります。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Cảnh báo nguy hiểm -->
+        <section class="warning-section">
+            <p class="font-bold">
+                ●<ruby>次<rt>つぎ</rt></ruby>のような<ruby>場合<rt>ばあい</rt></ruby>はすぐに<ruby>使用<rt>しよう</rt></ruby>を<ruby>中止<rt>ちゅうし</rt></ruby>し、<ruby>点検<rt>てんけん</rt></ruby>をご<ruby>依頼<rt>いらい</rt></ruby>ください。
+            </p>
+            <div class="mt-2 space-y-1">
+                <p class="bullet-point"><ruby>電源<rt>でんげん</rt></ruby>コードが<ruby>異常<rt>いじょう</rt></ruby>に<ruby>熱<rt>あつ</rt></ruby>くなる。</p>
+                <p class="bullet-point"><ruby>電源<rt>でんげん</rt></ruby>コードに<ruby>深<rt>ふか</rt></ruby>いきずや<ruby>変形<rt>へんけい</rt></ruby>がある。</p>
+                <p class="bullet-point"><ruby>何<rt>なに</rt></ruby>かが<ruby>焦<rt>こ</rt></ruby>げるようなにおいがしたら、<ruby>運転中<rt>うんてんちゅう</rt></ruby>に<ruby>急<rt>きゅう</rt></ruby>に<ruby>激<rt>はげ</rt></ruby>しい<ruby>振動<rt>しんどう</rt></ruby>がある。</p>
+            </div>
+        </section>
+
+        <!-- Liên hệ cuối trang -->
+        <footer class="mt-8">
+            <p>
+                ●ご<ruby>不明<rt>ふめい</rt></ruby>な<ruby>点<rt>てん</rt></ruby>はお<ruby>買<rt>か</rt></ruby>い<ruby>上<rt>あ</rt></ruby>げの<ruby>販売店<rt>はんばいてん</rt></ruby>、サービスセンターにお<ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせください。
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>

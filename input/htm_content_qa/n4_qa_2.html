@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あおぞら一日スポーツ教室 と 読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .sub-title {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 12px 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .note-text {
+            font-size: 0.95rem;
+            text-align: right;
+            margin-top: -1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-block {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .indent-line {
+            display: block;
+            padding-left: 2.5rem;
+        }
+
+        /* Question Section Styles */
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 4rem;
+            padding-top: 2.5rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 10px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact {
+            text-align: right;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: THÔNG BÁO LỚP HỌC (Từ ảnh 1) -->
+        <header>
+            <h1 class="main-title">
+                あおぞら<ruby>一日<rt>いちにち</rt></ruby>スポーツ<ruby>教室<rt>きょうしつ</rt></ruby>
+            </h1>
+            <div class="sub-title">
+                5 <ruby>月<rt>がつ</rt></ruby> 29 <ruby>日<rt>にち</rt></ruby> （<ruby>日<rt>にち</rt></ruby>） 10：00 ～ 17：00<br />
+                <ruby>場所<rt>ばしょ</rt></ruby> &nbsp; あおぞら<ruby>運動場<rt>うんどうじょう</rt></ruby>
+            </div>
+        </header>
+
+        <section>
+            <p class="mb-6">
+                「あおぞら<ruby>一日<rt>いちにち</rt></ruby>スポーツ<ruby>教室<rt>きょうしつ</rt></ruby>」では、いろいろなスポーツのルールや、やり<ruby>方<rt>かた</rt></ruby>を<ruby>先生<rt>せんせい</rt></ruby>が<ruby>教<rt>おし</rt></ruby>えます。みんなでスポーツを<ruby>楽<rt>たの</rt></ruby>しみましょう。
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 5%;"></th>
+                        <th style="width: 25%;">スポーツ</th>
+                        <th style="width: 25%;"><ruby>時間<rt>じかん</rt></ruby></th>
+                        <th style="width: 25%;"><ruby>場所<rt>ばしょ</rt></ruby></th>
+                        <th style="width: 20%;">お<ruby>金<rt>かね</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="3" class="font-bold">①</td>
+                        <td>ジョギング</td>
+                        <td>10:00 ～ 12:00</td>
+                        <td><ruby>第<rt>だい</rt></ruby> 1 <ruby>運動場<rt>うんどうじょう</rt></ruby></td>
+                        <td>ただ</td>
+                    </tr>
+                    <tr>
+                        <td><ruby>自転車<rt>じてんしゃ</rt></ruby></td>
+                        <td>13:30 ～ 17:00</td>
+                        <td><ruby>第<rt>だい</rt></ruby> 1 <ruby>運動場<rt>うんどうじょう</rt></ruby></td>
+                        <td>ただ※</td>
+                    </tr>
+                    <tr>
+                        <td><ruby>水泳<rt>すいえい</rt></ruby></td>
+                        <td>10:00 ～ 17:00</td>
+                        <td>プール</td>
+                        <td>300 <ruby>円<rt>えん</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="font-bold">②</td>
+                        <td>サッカー</td>
+                        <td>10:00 ～ 17:00</td>
+                        <td><ruby>第<rt>だい</rt></ruby> 2 <ruby>運動場<rt>うんどうじょう</rt></ruby></td>
+                        <td>100 <ruby>円<rt>えん</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td>バスケットボール</td>
+                        <td>10:00 ～ 17:00</td>
+                        <td><ruby>体育館<rt>たいいくかん</rt></ruby></td>
+                        <td>100 <ruby>円<rt>えん</rt></ruby></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="note-text">
+                ※<ruby>注意<rt>ちゅうい</rt></ruby> &nbsp; <ruby>自転車<rt>じてんしゃ</rt></ruby>を<ruby>借<rt>か</rt></ruby>る<ruby>人<rt>ひと</rt></ruby>は 200 <ruby>円<rt>えん</rt></ruby>かかります。
+            </p>
+
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-bold">①ジョギング、<ruby>自転車<rt>じてんしゃ</rt></ruby>、<ruby>水泳<rt>すいえい</rt></ruby></h3>
+                    <p class="pl-6"><ruby>好<rt>す</rt></ruby>きな<ruby>時間<rt>じかん</rt></ruby>に<ruby>始<rt>はじ</rt></ruby>めることができます。</p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold">②サッカー、バスケットボール</h3>
+                    <div class="pl-6 space-y-4">
+                        <p>
+                            <span class="font-bold underline"><ruby>午前<rt>ごぜん</rt></ruby></span>：ルールや、やり<ruby>方<rt>かた</rt></ruby>を<ruby>先生<rt>せんせい</rt></ruby>が<ruby>教<rt>おし</rt></ruby>えます。<br />
+                            <span class="indent-line">サッカーは<ruby>第<rt>だい</rt></ruby> 2 <ruby>運動場<rt>うんどうじょう</rt></ruby>、バスケットボールは<ruby>体育館<rt>たいいくかん</rt></ruby>に、10:00 までに<ruby>来<rt>き</rt></ruby>てください。</span>
+                        </p>
+                        <p>
+                            <span class="font-bold underline"><ruby>午後<rt>ごご</rt></ruby></span>：グループで<ruby>試合<rt>しあい</rt></ruby>をします。<br />
+                            <span class="indent-line"><ruby>受付<rt>うけつけ</rt></ruby>に 13:00 までに<ruby>来<rt>き</rt></ruby>てください。</span>
+                            <span class="indent-line"><ruby>初<rt>はじ</rt></ruby>めてサッカーやバスケットボールをする<ruby>人<rt>ひと</rt></ruby>は、ぜひ<ruby>午前<rt>ごぜん</rt></ruby>の<ruby>教室<rt>きょうしつ</rt></ruby>から<ruby>来<rt>き</rt></ruby>てください。</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-contact">
+            あおぞら<ruby>運動場<rt>うんどうじょう</rt></ruby><br />
+            <ruby>電話<rt>でんわ</rt></ruby>：012-345-6789
+        </footer>
+
+        <!-- PHẦN 2: CÂU HỎI 34 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">34</span> <ruby>自転車<rt>じてんしゃ</rt></ruby>を<ruby>借<rt>か</rt></ruby>りて<ruby>乗<rt>の</rt></ruby>りたい<ruby>人<rt>ひと</rt></ruby>は、いくら<ruby>払<rt>はら</rt></ruby>わなければなりませんか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. ただ</div>
+                <div class="option-item"><div class="radio-circle"></div> 2. 100 <ruby>円<rt>えん</rt></ruby></div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    3. 200 <ruby>円<rt>えん</rt></ruby>
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 4. 300 <ruby>円<rt>えん</rt></ruby></div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 3</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Trong bảng ghi "ただ※" nhưng bên dưới có ghi chú rõ "自転車を借りる人は 200 円かかります")
+            </p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 35 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">35</span> バスケットボールのルールや、やり<ruby>方<rt>かた</rt></ruby>を<ruby>習<rt>なら</rt></ruby>ってから<ruby>試合<rt>しあい</rt></ruby>に<ruby>出<rt>で</rt></ruby>たい<ruby>人<rt>ひと</rt></ruby>は、まずどうしなければなりませんか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. 10:00 までに<ruby>受付<rt>うけつけ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    2. 10:00 までに<ruby>体育館<rt>たいいくかん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 3. 13:00 までに<ruby>受付<rt>うけつけ</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. 13:00 までに<ruby>体育館<rt>たいいくかん</rt></ruby>に<ruby>行<rt>い</rt></ruby>きます。</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 2</p>
+            <p class="text-xs text-gray-500 pl-10 mt-1">
+                (Giải thích: Theo thông báo, buổi sáng là thời gian học luật. Người học bóng rổ được yêu cầu đến "体育館" trước 10:00)
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

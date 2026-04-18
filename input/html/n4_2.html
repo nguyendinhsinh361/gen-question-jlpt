@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo cuộc thi thuyết trình tiếng Nhật</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-weight: bold;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1.5rem;
+        }
+
+        .label-pill {
+            border: 1.5px solid #000;
+            border-radius: 9999px;
+            padding: 2px 20px;
+            min-width: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #333;
+        }
+
+        .section-header {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-block {
+            margin-bottom: 2rem;
+        }
+
+        .footer-info {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="container">
+        <!-- Tiêu đề -->
+        <header>
+            <h1 class="title">
+                <ruby>日本語<rt>にほんご</rt></ruby>スピーチコンテストに<ruby>出<rt>で</rt></ruby>ませんか
+            </h1>
+            <p class="subtitle">
+                〜<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>言<rt>い</rt></ruby>いたい・つたえたい〜
+            </p>
+        </header>
+
+        <!-- Thông tin thời gian & địa điểm -->
+        <div class="mb-8">
+            <div class="info-row">
+                <div class="label-pill">とき</div>
+                <div class="text-xl font-bold">11月3日 (日) 10:00 〜 12:00</div>
+            </div>
+            <div class="info-row">
+                <div class="label-pill">ところ</div>
+                <div class="text-xl font-bold">
+                    みどり<ruby>市<rt>し</rt></ruby>こくさいセンター
+                </div>
+            </div>
+        </div>
+
+        <!-- Đoạn giới thiệu -->
+        <div class="content-block text-lg">
+            <p>
+                みどり<ruby>市<rt>し</rt></ruby>では、<ruby>外国人<rt>がいこくじん</rt></ruby>のみなさんによる<ruby>日本語<rt>にほんご</rt></ruby>スピーチコンテストをおこないます。<br>
+                <ruby>日本<rt>にほん</rt></ruby>で<ruby>感<rt>かん</rt></ruby>じたこと、<ruby>見<rt>み</rt></ruby>つけたこと、けいけんしたことをつたえてみませんか。<br>
+                たくさんのおうぼをおまちしています。
+            </p>
+        </div>
+
+        <!-- Đối tượng dự thi -->
+        <div class="content-block">
+            <h2 class="section-header">【おうぼできる<ruby>人<rt>ひと</rt></ruby>】</h2>
+            <div class="pl-4">
+                <p>18さい<ruby>以上<rt>いじょう</rt></ruby>の<ruby>外国人<rt>がいこくじん</rt></ruby>の<ruby>方<rt>かた</rt></ruby>で、<ruby>日本<rt>にほん</rt></ruby>に<ruby>住<rt>す</rt></ruby>んで3<ruby>年<rt>ねん</rt></ruby>までの<ruby>方<rt>かた</rt></ruby></p>
+                <p>（みどり<ruby>市<rt>し</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいない<ruby>方<rt>かた</rt></ruby>でもおうぼできます）</p>
+            </div>
+        </div>
+
+        <!-- Thời gian phát biểu -->
+        <div class="content-block">
+            <h2 class="section-header">【スピーチ<ruby>時間<rt>じかん</rt></ruby>】</h2>
+            <div class="pl-4">
+                <p>4〜6<ruby>分<rt>ふん</rt></ruby>（<ruby>書<rt>か</rt></ruby>いたものを<ruby>見<rt>み</rt></ruby>ながら<ruby>話<rt>はな</rt></ruby>してもいいです）</p>
+            </div>
+        </div>
+
+        <!-- Giải thưởng -->
+        <div class="content-block">
+            <h2 class="section-header">【<ruby>賞<rt>しょう</rt></ruby>】</h2>
+            <div class="award-grid pl-4">
+                <div><ruby>最優秀賞<rt>さいゆうしゅうしょう</rt></ruby> 1<ruby>名<rt>めい</rt></ruby></div>
+                <div><ruby>優秀賞<rt>ゆうしゅうしょう</rt></ruby> 1<ruby>名<rt>めい</rt></ruby></div>
+                <div>とくべつ<ruby>賞<rt>しょう</rt></ruby> 3<ruby>名<rt>めい</rt></ruby></div>
+            </div>
+        </div>
+
+        <!-- Cách thức đăng ký -->
+        <div class="content-block">
+            <h2 class="section-header">【おうぼ<ruby>方法<rt>ほうほう</rt></ruby>】</h2>
+            <div class="pl-4">
+                <p>
+                    スピーチの<ruby>内容<rt>ないよう</rt></ruby>を<ruby>日本語<rt>にほんご</rt></ruby>で1,000<ruby>字<rt>じ</rt></ruby>までにまとめて、<ruby>住所<rt>じゅうしょ</rt></ruby>・<ruby>名前<rt>なまえ</rt></ruby>・<ruby>年<rt>ねん</rt></ruby>れい・<ruby>国籍<rt>こくせき</rt></ruby>を<ruby>書<rt>か</rt></ruby>いて、おうぼ<ruby>先<rt>さき</rt></ruby>まで<ruby>ゆうびん<rt>郵便</rt></ruby>・ファクス・メールで<ruby>送<rt>おく</rt></ruby>ってください。
+                </p>
+                <p>
+                    テーマは<ruby>自由<rt>じゆう</rt></ruby>です。おうぼ<ruby>人数<rt>にんずう</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いばあいは、しんさをして、コンテストに<ruby>出<rt>で</rt></ruby>る<ruby>人<rt>ひと</rt></ruby>を<ruby>決<rt>き</rt></ruby>めます。おうぼ<ruby>者全員<rt>しゃぜんいん</rt></ruby>に<ruby>結果<rt>けっか</rt></ruby>を<ruby>れんらく<rt>連絡</rt></ruby>します。
+                </p>
+            </div>
+        </div>
+
+        <!-- Hạn chót -->
+        <div class="content-block">
+            <h2 class="section-header">【おうぼしめきり】</h2>
+            <div class="pl-4">
+                <p class="text-xl font-bold">9月22日 (金)</p>
+            </div>
+        </div>
+
+        <!-- Liên hệ -->
+        <div class="footer-info">
+            <h2 class="section-header">【といあわせ・おうぼ<ruby>先<rt>さき</rt></ruby>】</h2>
+            <div class="pl-4 space-y-1">
+                <p>〒〇〇〇ー〇〇〇〇　みどり<ruby>市中町<rt>しなかまち</rt></ruby>1-2　みどり<ruby>市国際交流<rt>しこくさいこうりゅう</rt></ruby>センター</p>
+                <p>TEL & FAX　△△△-🔲🔲🔲🔲- ××××</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

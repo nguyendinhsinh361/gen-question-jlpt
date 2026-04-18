@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo bữa tiệc chào mừng - Mizuguchi School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .notice-container {
+            max-width: 850px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Bảng chính */
+        .main-table {
+            width: 100%;
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+
+        .main-table td {
+            border: 1px solid #333;
+            padding: 1rem;
+            vertical-align: middle;
+        }
+
+        .label-cell {
+            width: 25%;
+            text-align: center;
+            background-color: #fdfdfd;
+            font-size: 1.1rem;
+        }
+
+        .content-cell {
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Bảng nhỏ bên trong */
+        .sub-table {
+            width: 80%;
+            margin: 1rem auto;
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+
+        .sub-table th, .sub-table td {
+            border: 1px solid #333;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        .sub-table th {
+            font-weight: normal;
+        }
+
+        .note-text {
+            font-size: 0.95rem;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #666;
+        }
+
+        .footer-section {
+            margin-top: 2rem;
+        }
+
+        .school-name {
+            text-align: right;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="notice-container">
+        <!-- Tiêu đề -->
+        <h1 class="main-title">はじめましてパーティー</h1>
+
+        <!-- Đoạn giới thiệu -->
+        <div class="intro-text">
+            <p><ruby>来週<rt>らいしゅう</rt></ruby>「はじめましてパーティー」を　します。</p>
+            <p>みなさん、<ruby>来<rt>き</rt></ruby>てください！</p>
+        </div>
+
+        <!-- Bảng thông tin chi tiết -->
+        <table class="main-table">
+            <tbody>
+                <!-- Hàng 1: Thời gian -->
+                <tr>
+                    <td class="label-cell"><ruby>時間<rt>じかん</rt></ruby></td>
+                    <td class="content-cell">
+                        4<ruby>月<rt>がつ</rt></ruby> 20<ruby>日<rt>にち</rt></ruby> (<ruby>金<rt>きん</rt></ruby>)　<ruby>午後<rt>ごご</rt></ruby> 5<ruby>時<rt>じ</rt></ruby>～7<ruby>時<rt>じ</rt></ruby>
+                    </td>
+                </tr>
+                <!-- Hàng 2: Địa điểm -->
+                <tr>
+                    <td class="label-cell">ところ</td>
+                    <td class="content-cell">
+                        <p><ruby>水口日本語学校<rt>みずぐちにほんごがっこう</rt></ruby>　302きょうしつ</p>
+                        <p class="text-sm mt-1">※3<ruby>階<rt>かい</rt></ruby>の　いちばん　<ruby>大<rt>おお</rt></ruby>きい　へやです。</p>
+                    </td>
+                </tr>
+                <!-- Hàng 3: Đồ cần mang theo -->
+                <tr>
+                    <td class="label-cell"><ruby>持<rt>も</rt></ruby>ってくるもの</td>
+                    <td class="content-cell">
+                        <p>300<ruby>円<rt>えん</rt></ruby>ぐらいの　<ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby></p>
+                        
+                        <!-- Bảng phụ phân chia theo lớp -->
+                        <table class="sub-table">
+                            <thead>
+                                <tr>
+                                    <th><ruby>食<rt>た</rt></ruby>べ<ruby>物<rt>もの</rt></ruby></th>
+                                    <th>クラス</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2">おかし</td>
+                                    <td>Aクラスの<ruby>人<rt>ひと</rt></ruby></td>
+                                </tr>
+                                <tr>
+                                    <td>Bクラスの<ruby>人<rt>ひと</rt></ruby></td>
+                                </tr>
+                                <tr>
+                                    <td>くだもの</td>
+                                    <td>Cクラスの<ruby>人<rt>ひと</rt></ruby></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <p class="note-text">※<ruby>飲<rt>の</rt></ruby>み<ruby>物<rt>もの</rt></ruby>は　<ruby>学校<rt>がっこう</rt></ruby>が　<ruby>買<rt>か</rt></ruby>います。</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Chốt lời -->
+        <div class="footer-section">
+            <p>みんなで　じこしょうかいを　してから、<ruby>話<rt>はな</rt></ruby>したり　<ruby>歌<rt>うた</rt></ruby>ったり　しましょう。</p>
+            <div class="school-name">
+                <ruby>水口日本語学校<rt>みずぐちにほんごがっこう</rt></ruby>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

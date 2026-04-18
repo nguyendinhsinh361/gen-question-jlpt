@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>はらクリーニング - お知らせ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .section-box {
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .part-label {
+            position: absolute;
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .date-text {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .info-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-list li::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .contact-grid {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .sub-header {
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        
+        <!-- PHẦN A: Đợt giảm giá đặc biệt -->
+        <div class="section-box">
+            <div class="part-label">A</div>
+            <header>
+                <h1 class="main-title">
+                    はらクリーニング <ruby>特別<rt>とくべつ</rt></ruby>セール
+                </h1>
+                <p class="date-text">
+                    3<ruby>月<rt>がつ</rt></ruby>24<ruby>日<rt>にち</rt></ruby>（<ruby>土<rt>ど</rt></ruby>） ～ 4<ruby>月<rt>がつ</rt></ruby>10<ruby>日<rt>にち</rt></ruby>（<ruby>火<rt>か</rt></ruby>）
+                </p>
+            </header>
+
+            <section>
+                <p class="text-lg mb-4">
+                    セール<ruby>期間中<rt>きかんちゅう</rt></ruby>、<ruby>会員<rt>かいいん</rt></ruby>の<ruby>方<rt>かた</rt></ruby>はクリーニング<ruby>料金<rt>りょうきん</rt></ruby>が<ruby>基本料金<rt>きほんりょうきん</rt></ruby>の 40%<ruby>割引<rt>わりびき</rt></ruby>になります！
+                </p>
+
+                <p class="font-bold">＜<ruby>料金<rt>りょうきん</rt></ruby>の<ruby>例<rt>れい</rt></ruby>＞</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;"></th>
+                            <th style="width: 35%;"><ruby>基本料金<rt>きほんりょうきん</rt></ruby></th>
+                            <th style="width: 35%;">40%<ruby>割引後<rt>わりびきご</rt></ruby>の<ruby>料金<rt>りょうきん</rt></ruby></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ブラウス</td>
+                            <td>180 <ruby>円<rt>えん</rt></ruby></td>
+                            <td class="font-bold">108 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                        <tr>
+                            <td>セーター</td>
+                            <td>400 <ruby>円<rt>えん</rt></ruby></td>
+                            <td class="font-bold">240 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                        <tr>
+                            <td>ズボン</td>
+                            <td>480 <ruby>円<rt>えん</rt></ruby></td>
+                            <td class="font-bold">288 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                        <tr>
+                            <td>スーツ</td>
+                            <td>1100 <ruby>円<rt>えん</rt></ruby></td>
+                            <td class="font-bold">660 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                        <tr>
+                            <td>コート</td>
+                            <td>1300 <ruby>円<rt>えん</rt></ruby></td>
+                            <td class="font-bold">780 <ruby>円<rt>えん</rt></ruby></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <ul class="info-list mt-6">
+                    <li>
+                        <ruby>会員<rt>かいいん</rt></ruby>ではない<ruby>方<rt>かた</rt></ruby>でも、<ruby>店<rt>みせ</rt></ruby>で<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>めば、すぐに<ruby>会員<rt>かいいん</rt></ruby>になっていただけます。<br>
+                        お<ruby>申<rt>もう</rt></ruby>し<ruby>込み<rt>こみ</rt></ruby>には、<ruby>会費<rt>かいひ</rt></ruby> 300 <ruby>円<rt>えん</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>です。
+                    </li>
+                    <li>
+                        <ruby>会員<rt>かいいん</rt></ruby>になると、いつでも 5%<ruby>割引<rt>わりびき</rt></ruby>の<ruby>会員料金<rt>かいいんりょうきん</rt></ruby>になります。（<ruby>特別<rt>とくべつ</rt></ruby>セール<ruby>期間以外<rt>きかんいがい</rt></ruby>）
+                    </li>
+                </ul>
+
+                <div class="contact-grid">
+                    <div>
+                        <ruby>営業日<rt>えいぎょうび</rt></ruby>・<ruby>時間<rt>じかん</rt></ruby>：<ruby>月曜日<rt>げつようび</rt></ruby>～<ruby>土曜日<rt>どようび</rt></ruby> 10:00～18:00
+                    </div>
+                    <div class="text-right">
+                        <ruby>休み<rt>やすみ</rt></ruby>：<ruby>日曜<rt>にちよう</rt></ruby>・<ruby>祝日<rt>しゅくじつ</rt></ruby>
+                    </div>
+                    <div>
+                        <ruby>電話<rt>でんわ</rt></ruby>：077-133-4646
+                    </div>
+                    <div class="text-right">
+                        <ruby>住所<rt>じゅうしょ</rt></ruby>：<ruby>山上区緑町<rt>やまうえくみどりまち</rt></ruby> 3-1
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PHẦN B: Dịch vụ giao nhận tận nơi -->
+        <div class="section-box">
+            <div class="part-label">B</div>
+            <header>
+                <h2 class="main-title">
+                    <ruby>訪問<rt>ほうもん</rt></ruby>サービスを<ruby>始<rt>はじ</rt></ruby>めました
+                </h2>
+            </header>
+
+            <section class="text-lg">
+                <p>
+                    はらクリーニングの<ruby>店員<rt>てんいん</rt></ruby>が、お<ruby>客様<rt>きゃくさま</rt></ruby>のご<ruby>自宅<rt>じたく</rt></ruby>を<ruby>訪問<rt>ほうもん</rt></ruby>してお<ruby>洋服<rt>ようふく</rt></ruby>をお<ruby>預<rt>あず</rt></ruby>かりし、クリーニング<ruby>後<rt>ご</rt></ruby>に、ご<ruby>自宅<rt>じたく</rt></ruby>までお<ruby>届<rt>とど</rt></ruby>けするサービスです。
+                </p>
+
+                <div class="mt-6">
+                    <p class="sub-header">＜<ruby>申し込み<rt>もうしこみ</rt></ruby>＞</p>
+                    <p class="pl-4">
+                        <ruby>営業時間内<rt>えいぎょうじかんない</rt></ruby>に、お<ruby>電話<rt>でんわ</rt></ruby>でお<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みください。<ruby>翌日以降<rt>よくじついこう</rt></ruby>、お<ruby>客様<rt>きゃくさま</rt></ruby>が<ruby>指定<rt>してい</rt></ruby>された<ruby>日<rt>ひ</rt></ruby>の<ruby>訪問時間内<rt>ほうもんじかんない</rt></ruby>に、ご<ruby>自宅<rt>じたく</rt></ruby>まで<ruby>取<rt>と</rt></ruby>りに<ruby>伺<rt>うかが</rt></ruby>います。
+                    </p>
+
+                    <p class="sub-header">＜お<ruby>届け日<rt>とどけび</rt></ruby>＞</p>
+                    <p class="pl-4">
+                        お<ruby>預<rt>あず</rt></ruby>かりした<ruby>日<rt>ひ</rt></ruby>の<ruby>約<rt>やく</rt></ruby> 1 <ruby>週間後<rt>しゅうかんご</rt></ruby>から、ご<ruby>自宅<rt>じたく</rt></ruby>へのお<ruby>届<rt>とど</rt></ruby>けができます。お<ruby>申<rt>もう</rt></ruby>し<ruby>込み<rt>こみ</rt></ruby>のときに、<ruby>営業日<rt>えいぎょうび</rt></ruby>の<ruby>中<rt>なか</rt></ruby>からお<ruby>届<rt>とど</rt></ruby>けの<ruby>日<rt>ひ</rt></ruby>と<ruby>時間<rt>じかん</rt></ruby>をご<ruby>指定<rt>してい</rt></ruby>ください。
+                    </p>
+
+                    <p class="sub-header">＜<ruby>訪問時間<rt>ほうもんじかん</rt></ruby>＞</p>
+                    <p class="pl-4">
+                        <ruby>営業日<rt>えいぎょうび</rt></ruby>の<ruby>午後<rt>ごご</rt></ruby> 6 <ruby>時<rt>じ</rt></ruby>から<ruby>午後<rt>ごご</rt></ruby> 10 <ruby>時<rt>じ</rt></ruby>の<ruby>間<rt>あいだ</rt></ruby>で、<ruby>自由<rt>じゆう</rt></ruby>に<ruby>選<rt>えら</rt></ruby>べます。
+                    </p>
+                </div>
+
+                <p class="mt-6 text-base italic">
+                    ご<ruby>自宅<rt>じたく</rt></ruby>の<ruby>住所<rt>じゅうしょ</rt></ruby>によっては、お<ruby>引<rt>ひ</rt></ruby>き<ruby>受<rt>う</rt></ruby>けできないこともございます。<ruby>詳<rt>くわ</rt></ruby>しいことは、<ruby>店員<rt>てんいん</rt></ruby>にご<ruby>確認<rt>かくにん</rt></ruby>ください。
+                </p>
+
+                <p class="text-right font-bold mt-8">はらクリーニング</p>
+            </section>
+        </div>
+
+    </div>
+
+</body>
+</html>

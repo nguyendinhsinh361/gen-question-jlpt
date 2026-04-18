@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あおい市生活相談 & リーさんの予定</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            padding: 1.5rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .section-label {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Styles for Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .part-a-table td {
+            height: 45px;
+        }
+
+        .contact-info {
+            border: 1px solid #000;
+            padding: 1rem;
+            margin-top: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Layout for Part B side-by-side tables */
+        .calendar-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .calendar-table {
+            flex: 1;
+        }
+
+        .calendar-table th {
+            background-color: #fff;
+        }
+
+        .day-col { width: 10%; }
+        .dow-col { width: 15%; }
+        .plan-col { width: 75%; }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN A -->
+        <div class="section-label">A</div>
+        <div class="border border-black p-4 mb-8">
+            <header class="text-center mb-4">
+                <h1 class="text-xl font-bold">
+                    あおい<ruby>市<rt>し</rt></ruby>に<ruby>住<rt>す</rt></ruby>んでいる<ruby>外国人<rt>がいこくじん</rt></ruby>のみなさんへ
+                </h1>
+            </header>
+
+            <section class="mb-4 leading-relaxed">
+                <p><ruby>生活<rt>せいかつ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>困<rt>こま</rt></ruby>っていることはありませんか。</p>
+                <p><ruby>住<rt>す</rt></ruby>むところ、<ruby>病院<rt>びょういん</rt></ruby>、<ruby>子<rt>こ</rt></ruby>どもの<ruby>学校<rt>がっこう</rt></ruby>や<ruby>教育<rt>きょういく</rt></ruby>、<ruby>国際結婚<rt>こくさいけっこん</rt></ruby>について<ruby>相談<rt>そうだん</rt></ruby>ができます。</p>
+                <p><ruby>専門<rt>せんもん</rt></ruby>の<ruby>相談員<rt>そうだんいん</rt></ruby>がいます。<ruby>相談<rt>そうだん</rt></ruby>は、<ruby>日本語<rt>にほんご</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>います。</p>
+                <p>お<ruby>金<rt>かね</rt></ruby>はかかりません。</p>
+            </section>
+
+            <!-- Bảng tư vấn Phần A -->
+            <table class="part-a-table">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;"><ruby>時間<rt>じかん</rt></ruby><br><ruby>曜日<rt>ようび</rt></ruby></th>
+                        <th style="width: 28%;"><ruby>午前<rt>ごぜん</rt></ruby> 10：00～12：00</th>
+                        <th style="width: 28%;"><ruby>午後<rt>ごご</rt></ruby> 14：00～16：00</th>
+                        <th style="width: 28%;"><ruby>夜<rt>よる</rt></ruby> 18：00～20：00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><ruby>月<rt>げつ</rt></ruby></td><td></td><td></td><td></td></tr>
+                    <tr><td><ruby>火<rt>か</rt></ruby></td><td><ruby>住<rt>す</rt></ruby>むところ・<ruby>病院<rt>びょういん</rt></ruby></td><td></td><td></td></tr>
+                    <tr><td><ruby>水<rt>すい</rt></ruby></td><td></td><td><ruby>子<rt>こ</rt></ruby>どもの<ruby>学校<rt>がっこう</rt></ruby>や<ruby>教育<rt>きょういく</rt></ruby></td><td></td></tr>
+                    <tr><td><ruby>木<rt>もく</rt></ruby></td><td></td><td></td><td><ruby>住<rt>す</rt></ruby>むところ・<ruby>病院<rt>びょういん</rt></ruby></td></tr>
+                    <tr><td><ruby>金<rt>きん</rt></ruby></td><td></td><td><ruby>国際結婚<rt>こくさいけっこん</rt></ruby></td><td></td></tr>
+                    <tr><td><ruby>土<rt>ど</rt></ruby></td><td><ruby>国際結婚<rt>こくさいけっこん</rt></ruby></td><td></td><td><ruby>子<rt>こ</rt></ruby>どもの<ruby>学校<rt>がっこう</rt></ruby>や<ruby>教育<rt>きょういく</rt></ruby></td></tr>
+                    <tr><td><ruby>日<rt>にち</rt></ruby></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+
+            <!-- Thông tin liên hệ -->
+            <div class="contact-info mt-4">
+                <p class="font-bold">【<ruby>場所<rt>ばしょ</rt></ruby>】あおい<ruby>市生活相談事務所<rt>しせいかつそうだんじむしょ</rt></ruby></p>
+                <p><ruby>住所<rt>じゅうしょ</rt></ruby>：あおい<ruby>市中町<rt>しなかまち</rt></ruby> 2-2（あおい<ruby>駅西改札口<rt>えきにしかいさつぐち</rt></ruby>から<ruby>歩<rt>ある</rt></ruby>いて 5 <ruby>分<rt>ふん</rt></ruby>）</p>
+                <p><ruby>電話<rt>でんわ</rt></ruby>：077-123-1122</p>
+                <p>E メール：soudan@aoi.lg.jp</p>
+            </div>
+        </div>
+
+        <!-- PHẦN B -->
+        <div class="section-label">B</div>
+        <div class="border border-black p-4">
+            <h2 class="font-bold mb-2">リーさんの<ruby>今週<rt>こんしゅう</rt></ruby>と<ruby>来週<rt>らいしゅう</rt></ruby>の<ruby>予定<rt>よてい</rt></ruby></h2>
+            
+            <div class="calendar-wrapper">
+                <!-- Bảng tuần 1 -->
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th class="day-col"><ruby>日<rt>ひ</rt></ruby></th>
+                            <th class="dow-col"><ruby>曜日<rt>ようび</rt></ruby></th>
+                            <th class="plan-col"><ruby>予定<rt>よてい</rt></ruby></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>5</td><td><ruby>月<rt>げつ</rt></ruby></td><td></td></tr>
+                        <tr><td>6</td><td><ruby>火<rt>か</rt></ruby></td><td>12：00～19：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>7</td><td><ruby>水<rt>すい</rt></ruby></td><td>14：00～21：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>8</td><td><ruby>木<rt>もく</rt></ruby></td><td>12：00～19：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>9</td><td><ruby>金<rt>きん</rt></ruby></td><td>14：00～21：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>10</td><td><ruby>土<rt>ど</rt></ruby></td><td> 9：00～15：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>11</td><td><ruby>日<rt>にち</rt></ruby></td><td><ruby>旅行<rt>りょこう</rt></ruby></td></tr>
+                    </tbody>
+                </table>
+
+                <!-- Bảng tuần 2 -->
+                <table class="calendar-table">
+                    <thead>
+                        <tr>
+                            <th class="day-col"><ruby>日<rt>ひ</rt></ruby></th>
+                            <th class="dow-col"><ruby>曜日<rt>ようび</rt></ruby></th>
+                            <th class="plan-col"><ruby>予定<rt>よてい</rt></ruby></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>12</td><td><ruby>月<rt>げつ</rt></ruby></td><td><ruby>旅行<rt>りょこう</rt></ruby></td></tr>
+                        <tr><td>13</td><td><ruby>火<rt>か</rt></ruby></td><td> 9：00～17：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>14</td><td><ruby>水<rt>すい</rt></ruby></td><td> 9：00～17：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>15</td><td><ruby>木<rt>もく</rt></ruby></td><td> 9：00～17：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>16</td><td><ruby>金<rt>きん</rt></ruby></td><td> 9：00～17：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>17</td><td><ruby>土<rt>ど</rt></ruby></td><td>14：00～21：00　<ruby>仕事<rt>しごと</rt></ruby></td></tr>
+                        <tr><td>18</td><td><ruby>日<rt>にち</rt></ruby></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

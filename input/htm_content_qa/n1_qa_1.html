@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奨学生募集要項と読解練習</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-item {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .circle-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.2rem;
+            height: 1.2rem;
+            border: 1px solid #000;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #f9fafb;
+            font-weight: normal;
+        }
+
+        .question-box {
+            background-color: #fff;
+            border-top: 2px dashed #cbd5e0;
+            margin-top: 3rem;
+            padding-top: 2rem;
+        }
+
+        .q-number {
+            background-color: #ebf4ff;
+            color: #2b6cb0;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .radio-circle {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #718096;
+            border-radius: 50%;
+        }
+
+        .answer-highlight {
+            color: #2f855a;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- PHẦN 1: HƯỚNG DẪN TUYỂN CHỌN (Từ ảnh 1) -->
+        <header class="text-center mb-8">
+            <h1 class="font-bold text-lg">
+                <ruby>財団法人日本留学生奨学財団<rt>ざいだんほうじんにほんりゅうがくせいしょうがくざいだん</rt></ruby>
+            </h1>
+            <h2 class="font-bold text-xl mt-2">
+                2011 <ruby>年度外国人留学生奨学生募集要項<rt>ねんどがいこくじんりゅうがくせいしょうがくせいぼしゅうようこう</rt></ruby>
+            </h2>
+        </header>
+
+        <section class="space-y-4">
+            <div>
+                <span class="font-bold">1. <ruby>募集人員<rt>ぼしゅうじんいん</rt></ruby></span> &nbsp; 30 <ruby>名<rt>めい</rt></ruby>
+            </div>
+
+            <section>
+                <div class="font-bold">2. <ruby>奨学金<rt>しょうがくきん</rt></ruby>の<ruby>支給額<rt>しきゅうがく</rt></ruby>・<ruby>支給方法<rt>しきゅうほうほう</rt></ruby>など</div>
+                <div class="pl-4 mt-1 space-y-1">
+                    <div class="flex">
+                        <span class="circle-num">①</span>
+                        <div>
+                            <ruby>支給額<rt>しきゅうがく</rt></ruby>：<ruby>大学院修士課程<rt>だいがくいんしゅうしかてい</rt></ruby>（<ruby>博士前期課程<rt>はかせぜんきかてい</rt></ruby>） <ruby>月額<rt>げつがく</rt></ruby> 100,000 <ruby>円<rt>えん</rt></ruby><br>
+                            <ruby>大学院博士課程<rt>だいがくいんはかせかてい</rt></ruby>（<ruby>博士後期課程<rt>はかせこうきかてい</rt></ruby>） <ruby>月額<rt>げつがく</rt></ruby> 120,000 <ruby>円<rt>えん</rt></ruby>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span class="circle-num">②</span>
+                        <div><ruby>支給期間<rt>しきゅうきかん</rt></ruby>：<ruby>在籍<rt>ざいせき</rt></ruby>する<ruby>大学院<rt>だいがくいん</rt></ruby>の<ruby>正規<rt>せいき</rt></ruby>の<ruby>修学期間<rt>しゅうがくきかん</rt></ruby>で、<ruby>最長<rt>さいちょう</rt></ruby> 3 <ruby>年間<rt>ねんかん</rt></ruby></div>
+                    </div>
+                    <div class="flex">
+                        <span class="circle-num">③</span>
+                        <div><ruby>支給方法<rt>しきゅうほうほう</rt></ruby>：<ruby>毎月一回決<rt>まいつきいっかいき</rt></ruby>まった<ruby>日<rt>ひ</rt></ruby>に、<ruby>受給者本人名義<rt>じゅきゅうしゃほんにんめいぎ</rt></ruby>の<ruby>銀行口座<rt>ぎんこうこうざ</rt></ruby>に<ruby>直接振<rt>ちょくせつふ</rt></ruby>り<ruby>込<rt>こ</rt></ruby>む</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="font-bold">3. <ruby>応募資格<rt>おうぼしかく</rt></ruby></div>
+                <div class="pl-4 mt-1 space-y-3">
+                    <div>
+                        <div class="flex"><span class="circle-num">①</span><ruby>国籍<rt>こくせき</rt></ruby>・ビザについて</div>
+                        <p class="pl-8 text-sm"><ruby>日本以外<rt>にほんいがい</rt></ruby>の<ruby>国籍<rt>こくせき</rt></ruby>を<ruby>有<rt>ゆう</rt></ruby>し、<ruby>勉強<rt>べんきょう</rt></ruby>または<ruby>研究<rt>けんきゅう</rt></ruby>のための<ruby>在留資格<rt>ざいりゅうしかく</rt></ruby>（<ruby>例<rt>たと</rt></ruby>えば<ruby>留学<rt>りゅうがく</rt></ruby>）で、<ruby>日本<rt>にほん</rt></ruby>に<ruby>入国<rt>にゅうこく</rt></ruby>した<ruby>者<rt>もの</rt></ruby></p>
+                    </div>
+                    <div>
+                        <div class="flex"><span class="circle-num">②</span><ruby>対象<rt>たいしょう</rt></ruby></div>
+                        <ul class="pl-8 text-sm space-y-1">
+                            <li>・<ruby>日本国内<rt>にほんこくない</rt></ruby>の<ruby>大学院<rt>だいがくいん</rt></ruby>で、<ruby>理学<rt>りがく</rt></ruby>、<ruby>工学<rt>こうがく</rt></ruby>、<ruby>農学<rt>のうがく</rt></ruby>の<ruby>分野<rt>ぶんや</rt></ruby>を<ruby>専攻<rt>せんこう</rt></ruby>している<ruby>者<rt>もの</rt></ruby></li>
+                            <li>・2010 <ruby>年<rt>ねん</rt></ruby> 4 <ruby>月時点<rt>がつじてん</rt></ruby>で、<ruby>修士課程<rt>しゅうしかてい</rt></ruby>の 1 <ruby>年次<rt>ねんじ</rt></ruby>、<ruby>博士課程<rt>はかせかてい</rt></ruby>の 1 <ruby>年次<rt>ねんじ</rt></ruby>か 2 <ruby>年次<rt>ねんじ</rt></ruby>に<ruby>在籍<rt>ざいせき</rt></ruby>している<ruby>者<rt>もの</rt></ruby>、または<ruby>修士課程<rt>しゅうしかてい</rt></ruby>の 2 <ruby>年次<rt>ねんじ</rt></ruby>で、2011 <ruby>年<rt>ねん</rt></ruby> 4 <ruby>月<rt>がつ</rt></ruby>に<ruby>博士課程進学<rt>はかせかていしんがく</rt></ruby>を<ruby>予定<rt>よてい</rt></ruby>している<ruby>者<rt>もの</rt></ruby></li>
+                            <li>・2009 <ruby>年度<rt>ねんど</rt></ruby>の<ruby>大学院<rt>だいがくいん</rt></ruby>での<ruby>成績<rt>せいせき</rt></ruby>が 2.8 <ruby>以上<rt>いじょう</rt></ruby>（<ruby>満点<rt>まんてん</rt></ruby> 3.0）で、<ruby>心身<rt>しんしん</rt></ruby>ともに<ruby>健康<rt>けんこう</rt></ruby>な<ruby>者<rt>もの</rt></ruby></li>
+                            <li>・2011 <ruby>年度<rt>ねんど</rt></ruby>に、それぞれの<ruby>政府<rt>せいふ</rt></ruby>、<ruby>日本政府<rt>にほんせいふ</rt></ruby>、<ruby>他<rt>た</rt></ruby>の<ruby>財団<rt>ざいだん</rt></ruby>などの<ruby>奨学金支給<rt>しょうがくきんしきゅう</rt></ruby>を<ruby>受<rt>う</rt></ruby>けない<ruby>者<rt>もの</rt></ruby></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="font-bold">4. <ruby>応募方法<rt>おうぼほうほう</rt></ruby></div>
+                <div class="pl-4 mt-1 space-y-2">
+                    <div class="flex">
+                        <span class="circle-num">①</span>
+                        <div>
+                            <ruby>提出書類<rt>ていしゅつしょるい</rt></ruby>（<ruby>指定<rt>してい</rt></ruby>のものは<ruby>当財団<rt>とうざいだん</rt></ruby>ホームページからダウンロードして<ruby>使用<rt>しよう</rt></ruby>すること）<br>
+                            ・2011 <ruby>年度日本留学生奨学財団奨学生応募用紙<rt>ねんどにほんりゅうがくせいしょうがくざいだんしょうがくせいおうぼようし</rt></ruby>（<ruby>指定<rt>してい</rt></ruby>のもの）<br>
+                            ・<ruby>在学証明書<rt>ざいがくしょうめいしょ</rt></ruby>と 2009 <ruby>年度<rt>ねんど</rt></ruby>の<ruby>成績<rt>せいせき</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かる<ruby>成績証明書<rt>せいせきしょうめいしょ</rt></ruby><br>
+                            ・<ruby>在籍大学院<rt>ざいせきだいがくいん</rt></ruby>の<ruby>指導教授<rt>しどうきょうじゅ</rt></ruby>からの<ruby>推薦書<rt>すいせんしょ</rt></ruby><br>
+                            ・<ruby>研究計画書<rt>けんきゅうけいかくしょ</rt></ruby>（3000 <ruby>字以内<rt>じいない</rt></ruby>）、<ruby>書式<rt>しょしき</rt></ruby>は<ruby>自由<rt>じゆう</rt></ruby>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span class="circle-num">②</span>
+                        <div>
+                            <ruby>応募締<rt>おうぼしめ</rt></ruby>め<ruby>切<rt>き</rt></ruby>り：2010 <ruby>年<rt>ねん</rt></ruby> 7 <ruby>月<rt>がつ</rt></ruby> 31 <ruby>日必着<rt>にちひっちゃく</rt></ruby><br>
+                            なお、<ruby>申請者<rt>しんせいしゃ</rt></ruby>が<ruby>直接応募<rt>ちょくせつおうぼ</rt></ruby>するのではなく、<ruby>必<rt>かなら</rt></ruby>ず<ruby>所属<rt>しょぞく</rt></ruby>の<ruby>大学院<rt>だいがくいん</rt></ruby>を<ruby>通<rt>つう</rt></ruby>じて<ruby>応募<rt>おうぼ</rt></ruby>すること
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div>
+                <span class="font-bold">5. <ruby>選考方法<rt>せんこうほうほう</rt></ruby></span> &nbsp; <ruby>応募書類<rt>おうぼしょるい</rt></ruby>、<ruby>面接<rt>めんせつ</rt></ruby>を<ruby>総合的<rt>そうごうてき</rt></ruby>に<ruby>判断<rt>はんだん</rt></ruby>して<ruby>決定<rt>けってい</rt></ruby>する
+            </div>
+
+            <div>
+                <span class="font-bold">6. <ruby>決定通知<rt>けっていつうち</rt></ruby></span> &nbsp; 2010 <ruby>年<rt>ねん</rt></ruby> 9 <ruby>月<rt>がつ</rt></ruby> 10 <ruby>日<rt>とおか</rt></ruby>までに<ruby>所属<rt>しょぞく</rt></ruby>の<ruby>大学院<rt>だいがくいん</rt></ruby>を<ruby>通<rt>つう</rt></ruby>じ、<ruby>書面<rt>しょめん</rt></ruby>で<ruby>通知<rt>つうち</rt></ruby>する
+            </div>
+
+            <footer class="text-sm pt-4 italic">
+                7. <ruby>問<rt>と</rt></ruby>い<ruby>合<rt>あ</rt></ruby>わせ<ruby>先<rt>さき</rt></ruby>：<ruby>日本留学生奨学財団<rt>にほんりゅう学せいしょうがくざいだん</rt></ruby> &nbsp; http://www.ryugaku.or.jp/
+            </footer>
+        </section>
+
+        <!-- PHẦN 2: CÂU HỎI 70 (Từ ảnh 2) -->
+        <div class="question-box">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">70</span> <ruby>日本<rt>にほん</rt></ruby>の<ruby>大学<rt>だいがく</rt></ruby>・<ruby>大学院<rt>だいがくいん</rt></ruby>に<ruby>在学<rt>ざいがく</rt></ruby>している<ruby>次<rt>つぎ</rt></ruby>の<ruby>学生<rt>がくせい</rt></ruby>のうち、この<ruby>奨学金<rt>しょうがくきん</rt></ruby>に<ruby>応募<rt>おうぼ</rt></ruby>できるのは<ruby>誰<rt>だれ</rt></ruby>か。
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 15%;"><ruby>名前<rt>なまえ</rt></ruby></th>
+                        <th style="width: 15%;"><ruby>国籍<rt>こくせき</rt></ruby></th>
+                        <th style="width: 25%;">2010 <ruby>年<rt>ねん</rt></ruby> 4 <ruby>月時点<rt>がつじてん</rt></ruby>の<ruby>在籍年次<rt>ざいせきねんじ</rt></ruby></th>
+                        <th style="width: 15%;"><ruby>専攻成績<rt>せんこうせいせき</rt></ruby></th>
+                        <th style="width: 10%;"><ruby>成績<rt>せいせき</rt></ruby></th>
+                        <th style="width: 20%;">2011 <ruby>年度他<rt>ねんどた</rt></ruby>の<ruby>奨学金<rt>しょうがくきん</rt></ruby>の<ruby>受給予定<rt>じゅきゅうよてい</rt></ruby>の<ruby>有無<rt>うむ</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ソムシリー</td>
+                        <td>タイ</td>
+                        <td><ruby>修士<rt>しゅうし</rt></ruby> 1 <ruby>年<rt>ねん</rt></ruby></td>
+                        <td><ruby>電子工学<rt>でんしこうがく</rt></ruby></td>
+                        <td>3.0</td>
+                        <td><ruby>有<rt>あり</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-yellow-50 font-bold">ワン</td>
+                        <td class="bg-yellow-50">中国</td>
+                        <td class="bg-yellow-50"><ruby>博士<rt>はかせ</rt></ruby> 2 <ruby>年<rt>ねん</rt></ruby></td>
+                        <td class="bg-yellow-50"><ruby>農学<rt>のうがく</rt></ruby></td>
+                        <td class="bg-yellow-50">2.9</td>
+                        <td class="bg-yellow-50"><ruby>無<rt>なし</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td>アフマド</td>
+                        <td>エジプト</td>
+                        <td><ruby>修士<rt>しゅうし</rt></ruby> 1 <ruby>年<rt>ねん</rt></ruby></td>
+                        <td><ruby>法学<rt>ほうがく</rt></ruby></td>
+                        <td>2.8</td>
+                        <td><ruby>有<rt>あり</rt></ruby></td>
+                    </tr>
+                    <tr>
+                        <td>ジョン</td>
+                        <td>アメリカ</td>
+                        <td><ruby>学部<rt>がくぶ</rt></ruby> 4 <ruby>年<rt>ねん</rt></ruby></td>
+                        <td><ruby>理学<rt>りがく</rt></ruby></td>
+                        <td>3.0</td>
+                        <td><ruby>無<rt>なし</rt></ruby></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. ソムシリーさん</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    2. ワンさん
+                </div>
+                <div class="option-item"><div class="radio-circle"></div> 3. アフマドさん</div>
+                <div class="option-item"><div class="radio-circle"></div> 4. ジョンさん</div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 2</p>
+        </div>
+
+        <!-- PHẦN 3: CÂU HỎI 71 (Từ ảnh 3) -->
+        <div class="question-box border-none">
+            <p class="text-lg font-medium mb-4">
+                <span class="q-number">71</span> キムさんは、2010 <ruby>年<rt>ねん</rt></ruby> 4 <ruby>月現在<rt>がつげんざい</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>の<ruby>大学院<rt>だいがくいん</rt></ruby>の<ruby>修士課程<rt>しゅうしかてい</rt></ruby> 2 <ruby>年生<rt>ねんせい</rt></ruby>で<ruby>農学<rt>のうがく</rt></ruby>を<ruby>専攻<rt>せんこう</rt></ruby>している。2011 <ruby>年度<rt>ねんど</rt></ruby>には<ruby>博士課程<rt>はかせかてい</rt></ruby>に<ruby>進学予定<rt>しんがくよてい</rt></ruby>である。キムさんが、この<ruby>奨学金<rt>しょうがくきん</rt></ruby>に<ruby>応募<rt>おうぼ</rt></ruby>する<ruby>場合<rt>ばあい</rt></ruby>、<ruby>応募時<rt>おうぼじ</rt></ruby>に<ruby>必<rt>かなら</rt></ruby>ずしなければならないのは、<ruby>次<rt>つぎ</rt></ruby>のどれか。
+            </p>
+
+            <div class="mt-4 space-y-1">
+                <div class="option-item"><div class="radio-circle"></div> 1. ホームページから<ruby>研究計画書<rt>けんきゅうけいかくしょ</rt></ruby>の<ruby>様式<rt>ようしき</rt></ruby>をダウンロードする。</div>
+                <div class="option-item"><div class="radio-circle"></div> 2. <ruby>博士課程進学<rt>はかせかていしんがく</rt></ruby>が<ruby>決定<rt>けってい</rt></ruby>していることを<ruby>証明<rt>しょうめい</rt></ruby>する<ruby>書類<rt>しょるい</rt></ruby>をもらう。</div>
+                <div class="option-item"><div class="radio-circle"></div> 3. <ruby>出身大学<rt>しゅっしんだいがく</rt></ruby>の<ruby>指導教授<rt>しどうきょうじゅ</rt></ruby>の<ruby>推薦書<rt>すいせんしょ</rt></ruby>を<ruby>取<rt>と</rt></ruby>り<ruby>寄<rt>よ</rt></ruby>せる。</div>
+                <div class="option-item flex items-center font-bold text-green-700">
+                    <div class="radio-circle border-green-700 bg-green-100 flex items-center justify-center">
+                        <div class="w-2 h-2 bg-green-700 rounded-full"></div>
+                    </div>
+                    4. <ruby>応募書類<rt>おうぼしょるい</rt></ruby>を<ruby>大学院<rt>だいがくいん</rt></ruby>の<ruby>事務所<rt>じむしょ</rt></ruby>に<ruby>提出<rt>ていしゅつ</rt></ruby>する。
+                </div>
+            </div>
+            <p class="answer-highlight">Đáp án đúng: 4</p>
+        </div>
+    </div>
+
+</body>
+</html>

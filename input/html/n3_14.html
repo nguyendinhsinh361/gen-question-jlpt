@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABCクレジットカード会員のみな様へ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-section {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .bullet-point::before {
+            content: "◆";
+            margin-right: 0.5rem;
+        }
+
+        .shop-list {
+            border: 1px solid #000;
+        }
+
+        .shop-item {
+            border-bottom: 1px solid #000;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .shop-item:last-child {
+            border-bottom: none;
+        }
+
+        .shop-number {
+            font-size: 1.25rem;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .shop-content {
+            flex-grow: 1;
+        }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .shop-name {
+            font-size: 1.15rem;
+            font-weight: bold;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-label {
+            min-width: 80px;
+            font-weight: bold;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Tiêu đề chính -->
+        <header>
+            <h1 class="main-title">
+                ABC クレジットカード<ruby>会員<rt>かいいん</rt></ruby>のみな<ruby>様<rt>さま</rt></ruby>へ
+            </h1>
+        </header>
+
+        <!-- Phần giới thiệu và điều kiện -->
+        <section class="intro-section space-y-2">
+            <p>
+                ABC クレジットカードをお<ruby>持<rt>も</rt></ruby>ちの<ruby>方<rt>かた</rt></ruby>に、12 <ruby>月<rt>がつ</rt></ruby> 1 <ruby>日<rt>にち</rt></ruby> ～ 12 <ruby>月<rt>がつ</rt></ruby> 21 <ruby>日<rt>にち</rt></ruby>までの 3 <ruby>週間<rt>しゅうかん</rt></ruby>、レストラン<ruby>特別価格<rt>とくべつかかく</rt></ruby>メニューをご<ruby>用意<rt>ようい</rt></ruby>いたしました。
+            </p>
+            <p class="bullet-point">ご<ruby>予約<rt>よやく</rt></ruby>は、<ruby>各店<rt>かくてん</rt></ruby>に<ruby>直接<rt>ちょくせつ</rt></ruby>お<ruby>電話<rt>でんわ</rt></ruby>ください。</p>
+            <p class="bullet-point">ご<ruby>予約時<rt>よやくじ</rt></ruby>に、ABC クレジットカード<ruby>会員<rt>かいいん</rt></ruby>であることをお<ruby>知<rt>し</rt></ruby>らせください。</p>
+            <p class="bullet-point">
+                キャンセル<ruby>料<rt>りょう</rt></ruby>は、ご<ruby>利用日<rt>りようび</rt></ruby>の 4 <ruby>日前<rt>にちまえ</rt></ruby>までは<ruby>無料<rt>むりょう</rt></ruby>、3 <ruby>日前<rt>にちまえ</rt></ruby>から<ruby>前日<rt>ぜんじつ</rt></ruby>までは 20%、<ruby>当日<rt>とうじつ</rt></ruby> 100%となります。
+            </p>
+            <p class="font-bold pt-2">【<ruby>森王駅近<rt>もりおうえきちか</rt></ruby>くのお<ruby>店<rt>みせ</rt></ruby>】</p>
+        </section>
+
+        <!-- Danh sách nhà hàng -->
+        <div class="shop-list">
+            
+            <!-- Nhà hàng 1 -->
+            <div class="shop-item">
+                <div class="shop-number">①</div>
+                <div class="shop-content">
+                    <div class="shop-header">
+                        <div class="shop-name">「レストラン<ruby>泉<rt>いずみ</rt></ruby>」</div>
+                        <div class="text-sm">
+                            <ruby>森王<rt>もりおう</rt></ruby> 1-1-7 <ruby>第一<rt>だいいち</rt></ruby>ビル 10 <ruby>階<rt>かい</rt></ruby> &nbsp;&nbsp;&nbsp; <ruby>電話<rt>でんわ</rt></ruby>：09-3340-1212
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4">きれいな<ruby>景色<rt>けしき</rt></ruby>を<ruby>見<rt>み</rt></ruby>ながら、おいしいフランス<ruby>料理<rt>りょうり</rt></ruby>が<ruby>楽<rt>たの</rt></ruby>しめます。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>値　段<rt>ねだん</rt></ruby>］</span>
+                            <div class="price-grid">
+                                <span><ruby>特別<rt>とくべつ</rt></ruby>ランチコース A</span>
+                                <span>2,800 <ruby>円<rt>えん</rt></ruby> (<ruby>平日<rt>へいじつ</rt></ruby>) &nbsp;&nbsp; 3,300 <ruby>円<rt>えん</rt></ruby> (<ruby>土日<rt>どにち</rt></ruby>)</span>
+                                <span><ruby>特別<rt>とくべつ</rt></ruby>ランチコース B</span>
+                                <span>3,500 <ruby>円<rt>えん</rt></ruby> (<ruby>平日<rt>へいじつ</rt></ruby>) &nbsp;&nbsp; 4,000 <ruby>円<rt>えん</rt></ruby> (<ruby>土日<rt>どにち</rt></ruby>)</span>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>定休日<rt>ていきゅうび</rt></ruby>］</span>
+                            <span><ruby>水曜日<rt>すいようび</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>交　通<rt>こうつう</rt></ruby>］</span>
+                            <span><ruby>森王駅<rt>もりおうえき</rt></ruby>から<ruby>徒歩<rt>とほ</rt></ruby> 8 <ruby>分<rt>ふん</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nhà hàng 2 -->
+            <div class="shop-item">
+                <div class="shop-number">②</div>
+                <div class="shop-content">
+                    <div class="shop-header">
+                        <div class="shop-name">「さくら<ruby>屋<rt>や</rt></ruby>」</div>
+                        <div class="text-sm">
+                            <ruby>森王<rt>もりおう</rt></ruby> 3-1-5 &nbsp;&nbsp;&nbsp; <ruby>電話<rt>でんわ</rt></ruby>：09-3254-4456
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4">てんぷら、さしみなど、<ruby>様々<rt>さまざま</rt></ruby>な<ruby>種類<rt>しゅるい</rt></ruby>の<ruby>定食<rt>ていしょく</rt></ruby>をご<ruby>用意<rt>ようい</rt></ruby>しています。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>値　段<rt>ねだん</rt></ruby>］</span>
+                            <span><ruby>特別<rt>とくべつ</rt></ruby>ランチ &nbsp;&nbsp; 2,000 <ruby>円<rt>えん</rt></ruby> (<ruby>平日<rt>へいじつ</rt></ruby>) &nbsp;&nbsp; 2,500 <ruby>円<rt>えん</rt></ruby> (<ruby>土日<rt>どにち</rt></ruby>)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>定休日<rt>ていきゅうび</rt></ruby>］</span>
+                            <span><ruby>水曜日<rt>すいようび</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>交　通<rt>こうつう</rt></ruby>］</span>
+                            <span><ruby>森王駅<rt>もりおうえき</rt></ruby>から<ruby>徒歩<rt>とほ</rt></ruby> 5 <ruby>分<rt>ふん</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nhà hàng 3 -->
+            <div class="shop-item">
+                <div class="shop-number">③</div>
+                <div class="shop-content">
+                    <div class="shop-header">
+                        <div class="shop-name">「すし<ruby>大海<rt>おおみ</rt></ruby>」</div>
+                        <div class="text-sm">
+                            <ruby>森王<rt>もりおう</rt></ruby> 1-13-20 &nbsp;&nbsp;&nbsp; <ruby>電話<rt>でんわ</rt></ruby>：09-3254-1198
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4"><ruby>近海<rt>きんかい</rt></ruby>で<ruby>捕<rt>と</rt></ruby>れた<ruby>新鮮<rt>しんせん</rt></ruby>な<ruby>魚<rt>さかな</rt></ruby>で<ruby>作<rt>つく</rt></ruby>ったすしをお<ruby>楽<rt>たの</rt></ruby>しみください。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>値　段<rt>ねだん</rt></ruby>］</span>
+                            <span><ruby>特別<rt>とくべつ</rt></ruby>ランチ &nbsp;&nbsp; 2,000 <ruby>円<rt>えん</rt></ruby> (<ruby>平日<rt>へいじつ</rt></ruby>) &nbsp;&nbsp; 2,400 <ruby>円<rt>えん</rt></ruby> (<ruby>土日<rt>どにち</rt></ruby>)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>定休日<rt>ていきゅうび</rt></ruby>］</span>
+                            <span><ruby>月曜日<rt>げつようび</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>交　通<rt>こうつう</rt></ruby>］</span>
+                            <span><ruby>森王駅<rt>もりおうえき</rt></ruby>から<ruby>徒歩<rt>とほ</rt></ruby> 3 <ruby>分<rt>ふん</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nhà hàng 4 -->
+            <div class="shop-item">
+                <div class="shop-number">④</div>
+                <div class="shop-content">
+                    <div class="shop-header">
+                        <div class="shop-name">「ふじ」</div>
+                        <div class="text-sm">
+                            <ruby>森王<rt>もりおう</rt></ruby> 5-15-11 &nbsp;&nbsp;&nbsp; <ruby>電話<rt>でんわ</rt></ruby>：09-3548-4782
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4"><ruby>和食<rt>わしょく</rt></ruby>の<ruby>専門店<rt>せんもんてん</rt></ruby>。<ruby>日替<rt>ひがわ</rt></ruby>わり<ruby>全国各地<rt>ぜんこくかくち</rt></ruby>の<ruby>料理<rt>りょうり</rt></ruby>が<ruby>楽<rt>たの</rt></ruby>しめます。</p>
+                    
+                    <div class="space-y-1">
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>値　段<rt>ねだん</rt></ruby>］</span>
+                            <span><ruby>特別<rt>とくべつ</rt></ruby>ランチ &nbsp;&nbsp; 2,700 <ruby>円<rt>えん</rt></ruby> (<ruby>平日<rt>へいじつ</rt></ruby>) &nbsp;&nbsp; 3,000 <ruby>円<rt>えん</rt></ruby> (<ruby>土日<rt>どにち</rt></ruby>)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>定休日<rt>ていきゅうび</rt></ruby>］</span>
+                            <span><ruby>木曜日<rt>もくようび</rt></ruby></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">［<ruby>交　通<rt>こうつう</rt></ruby>］</span>
+                            <span><ruby>森王駅<rt>もりおうえき</rt></ruby>から<ruby>徒歩<rt>とほ</rt></ruby> 15 <ruby>分<rt>ふん</rt></ruby></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食堂・カフェのご案内 - 丸川大学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 2rem auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        /* Bảng lưới 2x2 */
+        .grid-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .grid-cell {
+            border: 1px solid #333;
+            padding: 1rem;
+        }
+
+        .cell-header {
+            background-color: #e5e7eb;
+            text-align: center;
+            font-weight: bold;
+            padding: 4px;
+            border-bottom: 1px solid #333;
+            margin: -1rem -1rem 1rem -1rem;
+        }
+
+        .time-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .section-header {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .list-bullet::before {
+            content: "▶";
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .dot-bullet::before {
+            content: "●";
+            margin-right: 0.5rem;
+            font-size: 0.7rem;
+        }
+
+        .note-text {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="document-container">
+        <!-- Tên trường -->
+        <div class="font-bold text-lg mb-2">
+            <ruby>丸川大学<rt>まるかわだいがく</rt></ruby>
+        </div>
+
+        <!-- Tiêu đề chính -->
+        <header class="text-center mb-6">
+            <h1 class="text-2xl font-bold">
+                <ruby>食堂<rt>しょくどう</rt></ruby>・カフェのご<ruby>案内<rt>あんない</rt></ruby>
+            </h1>
+        </header>
+
+        <!-- Bảng 2x2 thông tin các nhà ăn -->
+        <div class="grid-table">
+            <!-- Ô 1 -->
+            <div class="grid-cell text-center">
+                <div class="cell-header">①<ruby>丸川食堂<rt>まるかわしょくどう</rt></ruby>（300<ruby>席<rt>せき</rt></ruby>）</div>
+                <div class="space-y-1">
+                    <div class="time-row"><span><ruby>平日<rt>へいじつ</rt></ruby></span><span>11<ruby>時<rt>じ</rt></ruby>～15<ruby>時<rt>じ</rt></ruby></span></div>
+                    <div class="time-row"><span><ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby></span><span>11<ruby>時<rt>じ</rt></ruby>～14<ruby>時<rt>じ</rt></ruby></span></div>
+                    <p class="mt-2 text-sm"><ruby>大<rt>おお</rt></ruby>きくて、メニューが<ruby>多<rt>おお</rt></ruby>い<ruby>食堂<rt>しょくどう</rt></ruby>です</p>
+                </div>
+            </div>
+            <!-- Ô 2 -->
+            <div class="grid-cell text-center">
+                <div class="cell-header">②<ruby>朝花食堂<rt>あさばなしょくどう</rt></ruby>（100<ruby>席<rt>せき</rt></ruby>）</div>
+                <div class="space-y-1">
+                    <div class="time-row"><span><ruby>平日<rt>へいじつ</rt></ruby></span><span>8<ruby>時<rt>じ</rt></ruby>～15<ruby>時<rt>じ</rt></ruby></span></div>
+                    <div class="time-row"><span><ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby></span><span>8<ruby>時<rt>じ</rt></ruby>～14<ruby>時<rt>じ</rt></ruby></span></div>
+                    <p class="mt-2 text-sm"><ruby>大学<rt>だいがく</rt></ruby>でいちばん<ruby>新<rt>あたら</rt></ruby>しい<ruby>食堂<rt>しょくどう</rt></ruby>です</p>
+                </div>
+            </div>
+            <!-- Ô 3 -->
+            <div class="grid-cell text-center">
+                <div class="cell-header">③カフェ<ruby>南川<rt>みなみかわ</rt></ruby>（60<ruby>席<rt>せき</rt></ruby>）</div>
+                <div class="space-y-1">
+                    <div class="time-row"><span><ruby>平日<rt>へいじつ</rt></ruby></span><span>8<ruby>時<rt>じ</rt></ruby>～19<ruby>時<rt>じ</rt></ruby></span></div>
+                    <div class="time-row"><span><ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby></span><span>8<ruby>時<rt>じ</rt></ruby>～14<ruby>時<rt>じ</rt></ruby></span></div>
+                    <p class="mt-2 text-sm"><ruby>南川<rt>みなみかわ</rt></ruby>カレーが<ruby>人気<rt>にんき</rt></ruby>です</p>
+                </div>
+            </div>
+            <!-- Ô 4 -->
+            <div class="grid-cell text-center">
+                <div class="cell-header">④<ruby>花丸食堂<rt>はなまるしょくどう</rt></ruby>（50<ruby>席<rt>せき</rt></ruby>）</div>
+                <div class="space-y-1">
+                    <div class="time-row"><span><ruby>平日<rt>へいじつ</rt></ruby></span><span>11<ruby>時<rt>じ</rt></ruby>～20<ruby>時<rt>じ</rt></ruby></span></div>
+                    <div class="time-row"><span><ruby>土<rt>ど</rt></ruby>・<ruby>日<rt>にち</rt></ruby></span><span>11<ruby>時<rt>じ</rt></ruby>～14<ruby>時<rt>じ</rt></ruby></span></div>
+                    <p class="mt-2 text-sm"><ruby>教師<rt>きょうし</rt></ruby>や<ruby>大学<rt>だいがく</rt></ruby>で<ruby>働<rt>はたら</rt></ruby>く<ruby>関係者<rt>かんけいしゃ</rt></ruby>のための<ruby>食堂<rt>しょくどう</rt></ruby>です</p>
+                    <p class="text-sm"><ruby>学生<rt>がくせい</rt></ruby>は<ruby>利用<rt>りよう</rt></ruby>できません</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chú thích kỳ nghỉ -->
+        <div class="note-text text-sm">
+            ※<ruby>大学<rt>だいがく</rt></ruby>の<ruby>休暇期間中<rt>きゅうかきかんちゅう</rt></ruby>の<ruby>営業<rt>えいぎょう</rt></ruby>について<br>
+            ①と②は<ruby>休<rt>やす</rt></ruby>み、③と④は<ruby>平日<rt>へいじつ</rt></ruby> 11<ruby>時<rt>じ</rt></ruby>～14<ruby>時<rt>じ</rt></ruby>に<ruby>営業<rt>えいぎょう</rt></ruby>します。
+        </div>
+
+        <!-- Phần Tiệc -->
+        <section>
+            <h2 class="section-header">【パーティーについて】</h2>
+            <div class="space-y-4 text-sm md:text-base">
+                <p><ruby>丸川大学<rt>まるかわだいがく</rt></ruby>の<ruby>学生<rt>がくせい</rt></ruby>や<ruby>関係者<rt>かんけいしゃ</rt></ruby>の<ruby>皆様<rt>みなさま</rt></ruby>は、<ruby>食堂<rt>しょくどう</rt></ruby>・カフェの<ruby>営業<rt>えいぎょう</rt></ruby>がない<ruby>日<rt>ひ</rt></ruby>や<ruby>時間<rt>じかん</rt></ruby>にパーティーを<ruby>開<rt>ひら</rt></ruby>くことができます。</p>
+                <p>※①～③は<ruby>学生<rt>がくせい</rt></ruby>が<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>めますが、④は<ruby>教師<rt>きょうし</rt></ruby>か<ruby>事務所<rt>じむしょ</rt></ruby>の<ruby>人<rt>ひと</rt></ruby>の<ruby>申<rt>もう</rt></ruby>し<ruby>込<rt>こ</rt></ruby>みが<ruby>必要<rt>ひつよう</rt></ruby>です。</p>
+
+                <div>
+                    <h3 class="list-bullet font-bold">料理について</h3>
+                    <ul class="pl-6 space-y-1">
+                        <li class="dot-bullet">メニューは<ruby>相談<rt>そうだん</rt></ruby>して<ruby>決<rt>き</rt></ruby>められます。</li>
+                        <li class="dot-bullet">①～③では<ruby>一人<rt>ひとり</rt></ruby> 2000<ruby>円以上<rt>えんいじょう</rt></ruby>(<ruby>土曜<rt>どよう</rt></ruby>、<ruby>日曜<rt>にちよう</rt></ruby>、<ruby>祝日<rt>しゅくじつ</rt></ruby>は、2,500<ruby>円以上<rt>えんいじょう</rt></ruby>)、④では<ruby>一人<rt>ひとり</rt></ruby> 4000<ruby>円以上<rt>えんいじょう</rt></ruby>の<ruby>注文<rt>ちゅうもん</rt></ruby>で<ruby>予約受付<rt>よやくうけつけ</rt></ruby>をします。</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="list-bullet font-bold">人数</h3>
+                    <ul class="pl-6 space-y-1">
+                        <li class="dot-bullet">①は 18 <ruby>人<rt>にん</rt></ruby>、②は 40 <ruby>人<rt>にん</rt></ruby>、③と④は 20 <ruby>人<rt>にん</rt></ruby>から<ruby>予約受付<rt>よやくうけつけ</rt></ruby>をします。</li>
+                        <li class="dot-bullet"><ruby>最大<rt>さいだい</rt></ruby>の<ruby>人数<rt>にんずう</rt></ruby>は、<ruby>各食堂<rt>かくしょくどう</rt></ruby>・カフェの<ruby>席<rt>せき</rt></ruby>の<ruby>数<rt>かず</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じです。</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="list-bullet font-bold">時間</h3>
+                    <ul class="pl-6 space-y-1">
+                        <li class="dot-bullet">①～③は 20 <ruby>時<rt>じ</rt></ruby>まで、④は 21 <ruby>時<rt>じ</rt></ruby>までに<ruby>終<rt>お</rt></ruby>えてください。</li>
+                        <li class="dot-bullet"><ruby>営業<rt>えいぎょう</rt></ruby>がある<ruby>日<rt>ひ</rt></ruby>は、<ruby>各営業終了時間<rt>かくえいぎょうしゅうりょうじかん</rt></ruby>の 1 <ruby>時間後<rt>じかんご</rt></ruby>からパーティーに<ruby>利用<rt>りよう</rt></ruby>できます。</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="list-bullet font-bold">予約連絡先</h3>
+                    <p class="pl-6">●パーティー<ruby>係<rt>かかり</rt></ruby>　YuukiBuiTNN （190－234－5678）</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

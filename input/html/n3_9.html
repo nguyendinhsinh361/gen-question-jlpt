@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新聞をつくって、発表しよう！ - 東山大学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f3f4f6;
+            color: #1a202c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .document-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #333;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        ruby rt {
+            font-size: 0.6em;
+            color: #4b5563;
+        }
+
+        .header-top {
+            text-align: right;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-decoration: none;
+        }
+
+        .section-header {
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header::before {
+            content: "○";
+            margin-right: 0.5rem;
+        }
+
+        .note-text {
+            font-size: 0.95rem;
+            margin: 1rem 0;
+            padding-left: 0.5rem;
+        }
+
+        /* Styles for Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #000;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .comp-usage-table {
+            width: 90%;
+            margin: 1rem auto;
+        }
+
+        .schedule-table td {
+            height: 40px;
+        }
+
+        .text-left-custom {
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+
+        .footer-section {
+            margin-top: 2.5rem;
+            border-top: 1px dashed #ccc;
+            padding-top: 1rem;
+        }
+
+        .footer-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="document-container">
+        <!-- Header Section -->
+        <div class="header-top">
+            <p><ruby>東山大学日本語<rt>ひがしやまだいがくにほんご</rt></ruby>センター　<ruby>日本語<rt>にほんご</rt></ruby>Aクラス</p>
+            <p><ruby>後期<rt>こうき</rt></ruby>　<ruby>月曜<rt>げつよう</rt></ruby>2<ruby>時間目<rt>じかんめ</rt></ruby></p>
+        </div>
+
+        <!-- Title -->
+        <h1 class="main-title">
+            <ruby>新聞<rt>しんぶん</rt></ruby>をつくって、<ruby>発表<rt>はっぴょう</rt></ruby>しよう！
+        </h1>
+
+        <!-- Content Section -->
+        <section>
+            <div class="section-header">
+                <ruby>活動内容<rt>かつどうないよう</rt></ruby>：10<ruby>月<rt>がつ</rt></ruby>30<ruby>日<rt>にち</rt></ruby>から12<ruby>月<rt>がつ</rt></ruby>18<ruby>日<rt>にち</rt></ruby>までの7<ruby>回<rt>かい</rt></ruby>の<ruby>授業<rt>じゅぎょう</rt></ruby>では、4つのグループに<ruby>分<rt>わ</rt></ruby>かれて<ruby>新聞<rt>しんぶん</rt></ruby>をつくります。グループごとに<ruby>興味<rt>きょうみ</rt></ruby>のあることを<ruby>調<rt>しら</rt></ruby>べたり、インタビューをしたりします。<ruby>最後<rt>さいご</rt></ruby>の<ruby>回<rt>かい</rt></ruby>には、<ruby>完成<rt>かんせい</rt></ruby>した<ruby>新聞<rt>しんぶん</rt></ruby>をクラスで<ruby>発表<rt>はっぴょう</rt></ruby>してもらいます。
+            </div>
+
+            <div class="section-header">
+                <ruby>活動場所<rt>かつどうばしょ</rt></ruby>：201<ruby>教室<rt>きょうしつ</rt></ruby>とコンピューター<ruby>室<rt>しつ</rt></ruby>（スケジュールの<ruby>表<rt>ひょう</rt></ruby>で☆マークの<ruby>付<rt>つ</rt></ruby>いている<ruby>日<rt>ひ</rt></ruby>に、コンピューター<ruby>室<rt>しつ</rt></ruby>が<ruby>利用<rt>りよう</rt></ruby>できます。）
+            </div>
+
+            <p class="note-text">
+                ※コンピューター<ruby>室<rt>しつ</rt></ruby>は、<ruby>使用時間<rt>しようじかん</rt></ruby>を<ruby>前半<rt>ぜんはん</rt></ruby>と<ruby>後半<rt>こうはん</rt></ruby>に<ruby>分<rt>わ</rt></ruby>け、2グループずつ<ruby>使用<rt>しよう</rt></ruby>します。
+            </p>
+
+            <!-- Table 1: Computer Usage -->
+            <table class="comp-usage-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;"></th>
+                        <th style="width: 40%;"><ruby>前半<rt>ぜんはん</rt></ruby> 10：50～11：25</th>
+                        <th style="width: 40%;"><ruby>後半<rt>こうはん</rt></ruby> 11：25～12：00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>☆の<ruby>日<rt>ひ</rt></ruby></td>
+                        <td>グループ A、B</td>
+                        <td>グループ C、D</td>
+                    </tr>
+                    <tr>
+                        <td>★の<ruby>日<rt>ひ</rt></ruby></td>
+                        <td>グループ C、D</td>
+                        <td>グループ A、B</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="note-text">
+                ※コンピューター<ruby>室<rt>しつ</rt></ruby>を<ruby>利用<rt>りよう</rt></ruby>する<ruby>日<rt>ひ</rt></ruby>も、<ruby>授業<rt>じゅぎょう</rt></ruby>の<ruby>最初<rt>さいしょ</rt></ruby>と<ruby>最後<rt>さいご</rt></ruby>は201<ruby>室<rt>しつ</rt></ruby>に<ruby>集<rt>あつ</rt></ruby>まって<ruby>下<rt>くだ</rt></ruby>さい。
+            </p>
+        </section>
+
+        <!-- Schedule Section -->
+        <section>
+            <div class="section-header">
+                スケジュール
+            </div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">/</th>
+                        <th style="width: 22%;"><ruby>月日<rt>つきひ</rt></ruby></th>
+                        <th style="width: 45%;"><ruby>活動内容<rt>かつどうないよう</rt></ruby></th>
+                        <th style="width: 25%;">コンピューター<ruby>室<rt>しつ</rt></ruby>の<ruby>利用<rt>りよう</rt></ruby></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>10 <ruby>月<rt>がつ</rt></ruby> 30 <ruby>日<rt>にち</rt></ruby></td>
+                        <td class="text-left-custom">グループを<ruby>決<rt>き</rt></ruby>め、テーマについて<ruby>話<rt>はな</rt></ruby>し<ruby>合<rt>あ</rt></ruby>う</td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>11 <ruby>月<rt>がつ</rt></ruby> 6 <ruby>日<rt>にち</rt></ruby></td>
+                        <td rowspan="2" class="text-left-custom"><ruby>各<rt>かく</rt></ruby>グループで<ruby>新聞<rt>しんぶん</rt></ruby>をつくる</td>
+                        <td>☆</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>11 <ruby>月<rt>がつ</rt></ruby> 13 <ruby>日<rt>にち</rt></ruby></td>
+                        <td>★</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td>/</td>
+                        <td>11 <ruby>月<rt>がつ</rt></ruby> 20 <ruby>日<rt>にち</rt></ruby></td>
+                        <td class="text-left-custom"><ruby>授業<rt>じゅぎょう</rt></ruby>はありません</td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>11 <ruby>月<rt>がつ</rt></ruby> 27 <ruby>日<rt>にち</rt></ruby></td>
+                        <td rowspan="3" class="text-left-custom"><ruby>各<rt>かく</rt></ruby>グループで<ruby>新聞<rt>しんぶん</rt></ruby>をつくる</td>
+                        <td>☆</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>12 <ruby>月<rt>がつ</rt></ruby> 4 <ruby>日<rt>にち</rt></ruby></td>
+                        <td>★</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>12 <ruby>月<rt>がつ</rt></ruby> 11 <ruby>日<rt>にち</rt></ruby></td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>12 <ruby>月<rt>がつ</rt></ruby> 18 <ruby>日<rt>にち</rt></ruby></td>
+                        <td class="text-left-custom"><ruby>新聞<rt>しんぶん</rt></ruby>をクラス<ruby>内<rt>ない</rt></ruby>で<ruby>発表<rt>はっぴょう</rt></ruby>し、<ruby>教室<rt>きょうしつ</rt></ruby>の<ruby>外<rt>そと</rt></ruby>の<ruby>壁<rt>かべ</rt></ruby>にはる</td>
+                        <td>/</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Footer Section -->
+        <section class="footer-section">
+            <h2 class="footer-title">「インタビューについて」</h2>
+            <div class="pl-4 space-y-2">
+                <p>
+                    インタビューは<ruby>授業時間内<rt>じゅぎょうじかんない</rt></ruby>に<ruby>行<rt>おこな</rt></ruby>ってください。インタビューを<ruby>行<rt>おこな</rt></ruby>う<ruby>日<rt>ひ</rt></ruby>の 1 <ruby>回前<rt>かいまえ</rt></ruby>の<ruby>授業<rt>じゅぎょう</rt></ruby>の<ruby>日<rt>ひ</rt></ruby>にインタビューの<ruby>案<rt>あん</rt></ruby>を<ruby>見<rt>み</rt></ruby>せてください。<ruby>内容<rt>ないよう</rt></ruby>や<ruby>方法<rt>ほうほう</rt></ruby>に<ruby>問題<rt>もんだい</rt></ruby>がないか、<ruby>確認<rt>かくにん</rt></ruby>します。
+                </p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
