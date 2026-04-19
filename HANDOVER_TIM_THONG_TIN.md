@@ -110,7 +110,7 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 
 ### Bước 5 — Screenshot + Clean HTML + CSV
 
-1. Lưu HTML → `assets/html/tim_thong_tin/{LEVEL}_{uuid}.html` (ví dụ: `N3_a1b2c3d4.html`)
+1. Lưu HTML → `assets/html/tim_thong_tin/{LEVEL}_{uuid}.html` (ví dụ: `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5.html`)
 2. Chụp screenshot (Playwright, viewport 1000×800, full_page, 1500ms chờ font) → `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
 3. Trích clean HTML (bỏ attribute, class, gom whitespace) → cột `text_read` trong CSV
 4. Gen câu hỏi + đáp án + giải thích → điền vào CSV
@@ -187,7 +187,7 @@ question_label_5, question_5, question_image_5, answer_5, correct_answer_5, expl
 
 | Cột | Giá trị |
 |-----|---------|
-| `_id` | `{LEVEL}_{uuid}` — ví dụ `N3_a1b2c3d4`. Dùng `uuid.uuid4().hex[:8]` |
+| `_id` | `{LEVEL}_{uuid}` — ví dụ `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5`. Dùng `uuid.uuid4().hex` (full 32-char) |
 | `kind` | Luôn `tìm thông tin` |
 | `tag` | Format label từ Format Catalog (ví dụ: `store_flyer`, `facility_guide`) |
 | `general_image` | `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png` — cùng ID với `_id` |
@@ -305,6 +305,6 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 3. **Format đa dạng là BẮT BUỘC** — đây là yêu cầu cứng, không phải khuyến khích
 4. **Furigana = chỉ từ vượt level** — nếu thấy nhiều furigana → viết lại đơn giản hơn
 5. **Không viết dạng "Ab"** — `週かん`, `友だち`, `拠てん` đều SAI
-6. **File naming & _id**: `{LEVEL}_{uuid}` — ví dụ `N3_a1b2c3d4`. UUID 8 ký tự hex, không cần check số thứ tự
+6. **File naming & _id**: `{LEVEL}_{uuid}` — ví dụ `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5`. UUID 32 ký tự hex (full), không cần check số thứ tự
 7. **Answer format**: `1. A\n2. B\n3. C\n4. D` (dùng `\n`, KHÔNG dùng `|`)
 8. **Đọc `references/design-patterns.md`** để biết format label của từng mẫu tham khảo

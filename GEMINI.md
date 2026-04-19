@@ -30,7 +30,7 @@ Project có skill **jlpt-tim-thong-tin** tại `.gemini/skills/jlpt-reading-gene
 - 15 format catalog + per-level distribution
 - CSV schema 45 cột
 - Question generation rules (N5: 1 câu, N1-N4: 2 câu)
-- File naming: `{LEVEL}_{uuid}` (e.g. `N3_a1b2c3d4`)
+- File naming: `{LEVEL}_{uuid}` (e.g. `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5`)
 
 ## Quy trình gen dữ liệu (tóm tắt)
 
@@ -43,7 +43,7 @@ Project có skill **jlpt-tim-thong-tin** tại `.gemini/skills/jlpt-reading-gene
 
 ## Lưu ý quan trọng
 
-- **Furigana**: N1 gần như 0 furigana, N5 viết hiragana thay kanji. KHÔNG BAO GIỜ dùng dạng "Ab" (混ぜる partial kanji+hiragana).
-- **UUID naming**: Dùng `uuid.uuid4().hex[:8]` cho _id và tên file. Level prefix UPPERCASE (N1, N2...).
+- **Furigana**: N1 gần như 0 furigana, N5 viết hiragana thay kanji. KHÔNG BAO GIỜ dùng dạng "Ab" (混ぜる partial kanji+hiragana). **BẮT BUỘC dùng thẻ `<ruby>` và `<rt>` cho furigana** — KHÔNG dùng ngoặc `()` hay `【】`. Ví dụ: `<ruby>拠点<rt>きょてん</rt></ruby>`.
+- **UUID naming**: Dùng `uuid.uuid4().hex` (full 32-char, KHÔNG cắt) cho _id và tên file. Level prefix UPPERCASE (N1, N2...).
 - **general_image**: Local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`.
 - **question_label**: Luôn là `question_information_search`.

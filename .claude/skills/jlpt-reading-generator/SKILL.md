@@ -24,11 +24,11 @@ For each passage, three artifacts are produced:
 
 1. **Styled HTML** → `assets/html/tim_thong_tin/{LEVEL}_{uuid}.html`
    Full standalone page: Tailwind CSS, Noto Sans JP, tables, bordered boxes, pill labels, furigana via `<ruby>/<rt>`.
-   Example: `assets/html/tim_thong_tin/N3_a1b2c3d4.html`
+   Example: `assets/html/tim_thong_tin/N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5.html`
 
 2. **Screenshot PNG** → `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
    Captured from the HTML via Playwright. Local path is stored in CSV column `general_image`.
-   Example: `assets/img/tim_thong_tin/N3_a1b2c3d4.png`
+   Example: `assets/img/tim_thong_tin/N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5.png`
 
 3. **Clean HTML** → CSV column `text_read`
    Body content only, all attributes/classes stripped, whitespace collapsed, no style/script/rt text.
@@ -416,7 +416,7 @@ Each answer column (`answer_{i}`) contains all 4 options separated by `\n`:
 
 | Column | Value for this skill |
 |--------|---------------------|
-| `_id` | `{LEVEL}_{uuid}` — e.g. `N3_a1b2c3d4`, `N5_e5f6g7h8`. Generate UUID with `uuid.uuid4().hex[:8]` |
+| `_id` | `{LEVEL}_{uuid}` — e.g. `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5`, `N5_1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6`. Generate UUID with `uuid.uuid4().hex` (full 32-char hex) |
 | `level` | N1, N2, N3, N4, N5 |
 | `tag` | Format label from the Format Catalog (e.g. `class_enrollment`, `store_flyer`, `facility_guide`) |
 | `jp_char_count` | Result of `count_body_chars()` |
@@ -436,22 +436,22 @@ N1-N4: fill `question_1` through `question_2` (2 questions). N5: fill only `ques
 
 All files and the CSV `_id` column use the same ID: `{LEVEL}_{uuid}`
 
-- **Pattern**: `{LEVEL}_{uuid}.html` / `.png` — e.g. `N3_a1b2c3d4.html`, `N5_e5f6g7h8.png`
+- **Pattern**: `{LEVEL}_{uuid}.html` / `.png` — e.g. `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5.html`
 - **Level prefix is UPPERCASE**: `N1`, `N2`, `N3`, `N4`, `N5`
-- **UUID**: 8-character hex from `uuid.uuid4().hex[:8]` (Python) or equivalent
-- **_id in CSV** = same value = filename without extension: `N3_a1b2c3d4`
+- **UUID**: 32-character hex from `uuid.uuid4().hex` (Python) — full UUID, KHÔNG cắt
+- **_id in CSV** = same value = filename without extension: `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5`
 - No need to check existing files for sequential numbering — UUID ensures uniqueness
 
 ```python
 import uuid
 def gen_id(level: str) -> str:
-    """Generate unique ID for a passage. E.g. 'N3' → 'N3_a1b2c3d4'"""
-    return f"{level}_{uuid.uuid4().hex[:8]}"
+    """Generate unique ID for a passage. E.g. 'N3' → 'N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5'"""
+    return f"{level}_{uuid.uuid4().hex}"
 ```
 
 ## Generation Workflow
 
-1. **Generate IDs** → create `{LEVEL}_{uuid}` for each passage using `uuid.uuid4().hex[:8]`
+1. **Generate IDs** → create `{LEVEL}_{uuid}` for each passage using `uuid.uuid4().hex` (full 32-char)
 2. **Select formats** → pick diverse format labels from the Format Catalog (see "Per-Level Format Distribution"). No two passages in the same batch should share a format unless the batch exceeds 15.
 3. **Read 1–2 reference samples** from `input/html/` that match the chosen formats for the target level
 4. **Read 1 QA reference** from `input/htm_content_qa/` for the target level (to calibrate question style)
