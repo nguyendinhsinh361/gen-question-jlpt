@@ -27,13 +27,10 @@ gen-questions-label-ver-2/
 │   ├── html/tim_thong_tin/        ← HTML output
 │   └── img/tim_thong_tin/         ← Screenshot PNG tương ứng
 ├── sheets/                        ← CSV output
-├── secrets/                       ← Google Drive credentials (không commit)
-│   └── service_account.json
 ├── .claude/skills/jlpt-reading-generator/
 │   ├── SKILL.md                   ← Skill chính (PHẢI đọc trước khi gen)
 │   ├── scripts/
-│   │   ├── process_html.py
-│   │   └── upload_to_drive.py
+│   │   └── process_html.py
 │   └── references/
 │       ├── design-patterns.md     ← Phân tích 61 mẫu HTML + format labels
 │       └── question-patterns.md   ← Phân tích 20 mẫu câu hỏi
@@ -111,46 +108,14 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 | N4 | 300–500 |
 | N5 | 130–290 |
 
-### Bước 5 — Screenshot + Upload Drive + Clean HTML + CSV
+### Bước 5 — Screenshot + Clean HTML + CSV
 
 1. Lưu HTML → `assets/html/tim_thong_tin/{LEVEL}_{uuid}.html` (ví dụ: `N3_a1b2c3d4.html`)
 2. Chụp screenshot (Playwright, viewport 1000×800, full_page, 1500ms chờ font) → `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
-3. **Upload ảnh lên Google Drive** (bắt buộc — là một phần của quy trình gen, không phải bước riêng):
-   ```bash
-   python3 .claude/skills/jlpt-reading-generator/scripts/upload_to_drive.py \
-       --img-dir assets/img/tim_thong_tin \
-       --csv sheets/<tên-file>.csv
-   ```
-   Script tự detect credentials từ `secrets/`, upload PNG lên Drive folder, set quyền "anyone with link", và thay local path → Drive direct link trong CSV.
-4. Trích clean HTML (bỏ attribute, class, gom whitespace) → cột `text_read` trong CSV
-5. Gen câu hỏi + đáp án + giải thích → điền vào CSV
-6. Cột `general_image` trong CSV = Drive direct link (`https://drive.google.com/uc?id=FILE_ID&export=view`), **không phải** local path
-7. Lưu CSV vào `sheets/`
-
-> **Lưu ý:** Tạo dữ liệu = bao gồm upload ảnh lên Drive. Không cần chạy upload riêng.
-- Lưu mapping `_drive_links.json` để tra cứu
-
-**Cấu trúc credentials** — đặt trong `secrets/` ở gốc project:
-
-```
-project-root/
-├── secrets/
-│   ├── service_account.json   ← Cách A (recommend, không cần browser)
-│   ├── credentials.json       ← Cách B (OAuth2, cần browser 1 lần)
-│   └── token.json             ← tự sinh sau khi auth OAuth2
-```
-
-**Cách A — Service Account (recommend):**
-1. Google Cloud Console → IAM & Admin → Service Accounts → Tạo mới
-2. Download JSON key → lưu `secrets/service_account.json`
-3. Share folder Drive cho email service account (quyền Editor)
-4. Xong! Không cần bước `--auth`
-
-**Cách B — OAuth2:**
-1. Google Cloud Console → APIs & Credentials → Tạo OAuth 2.0 Client ID (Desktop)
-2. Download JSON → lưu `secrets/credentials.json`
-3. Chạy: `python3 .claude/skills/.../upload_to_drive.py --auth`
-4. Browser mở → authorize → `secrets/token.json` tự lưu
+3. Trích clean HTML (bỏ attribute, class, gom whitespace) → cột `text_read` trong CSV
+4. Gen câu hỏi + đáp án + giải thích → điền vào CSV
+5. Cột `general_image` trong CSV = local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
+6. Lưu CSV vào `sheets/`
 
 ---
 
@@ -225,7 +190,7 @@ question_label_5, question_5, question_image_5, answer_5, correct_answer_5, expl
 | `_id` | `{LEVEL}_{uuid}` — ví dụ `N3_a1b2c3d4`. Dùng `uuid.uuid4().hex[:8]` |
 | `kind` | Luôn `tìm thông tin` |
 | `tag` | Format label từ Format Catalog (ví dụ: `store_flyer`, `facility_guide`) |
-| `general_image` | Google Drive direct link: `https://drive.google.com/uc?id=FILE_ID&export=view` — auto-uploaded từ `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png` |
+| `general_image` | `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png` — cùng ID với `_id` |
 | `text_read` | Clean HTML (không attribute, không class, gom whitespace) |
 | `question_label_{i}` | Luôn `question_information_search` |
 | `answer_{i}` | 4 đáp án ngăn cách bởi `\n`: `1. ĐA1\n2. ĐA2\n3. ĐA3\n4. ĐA4` |
@@ -328,7 +293,7 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 - [ ] `question_label_{i}` = `question_information_search`
 - [ ] N1–N4: 2 câu hỏi/bài, N5: 1 câu hỏi/bài
 - [ ] HTML, PNG, CSV paths nhất quán
-- [ ] Ảnh đã upload lên Google Drive, cột `general_image` chứa Drive link (không phải local path)
+- [ ] Cột `general_image` chứa đúng local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
 - [ ] Chủ đề không trùng với bài đã có
 
 ---
