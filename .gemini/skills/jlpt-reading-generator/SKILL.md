@@ -105,7 +105,10 @@ Aim within the target range (based on actual sample min–max). After generating
 >
 > **Đúng**: `<ruby>拠点<rt>きょてん</rt></ruby>` → hiển thị furigana phía trên kanji
 >
+> **QUAN TRỌNG**: Phải có **CẢ HAI** thẻ `<ruby>` và `<rt>`. Chỉ có `<ruby>` mà không có `<rt>` thì furigana **KHÔNG hiển thị** và vô nghĩa.
+>
 > **SAI — KHÔNG BAO GIỜ làm như sau**:
+> - ❌ `<ruby>拠点</ruby>` — thiếu `<rt>`, furigana không hiển thị, VÔ NGHĨA
 > - ❌ `拠点(きょてん)` — dùng ngoặc thay vì ruby tag
 > - ❌ `拠点【きょてん】` — dùng brackets thay vì ruby tag
 > - ❌ Viết reading bên cạnh kanji bằng bất kỳ cách nào khác ngoài `<ruby>/<rt>`

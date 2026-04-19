@@ -43,7 +43,7 @@ Project có skill **jlpt-tim-thong-tin** tại `.gemini/skills/jlpt-reading-gene
 
 ## Lưu ý quan trọng
 
-- **Furigana**: N1 gần như 0 furigana, N5 viết hiragana thay kanji. KHÔNG BAO GIỜ dùng dạng "Ab" (混ぜる partial kanji+hiragana). **BẮT BUỘC dùng thẻ `<ruby>` và `<rt>` cho furigana** — KHÔNG dùng ngoặc `()` hay `【】`. Ví dụ: `<ruby>拠点<rt>きょてん</rt></ruby>`.
+- **Furigana**: N1 gần như 0 furigana, N5 viết hiragana thay kanji. KHÔNG BAO GIỜ dùng dạng "Ab" (混ぜる partial kanji+hiragana). **BẮT BUỘC dùng CẢ HAI thẻ `<ruby>` và `<rt>` cho furigana** — chỉ có `<ruby>` mà thiếu `<rt>` thì vô nghĩa. KHÔNG dùng ngoặc `()` hay `【】`. Ví dụ đúng: `<ruby>拠点<rt>きょてん</rt></ruby>`.
 - **UUID naming**: Dùng `uuid.uuid4().hex` (full 32-char, KHÔNG cắt) cho _id và tên file. Level prefix UPPERCASE (N1, N2...).
 - **general_image**: Local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`.
 - **question_label**: Luôn là `question_information_search`.
