@@ -87,8 +87,6 @@ Based on 61 approved reference samples in `input/html/`:
 | N4    | 10    | 306 | 491 | 419 | 300–500     |
 | N5    | 10    | 137 | 285 | 210 | 130–290     |
 
-*N1: n1_10.html is empty (0 bytes), excluded.
-
 Aim within the target range (based on actual sample min–max). After generating, always verify with `count_body_chars()` and adjust if outside range.
 
 ## Vocabulary & Grammar Constraints
