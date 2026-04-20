@@ -370,7 +370,7 @@ Every generated file follows this structure:
         }
         .container {
             width: 700px;
-            margin: 0 auto;
+            margin: 0;                 /* KHÔNG dùng auto — viewport = 700 nên không cần center */
             background: white;
             padding: 12px 16px;        /* Lề sát nội dung — tối ưu hiển thị trên app */
             box-sizing: border-box;
@@ -410,30 +410,40 @@ Every generated file follows this structure:
 
 Mục đích: ảnh screenshot to hơn, hiển thị tốt hơn trên app mobile. Không cần mô phỏng tờ A4.
 
-- **Container**: `width: 700px`, KHÔNG có `min-height` — chiều cao tự co theo nội dung
+- **Container**: `width: 700px`, `margin: 0` (KHÔNG `auto`), KHÔNG có `min-height` — chiều cao tự co theo nội dung
 - **Padding sát**: `12px 16px` — lề sát nội dung, body padding = 0
 - **Nền trắng**: `background: white`, body cũng `background: #ffffff` — không cần nền xám
-- **Viewport Playwright = 700px** (body padding = 0, crop bằng `container.screenshot()`)
-- **Crop screenshot**: cắt sát dòng text cuối cùng, không để khoảng trắng lớn phía dưới
+- **Viewport Playwright = 700px** — PHẢI bằng đúng container width. Nếu viewport > 700 → viền trắng 2 bên
+- **Crop screenshot**: `container.screenshot()` (KHÔNG `page.screenshot()`) — cắt sát 4 cạnh container
 - **Table**: `table-layout: fixed; width: 100%`
 - **Flex/grid**: tổng width ≤ 100% container
 
 **Playwright capture — crop sát nội dung:**
 ```python
-page = await browser.new_page(viewport={"width": 772, "height": 1200})
-await page.goto(f"file://{html_path}")
+# ⚠️ viewport PHẢI = container width (700px) — nếu lớn hơn sẽ tạo viền trắng 2 bên
+page = await browser.new_page(viewport={"width": 700, "height": 1200})
+await page.goto(f"file://{html_path}", wait_until="networkidle")
 await page.wait_for_timeout(1500)
-# Crop sát nội dung — không để khoảng trắng thừa
+# BẮT BUỘC dùng container.screenshot() — KHÔNG dùng page.screenshot()
 container = page.locator('.container')
 await container.screenshot(path=png_path)
 ```
 
+**⚠️ LỖI THƯỜNG GẶP — ẢNH BỊ THỪA KHOẢNG TRẮNG:**
+- ❌ `viewport width > 700` → viền trắng 2 bên (vì container chỉ 700px)
+- ❌ `page.screenshot()` thay vì `container.screenshot()` → chụp cả body, thừa trắng
+- ❌ Container có `margin: 0 auto` + viewport > 700 → auto margin tạo khoảng trống
+- ✅ `viewport width = 700` + `container.screenshot()` → crop sát 4 cạnh
+
 **Checklist layout khi review screenshot:**
+- ✅ Viewport Playwright = 700px (PHẢI bằng container width, KHÔNG lớn hơn)
+- ✅ Dùng `container.screenshot()` (KHÔNG dùng `page.screenshot()`)
+- ✅ Container `margin: 0` (KHÔNG dùng `margin: 0 auto` khi viewport = container width)
 - ✅ Nội dung hiển thị to, rõ ràng, phù hợp xem trên mobile
-- ✅ Lề sát nội dung — không có khoảng trắng lớn 4 bên
+- ✅ Lề sát nội dung — không có khoảng trắng 4 bên (chỉ padding 12px 16px)
 - ✅ Ảnh crop sát dòng text cuối — không có vùng trắng thừa phía dưới
 - ✅ Table/box không bị cắt, không tràn ra ngoài
-- ❌ Khoảng trắng lớn phía dưới hoặc 2 bên (lãng phí diện tích ảnh)
+- ❌ Khoảng trắng lớn phía dưới hoặc 2 bên → **kiểm tra viewport > 700 hoặc dùng page.screenshot()**
 - ❌ Layout kiểu A4 với nền xám + tờ giấy trắng (không còn dùng)
 
 ### Quy tắc ngắt dòng — Flow Text (RẤT QUAN TRỌNG)
