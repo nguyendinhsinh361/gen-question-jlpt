@@ -18,7 +18,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -48,7 +48,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -74,7 +74,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -100,7 +100,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -126,7 +126,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -152,7 +152,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -179,7 +179,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -201,7 +201,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -227,7 +227,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph
 - KHÔNG tách giữa từ khi xuống dòng
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px, padding-top≥24px, background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
 - Sau khi gen: count chars → capture screenshot → review layout
 ```
@@ -249,7 +249,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph
 - KHÔNG tách giữa từ khi xuống dòng
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px, padding-top≥24px, background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
 - Sau khi gen: count chars → capture screenshot → review layout
 ```
@@ -274,7 +274,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -296,7 +296,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -318,7 +318,7 @@ Nhắc nhở bắt buộc:
 - HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
 - Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
 - Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
@@ -406,7 +406,7 @@ Mục tiêu: mỗi level có ít nhất 10 bài.
 Nhắc nhở bắt buộc:
 - Đọc SKILL.md trước khi gen
 - HTML phải giống tờ A4, text flow liên tục, không tách từ giữa dòng
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px, padding-top≥24px, background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
 - Count chars + capture screenshot + review layout sau mỗi bài
 ```
@@ -429,7 +429,7 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md trước khi gen
 - HTML phải giống tờ A4: container width=794px, min-height=1123px
 - Text chảy liên tục, KHÔNG <br> trong paragraph, KHÔNG tách từ giữa dòng
-- KHÔNG che khuất chữ: floating label cần margin-top≥16px, padding-top≥24px, background solid
+- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
 - Furigana: dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
 - Count chars + capture screenshot + review layout sau mỗi bài
 ```

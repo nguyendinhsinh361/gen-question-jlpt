@@ -450,11 +450,14 @@ Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là y�
 > **⚠️ NGHIÊM CẤM: Chữ tiếng Nhật KHÔNG ĐƯỢC bị che bởi bất kỳ element nào ⚠️**
 >
 > Mọi ký tự tiếng Nhật trên trang phải **hiển thị rõ ràng 100%**, không bị đè, che, chồng lấp
-> bởi bất kỳ element trang trí nào (label, badge, box border, step marker, heading background, v.v.).
+> bởi bất kỳ element nào — bao gồm cả label, badge, step marker, heading background,
+> **hình vẽ, icon, emoji, SVG, ảnh nền, và mọi element trang trí khác**.
 >
 > Đây là lỗi nghiêm trọng — bài nào có chữ bị che phải **sửa lại HTML** ngay lập tức.
 
-**Nguyên nhân phổ biến nhất**: Floating label dùng `position: absolute` đè lên text ở dòng trước hoặc text bên trong box.
+#### Trường hợp 1: Floating label đè lên text
+
+**Nguyên nhân**: Floating label dùng `position: absolute` đè lên text ở dòng trước hoặc text bên trong box.
 
 **Quy tắc bắt buộc khi dùng floating label / badge / step marker:**
 
@@ -467,34 +470,86 @@ Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là y�
 **❌ SAI — label che mất dòng text phía trên:**
 ```html
 <p>以下の手順および注意事項をご確認の上、お申し込みください。</p>
-<!-- Label STEP 1 đè lên dòng text trên vì box không có margin-top -->
 <div style="position: relative; border: 2px solid #4CAF50; border-radius: 8px; padding: 16px;">
     <span style="position: absolute; top: -12px; left: 16px; background: #4CAF50; color: white; padding: 2px 12px; font-weight: bold;">STEP 1</span>
     <h3>オンライン申し込み</h3>
-    ...
 </div>
 ```
 
 **✅ ĐÚNG — có margin-top + padding-top đủ lớn:**
 ```html
 <p>以下の手順および注意事項をご確認の上、お申し込みください。</p>
-<!-- margin-top: 24px tạo khoảng trống, padding-top: 28px đẩy nội dung xuống -->
 <div style="position: relative; border: 2px solid #4CAF50; border-radius: 8px; padding: 28px 16px 16px 16px; margin-top: 24px;">
     <span style="position: absolute; top: -12px; left: 16px; background: #4CAF50; color: white; padding: 2px 12px; font-weight: bold; border-radius: 4px;">STEP 1</span>
     <h3>オンライン申し込み</h3>
-    ...
 </div>
 ```
 
-**Checklist chống che khuất:**
+#### Trường hợp 2: Hình vẽ / icon / emoji đè lên text (RẤT PHỔ BIẾN)
+
+**Nguyên nhân**: Icon lớn (★, ⭐, 🌟, SVG ngôi sao, hình trang trí) được đặt chồng lên hoặc cạnh text,
+khiến chữ bên dưới/bên cạnh bị che một phần hoặc toàn bộ.
+
+**NGUYÊN TẮC VÀNG: Nếu không thể hiển thị cả hình VÀ chữ rõ ràng 100% → BỎ HÌNH, GIỮ CHỮ.**
+
+**Quy tắc bắt buộc:**
+
+1. **KHÔNG BAO GIỜ đặt hình/icon chồng lên vùng có text** — dù dùng `position: absolute`, `z-index`, hay `background-image`
+2. **Nếu hình và chữ cùng nằm trong 1 box**: phải tách rõ ràng — hình 1 vùng, chữ 1 vùng, KHÔNG overlap
+3. **Nếu không đủ chỗ cho cả hình và chữ**: ưu tiên chữ, bỏ hình hoặc thu nhỏ hình
+4. **Icon trang trí nhỏ** (≤ 1em): OK nếu nằm inline trước/sau text, nhưng KHÔNG đè lên text
+5. **Thay thế bằng cách khác**: Dùng border, background-color, hoặc emoji nhỏ inline thay vì hình lớn overlay
+
+**❌ SAI — ngôi sao lớn đè lên text ngày tháng:**
+```html
+<!-- ★ font-size: 80px đè lên "20日(火)" bên trong cùng box -->
+<div style="position: relative; border: 3px solid red; width: 120px; height: 100px;">
+    <span style="font-size: 80px; color: gold; position: absolute; top: -10px; left: 5px;">★</span>
+    <span style="position: absolute; bottom: 5px; left: 10px;">20日(火)</span>
+</div>
+```
+
+**✅ ĐÚNG — text nằm DƯỚI hình, tách biệt rõ ràng:**
+```html
+<!-- Hình và chữ tách riêng, không chồng lấp -->
+<div style="border: 3px solid red; text-align: center; padding: 8px;">
+    <div style="font-size: 40px; color: gold; line-height: 1;">★</div>
+    <div style="font-weight: bold; margin-top: 4px;">20日(火)</div>
+</div>
+```
+
+**✅ ĐÚNG — dùng background-color thay vì hình lớn:**
+```html
+<!-- Không dùng icon lớn, dùng background nổi bật thay thế -->
+<div style="background: #FFF3CD; border: 3px solid red; text-align: center; padding: 12px; border-radius: 8px;">
+    <div style="font-weight: bold; font-size: 1.1em;">🔥 20日(火)</div>
+    <div>特売日</div>
+</div>
+```
+
+**✅ ĐÚNG — icon nhỏ inline, không che chữ:**
+```html
+<p>★ 20日(火) — たまご 100円</p>
+```
+
+#### Checklist chống che khuất (PHẢI kiểm tra trên screenshot)
+
+**Floating label:**
 - ✅ Mọi `position: absolute` label đều nằm trong parent có `position: relative`
-- ✅ Box có floating label luôn có `margin-top ≥ 16px`
-- ✅ Box có floating label luôn có `padding-top ≥ 24px`
+- ✅ Box có floating label luôn có `margin-top ≥ 16px` và `padding-top ≥ 24px`
 - ✅ Label/badge luôn có `background-color` solid (không transparent)
-- ✅ Không có text nào bị che khi zoom 100% trên screenshot
-- ❌ Label đè lên dòng text phía trên
-- ❌ Label che mất chữ đầu tiên bên trong box
-- ❌ Border hoặc background của element này chồng lên text của element khác
+
+**Hình vẽ / icon / emoji:**
+- ✅ Mọi hình trang trí KHÔNG chồng lấp lên bất kỳ vùng text nào
+- ✅ Hình và chữ trong cùng box được tách riêng vùng (trên/dưới hoặc trái/phải)
+- ✅ Nếu không đủ chỗ → bỏ hình, giữ chữ
+- ❌ Icon/emoji lớn (font-size > 2em) đặt absolute đè lên text
+- ❌ SVG hoặc hình nền che mất chữ bên dưới
+- ❌ Text nằm bên trong hình vẽ nhưng không đọc được rõ
+
+**Tổng quát:**
+- ✅ **Mọi chữ tiếng Nhật đều đọc được 100% rõ ràng trên screenshot**
+- ❌ Bất kỳ ký tự nào bị che dù chỉ 1 phần
 
 ### CSS text bắt buộc (đã tích hợp trong template)
 
