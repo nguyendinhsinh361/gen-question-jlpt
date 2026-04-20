@@ -35,11 +35,11 @@ Hiểu rõ sự khác biệt giữa các level là điều **quan trọng nhất
 
 | Level | Số câu hỏi | Kiểu câu hỏi | Đáp án sai (distractor) |
 |-------|-----------|---------------|------------------------|
-| N5 | 1 | "Bao nhiêu tiền?", "Mấy giờ?", "Ở đâu?" | Sai rõ ràng nhưng liên quan bài đọc |
-| N4 | 2 | "Ai có thể tham gia?", "Câu nào đúng?" | Đúng 1 phần nhưng sai chi tiết |
-| N3 | 2 | "Phải mang gì?", "Điền form thế nào?" | Đúng 1 điều kiện, sai điều kiện khác |
-| N2 | 2 | "Ai đủ tiêu chuẩn?", "Quy trình đăng ký?" | Lẫn thông tin giữa các section |
-| N1 | 2 | "Ai đáp ứng TẤT CẢ điều kiện?", "Thủ tục nào đúng trình tự?" | Đúng gần hết, sai đúng 1 điều kiện khó nhận ra |
+| N5 | 1 | Tình huống đơn giản: "Aさんは～がほしい。どれがいいですか" | Sai rõ ràng nhưng liên quan bài đọc |
+| N4 | 2 | Tình huống 1-2 điều kiện: "Bさんは～たい、～ことができない。どうすればいい?" | Đúng 1 phần nhưng sai chi tiết |
+| N3 | 2 | Tình huống 2 điều kiện: "Cさんは～で、～場合は、どれを選べばいい?" | Đúng 1 điều kiện, sai điều kiện khác |
+| N2 | 2 | Tình huống 2-3 điều kiện: cross-reference bảng + văn xuôi | Lẫn thông tin giữa các section |
+| N1 | 2 | Tình huống 3+ điều kiện + ngoại lệ: "すべての条件を満たすのはどれ?" | Đúng gần hết, sai đúng 1 điều kiện khó nhận ra |
 
 ---
 
@@ -52,7 +52,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -72,7 +73,7 @@ Yêu cầu nội dung N5:
 - Viết gần như toàn hiragana + kanji N5 cơ bản (日, 月, 人, 円, 時...)
 - Câu ngắn: ～です, ～ます, ～てください. KHÔNG dùng ngữ pháp N4+
 - Furigana: 0-1 từ, ưu tiên viết hiragana thay kanji. KHÔNG dùng dạng Ab
-- 1 câu hỏi/bài: hỏi thông tin cụ thể đơn giản (giá bao nhiêu? mấy giờ? ở đâu?)
+- 1 câu hỏi/bài: tình huống đơn giản — "Aさんは～がほしい。どれがいいですか" (nhân vật + 1 điều kiện)
 - Đáp án sai: liên quan bài đọc nhưng sai thông tin (sai giá, sai ngày, sai địa điểm)
 
 Nhắc nhở bắt buộc:
@@ -81,7 +82,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N4 — 5 mẫu đa dạng
@@ -97,9 +99,9 @@ Yêu cầu nội dung N4:
 - Kanji N5+N4, câu lịch sự cơ bản: ～ことができます, ～なければなりません
 - Bảng đơn giản + 1-2 đoạn mô tả ngắn
 - Furigana: 0-2 từ vượt N4. KHÔNG dùng dạng Ab
-- 2 câu hỏi/bài:
-  - Q1: ai có thể tham gia? (check 1-2 điều kiện)
-  - Q2: câu nào đúng? (fact-check đơn giản)
+- 2 câu hỏi/bài (tình huống giả định):
+  - Q1: "Bさんは～たい、～ことができない。どうすればいい?" (check 1-2 điều kiện)
+  - Q2: "Cさんは～の場合、どれが正しいですか" (áp dụng quy tắc cụ thể)
 - Đáp án sai: đúng 1 phần nhưng sai ở 1 chi tiết cụ thể
 
 Nhắc nhở bắt buộc:
@@ -108,7 +110,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N3 — 5 mẫu đa dạng
@@ -135,7 +138,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N2 — 5 mẫu đa dạng
@@ -162,7 +166,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N1 — 5 mẫu đa dạng
@@ -189,7 +194,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -214,7 +220,7 @@ Yêu cầu:
 - Chủ đề: chọn NGẪU NHIÊN, đa dạng, KHÔNG trùng chủ đề trong cùng batch
 - Format: chọn ngẫu nhiên từ Format Catalog phù hợp level, KHÔNG trùng format liên tiếp
 - Mỗi bài phải phản ánh ĐÚNG độ khó level:
-  - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tìm thông tin đơn giản
+  - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tình huống đơn giản
   - N4 (400-500 chars): câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
   - N3 (600-750 chars): nửa formal, 2 câu hỏi cross-reference 2 điều kiện
   - N2 (700-770 chars): formal văn viết, 2 câu hỏi cross-reference 2-3 điều kiện
@@ -228,7 +234,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### Ví dụ sử dụng
@@ -246,7 +253,7 @@ Yêu cầu:
 - Chủ đề: chọn NGẪU NHIÊN, đa dạng, KHÔNG trùng chủ đề trong cùng batch
 - Format: chọn ngẫu nhiên từ Format Catalog phù hợp level, KHÔNG trùng format liên tiếp
 - Mỗi bài phải phản ánh ĐÚNG độ khó level:
-  - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tìm thông tin đơn giản
+  - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tình huống đơn giản
   - N4 (400-500 chars): câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
   - N3 (600-750 chars): nửa formal, 2 câu hỏi cross-reference 2 điều kiện
   - N2 (700-770 chars): formal văn viết, 2 câu hỏi cross-reference 2-3 điều kiện
@@ -260,7 +267,8 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -286,7 +294,8 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
 - Nội dung phải ĐÚNG level N2: từ vựng, ngữ pháp formal, câu hỏi cross-reference 2-3 điều kiện
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### Chỉ định format hiếm
@@ -309,7 +318,8 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md + mẫu n1_1.html trước khi gen
 - Nội dung phải ĐÚNG level N1: keigo, từ chuyên ngành, câu hỏi cross-reference 3+ điều kiện
 - Số ký tự PHẢI đạt minimum, đáp án sai phải tinh vi
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -335,7 +345,8 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
 - Nội dung phải ĐÚNG level N4: từ vựng, ngữ pháp, câu hỏi 1-2 điều kiện
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### Chủ đề giáo dục (N3)
@@ -357,7 +368,8 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
 - Nội dung phải ĐÚNG level N3: từ vựng, ngữ pháp, câu hỏi cross-reference 2 điều kiện
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### Chủ đề công việc (N2)
@@ -379,7 +391,8 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
 - Nội dung phải ĐÚNG level N2: từ vựng formal, câu hỏi cross-reference 2-3 điều kiện
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -418,7 +431,7 @@ Kiểm tra tất cả bài tìm thông tin trong assets/html/tim_thong_tin/:
 3. Câu hỏi vs Level — độ khó câu hỏi đúng chưa? (N5: 1 điều kiện, N1: 3+ điều kiện + ngoại lệ)
 4. Đáp án — chỉ 1 đáp án đúng? Đáp án sai hợp lý? (không sai hiển nhiên, sai ở chi tiết)
 5. Format vs Level — format có phù hợp level? (store_flyer cho N5, medicine_info cho N1)
-6. Layout A4 — screenshot giống tờ A4? Nội dung tràn ra ngoài container?
+6. Layout compact — screenshot crop sát nội dung? Container 700px? Không tràn?
 7. Flow text — có dùng <br> trong paragraph? Mỗi câu có nằm trên 1 dòng riêng?
 8. Che khuất — có chữ nào bị che bởi icon/label/hình vẽ?
 9. Ngắt từ — có từ nào bị tách giữa 2 dòng?
@@ -459,7 +472,8 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md + mẫu tham khảo trước khi gen
 - Nội dung phải ĐÚNG level, số ký tự PHẢI đạt minimum
 - Đáp án sai phải hợp lý theo level
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ### Gen bài với visual elements đặc biệt
@@ -481,7 +495,8 @@ Nhắc nhở bắt buộc:
 - Đọc SKILL.md + mẫu tham khảo trước khi gen
 - Nội dung phải ĐÚNG level, số ký tự PHẢI đạt minimum
 - Đáp án sai phải hợp lý theo level
-- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
 ```
 
 ---

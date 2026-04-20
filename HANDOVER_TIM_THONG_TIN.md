@@ -111,7 +111,7 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 ### Bước 5 — Screenshot + Clean HTML + CSV
 
 1. Lưu HTML → `assets/html/tim_thong_tin/{LEVEL}_{uuid}.html` (ví dụ: `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5.html`)
-2. Chụp screenshot (Playwright, viewport 854×1200 — khớp A4, full_page, 1500ms chờ font) → `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
+2. Chụp screenshot (Playwright, viewport 772×1200, crop container bằng `container.screenshot()`, 1500ms chờ font) → `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
 3. Trích clean HTML (bỏ attribute, class, gom whitespace) → cột `text_read` trong CSV
 4. Gen câu hỏi + đáp án + giải thích → điền vào CSV
 5. Cột `general_image` trong CSV = local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
@@ -286,7 +286,7 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 ## Checklist trước khi nộp batch
 
 - [ ] Mỗi bài có format label khác nhau trong batch
-- [ ] Số ký tự nằm đúng khoảng cho phép (±10%)
+- [ ] Số ký tự nằm đúng khoảng cho phép (không dưới Min)
 - [ ] Furigana CHỈ ở từ vượt level, KHÔNG có dạng "Ab"
 - [ ] Số ruby tags phù hợp (N5: 0–5, N4: 0–8, N3: 0–12, N2: 0–8, N1: 0–5)
 - [ ] CSV đủ 45 cột, answer dùng `\n` ngăn cách (không dùng `|`)
@@ -294,6 +294,9 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 - [ ] N1–N4: 2 câu hỏi/bài, N5: 1 câu hỏi/bài
 - [ ] HTML, PNG, CSV paths nhất quán
 - [ ] Cột `general_image` chứa đúng local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
+- [ ] Câu hỏi là tình huống giả định (nhân vật + điều kiện → chọn gì), KHÔNG hỏi đơn thuần
+- [ ] Layout compact (container 700px, crop sát nội dung), KHÔNG A4
+- [ ] Furigana dùng `<ruby>+<rt>`, KHÔNG dùng ngoặc `()`
 - [ ] Chủ đề không trùng với bài đã có
 
 ---

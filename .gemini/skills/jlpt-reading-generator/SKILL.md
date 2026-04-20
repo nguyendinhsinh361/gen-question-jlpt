@@ -108,13 +108,25 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 >
 > Quy trình: Gen HTML → count chars → nếu < Hard Reject → **xóa và gen lại** → count lại → lặp cho đến khi đạt.
 
-## Vocabulary & Grammar Constraints
+## Vocabulary & Grammar Constraints (RẤT QUAN TRỌNG — Gemini thường gen khó hơn level)
+
+> **⚠️ LƯU Ý ĐẶC BIỆT CHO GEMINI**: Gemini có xu hướng gen nội dung KHÓ HƠN so với level yêu cầu.
+> Ví dụ: gen bài N4 nhưng dùng từ vựng/ngữ pháp N2-N3. Điều này là **SAI**.
+> Nội dung PHẢI phản ánh đúng độ khó của level — người học level đó phải đọc hiểu được.
 
 - **50%+ vocabulary from the target JLPT level**
-- **Never use vocabulary above the target level** (N2 content must not have N1-only words)
-- N4/N5: simple sentence patterns, everyday topics
-- N1/N2: compound sentences, formal/business register
-- N3: bridge level — conversational with some formal elements
+- **KHÔNG BAO GIỜ dùng từ vượt level** (bài N4 KHÔNG được có từ N2/N1)
+- Nếu bắt buộc dùng 1 từ vượt level → phải có furigana bằng `<ruby>/<rt>`
+
+**Hướng dẫn chi tiết per level:**
+
+| Level | Từ vựng & Kanji | Ngữ pháp | Chủ đề | Ví dụ câu |
+|-------|----------------|----------|--------|-----------|
+| N5 | Hiragana nhiều, kanji N5 cơ bản (日月人円時) | ～です, ～ます, ～てください, ～があります | Mua sắm, giờ mở cửa, bảng giá | おみせは あさ 9じから よる 8じまでです。 |
+| N4 | Kanji N5+N4, ít hiragana hơn | ～ことができます, ～なければなりません, ～てもいいです | Sự kiện, lớp học, quy tắc | 小学生以下のお子様は無料で参加できます。 |
+| N3 | Kanji N5-N3 | ～について, ～による, ～場合は, ～ために | Dịch vụ, tuyển dụng, du lịch | 応募の場合は、履歴書を郵送してください。 |
+| N2 | Kanji N5-N2 | ～に伴い, ～に基づき, ～を踏まえて, ～に限り | So sánh, hướng dẫn, quy trình | 本サービスは会員登録に基づき提供されます。 |
+| N1 | Kanji đầy đủ N5-N1 | ～いかんによらず, ～をもって, ～に先立ち, 敬語 | Y tế, pháp luật, tài chính | 理由のいかんによらず、返金には応じかねます。 |
 
 ## Furigana Density
 
@@ -126,14 +138,19 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 >
 > **QUAN TRỌNG**: Phải có **CẢ HAI** thẻ `<ruby>` và `<rt>`. Chỉ có `<ruby>` mà không có `<rt>` thì furigana **KHÔNG hiển thị** và vô nghĩa.
 >
-> **SAI — KHÔNG BAO GIỜ làm như sau**:
-> - ❌ `<ruby>拠点</ruby>` — thiếu `<rt>`, furigana không hiển thị, VÔ NGHĨA
-> - ❌ `拠点(きょてん)` — dùng ngoặc thay vì ruby tag
-> - ❌ `拠点【きょてん】` — dùng brackets thay vì ruby tag
-> - ❌ Viết reading bên cạnh kanji bằng bất kỳ cách nào khác ngoài `<ruby>/<rt>`
+> **SAI — KHÔNG BAO GIỜ làm như sau (phát hiện → GEN LẠI ngay)**:
+> - ❌ `<ruby>拠点</ruby>` — thiếu `<rt>`, furigana không hiển thị, VÔ NGHĨA → **GEN LẠI**
+> - ❌ `拠点(きょてん)` — dùng ngoặc đơn thay vì ruby tag → **GEN LẠI**
+> - ❌ `拠点【きょてん】` — dùng brackets thay vì ruby tag → **GEN LẠI**
+> - ❌ `集荷（しゅうか）` — dùng ngoặc kép thay vì ruby tag → **GEN LẠI**
+> - ❌ Viết reading bên cạnh kanji bằng bất kỳ cách nào khác ngoài `<ruby>/<rt>` → **GEN LẠI**
 > - ❌ Bỏ qua furigana hoàn toàn khi từ vượt level
 >
-> Nếu HTML output không chứa thẻ `<ruby>` và `<rt>`, bài viết **KHÔNG HỢP LỆ** và phải viết lại.
+> **🚫 HARD REJECT — Nếu phát hiện furigana dạng ngoặc `()` hoặc `【】` trong HTML → bài PHẢI gen lại từ đầu.**
+> Gemini có xu hướng dùng dạng ngoặc `漢字(かんじ)` thay vì `<ruby>漢字<rt>かんじ</rt></ruby>`.
+> Đây là lỗi nghiêm trọng — dạng ngoặc KHÔNG được chấp nhận trong bất kỳ trường hợp nào.
+>
+> **Cách kiểm tra**: Tìm pattern `(ひらがな)` hoặc `（ひらがな）` trong HTML. Nếu có → gen lại.
 
 ### Core Rule — Furigana Only for Above-Level Words
 
@@ -307,30 +324,27 @@ Every generated file follows this structure:
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-        /* === A4 PAGE LAYOUT === */
-        /* A4 at 96dpi: 794×1123px. Container mô phỏng tờ A4 trắng trên nền xám. */
+        /* === COMPACT LAYOUT — Tối ưu cho mobile app === */
+        /* KHÔNG dùng A4. Container vừa đủ nội dung, margin sát, crop sát text cuối. */
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: #e5e7eb;
+            background-color: #ffffff;
             color: #000;
             line-height: 2;
             word-break: keep-all;      /* KHÔNG tách giữa từ CJK */
             line-break: strict;        /* Quy tắc ngắt dòng tiếng Nhật nghiêm ngặt nhất */
             overflow-wrap: break-word;  /* Fallback: chỉ ngắt khi từ dài hơn container */
             margin: 0;
-            padding: 30px;
+            padding: 16px 20px;        /* Margin sát — tối ưu cho mobile */
         }
         .container {
-            width: 794px;              /* A4 width at 96dpi */
-            min-height: 1123px;        /* A4 height at 96dpi — tối thiểu 1 trang */
+            width: 700px;              /* Đủ rộng cho nội dung, không phải A4 */
             margin: 0 auto;
             background: white;
-            padding: 50px 56px;        /* ~18-20mm margins giống A4 thật */
-            border: 1px solid #d1d5db;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            padding: 24px 28px;        /* Padding nhỏ, sát nội dung */
             box-sizing: border-box;
         }
-        /* Đảm bảo table/flex không tràn ra ngoài A4 */
+        /* Đảm bảo table/flex không tràn */
         table { width: 100%; table-layout: fixed; }
         td, th { overflow-wrap: break-word; }
         .container > * { max-width: 100%; }
@@ -359,23 +373,37 @@ Every generated file follows this structure:
 
 ## Layout & Line-Break Rules (Critical — Editor Feedback)
 
-### Quy tắc A4 (BẮT BUỘC)
+### Quy tắc Layout — Compact, tối ưu cho mobile app (BẮT BUỘC)
 
-Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là yêu cầu bắt buộc.
+> **⚠️ KHÔNG dùng format A4 nữa. Layout phải compact, crop sát nội dung. ⚠️**
 
-- **Container = A4**: `width: 794px`, `min-height: 1123px` (A4 at 96dpi = 210×297mm)
-- **Viewport Playwright = 854px** (794 + 60px body padding)
-- **Nội dung phải nằm gọn trong A4** — không tràn, không bị cắt
-- **Table**: luôn dùng `table-layout: fixed; width: 100%` để cột không bị đẩy ra ngoài
-- **Flex/grid 2 cột**: đảm bảo tổng width ≤ 100% container, thêm `gap` hợp lý
-- **Nếu nội dung dài hơn 1 trang**: OK — `full_page: True` sẽ capture hết, nhưng nên cố gắng giữ trong 1 trang
+Mục đích: ảnh screenshot to hơn, hiển thị tốt hơn trên app mobile. Không cần mô phỏng tờ A4.
 
-**Checklist A4 khi review screenshot:**
-- ✅ Nền xám, tờ giấy trắng ở giữa với shadow nhẹ
-- ✅ Nội dung có margin đều 4 bên (~50px = ~18mm)
-- ✅ Table/box không bị cắt, không sát mép phải
-- ❌ Nội dung tràn ra ngoài tờ giấy trắng
-- ❌ Box bên phải bị sát mép container
+- **Container**: `width: 700px`, KHÔNG có `min-height` — chiều cao tự co theo nội dung
+- **Padding nhỏ**: `24px 28px` — lề sát nội dung, không để trống nhiều
+- **Nền trắng**: `background: white`, body cũng `background: #ffffff` — không cần nền xám
+- **Viewport Playwright = 772px** (700 + 72px body+container padding)
+- **Crop screenshot**: cắt sát dòng text cuối cùng, không để khoảng trắng lớn phía dưới
+- **Table**: `table-layout: fixed; width: 100%`
+- **Flex/grid**: tổng width ≤ 100% container
+
+**Playwright capture — crop sát nội dung:**
+```python
+page = await browser.new_page(viewport={"width": 772, "height": 1200})
+await page.goto(f"file://{html_path}")
+await page.wait_for_timeout(1500)
+# Crop sát nội dung — không để khoảng trắng thừa
+container = page.locator('.container')
+await container.screenshot(path=png_path)
+```
+
+**Checklist layout khi review screenshot:**
+- ✅ Nội dung hiển thị to, rõ ràng, phù hợp xem trên mobile
+- ✅ Lề sát nội dung — không có khoảng trắng lớn 4 bên
+- ✅ Ảnh crop sát dòng text cuối — không có vùng trắng thừa phía dưới
+- ✅ Table/box không bị cắt, không tràn ra ngoài
+- ❌ Khoảng trắng lớn phía dưới hoặc 2 bên (lãng phí diện tích ảnh)
+- ❌ Layout kiểu A4 với nền xám + tờ giấy trắng (không còn dùng)
 
 ### Quy tắc ngắt dòng — Flow Text (RẤT QUAN TRỌNG)
 
@@ -414,7 +442,16 @@ Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là y�
 |-----------------|-------|
 | Giữa 2 câu cùng đoạn | Đề JLPT thật không ngắt — text flow liên tục |
 | Sau mỗi dấu 。 | 。 không phải lý do để `<br>` |
+| **Sau mỗi dấu 、(phẩy)** | **KHÔNG tự ý ngắt dòng tại dấu phẩy** — dấu phẩy chỉ là dấu phẩy, KHÔNG phải dấu hiệu xuống dòng |
 | Để "trông đẹp" / dễ đọc | Layout phải giống đề thi, không phải dễ đọc cho dev |
+
+> **⚠️ LƯU Ý ĐẶC BIỆT CHO GEMINI: Không ngắt dòng tại dấu phẩy ⚠️**
+>
+> Gemini có xu hướng ngắt dòng sau mỗi dấu phẩy 「、」hoặc 「，」. Đây là **SAI**.
+> Text phải chảy liên tục, trình duyệt tự wrap. Chỉ ngắt khi chuyển section/heading/list.
+>
+> ❌ SAI: `離れた家族とビデオ通話をしたい」とシニア世代の皆様を対象に、<br>少人数制の教室を開催します。`
+> ✅ ĐÚNG: `離れた家族とビデオ通話をしたい」とシニア世代の皆様を対象に、少人数制の教室を開催します。` (1 thẻ `<p>`, tự wrap)
 
 **Ví dụ hoàn chỉnh — regulation_notice (N4):**
 
@@ -624,11 +661,13 @@ async def capture_screenshot(html_path, img_path):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        # Viewport = A4 container (794px) + body padding (60px) = 854px
-        page = await browser.new_page(viewport={"width": 854, "height": 1200})
+        # Viewport = container (700px) + body+container padding (72px) = 772px
+        page = await browser.new_page(viewport={"width": 772, "height": 1200})
         await page.goto(f"file://{html_path}", wait_until="networkidle")
         await page.wait_for_timeout(1500)  # wait for font loading
-        await page.screenshot(path=img_path, full_page=True)
+        # Crop sát nội dung — screenshot container thay vì full page
+        container = page.locator('.container')
+        await container.screenshot(path=img_path)
         await page.close()
         await browser.close()
 ```
@@ -656,34 +695,58 @@ For all questions in "tìm thông tin" passages, use:
 question_label = "question_information_search"
 ```
 
-### Question Patterns by Level
+### Question Patterns by Level — BẮT BUỘC là câu hỏi TÌNH HUỐNG
+
+> **⚠️ QUAN TRỌNG: Câu hỏi dạng "tìm thông tin" PHẢI là câu hỏi TÌNH HUỐNG (シチュエーション問題) ⚠️**
+>
+> Mỗi câu hỏi phải đưa ra **một tình huống giả định cụ thể** về một nhân vật (Aさん, 田中さん, リンさん...)
+> với các điều kiện cá nhân, rồi hỏi nhân vật đó nên chọn gì / làm gì dựa trên bài đọc.
+>
+> ❌ SAI — câu hỏi quá đơn giản, KHÔNG phải tình huống:
+> - "教室は何曜日ですか。" (Lớp học ngày mấy?) — đây chỉ là tìm thông tin thô
+> - "月謝はいくらですか。" (Học phí bao nhiêu?) — quá dễ, đọc bảng là thấy
+>
+> ✅ ĐÚNG — câu hỏi tình huống:
+> - "田中さんは水曜日と金曜日が休みで、パソコンの使い方を基礎から学びたいです。田中さんに合うコースはどれですか。"
+>   (Tanaka nghỉ thứ 4 và thứ 6, muốn học máy tính từ cơ bản. Khóa nào phù hợp?)
+> - "リンさんは来月から3つのコースを同時に受けたいです。最初の月にかかる費用はいくらですか。"
+>   (Lin muốn đăng ký 3 khóa cùng lúc từ tháng sau. Chi phí tháng đầu tiên bao nhiêu?)
 
 Study `input/htm_content_qa/` for exact patterns. Key observations:
 
-**N1** (n1_qa_1~4): Complex scenario-based questions.
-- Q1: "Who/what meets the eligibility criteria?" — table with candidates, test-taker must cross-reference multiple conditions
-- Q2: "What must person X do to apply?" — procedural questions requiring synthesis of multiple rules
-- 4 answer options each, formal Japanese register, dense information
+**N1** (n1_qa_1~4): Complex scenario-based questions — cross-reference 3+ điều kiện.
+- Q1: Nhân vật A có profile cụ thể (tuổi, nơi ở, bằng cấp, kinh nghiệm...) → đáp ứng tiêu chuẩn nào?
+  Ví dụ: "山田さんは35歳、IT企業に5年勤務、TOEICは650点です。応募できる職種はどれですか。"
+- Q2: Nhân vật B trong tình huống cụ thể → phải làm thủ tục gì, theo trình tự nào?
+  Ví dụ: "佐藤さんは海外在住で、8月に一時帰国して手続きをしたいです。どの順番で進めればよいですか。"
+- 4 đáp án, formal register, distractor đúng gần hết chỉ sai 1 điều kiện khó nhận ra
 
-**N2** (n2_qa_1~4): Practical scenario questions.
-- Q1: "Who can participate?" or "Where should person X go?" — cross-referencing conditions in a table/schedule
-- Q2: "What is correct about the application method?" — testing understanding of procedures
-- 4 answer options each, semi-formal register
+**N2** (n2_qa_1~4): Practical scenario questions — cross-reference 2-3 điều kiện.
+- Q1: Nhân vật A có yêu cầu cụ thể → nên chọn gì?
+  Ví dụ: "鈴木さんは平日の夜に通いたくて、プールがあるジムを探しています。予算は月8,000円以内です。どのジムが合いますか。"
+- Q2: Nhân vật B muốn đăng ký/sử dụng dịch vụ → phải làm gì?
+  Ví dụ: "陳さんは来月から週2回利用したいです。申し込みに必要なものは何ですか。"
+- 4 đáp án, semi-formal, distractor lẫn thông tin giữa sections
 
-**N3** (n3_qa_1~4): Practical daily-life questions.
-- Q1: "What must participants bring?" or "What does the notice say?" — direct information extraction
-- Q2: "How should person X fill in the postcard/form?" — application of rules, sometimes with table-based answer options
-- 4 answer options each, mix of formal and conversational
+**N3** (n3_qa_1~4): Practical daily-life scenario — cross-reference 2 điều kiện.
+- Q1: Nhân vật A trong tình huống đời sống → cần chuẩn bị/chọn gì?
+  Ví dụ: "マリアさんは子ども（5歳）と一緒に参加したいです。何を持っていかなければなりませんか。"
+- Q2: Nhân vật B muốn đăng ký → điền form/postcard thế nào?
+  Ví dụ: "パクさんは土曜日のBコースに申し込みたいです。はがきにどう書けばいいですか。"
+- 4 đáp án, nửa formal nửa conversational, distractor đúng 1 điều kiện sai 1
 
-**N4** (n4_qa_1~4): Simple information lookup.
-- Q1: "Who can participate?" — straightforward eligibility checking
-- Q2: "Which statement is correct?" — fact-checking against the document
-- 4 answer options each, simple Japanese
+**N4** (n4_qa_1~4): Simple scenario — check 1-2 điều kiện.
+- Q1: Nhân vật A muốn tham gia → có thể không?
+  Ví dụ: "グエンさんは20歳の学生で、土曜日にアルバイトがあります。このイベントに参加できますか。"
+- Q2: Nhân vật B trong tình huống → câu nào đúng?
+  Ví dụ: "キムさんは初めてこのお店に来ました。キムさんについて正しいのはどれですか。"
+- 4 đáp án, simple Japanese, distractor sai 1 chi tiết đơn giản
 
-**N5** (n5_qa_1~4): Basic information retrieval — **only 1 question**.
-- "When is the cheapest day to buy X and Y together?" or "Where should you go?"
-- Very simple question with concrete answer from a flyer/list
-- 4 answer options, very basic Japanese
+**N5** (n5_qa_1~4): Basic scenario — **only 1 question**, 1 điều kiện.
+- Nhân vật A muốn mua/đi → chọn gì?
+  Ví dụ: "アンさんはたまごとぎゅうにゅうをいちばんやすくかいたいです。なんようびにいけばいいですか。"
+  (An muốn mua trứng và sữa rẻ nhất. Nên đi ngày nào?)
+- 4 đáp án, very basic Japanese, distractor sai ngày/giá/đối tượng
 
 ### Answer Format in CSV
 
@@ -696,12 +759,14 @@ Each answer column (`answer_{i}`) contains all 4 options separated by `\n`:
 
 ### Question Quality Rules
 
-1. **Information retrieval, not inference** — Answers must be findable directly in the document by cross-referencing facts. No opinion or inference needed.
-2. **Wrong answers must be plausible** — Each distractor should be partially correct or address a real detail from the document, but fail on one condition.
-3. **Cross-reference multiple conditions** — Good questions require checking 2+ conditions simultaneously (age + residence, date + product, eligibility + procedure).
-4. **Each question tests a different aspect** — Q1 and Q2 should not test the same information.
-5. **Furigana in questions** — Same rule as passage: only add furigana for words above the target level. Questions should use level-appropriate vocabulary, so furigana should be rare.
-6. **No question images** — `question_image_{i}` is always empty for tìm thông tin.
+1. **BẮT BUỘC là câu hỏi TÌNH HUỐNG** — Mỗi câu hỏi phải đặt ra tình huống giả định: nhân vật cụ thể (tên + profile) + điều kiện cá nhân + hỏi nên chọn/làm gì. KHÔNG BAO GIỜ hỏi thông tin thô ("mấy giờ?", "bao nhiêu tiền?") mà không có tình huống.
+2. **Information retrieval, not inference** — Đáp án phải tìm được trực tiếp bằng cách cross-reference thông tin trong bài đọc. Không cần suy luận hay ý kiến.
+3. **Wrong answers must be plausible** — Mỗi distractor đúng ở 1 phần nhưng sai ở 1 điều kiện. Level càng cao, distractor càng tinh vi.
+4. **Cross-reference multiple conditions** — Câu hỏi tốt buộc kiểm tra 2+ điều kiện đồng thời (tuổi + nơi ở, ngày + sản phẩm, điều kiện + thủ tục).
+5. **Each question tests a different aspect** — Q1 và Q2 phải test khía cạnh khác nhau của bài đọc.
+6. **Furigana in questions** — Cùng quy tắc với bài đọc: chỉ dùng `<ruby>/<rt>` cho từ vượt level. KHÔNG dùng ngoặc đơn.
+7. **No question images** — `question_image_{i}` luôn để trống.
+8. **Nhân vật trong câu hỏi phải đa dạng** — Dùng tên Nhật (田中, 鈴木, 山田) và tên nước ngoài (リン, グエン, パク, マリア) phù hợp level. N5 dùng tên đơn giản, N1 dùng tên formal.
 
 ## CSV Schema
 

@@ -290,30 +290,26 @@ Every generated file follows this structure:
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
-        /* === A4 PAGE LAYOUT === */
-        /* A4 at 96dpi: 794×1123px. Container mô phỏng tờ A4 trắng trên nền xám. */
+        /* === COMPACT LAYOUT — tối ưu cho mobile app === */
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: #e5e7eb;
+            background-color: #ffffff;
             color: #000;
             line-height: 2;
             word-break: keep-all;      /* KHÔNG tách giữa từ CJK */
             line-break: strict;        /* Quy tắc ngắt dòng tiếng Nhật nghiêm ngặt nhất */
             overflow-wrap: break-word;  /* Fallback: chỉ ngắt khi từ dài hơn container */
             margin: 0;
-            padding: 30px;
+            padding: 16px 20px;
         }
         .container {
-            width: 794px;              /* A4 width at 96dpi */
-            min-height: 1123px;        /* A4 height at 96dpi — tối thiểu 1 trang */
+            width: 700px;
             margin: 0 auto;
             background: white;
-            padding: 50px 56px;        /* ~18-20mm margins giống A4 thật */
-            border: 1px solid #d1d5db;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            padding: 24px 28px;
             box-sizing: border-box;
         }
-        /* Đảm bảo table/flex không tràn ra ngoài A4 */
+        /* Đảm bảo table/flex không tràn ra ngoài container */
         table { width: 100%; table-layout: fixed; }
         td, th { overflow-wrap: break-word; }
         .container > * { max-width: 100%; }
@@ -342,23 +338,22 @@ Every generated file follows this structure:
 
 ## Layout & Line-Break Rules (Critical — Editor Feedback)
 
-### Quy tắc A4 (BẮT BUỘC)
+### Layout Compact — Tối ưu cho mobile app (BẮT BUỘC)
 
-Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là yêu cầu bắt buộc.
+**KHÔNG dùng A4.** Layout compact, crop sát nội dung, lề nhỏ để ảnh to hơn trên app.
 
-- **Container = A4**: `width: 794px`, `min-height: 1123px` (A4 at 96dpi = 210×297mm)
-- **Viewport Playwright = 854px** (794 + 60px body padding)
-- **Nội dung phải nằm gọn trong A4** — không tràn, không bị cắt
+- **Container = 700px**, `padding: 24px 28px`, nền trắng, **KHÔNG `min-height`**
+- **Viewport Playwright = 772px** (700 + 72px padding tổng)
+- **Capture bằng `container.screenshot()`** — crop sát container, KHÔNG `full_page`
 - **Table**: luôn dùng `table-layout: fixed; width: 100%` để cột không bị đẩy ra ngoài
 - **Flex/grid 2 cột**: đảm bảo tổng width ≤ 100% container, thêm `gap` hợp lý
-- **Nếu nội dung dài hơn 1 trang**: OK — `full_page: True` sẽ capture hết, nhưng nên cố gắng giữ trong 1 trang
 
-**Checklist A4 khi review screenshot:**
-- ✅ Nền xám, tờ giấy trắng ở giữa với shadow nhẹ
-- ✅ Nội dung có margin đều 4 bên (~50px = ~18mm)
+**Checklist layout khi review screenshot:**
+- ✅ Nền trắng, lề nhỏ sát nội dung
+- ✅ Ảnh crop sát dòng text cuối cùng
 - ✅ Table/box không bị cắt, không sát mép phải
-- ❌ Nội dung tràn ra ngoài tờ giấy trắng
-- ❌ Box bên phải bị sát mép container
+- ❌ Nền xám, shadow — đã bỏ
+- ❌ Khoảng trắng lớn phía dưới nội dung
 
 ### Quy tắc ngắt dòng — Flow Text (RẤT QUAN TRỌNG)
 
@@ -607,11 +602,12 @@ async def capture_screenshot(html_path, img_path):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        # Viewport = A4 container (794px) + body padding (60px) = 854px
-        page = await browser.new_page(viewport={"width": 854, "height": 1200})
+        # Viewport = container (700px) + padding (72px) = 772px
+        page = await browser.new_page(viewport={"width": 772, "height": 1200})
         await page.goto(f"file://{html_path}", wait_until="networkidle")
         await page.wait_for_timeout(1500)  # wait for font loading
-        await page.screenshot(path=img_path, full_page=True)
+        container = page.locator('.container')
+        await container.screenshot(path=img_path)
         await page.close()
         await browser.close()
 ```
@@ -639,34 +635,38 @@ For all questions in "tìm thông tin" passages, use:
 question_label = "question_information_search"
 ```
 
-### Question Patterns by Level
+### Question Patterns by Level — BẮT BUỘC là câu hỏi TÌNH HUỐNG
 
-Study `input/htm_content_qa/` for exact patterns. Key observations:
+> **Câu hỏi dạng "tìm thông tin" PHẢI là câu hỏi TÌNH HUỐNG (シチュエーション問題).**
+> Mỗi câu hỏi phải đưa ra tình huống giả định: nhân vật cụ thể (Aさん, 田中さん...) + điều kiện cá nhân → hỏi nên chọn/làm gì.
+> ❌ KHÔNG hỏi thông tin thô: "教室は何曜日ですか" — quá đơn giản
+> ✅ Hỏi tình huống: "田中さんは水曜と金曜が休みで、基礎から学びたい。どのコースが合いますか。"
 
-**N1** (n1_qa_1~4): Complex scenario-based questions.
-- Q1: "Who/what meets the eligibility criteria?" — table with candidates, test-taker must cross-reference multiple conditions
-- Q2: "What must person X do to apply?" — procedural questions requiring synthesis of multiple rules
-- 4 answer options each, formal Japanese register, dense information
+Study `input/htm_content_qa/` for exact patterns:
 
-**N2** (n2_qa_1~4): Practical scenario questions.
-- Q1: "Who can participate?" or "Where should person X go?" — cross-referencing conditions in a table/schedule
-- Q2: "What is correct about the application method?" — testing understanding of procedures
-- 4 answer options each, semi-formal register
+**N1** (n1_qa_1~4): Complex scenario — cross-reference 3+ điều kiện.
+- Q1: Nhân vật A có profile cụ thể → đáp ứng tiêu chuẩn nào?
+- Q2: Nhân vật B trong tình huống → thủ tục theo trình tự nào?
+- 4 đáp án, formal, distractor sai 1 điều kiện khó nhận ra
 
-**N3** (n3_qa_1~4): Practical daily-life questions.
-- Q1: "What must participants bring?" or "What does the notice say?" — direct information extraction
-- Q2: "How should person X fill in the postcard/form?" — application of rules, sometimes with table-based answer options
-- 4 answer options each, mix of formal and conversational
+**N2** (n2_qa_1~4): Practical scenario — cross-reference 2-3 điều kiện.
+- Q1: Nhân vật A có yêu cầu cụ thể → nên chọn gì?
+- Q2: Nhân vật B muốn đăng ký → phải làm gì?
+- 4 đáp án, semi-formal, distractor lẫn thông tin giữa sections
 
-**N4** (n4_qa_1~4): Simple information lookup.
-- Q1: "Who can participate?" — straightforward eligibility checking
-- Q2: "Which statement is correct?" — fact-checking against the document
-- 4 answer options each, simple Japanese
+**N3** (n3_qa_1~4): Daily-life scenario — cross-reference 2 điều kiện.
+- Q1: Nhân vật A trong tình huống → cần chuẩn bị gì?
+- Q2: Nhân vật B muốn đăng ký → điền form thế nào?
+- 4 đáp án, nửa formal, distractor đúng 1 điều kiện sai 1
 
-**N5** (n5_qa_1~4): Basic information retrieval — **only 1 question**.
-- "When is the cheapest day to buy X and Y together?" or "Where should you go?"
-- Very simple question with concrete answer from a flyer/list
-- 4 answer options, very basic Japanese
+**N4** (n4_qa_1~4): Simple scenario — check 1-2 điều kiện.
+- Q1: Nhân vật A muốn tham gia → có thể không?
+- Q2: Nhân vật B trong tình huống → câu nào đúng?
+- 4 đáp án, simple Japanese, distractor sai 1 chi tiết
+
+**N5** (n5_qa_1~4): Basic scenario — **only 1 question**, 1 điều kiện.
+- Nhân vật A muốn mua/đi → chọn gì? ngày nào?
+- 4 đáp án, very basic Japanese
 
 ### Answer Format in CSV
 
@@ -679,12 +679,13 @@ Each answer column (`answer_{i}`) contains all 4 options separated by `\n`:
 
 ### Question Quality Rules
 
-1. **Information retrieval, not inference** — Answers must be findable directly in the document by cross-referencing facts. No opinion or inference needed.
-2. **Wrong answers must be plausible** — Each distractor should be partially correct or address a real detail from the document, but fail on one condition.
-3. **Cross-reference multiple conditions** — Good questions require checking 2+ conditions simultaneously (age + residence, date + product, eligibility + procedure).
-4. **Each question tests a different aspect** — Q1 and Q2 should not test the same information.
-5. **Furigana in questions** — Same rule as passage: only add furigana for words above the target level. Questions should use level-appropriate vocabulary, so furigana should be rare.
-6. **No question images** — `question_image_{i}` is always empty for tìm thông tin.
+1. **BẮT BUỘC là câu hỏi TÌNH HUỐNG** — Nhân vật cụ thể + điều kiện cá nhân → hỏi nên chọn/làm gì. KHÔNG hỏi thông tin thô.
+2. **Information retrieval, not inference** — Đáp án tìm được bằng cross-reference thông tin trong bài. Không suy luận.
+3. **Wrong answers must be plausible** — Distractor đúng 1 phần, sai 1 điều kiện. Level cao → distractor tinh vi hơn.
+4. **Cross-reference multiple conditions** — Kiểm tra 2+ điều kiện đồng thời.
+5. **Each question tests a different aspect** — Q1 và Q2 test khía cạnh khác nhau.
+6. **Furigana in questions** — Cùng quy tắc với bài đọc. Chỉ dùng `<ruby>/<rt>`.
+7. **No question images** — `question_image_{i}` luôn để trống.
 
 ## CSV Schema
 
