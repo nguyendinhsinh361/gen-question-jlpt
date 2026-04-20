@@ -48,3 +48,5 @@ Project có skill **jlpt-tim-thong-tin** tại `.gemini/skills/jlpt-reading-gene
 - **general_image**: Local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`.
 - **question_label**: Luôn là `question_information_search`.
 - **Layout A4**: HTML phải trông như 1 tờ A4 khi capture. Container `width: 794px`, `min-height: 1123px`, nền xám + tờ trắng. Viewport Playwright = 854px. Table dùng `table-layout: fixed`. Nội dung không được tràn ra ngoài container.
+- **NGHIÊM CẤM ngắt dòng sau mỗi câu**: KHÔNG dùng `<br>` trong paragraph. Text phải chảy liên tục (flow text), tự wrap khi đến mép container — giống đề JLPT thật. Các câu cùng đoạn nằm trong 1 thẻ `<p>` duy nhất. Chỉ ngắt khi chuyển section/heading/list.
+- **NGHIÊM CẤM tách giữa từ khi xuống dòng**: Giống tiếng Việt không tách "CH-ÀO", tiếng Nhật không được tách「いたしま-す」hay「くださ-い」. CSS `word-break: keep-all` + `line-break: strict` đã xử lý. Nếu vẫn bị tách, dùng `<span style="display:inline-block">` wrap cụm từ.

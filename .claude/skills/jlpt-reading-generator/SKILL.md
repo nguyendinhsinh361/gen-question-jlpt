@@ -297,8 +297,9 @@ Every generated file follows this structure:
             background-color: #e5e7eb;
             color: #000;
             line-height: 2;
-            word-break: keep-all;
-            overflow-wrap: break-word;
+            word-break: keep-all;      /* KHÔNG tách giữa từ CJK */
+            line-break: strict;        /* Quy tắc ngắt dòng tiếng Nhật nghiêm ngặt nhất */
+            overflow-wrap: break-word;  /* Fallback: chỉ ngắt khi từ dài hơn container */
             margin: 0;
             padding: 30px;
         }
@@ -359,30 +360,98 @@ Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là y�
 - ❌ Nội dung tràn ra ngoài tờ giấy trắng
 - ❌ Box bên phải bị sát mép container
 
+### Quy tắc ngắt dòng — Flow Text (RẤT QUAN TRỌNG)
+
+> **⚠️ NGHIÊM CẤM: Không dùng `<br>` để ngắt dòng sau mỗi câu ⚠️**
+>
+> Đề thi JLPT thật **KHÔNG BAO GIỜ** ngắt dòng sau mỗi câu. Text chảy liên tục (flow text),
+> tự động wrap khi đến mép container. Mỗi câu KHÔNG được nằm trên 1 dòng riêng.
+>
+> Đây là lỗi nghiêm trọng nhất về layout — bài nào vi phạm phải **viết lại HTML**.
+
+**Nguyên tắc**: Văn bản tiếng Nhật trong cùng 1 đoạn (paragraph) phải nằm trong **1 thẻ `<p>`** duy nhất, KHÔNG có `<br>` bên trong. Trình duyệt sẽ tự động wrap text khi đến mép container — đây là hành vi đúng và giống đề JLPT thật.
+
+**❌ SAI — mỗi câu 1 dòng (KHÔNG GIỐNG ĐỀ JLPT THẬT):**
+```html
+自転車は「自転車専用」と書いてある道だけを通ってください。<br>
+歩いている人がいる道や、花の近くの道では乗らないでください。<br>
+また、道を逆向きに走ることはできません。
+```
+
+**✅ ĐÚNG — text chảy liên tục trong 1 thẻ `<p>`, tự wrap:**
+```html
+<p>自転車は「自転車専用」と書いてある道だけを通ってください。歩いている人がいる道や、花の近くの道では乗らないでください。また、道を逆向きに走ることはできません。</p>
+```
+
+**Khi nào MỚI được ngắt dòng / tách paragraph:**
+
+| Được ngắt | Cách ngắt | Ví dụ |
+|-----------|-----------|-------|
+| Chuyển sang section/mục mới | `</p>` rồi heading mới | Hết mục 1 → sang mục 2 |
+| Sau heading | Heading + `<p>` mới | `<h2>2. スピードと安全</h2><p>...` |
+| List items / bullet points | `<li>` hoặc `・` trong table | Danh sách điều kiện, quy định |
+| Thông tin dạng key-value | Table hoặc grid | Ngày, giờ, địa chỉ, số điện thoại |
+| Chuyển ý hoàn toàn khác | `<p>` mới | Đoạn giới thiệu → đoạn quy định |
+
+| KHÔNG được ngắt | Lý do |
+|-----------------|-------|
+| Giữa 2 câu cùng đoạn | Đề JLPT thật không ngắt — text flow liên tục |
+| Sau mỗi dấu 。 | 。 không phải lý do để `<br>` |
+| Để "trông đẹp" / dễ đọc | Layout phải giống đề thi, không phải dễ đọc cho dev |
+
+**Ví dụ hoàn chỉnh — regulation_notice (N4):**
+
+```html
+<!-- ❌ SAI -->
+<p>公園の中ではスピードを出さないでください。</p>
+<p>特に子供やお年寄りがいる場所では、ゆっくり走ってください。</p>
+<p>夜は必ずライトをつけてください。</p>
+<p>二人で一つの自転車に乗ることは禁止です。</p>
+
+<!-- ✅ ĐÚNG — cùng 1 section thì gộp 1 <p> -->
+<p>公園の中ではスピードを出さないでください。特に子供やお年寄りがいる場所では、ゆっくり走ってください。夜は必ずライトをつけてください。二人で一つの自転車に乗ることは禁止です。</p>
+```
+
+### Cấm tách từ giữa dòng (RẤT QUAN TRỌNG)
+
+> **⚠️ KHÔNG ĐƯỢC tách giữa 1 từ tiếng Nhật khi xuống dòng ⚠️**
+>
+> Giống như trong tiếng Việt không được viết "CH" cuối dòng rồi "ÀO" đầu dòng tiếp (tách từ "CHÀO"),
+> tiếng Nhật **KHÔNG ĐƯỢC** tách giữa 1 từ khi wrap dòng.
+>
+> - ❌ 「いたしま」cuối dòng →「す」đầu dòng tiếp (tách từ いたします)
+> - ❌ 「くださ」cuối dòng →「い」đầu dòng tiếp (tách từ ください)
+> - ❌ 「変更につ」cuối dòng →「いて」đầu dòng tiếp (tách cụm について)
+> - ✅ Cả từ「いたします」nằm trọn trên 1 dòng, hoặc wrap nguyên từ sang dòng mới
+
+**CSS đã xử lý** bằng `word-break: keep-all` + `line-break: strict`. Tuy nhiên, CSS chỉ xử lý được khi trình duyệt nhận diện đúng ranh giới từ. Nếu screenshot vẫn cho thấy từ bị tách, hãy:
+1. Wrap cụm từ quan trọng trong `<span style="display:inline-block">...</span>` để ngăn tách
+2. Hoặc điều chỉnh nội dung (thêm/bớt vài ký tự) để dòng wrap ở vị trí tự nhiên
+
 ### CSS text bắt buộc (đã tích hợp trong template)
 
-1. **`word-break: keep-all`** — Ngăn trình duyệt ngắt giữa từ tiếng Nhật. Tiếng Nhật mặc định cho phép ngắt giữa bất kỳ 2 ký tự nào, nhưng với JLPT reading, chúng ta cần giữ nguyên từ/cụm từ trên cùng dòng.
+1. **`word-break: keep-all`** — Ngăn trình duyệt ngắt giữa ký tự CJK. Mặc định tiếng Nhật cho phép ngắt giữa bất kỳ 2 ký tự nào — property này chặn hành vi đó.
 
-2. **`overflow-wrap: break-word`** — Chỉ cho phép ngắt khi 1 từ dài hơn container (fallback an toàn).
+2. **`line-break: strict`** — Áp dụng quy tắc ngắt dòng tiếng Nhật **nghiêm ngặt nhất**. Cấm ngắt trước dấu nhỏ (っ、ゃ、ょ), cấm ngắt sau dấu mở ngoặc, v.v.
 
-3. **`line-height: 2`** — Khoảng cách dòng đủ rộng để dòng có `<ruby>/<rt>` không bị cao hơn dòng thường. Với `line-height: 1.6` (cũ), dòng có furigana sẽ đẩy dòng tiếp theo xuống → layout không đều.
+3. **`overflow-wrap: break-word`** — Fallback: chỉ cho phép ngắt khi 1 từ dài hơn container.
 
-4. **`ruby rt { font-size: 0.55em }`** — Furigana nhỏ hơn, ít ảnh hưởng chiều cao dòng.
+4. **`line-height: 2`** — Khoảng cách dòng đủ rộng để dòng có `<ruby>/<rt>` không bị cao hơn dòng thường.
 
-5. **`ruby { ruby-position: over; vertical-align: baseline; }`** — **FIX LỖI TỪ CÓ FURIGANA BỊ THẤP XUỐNG.** Mặc định trình duyệt có thể đẩy text gốc xuống dưới baseline để nhường chỗ cho ruby ở trên. 2 thuộc tính này đảm bảo: furigana nằm phía trên, text gốc giữ nguyên baseline với text xung quanh.
+5. **`ruby { ruby-position: over; vertical-align: baseline; }`** — Fix lỗi từ có furigana bị thấp xuống so với baseline.
 
-6. **`ruby rt { line-height: 1; vertical-align: top; }`** — rt không chiếm thêm chiều cao, không ảnh hưởng layout dòng.
+6. **`ruby rt { font-size: 0.55em; line-height: 1; }`** — Furigana nhỏ, không chiếm thêm chiều cao.
 
-### Kiểm tra ngắt dòng & furigana khi review
+### Kiểm tra layout khi review screenshot
 
 Khi review screenshot, kiểm tra:
-- ❌ Từ bị tách giữa 2 dòng (ví dụ: "いたしま" ở cuối dòng, "す" ở đầu dòng tiếp theo)
-- ❌ Dòng có furigana cao hơn dòng không có furigana
-- ❌ Từ có furigana bị **thấp xuống** so với text cùng dòng (baseline lệch)
-- ✅ Tất cả dòng cùng chiều cao, từ không bị cắt giữa
-- ✅ Từ có furigana nằm cùng baseline với text xung quanh
-
-Nếu phát hiện vấn đề, điều chỉnh nội dung (rút ngắn/kéo dài câu) thay vì thêm `<br>` cưỡng ép.
+- ❌ Mỗi câu nằm trên 1 dòng riêng (dấu hiệu: tất cả dòng ngắn, mép phải ragged không đều)
+- ❌ `<br>` được dùng bên trong paragraph
+- ❌ Từ bị tách giữa 2 dòng
+- ❌ Dòng có furigana cao hơn hoặc thấp hơn dòng thường
+- ✅ Text chảy liên tục, tự wrap khi đến mép container — dòng dài đầy đủ chiều rộng
+- ✅ Chỉ ngắt dòng khi chuyển section/heading/list
+- ✅ Tất cả dòng cùng chiều cao, baseline đều
 
 ## Clean HTML Extraction
 
