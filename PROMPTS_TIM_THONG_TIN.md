@@ -7,21 +7,52 @@ Bộ sưu tập prompts để gen dữ liệu training đa dạng. Copy-paste v�
 
 ---
 
-## Quy tắc nhắc nhở (phải có trong MỌI prompt)
+## Tổng quan độ khó theo level
 
-Mỗi prompt gen dữ liệu **PHẢI** bao gồm các nhắc nhở sau (copy block này vào cuối prompt):
+Hiểu rõ sự khác biệt giữa các level là điều **quan trọng nhất** khi gen dữ liệu. Bài gen phải phản ánh đúng độ khó — không được quá dễ hoặc quá khó so với level.
+
+### Nội dung & Ngữ pháp
+
+| Level | Chủ đề | Văn phong | Cấu trúc câu |
+|-------|--------|-----------|--------------|
+| N5 | Đời sống cực kỳ đơn giản: mua sắm, giờ mở cửa, giá cả | Thân mật, hiragana nhiều | Câu ngắn, ～です/～ます, ～てください |
+| N4 | Đời sống hàng ngày: sự kiện, lớp học, quy tắc cơ bản | Lịch sự đơn giản | ～ことができます, ～なければなりません, ～てもいいです |
+| N3 | Xã hội: dịch vụ, tuyển dụng, du lịch, so sánh | Nửa formal nửa conversational | ～について, ～による, ～場合は, ～ために |
+| N2 | Chuyên sâu: so sánh phức tạp, hướng dẫn chi tiết, quy trình | Formal, văn viết | ～に伴い, ～に基づき, ～を踏まえて, ～に限り |
+| N1 | Chuyên môn: y tế, pháp luật, tài chính, hợp đồng | Rất formal, keigo cao cấp | ～いかんによらず, ～をもって, ～に先立ち, 敬語 phức tạp |
+
+### Độ phức tạp thông tin
+
+| Level | Số điều kiện để trả lời 1 câu hỏi | Cấu trúc bài đọc |
+|-------|-------------------------------------|-------------------|
+| N5 | 1 điều kiện (tìm giá, tìm ngày) | 1 bảng đơn giản hoặc 1 danh sách |
+| N4 | 1-2 điều kiện (ai + khi nào) | Bảng + 1-2 đoạn mô tả ngắn |
+| N3 | 2 điều kiện (ai + điều kiện gì + ở đâu) | Nhiều section, bảng phức tạp hơn |
+| N2 | 2-3 điều kiện (cross-reference bảng + văn xuôi) | Multi-section, flowchart, bảng so sánh |
+| N1 | 3+ điều kiện (cross-reference nhiều bảng/đoạn) | Dense data, footnotes, điều khoản ngoại lệ |
+
+### Câu hỏi & Đáp án
+
+| Level | Số câu hỏi | Kiểu câu hỏi | Đáp án sai (distractor) |
+|-------|-----------|---------------|------------------------|
+| N5 | 1 | "Bao nhiêu tiền?", "Mấy giờ?", "Ở đâu?" | Sai rõ ràng nhưng liên quan bài đọc |
+| N4 | 2 | "Ai có thể tham gia?", "Câu nào đúng?" | Đúng 1 phần nhưng sai chi tiết |
+| N3 | 2 | "Phải mang gì?", "Điền form thế nào?" | Đúng 1 điều kiện, sai điều kiện khác |
+| N2 | 2 | "Ai đủ tiêu chuẩn?", "Quy trình đăng ký?" | Lẫn thông tin giữa các section |
+| N1 | 2 | "Ai đáp ứng TẤT CẢ điều kiện?", "Thủ tục nào đúng trình tự?" | Đúng gần hết, sai đúng 1 điều kiện khó nhận ra |
+
+---
+
+## Nhắc nhở bắt buộc (copy vào cuối MỌI prompt)
 
 ```
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -31,131 +62,134 @@ Nhắc nhở bắt buộc:
 ### N5 — 5 mẫu đa dạng
 
 ```
-Giúp tôi tạo dữ liệu level N5 có tổng cộng 5 mẫu đa dạng trong một file mới trong folder sheets/
+Gen 5 bài tìm thông tin level N5, mỗi bài format khác nhau. Lưu CSV mới trong sheets/
 
-Yêu cầu:
-- 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
-- Chọn từ: store_flyer, event_announcement, regulation_notice, schedule_timetable, travel_listing, access_guide
-- Chars: 250-290 (Hard reject < 250)
-- Furigana: 0-1 từ vượt N5, ưu tiên viết hiragana thay vì furigana. KHÔNG dùng dạng Ab
-- 1 câu hỏi/bài
-- Text flow liên tục, KHÔNG <br> trong paragraph
-- Layout A4
+Format chọn từ: store_flyer, event_announcement, regulation_notice, schedule_timetable, travel_listing, access_guide
+
+Yêu cầu nội dung N5:
+- Chars: 250-290 (< 250 → gen lại)
+- Chủ đề cực đơn giản: tờ rơi siêu thị, giờ mở cửa, bảng giá, lịch xe bus
+- Viết gần như toàn hiragana + kanji N5 cơ bản (日, 月, 人, 円, 時...)
+- Câu ngắn: ～です, ～ます, ～てください. KHÔNG dùng ngữ pháp N4+
+- Furigana: 0-1 từ, ưu tiên viết hiragana thay kanji. KHÔNG dùng dạng Ab
+- 1 câu hỏi/bài: hỏi thông tin cụ thể đơn giản (giá bao nhiêu? mấy giờ? ở đâu?)
+- Đáp án sai: liên quan bài đọc nhưng sai thông tin (sai giá, sai ngày, sai địa điểm)
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N4 — 5 mẫu đa dạng
 
 ```
-Giúp tôi tạo dữ liệu level N4 có tổng cộng 5 mẫu đa dạng trong một file mới trong folder sheets/
+Gen 5 bài tìm thông tin level N4, mỗi bài format khác nhau. Lưu CSV mới trong sheets/
 
-Yêu cầu:
-- 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
-- Chọn từ: event_announcement, class_enrollment, regulation_notice, menu_guide, price_comparison_table, service_guide
-- Chars: 400-500 (Hard reject < 400)
-- Furigana: 0-2 từ vượt N4, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
-- 2 câu hỏi/bài
-- Text flow liên tục, KHÔNG <br> trong paragraph
-- Layout A4
+Format chọn từ: event_announcement, class_enrollment, regulation_notice, menu_guide, price_comparison_table, service_guide
+
+Yêu cầu nội dung N4:
+- Chars: 400-500 (< 400 → gen lại)
+- Chủ đề đời sống: sự kiện khu phố, đăng ký lớp học, quy tắc rác, thực đơn nhà hàng
+- Kanji N5+N4, câu lịch sự cơ bản: ～ことができます, ～なければなりません
+- Bảng đơn giản + 1-2 đoạn mô tả ngắn
+- Furigana: 0-2 từ vượt N4. KHÔNG dùng dạng Ab
+- 2 câu hỏi/bài:
+  - Q1: ai có thể tham gia? (check 1-2 điều kiện)
+  - Q2: câu nào đúng? (fact-check đơn giản)
+- Đáp án sai: đúng 1 phần nhưng sai ở 1 chi tiết cụ thể
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N3 — 5 mẫu đa dạng
 
 ```
-Giúp tôi tạo dữ liệu level N3 có tổng cộng 5 mẫu đa dạng trong một file mới trong folder sheets/
+Gen 5 bài tìm thông tin level N3, mỗi bài format khác nhau. Lưu CSV mới trong sheets/
 
-Yêu cầu:
-- 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
-- Chọn từ: class_enrollment, service_guide, event_announcement, facility_guide, travel_listing, price_comparison_table, recruitment_notice, menu_guide
-- Chars: 600-750 (Hard reject < 600)
-- Furigana: 0-3 từ vượt N3, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
-- 2 câu hỏi/bài
-- Text flow liên tục, KHÔNG <br> trong paragraph
-- Layout A4
+Format chọn từ: class_enrollment, service_guide, event_announcement, facility_guide, travel_listing, price_comparison_table, recruitment_notice, menu_guide
+
+Yêu cầu nội dung N3:
+- Chars: 600-750 (< 600 → gen lại)
+- Chủ đề xã hội: khóa học, dịch vụ công, hướng dẫn cơ sở, so sánh giá, tuyển dụng
+- Kanji N5-N3, nửa formal nửa conversational: ～について, ～による, ～場合は
+- Nhiều section, bảng có nhiều cột, điều kiện kèm ghi chú
+- Furigana: 0-3 từ vượt N3. KHÔNG dùng dạng Ab
+- 2 câu hỏi/bài:
+  - Q1: cần mang/chuẩn bị gì? (cross-reference 2 điều kiện)
+  - Q2: điền form/đăng ký thế nào? (áp dụng quy tắc)
+- Đáp án sai: đúng 1 điều kiện, sai điều kiện khác
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N2 — 5 mẫu đa dạng
 
 ```
-Giúp tôi tạo dữ liệu level N2 có tổng cộng 5 mẫu đa dạng trong một file mới trong folder sheets/
+Gen 5 bài tìm thông tin level N2, mỗi bài format khác nhau. Lưu CSV mới trong sheets/
 
-Yêu cầu:
-- 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
-- Chọn từ: facility_guide, service_guide, comparison_article, event_announcement, class_enrollment, schedule_timetable, menu_guide
-- Chars: 700-770 (Hard reject < 700)
-- Furigana: 0-2 từ N1, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
-- 2 câu hỏi/bài
-- Text flow liên tục, KHÔNG <br> trong paragraph
-- Layout A4
+Format chọn từ: facility_guide, service_guide, comparison_article, event_announcement, class_enrollment, schedule_timetable, menu_guide
+
+Yêu cầu nội dung N2:
+- Chars: 700-770 (< 700 → gen lại)
+- Chủ đề chuyên sâu: so sánh dịch vụ chi tiết, hướng dẫn bảo hiểm, lịch hội thảo
+- Kanji N5-N2, formal văn viết: ～に伴い, ～に基づき, ～を踏まえて, ～に限り
+- Multi-section, bảng so sánh phức tạp, flowchart, nhiều điều kiện phụ
+- Furigana: 0-2 từ N1. KHÔNG dùng dạng Ab
+- 2 câu hỏi/bài:
+  - Q1: ai đủ tiêu chuẩn? (cross-reference 2-3 điều kiện từ bảng + văn xuôi)
+  - Q2: quy trình đăng ký/thủ tục thế nào? (tổng hợp nhiều bước)
+- Đáp án sai: lẫn thông tin giữa các section, đúng ở section A nhưng sai ở section B
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ### N1 — 5 mẫu đa dạng
 
 ```
-Giúp tôi tạo dữ liệu level N1 có tổng cộng 5 mẫu đa dạng trong một file mới trong folder sheets/
+Gen 5 bài tìm thông tin level N1, mỗi bài format khác nhau. Lưu CSV mới trong sheets/
 
-Yêu cầu:
-- 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
-- Chọn từ: price_comparison_table, service_guide, facility_guide, schedule_timetable, medicine_info, recruitment_notice, member_notification, event_announcement
-- Chars: 700-800 (Hard reject < 700)
-- Furigana: gần như không có (0-1 từ cực hiếm). KHÔNG dùng dạng Ab
-- 2 câu hỏi/bài
-- Text flow liên tục, KHÔNG <br> trong paragraph
-- Layout A4
+Format chọn từ: price_comparison_table, service_guide, facility_guide, schedule_timetable, medicine_info, recruitment_notice, member_notification, event_announcement
+
+Yêu cầu nội dung N1:
+- Chars: 700-800 (< 700 → gen lại)
+- Chủ đề chuyên môn: hướng dẫn thuốc, hợp đồng dịch vụ, quy chế tuyển dụng, thông báo hội viên
+- Kanji N5-N1 đầy đủ, very formal + keigo: ～いかんによらず, ～をもって, ～に先立ち
+- Dense data: bảng nhiều cột + footnote, điều khoản ngoại lệ, cross-reference phức tạp
+- Furigana: gần như 0 (0-1 từ cực hiếm). KHÔNG dùng dạng Ab
+- 2 câu hỏi/bài:
+  - Q1: ai đáp ứng TẤT CẢ điều kiện? (cross-reference 3+ điều kiện, bảng + chú thích)
+  - Q2: thủ tục nào đúng trình tự? (tổng hợp nhiều quy tắc + ngoại lệ)
+- Đáp án sai: đúng gần hết, chỉ sai đúng 1 điều kiện khó nhận ra — test khả năng đọc kỹ
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -168,21 +202,24 @@ Nhắc nhở bắt buộc:
 Gen 10 bài tìm thông tin, 2 bài mỗi level N1-N5, lưu CSV mới trong sheets/
 
 Yêu cầu:
-- Mỗi level chọn 2 format khác nhau
+- Mỗi level chọn 2 format khác nhau, phù hợp level
 - Tổng 10 bài → tối thiểu 10 format khác nhau
-- Đọc mẫu tham khảo trong input/html/ + input/htm_content_qa/ trước
 - Chủ đề đa dạng, không trùng nhau
+- QUAN TRỌNG: mỗi bài phải phản ánh đúng độ khó level
+  - N5: hiragana nhiều, câu ngắn ～です/～ます, 1 câu hỏi đơn giản
+  - N4: câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
+  - N3: nửa formal, 2 câu hỏi cross-reference 2 điều kiện
+  - N2: formal văn viết, 2 câu hỏi cross-reference 2-3 điều kiện
+  - N1: keigo + formal, 2 câu hỏi cross-reference 3+ điều kiện + ngoại lệ
+- Đáp án sai phải hợp lý theo level: N5 sai rõ hơn, N1 sai tinh vi
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ### 15 bài (3 per level) — Dùng hết 15 format
@@ -191,20 +228,23 @@ Nhắc nhở bắt buộc:
 Gen 15 bài tìm thông tin, 3 bài mỗi level N1-N5, lưu CSV mới trong sheets/
 
 Yêu cầu:
-- Tổng 15 bài → dùng hết 15 format trong Format Catalog, mỗi format đúng 1 lần
-- Phân bổ format theo level cho phù hợp (ví dụ store_flyer → N5, medicine_info → N1)
-- Chia nhỏ: gen 5 bài/lượt, kiểm tra chars + layout + furigana rồi gen tiếp
+- Dùng hết 15 format trong Format Catalog, mỗi format đúng 1 lần
+- Phân bổ format theo level phù hợp:
+  - N5: store_flyer, access_guide, schedule_timetable (đơn giản, ít text)
+  - N4: regulation_notice, event_announcement, menu_guide (bảng cơ bản)
+  - N3: class_enrollment, travel_listing, recruitment_notice (nhiều section)
+  - N2: comparison_article, facility_guide, service_guide (phức tạp, multi-section)
+  - N1: medicine_info, price_comparison_table, member_notification (dense, formal)
+- Chia nhỏ: gen 5 bài/lượt, kiểm tra chars + layout rồi gen tiếp
+- Mỗi bài phải phản ánh đúng độ khó: từ vựng, ngữ pháp, kiểu câu hỏi, distractor
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
+- Nội dung phải ĐÚNG level: từ vựng, ngữ pháp, độ phức tạp thông tin, kiểu câu hỏi
+- Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
+- Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
+- Format phù hợp level (store_flyer → N5, medicine_info → N1)
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
@@ -216,20 +256,21 @@ Nhắc nhở bắt buộc:
 ```
 Gen 1 bài tìm thông tin level N2, format: comparison_article
 
-Chủ đề: so sánh 3 phòng gym (giá, giờ mở, tiện ích)
+Chủ đề: so sánh 3 phòng gym (giá, giờ mở cửa, tiện ích, điều kiện hội viên)
 - Đọc mẫu n2_1.html hoặc n2_10.html trước
-- Dạng văn xuôi A/B/C, mỗi section mô tả 1 phòng gym
-- Chars: 700-770 (Hard reject < 700)
-- 2 câu hỏi: Q1 hỏi điều kiện, Q2 hỏi giá/thời gian
+- Dạng văn xuôi A/B/C, mỗi section mô tả chi tiết 1 phòng gym
+- Dùng từ vựng N2: ～に伴い, ～に基づき, ～に限り
+- Chars: 700-770 (< 700 → gen lại)
+- 2 câu hỏi:
+  - Q1: "Tanaka muốn tập buổi tối + có bể bơi + dưới 8000円/tháng → phòng gym nào?" (cross-reference 3 điều kiện)
+  - Q2: "Câu nào đúng về thủ tục đăng ký hội viên?" (tổng hợp từ nhiều section)
+- Đáp án sai: đúng 2/3 điều kiện, sai 1 (ví dụ: đúng giá + bể bơi, nhưng không mở buổi tối)
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- HTML phải giống tờ A4: container width=794px, min-height=1123px
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph
-- KHÔNG tách giữa từ khi xuống dòng
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
-- Sau khi gen: count chars → capture screenshot → review layout
+- Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
+- Nội dung phải ĐÚNG level N2: từ vựng, ngữ pháp formal, câu hỏi cross-reference 2-3 điều kiện
+- Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ### Chỉ định format hiếm
@@ -237,121 +278,114 @@ Nhắc nhở bắt buộc:
 ```
 Gen 1 bài tìm thông tin level N1, format: medicine_info
 
-Chủ đề: phiếu hướng dẫn thuốc từ phòng khám
+Chủ đề: phiếu hướng dẫn thuốc từ phòng khám nội khoa
 - Đọc mẫu n1_1.html trước
-- Bảng: tên thuốc, tác dụng, liều dùng, lưu ý. Dùng table-layout:fixed
-- Gần như không furigana
-- Chars: 700-800 (Hard reject < 700)
-- 2 câu hỏi phức tạp: cross-reference nhiều điều kiện
+- Bảng dense: tên thuốc, thành phần, tác dụng, liều dùng, chống chỉ định, lưu ý
+- Dùng table-layout:fixed, có footnote chú thích + điều khoản ngoại lệ
+- Từ vựng N1 formal: 服用, 禁忌, 併用, 副作用 (KHÔNG cần furigana — N1 phải biết)
+- Chars: 700-800 (< 700 → gen lại)
+- 2 câu hỏi phức tạp:
+  - Q1: "Bệnh nhân A (60 tuổi, dị ứng X, đang uống thuốc Y) nên dùng thuốc nào?" (cross-reference 3+ điều kiện: tuổi + dị ứng + tương tác thuốc)
+  - Q2: "Khi nào phải ngừng thuốc Z và liên hệ bác sĩ?" (tổng hợp nhiều lưu ý + ngoại lệ)
+- Đáp án sai: đúng gần hết điều kiện, sai 1 chi tiết khó nhận ra (ví dụ: thuốc đúng nhưng chống chỉ định với dị ứng X)
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- HTML phải giống tờ A4: container width=794px, min-height=1123px
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph
-- KHÔNG tách giữa từ khi xuống dòng
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
-- Sau khi gen: count chars → capture screenshot → review layout
+- Đọc SKILL.md + mẫu n1_1.html trước khi gen
+- Nội dung phải ĐÚNG level N1: keigo, từ chuyên ngành, câu hỏi cross-reference 3+ điều kiện
+- Số ký tự PHẢI đạt minimum, đáp án sai phải tinh vi
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
 
 ## 4. Gen theo chủ đề cụ thể
 
-### Chủ đề đời sống hàng ngày
+### Chủ đề đời sống hàng ngày (N4)
 
 ```
 Gen 3 bài tìm thông tin N4 về chủ đề đời sống hàng ngày, mỗi bài format khác nhau:
-1. menu_guide — thực đơn nhà hàng cơm gà
-2. regulation_notice — quy tắc phân loại rác khu chung cư
-3. event_announcement — lễ hội mùa hè khu phố
+1. menu_guide — thực đơn nhà hàng cơm gà (bảng giá + set meal + điều kiện giảm giá)
+2. regulation_notice — quy tắc phân loại rác khu chung cư (bảng loại rác + ngày thu gom)
+3. event_announcement — lễ hội mùa hè khu phố (lịch trình + đăng ký + điều kiện tham gia)
+
+Mỗi bài: 400-500 chars, 2 câu hỏi N4 (check 1-2 điều kiện đơn giản)
+- Q kiểu: "Ai có thể tham gia?", "Câu nào đúng?", "Phải làm gì trước ngày X?"
+- Đáp án sai: đúng 1 phần nhưng sai 1 chi tiết (sai ngày, sai đối tượng)
+- Từ vựng N4: ～ことができます, ～までに, ～なければなりません
 
 Lưu CSV mới trong sheets/
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
+- Nội dung phải ĐÚNG level N4: từ vựng, ngữ pháp, câu hỏi 1-2 điều kiện
+- Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
-### Chủ đề giáo dục
+### Chủ đề giáo dục (N3)
 
 ```
 Gen 3 bài tìm thông tin N3 về chủ đề giáo dục, mỗi bài format khác nhau:
-1. class_enrollment — đăng ký lớp tiếng Nhật buổi tối
-2. facility_guide — hướng dẫn sử dụng thư viện đại học
-3. price_comparison_table — so sánh học phí 3 trường dạy nghề
+1. class_enrollment — đăng ký lớp tiếng Nhật buổi tối (điều kiện, lịch học, học phí, ưu đãi)
+2. facility_guide — hướng dẫn sử dụng thư viện đại học (giờ mở cửa theo mùa, thẻ mượn, quy tắc)
+3. price_comparison_table — so sánh học phí 3 trường dạy nghề (bảng: khóa học × trường × giá)
+
+Mỗi bài: 600-750 chars, 2 câu hỏi N3 (cross-reference 2 điều kiện)
+- Q kiểu: "Cần chuẩn bị gì?", "Điền form thế nào?", "Khóa nào phù hợp với người X?"
+- Đáp án sai: đúng 1 điều kiện, sai điều kiện khác
+- Từ vựng N3: ～について, ～場合は, ～ために, ～ことになっている
 
 Lưu CSV mới trong sheets/
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
+- Nội dung phải ĐÚNG level N3: từ vựng, ngữ pháp, câu hỏi cross-reference 2 điều kiện
+- Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
-### Chủ đề công việc
+### Chủ đề công việc (N2)
 
 ```
 Gen 3 bài tìm thông tin N2 về chủ đề công việc, mỗi bài format khác nhau:
-1. recruitment_notice — tuyển nhân viên part-time cửa hàng
-2. schedule_timetable — lịch hội thảo hướng nghiệp
-3. service_guide — hướng dẫn đăng ký bảo hiểm lao động
+1. recruitment_notice — tuyển nhân viên part-time cửa hàng (điều kiện, ca làm, phúc lợi, thủ tục)
+2. schedule_timetable — lịch hội thảo hướng nghiệp (nhiều phòng, nhiều time slot, đăng ký trước)
+3. service_guide — hướng dẫn đăng ký bảo hiểm lao động (flowchart quy trình, giấy tờ cần thiết)
+
+Mỗi bài: 700-770 chars, 2 câu hỏi N2 (cross-reference 2-3 điều kiện)
+- Q kiểu: "Ai đủ tiêu chuẩn ứng tuyển?", "Quy trình đăng ký gồm những bước nào?"
+- Đáp án sai: lẫn thông tin giữa các section (đúng ở phần A, sai ở phần B)
+- Từ vựng N2 formal: ～に伴い, ～に基づき, ～に限り, ～を踏まえて
 
 Lưu CSV mới trong sheets/
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
-- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
-- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
-- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
-- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+- Đọc SKILL.md + 1-2 mẫu tham khảo trước khi gen
+- Nội dung phải ĐÚNG level N2: từ vựng formal, câu hỏi cross-reference 2-3 điều kiện
+- Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
 
 ## 5. Chỉ gen câu hỏi (cho bài đã có)
 
-### Gen câu hỏi cho 1 file CSV
+### Gen câu hỏi theo level
 
 ```
-Cho các bài tìm thông tin đã có trong sheets/n5_samples_v2.csv, gen câu hỏi cho mỗi bài.
+Cho các bài tìm thông tin đã có trong sheets/{file}.csv, gen câu hỏi cho mỗi bài.
 
 - Đọc HTML mỗi bài trong assets/html/tim_thong_tin/ trước
-- N5: 1 câu hỏi/bài, đơn giản, tìm thông tin cụ thể
-- 4 đáp án (1 đúng, 3 sai nhưng hợp lý — sai ở chi tiết, không sai hiển nhiên)
-- Giải thích VN + EN
+- Câu hỏi phải ĐÚNG level:
+  - N5: 1 câu, hỏi thông tin cụ thể (giá, giờ, nơi), đáp án sai rõ ràng
+  - N4: 2 câu, check 1-2 điều kiện, đáp án sai 1 chi tiết
+  - N3: 2 câu, cross-reference 2 điều kiện, đáp án sai 1 điều kiện
+  - N2: 2 câu, cross-reference 2-3 điều kiện, đáp án lẫn thông tin giữa section
+  - N1: 2 câu, cross-reference 3+ điều kiện + ngoại lệ, đáp án sai tinh vi
+- 4 đáp án/câu (1 đúng, 3 sai hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên)
+- Kiểm tra kỹ: CHỈ CÓ 1 đáp án đúng, không có 2 đáp án cùng đúng
+- Giải thích VN + EN cho mỗi câu
 - Cập nhật CSV
-```
-
-### Gen câu hỏi cho level cao (N1-N2)
-
-```
-Cho các bài N1 đã có trong sheets/n1_samples.csv, gen câu hỏi.
-
-- Đọc HTML mỗi bài trước
-- 2 câu hỏi/bài:
-  - Q1: cross-reference nhiều điều kiện (ai đủ tiêu chuẩn? cần làm gì?)
-  - Q2: quy trình/thủ tục (phải nộp gì? theo thứ tự nào?)
-- Đáp án sai phải hợp lý (đúng 1 điều kiện, sai điều kiện khác)
-- Furigana trong câu hỏi: cùng quy tắc với bài đọc
-- Kiểm tra kỹ: đảm bảo CHỈ CÓ 1 đáp án đúng, không có 2 đáp án cùng đúng
 ```
 
 ---
@@ -363,31 +397,32 @@ Cho các bài N1 đã có trong sheets/n1_samples.csv, gen câu hỏi.
 ```
 Kiểm tra tất cả bài tìm thông tin trong assets/html/tim_thong_tin/:
 
-1. Chars — đếm bằng count_body_chars(), báo bài nào ngoài Target Range hoặc dưới Hard Reject
-2. Layout A4 — screenshot có giống tờ A4 không? Nội dung tràn ra ngoài container?
-3. Flow text — có dùng <br> trong paragraph không? Mỗi câu có nằm trên 1 dòng riêng không?
-4. Ngắt từ — có từ nào bị tách giữa 2 dòng không? (kiểm tra trong screenshot)
-5. Furigana — có dạng "Ab" không? Có từ đúng level bị gắn furigana không? Có quá 3 ruby tags không?
-6. Furigana tags — có dùng <ruby>+<rt> đúng cách không? (không dùng ngoặc, không thiếu <rt>)
-7. Format diversity — có bài nào trùng format trong cùng batch?
-8. Baseline — từ có furigana có bị thấp xuống so với text xung quanh không?
+1. Chars — đếm bằng count_body_chars(), báo bài nào dưới minimum
+2. Nội dung vs Level — từ vựng/ngữ pháp có đúng level? (N5 dùng ～です/～ます, N1 dùng keigo)
+3. Câu hỏi vs Level — độ khó câu hỏi đúng chưa? (N5: 1 điều kiện, N1: 3+ điều kiện + ngoại lệ)
+4. Đáp án — chỉ 1 đáp án đúng? Đáp án sai hợp lý? (không sai hiển nhiên, sai ở chi tiết)
+5. Format vs Level — format có phù hợp level? (store_flyer cho N5, medicine_info cho N1)
+6. Layout A4 — screenshot giống tờ A4? Nội dung tràn ra ngoài container?
+7. Flow text — có dùng <br> trong paragraph? Mỗi câu có nằm trên 1 dòng riêng?
+8. Che khuất — có chữ nào bị che bởi icon/label/hình vẽ?
+9. Ngắt từ — có từ nào bị tách giữa 2 dòng?
+10. Furigana — dạng Ab? từ đúng level bị gắn furigana? <ruby> thiếu <rt>?
 
 Nếu lỗi, sửa lại HTML → chụp lại screenshot → cập nhật CSV.
 ```
 
-### Kiểm tra furigana chuyên sâu
+### Kiểm tra đáp án chuyên sâu
 
 ```
-Kiểm tra furigana cho tất cả bài N4 trong assets/html/tim_thong_tin/n4_*.html:
+Kiểm tra chất lượng câu hỏi & đáp án cho tất cả bài trong sheets/{file}.csv:
 
-1. Liệt kê tất cả <ruby> tags trong mỗi file
-2. Với mỗi ruby tag, xác nhận từ đó THẬT SỰ vượt N4 (thuộc N3/N2/N1)
-3. Kiểm tra có dạng "Ab" nào không (nửa kanji nửa hiragana)
-4. Kiểm tra có <ruby> thiếu <rt> không (vô nghĩa nếu thiếu)
-5. Đếm tổng ruby tags — phải ≤ 4
-6. Nếu quá nhiều furigana: đề xuất thay bằng từ đơn giản hơn
-
-Báo cáo kết quả và sửa nếu cần.
+1. Với mỗi câu hỏi: đọc lại bài gốc → tìm đáp án → xác nhận CHỈ 1 đáp án đúng
+2. Kiểm tra đáp án sai có đủ hợp lý không (test-taker phải đọc kỹ mới loại được)
+3. Kiểm tra 2 câu hỏi cùng bài test KHÁC khía cạnh (không hỏi cùng 1 thông tin)
+4. Kiểm tra level phù hợp:
+   - N5: câu hỏi 1 bước (tìm X), đáp án sai rõ ràng
+   - N1: câu hỏi multi-step (cross-reference), đáp án sai tinh vi
+5. Báo cáo lỗi và sửa nếu cần
 ```
 
 ---
@@ -401,14 +436,14 @@ Kiểm tra tổng số bài đã gen cho mỗi level, rồi gen thêm cho level 
 
 Mục tiêu: mỗi level có ít nhất 10 bài.
 - Kiểm tra format đã dùng → chọn format chưa dùng trước
+- Đảm bảo nội dung đúng level (từ vựng, ngữ pháp, câu hỏi, distractor)
 - Lưu CSV mới riêng cho mỗi level
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- HTML phải giống tờ A4, text flow liên tục, không tách từ giữa dòng
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
-- Count chars + capture screenshot + review layout sau mỗi bài
+- Đọc SKILL.md + mẫu tham khảo trước khi gen
+- Nội dung phải ĐÚNG level, số ký tự PHẢI đạt minimum
+- Đáp án sai phải hợp lý theo level
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ### Gen bài với visual elements đặc biệt
@@ -416,32 +451,32 @@ Nhắc nhở bắt buộc:
 ```
 Gen 5 bài tìm thông tin (1 per level) với visual elements đặc biệt:
 
-1. N1 — price_comparison_table: bảng phức tạp có rowspan/colspan + chú thích footnote
-2. N2 — facility_guide: flowchart (yes/no decision boxes)
-3. N3 — class_enrollment: 2×2 course grid
+1. N1 — price_comparison_table: bảng có rowspan/colspan + footnote + điều khoản ngoại lệ
+2. N2 — facility_guide: flowchart (yes/no decision boxes) + bảng điều kiện
+3. N3 — class_enrollment: 2×2 course grid + điều kiện đăng ký
 4. N4 — event_announcement: pill labels + 【】section headers
-5. N5 — store_flyer: promo boxes + highlight text
+5. N5 — store_flyer: promo boxes + highlight giá (icon/hình KHÔNG được che chữ)
 
-Đọc references/design-patterns.md để biết visual elements.
-Lưu ý: table dùng table-layout:fixed, flex/grid tổng width ≤ 100%.
+Mỗi bài: nội dung + câu hỏi + đáp án phải ĐÚNG level tương ứng.
+- Table dùng table-layout:fixed, flex/grid tổng width ≤ 100%
+- Đọc references/design-patterns.md để biết visual elements
 
 Nhắc nhở bắt buộc:
-- Đọc SKILL.md trước khi gen
-- HTML phải giống tờ A4: container width=794px, min-height=1123px
-- Text chảy liên tục, KHÔNG <br> trong paragraph, KHÔNG tách từ giữa dòng
-- KHÔNG che khuất chữ: floating label/icon/hình vẽ KHÔNG đè lên text. Nếu không đủ chỗ → bỏ hình, giữ chữ
-- Furigana: dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
-- Count chars + capture screenshot + review layout sau mỗi bài
+- Đọc SKILL.md + mẫu tham khảo trước khi gen
+- Nội dung phải ĐÚNG level, số ký tự PHẢI đạt minimum
+- Đáp án sai phải hợp lý theo level
+- Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
 ---
 
 ## Mẹo sử dụng prompt
 
-1. **Luôn kèm block "Nhắc nhở bắt buộc"** — đây là cách hiệu quả nhất để AI tuân thủ quy tắc
-2. **Nêu rõ level** — mỗi level có constraints khác nhau (chars, furigana, số câu hỏi)
-3. **Nêu rõ "lưu CSV mới trong sheets/"** — tránh ghi đè file cũ
+1. **Luôn nêu rõ level** — mỗi level khác nhau hoàn toàn: từ vựng, ngữ pháp, chars, số câu hỏi, độ khó distractor
+2. **Kiểm tra nội dung đúng level** — đây là lỗi phổ biến nhất: N5 dùng từ N3, N4 hỏi câu kiểu N2
+3. **Đáp án sai quan trọng bằng đáp án đúng** — distractor tốt = test chất lượng. N1 distractor phải tinh vi hơn N5
 4. **Chia nhỏ batch** — gen 5 bài/lượt, kiểm tra rồi gen tiếp. Không gen >5 bài 1 lần
 5. **Nêu format cụ thể** — "format: comparison_article" rõ ràng hơn "dạng so sánh"
 6. **Gen xong = kiểm tra ngay** — chạy prompt kiểm tra (section 6) sau mỗi batch
 7. **Review screenshot** — quan trọng nhất là nhìn screenshot, không chỉ đọc HTML
+8. **Các quy tắc kỹ thuật** (UUID, CSS, Playwright, furigana format...) — đã có đầy đủ trong SKILL.md, không cần nhắc lại trong prompt
