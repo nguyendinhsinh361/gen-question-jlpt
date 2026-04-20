@@ -285,7 +285,7 @@ Mix and match from this catalog (see `references/design-patterns.md` for detaile
 - **Tables**: bordered, gray header row
 - **Pill labels**: `border-radius: 9999px` (とき, ところ, etc.)
 - **【】sections**: bracket headers
-- **Content boxes**: rounded border + floating label (`position: absolute; top: -12px`)
+- **Content boxes**: rounded border + floating label (`position: relative` on box + `position: absolute; top: -12px` on label) — **BẮT BUỘC** box phải có `padding-top` đủ lớn (≥ 20px) để label không che text bên trong, và `margin-top` đủ lớn (≥ 16px) để label không che text bên trên box
 - **Info grid**: CSS grid — label column + value column
 - **Bullet markers**: ◆, ◎, ※, ＊, ☆, ✓
 - **Black banner**: dark bg, white text, slight rotation for emphasis
@@ -445,6 +445,57 @@ Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là y�
 1. Wrap cụm từ quan trọng trong `<span style="display:inline-block">...</span>` để ngăn tách
 2. Hoặc điều chỉnh nội dung (thêm/bớt vài ký tự) để dòng wrap ở vị trí tự nhiên
 
+### Cấm che khuất chữ tiếng Nhật (RẤT QUAN TRỌNG)
+
+> **⚠️ NGHIÊM CẤM: Chữ tiếng Nhật KHÔNG ĐƯỢC bị che bởi bất kỳ element nào ⚠️**
+>
+> Mọi ký tự tiếng Nhật trên trang phải **hiển thị rõ ràng 100%**, không bị đè, che, chồng lấp
+> bởi bất kỳ element trang trí nào (label, badge, box border, step marker, heading background, v.v.).
+>
+> Đây là lỗi nghiêm trọng — bài nào có chữ bị che phải **sửa lại HTML** ngay lập tức.
+
+**Nguyên nhân phổ biến nhất**: Floating label dùng `position: absolute` đè lên text ở dòng trước hoặc text bên trong box.
+
+**Quy tắc bắt buộc khi dùng floating label / badge / step marker:**
+
+1. **Box chứa label phải có `position: relative`** — để label absolute định vị theo box, không theo page
+2. **`margin-top` đủ lớn trên box** (≥ 16px) — tạo khoảng trống phía trên để label không che text dòng trước
+3. **`padding-top` đủ lớn bên trong box** (≥ 24px) — đẩy nội dung bên trong xuống, tránh label che dòng đầu tiên
+4. **Label phải có `background-color`** — để text bên dưới label không "xuyên qua" thấy mờ mờ
+5. **Kiểm tra cả 2 hướng**: label không che text PHÍA TRÊN box VÀ text BÊN TRONG box
+
+**❌ SAI — label che mất dòng text phía trên:**
+```html
+<p>以下の手順および注意事項をご確認の上、お申し込みください。</p>
+<!-- Label STEP 1 đè lên dòng text trên vì box không có margin-top -->
+<div style="position: relative; border: 2px solid #4CAF50; border-radius: 8px; padding: 16px;">
+    <span style="position: absolute; top: -12px; left: 16px; background: #4CAF50; color: white; padding: 2px 12px; font-weight: bold;">STEP 1</span>
+    <h3>オンライン申し込み</h3>
+    ...
+</div>
+```
+
+**✅ ĐÚNG — có margin-top + padding-top đủ lớn:**
+```html
+<p>以下の手順および注意事項をご確認の上、お申し込みください。</p>
+<!-- margin-top: 24px tạo khoảng trống, padding-top: 28px đẩy nội dung xuống -->
+<div style="position: relative; border: 2px solid #4CAF50; border-radius: 8px; padding: 28px 16px 16px 16px; margin-top: 24px;">
+    <span style="position: absolute; top: -12px; left: 16px; background: #4CAF50; color: white; padding: 2px 12px; font-weight: bold; border-radius: 4px;">STEP 1</span>
+    <h3>オンライン申し込み</h3>
+    ...
+</div>
+```
+
+**Checklist chống che khuất:**
+- ✅ Mọi `position: absolute` label đều nằm trong parent có `position: relative`
+- ✅ Box có floating label luôn có `margin-top ≥ 16px`
+- ✅ Box có floating label luôn có `padding-top ≥ 24px`
+- ✅ Label/badge luôn có `background-color` solid (không transparent)
+- ✅ Không có text nào bị che khi zoom 100% trên screenshot
+- ❌ Label đè lên dòng text phía trên
+- ❌ Label che mất chữ đầu tiên bên trong box
+- ❌ Border hoặc background của element này chồng lên text của element khác
+
 ### CSS text bắt buộc (đã tích hợp trong template)
 
 1. **`word-break: keep-all`** — Ngăn trình duyệt ngắt giữa ký tự CJK. Mặc định tiếng Nhật cho phép ngắt giữa bất kỳ 2 ký tự nào — property này chặn hành vi đó.
@@ -462,10 +513,12 @@ Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là y�
 ### Kiểm tra layout khi review screenshot
 
 Khi review screenshot, kiểm tra:
+- ❌ **Chữ bị che khuất** bởi label, badge, step marker, hoặc bất kỳ element trang trí nào
 - ❌ Mỗi câu nằm trên 1 dòng riêng (dấu hiệu: tất cả dòng ngắn, mép phải ragged không đều)
 - ❌ `<br>` được dùng bên trong paragraph
 - ❌ Từ bị tách giữa 2 dòng
 - ❌ Dòng có furigana cao hơn hoặc thấp hơn dòng thường
+- ✅ **Mọi chữ tiếng Nhật đều đọc được rõ ràng**, không bị đè/che bởi element nào
 - ✅ Text chảy liên tục, tự wrap khi đến mép container — dòng dài đầy đủ chiều rộng
 - ✅ Chỉ ngắt dòng khi chuyển section/heading/list
 - ✅ Tất cả dòng cùng chiều cao, baseline đều
