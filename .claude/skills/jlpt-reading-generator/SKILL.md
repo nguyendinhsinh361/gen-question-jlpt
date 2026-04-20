@@ -93,11 +93,11 @@ Dựa trên feedback biên tập viên (bài gen thường ít ký tự hơn ti�
 
 | Level | Target Range | Hard Reject (< 10% Min) |
 |-------|-------------|------------------------|
-| N1    | **650–800** | < 585 → gen lại |
-| N2    | **620–770** | < 558 → gen lại |
-| N3    | **550–750** | < 495 → gen lại |
+| N1    | **700–800** | < 630 → gen lại |
+| N2    | **700–770** | < 630 → gen lại |
+| N3    | **600–750** | < 540 → gen lại |
 | N4    | **400–500** | < 360 → gen lại |
-| N5    | **220–290** | < 180 → gen lại |
+| N5    | **250–290** | < 225 → gen lại |
 
 After generating, always verify with `count_body_chars()`. Nếu dưới Target Range, bổ sung nội dung (thêm điều kiện, ghi chú, lưu ý chi tiết) thay vì chấp nhận bài ngắn.
 
