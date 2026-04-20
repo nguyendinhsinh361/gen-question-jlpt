@@ -194,24 +194,33 @@ Nhắc nhở bắt buộc:
 
 ---
 
-## 2. Gen batch lớn — Đa level
+## 2. Gen batch lớn — Chỉ định số lượng per level
 
-### 10 bài (2 per level)
+> **Cách dùng**: Thay số lượng `{N}` cho từng level. Chủ đề và format sẽ được chọn ngẫu nhiên,
+> đa dạng, không trùng lặp trong cùng batch.
+
+### Template chung
 
 ```
-Gen 10 bài tìm thông tin, 2 bài mỗi level N1-N5, lưu CSV mới trong sheets/
+Gen batch bài tìm thông tin theo số lượng sau, lưu CSV mới trong sheets/
+
+- N1: {số} bài
+- N2: {số} bài
+- N3: {số} bài
+- N4: {số} bài
+- N5: {số} bài
 
 Yêu cầu:
-- Mỗi level chọn 2 format khác nhau, phù hợp level
-- Tổng 10 bài → tối thiểu 10 format khác nhau
-- Chủ đề đa dạng, không trùng nhau
-- QUAN TRỌNG: mỗi bài phải phản ánh đúng độ khó level
-  - N5: hiragana nhiều, câu ngắn ～です/～ます, 1 câu hỏi đơn giản
-  - N4: câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
-  - N3: nửa formal, 2 câu hỏi cross-reference 2 điều kiện
-  - N2: formal văn viết, 2 câu hỏi cross-reference 2-3 điều kiện
-  - N1: keigo + formal, 2 câu hỏi cross-reference 3+ điều kiện + ngoại lệ
-- Đáp án sai phải hợp lý theo level: N5 sai rõ hơn, N1 sai tinh vi
+- Chủ đề: chọn NGẪU NHIÊN, đa dạng, KHÔNG trùng chủ đề trong cùng batch
+- Format: chọn ngẫu nhiên từ Format Catalog phù hợp level, KHÔNG trùng format liên tiếp
+- Mỗi bài phải phản ánh ĐÚNG độ khó level:
+  - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tìm thông tin đơn giản
+  - N4 (400-500 chars): câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
+  - N3 (600-750 chars): nửa formal, 2 câu hỏi cross-reference 2 điều kiện
+  - N2 (700-770 chars): formal văn viết, 2 câu hỏi cross-reference 2-3 điều kiện
+  - N1 (700-800 chars): keigo, 2 câu hỏi cross-reference 3+ điều kiện + ngoại lệ
+- Đáp án sai phải hợp lý THEO LEVEL: N5 sai rõ hơn, N1 sai tinh vi
+- Chia nhỏ: gen tối đa 5 bài/lượt, kiểm tra chars + layout rồi gen tiếp
 
 Nhắc nhở bắt buộc:
 - Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
@@ -222,21 +231,28 @@ Nhắc nhở bắt buộc:
 - Layout A4, flow text, không tách từ, không che khuất chữ (xem SKILL.md)
 ```
 
-### 15 bài (3 per level) — Dùng hết 15 format
+### Ví dụ sử dụng
 
 ```
-Gen 15 bài tìm thông tin, 3 bài mỗi level N1-N5, lưu CSV mới trong sheets/
+Gen batch bài tìm thông tin theo số lượng sau, lưu CSV mới trong sheets/
+
+- N1: 3 bài
+- N2: 5 bài
+- N3: 5 bài
+- N4: 4 bài
+- N5: 3 bài
 
 Yêu cầu:
-- Dùng hết 15 format trong Format Catalog, mỗi format đúng 1 lần
-- Phân bổ format theo level phù hợp:
-  - N5: store_flyer, access_guide, schedule_timetable (đơn giản, ít text)
-  - N4: regulation_notice, event_announcement, menu_guide (bảng cơ bản)
-  - N3: class_enrollment, travel_listing, recruitment_notice (nhiều section)
-  - N2: comparison_article, facility_guide, service_guide (phức tạp, multi-section)
-  - N1: medicine_info, price_comparison_table, member_notification (dense, formal)
-- Chia nhỏ: gen 5 bài/lượt, kiểm tra chars + layout rồi gen tiếp
-- Mỗi bài phải phản ánh đúng độ khó: từ vựng, ngữ pháp, kiểu câu hỏi, distractor
+- Chủ đề: chọn NGẪU NHIÊN, đa dạng, KHÔNG trùng chủ đề trong cùng batch
+- Format: chọn ngẫu nhiên từ Format Catalog phù hợp level, KHÔNG trùng format liên tiếp
+- Mỗi bài phải phản ánh ĐÚNG độ khó level:
+  - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tìm thông tin đơn giản
+  - N4 (400-500 chars): câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
+  - N3 (600-750 chars): nửa formal, 2 câu hỏi cross-reference 2 điều kiện
+  - N2 (700-770 chars): formal văn viết, 2 câu hỏi cross-reference 2-3 điều kiện
+  - N1 (700-800 chars): keigo, 2 câu hỏi cross-reference 3+ điều kiện + ngoại lệ
+- Đáp án sai phải hợp lý THEO LEVEL: N5 sai rõ hơn, N1 sai tinh vi
+- Chia nhỏ: gen tối đa 5 bài/lượt, kiểm tra chars + layout rồi gen tiếp
 
 Nhắc nhở bắt buộc:
 - Đọc SKILL.md + 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/ trước khi gen
