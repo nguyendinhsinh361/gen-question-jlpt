@@ -122,7 +122,7 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 
 Furigana (`<ruby>/<rt>`) is **only** added for words/kanji that **exceed** the passage's target JLPT level. Words at or below the target level are written without furigana — the learner is expected to know them.
 
-**Key principle**: A well-written passage should contain very few above-level words. Most vocabulary and kanji should be within the target level. Only when a word unavoidably exceeds the level (e.g., a place name with difficult kanji, a topic-specific term) should furigana be added.
+**Key principle**: Most vocabulary and kanji should be within the target level. Tuy nhiên, nội dung N3/N2/N1 thường có từ chuyên ngành hoặc từ vượt level một cách tự nhiên (thuật ngữ y tế, pháp luật, tài chính, tên dịch vụ...). Những từ này **NÊN giữ nguyên kanji + thêm furigana** thay vì tránh né — vì chúng giúp nội dung sát thực tế hơn.
 
 ### Compound Word Rule (Critical — Matches Real JLPT Exams)
 
@@ -156,34 +156,30 @@ When a word contains kanji above the learner's level, **always write the full ka
 |-------|------------------------|--------------------------------------|
 | N5 | **No furigana.** Write in hiragana if the learner only knows the word in hiragana (e.g. きょう, ともだち). Write kanji without furigana if the kanji is within N5 (日, 月, 人, 大, 小, etc.). | Write full hiragana (preferred) or full kanji + furigana. NEVER partial. Minimize such words. |
 | N4 | **No furigana.** N5+N4 kanji are written bare. Words only known in hiragana at N4 stay in hiragana. | Write full kanji + furigana or full hiragana. Keep to a minimum. |
-| N3 | **No furigana.** N5+N4+N3 kanji are expected. Common kana-only words stay in kana (きれい, たくさん). | Write full kanji + furigana. Very few such cases. |
-| N2 | **No furigana.** N5–N2 kanji are expected. | Write full kanji + furigana for N1 words. Absolute minimum. |
-| N1 | **No furigana.** All standard kanji are expected. | Furigana only for rare/specialized readings even N1 learners may not know. |
+| N3 | **No furigana.** N5+N4+N3 kanji are expected. Common kana-only words stay in kana (きれい, たくさん). | Write full kanji + furigana. Nội dung N3 thường có từ N2/N1 chuyên ngành → **nên dùng furigana thoải mái** cho những từ này. |
+| N2 | **No furigana.** N5–N2 kanji are expected. | Write full kanji + furigana cho từ N1 và từ chuyên ngành. Nội dung N2 formal → tự nhiên có nhiều từ cần furigana. |
+| N1 | **No furigana.** All standard kanji are expected. | Write full kanji + furigana cho từ chuyên ngành, thuật ngữ hiếm, tên riêng có kanji khó. Nội dung N1 (y tế, pháp luật, tài chính) thường có từ cần furigana. |
 
 ### How Many Above-Level Words?
 
-In practice, a good passage should have **very few** above-level words:
+| Level | Target above-level words | Ruby tags expected | Ghi chú |
+|-------|--------------------------|-------------------|---------|
+| N5 | 0–1 words | 0–2 ruby tags | Ưu tiên viết hiragana thay kanji |
+| N4 | 0–2 words | 0–4 ruby tags | Hiragana hoặc kanji + furigana |
+| N3 | 3–6 words | 5–12 ruby tags | Nội dung N3 tự nhiên có từ N2/N1, chuyên ngành → dùng furigana thoải mái |
+| N2 | 3–5 words | 5–10 ruby tags | Nội dung formal, nhiều từ N1 và thuật ngữ → nên có furigana |
+| N1 | 2–4 words | 3–8 ruby tags | Y tế, pháp luật, tài chính → thuật ngữ chuyên ngành cần furigana |
 
-| Level | Target above-level words | Ruby tags expected |
-|-------|--------------------------|-------------------|
-| N5 | 0–1 words | 0–2 ruby tags |
-| N4 | 0–2 words | 0–4 ruby tags |
-| N3 | 0–3 words | 0–6 ruby tags |
-| N2 | 0–2 words | 0–4 ruby tags |
-| N1 | 0–1 words | 0–2 ruby tags |
-
-> **⚠️ NGUYÊN TẮC VÀNG: THAY TỪ, KHÔNG RẮC FURIGANA**
+> **NGUYÊN TẮC FURIGANA THEO LEVEL**
 >
-> Biên tập viên JLPT nhận xét: bài gen thường "rắc furigana không phù hợp từ". Furigana gây 2 vấn đề:
-> 1. **Lệch dòng** — dòng có ruby cao hơn dòng thường, phá vỡ layout đều đặn
-> 2. **Không tự nhiên** — đề thi JLPT thật rất ít furigana; nhiều furigana = không giống đề thật
+> **N5/N4**: Hạn chế furigana. Ưu tiên thay bằng từ cùng level hoặc viết full hiragana.
+> - 🥇 **Thay bằng từ cùng level** — ví dụ: thay 届く (N3) bằng 来る (N5) trong bài N5
+> - 🥈 **Viết full hiragana** — ví dụ: おおもり thay vì <ruby>大盛<rt>おおもり</rt></ruby>
+> - 🥉 **Dùng furigana** — chỉ khi không thể thay thế
 >
-> **Ưu tiên theo thứ tự:**
-> 1. 🥇 **Thay bằng từ cùng level** — ví dụ: thay 届く (N3) bằng 来る (N5) trong bài N5
-> 2. 🥈 **Viết full hiragana** (cho N5/N4) — ví dụ: おおもり thay vì <ruby>大盛<rt>おおもり</rt></ruby>
-> 3. 🥉 **Dùng furigana** — CHỈ khi từ không thể thay thế VÀ không thể viết hiragana (ví dụ: tên riêng, thuật ngữ chuyên ngành)
+> **N3/N2/N1**: **Dùng furigana thoải mái** cho từ vượt level và từ chuyên ngành. Nội dung ở các level này tự nhiên có nhiều thuật ngữ khó (y tế: 服用, 禁忌; pháp luật: 規約, 免責; tài chính: 控除, 還付...). Những từ này giúp nội dung sát thực tế — **giữ kanji + thêm furigana**, KHÔNG nên tránh né hay thay bằng từ đơn giản hơn.
 >
-> Nếu bài có hơn **3 cặp `<ruby>/<rt>`**, hãy xem lại và thay từ đơn giản hơn.
+> **Lưu ý chung**: Furigana chỉ cho từ VƯỢT level. Từ đúng level hoặc dưới level → KHÔNG furigana.
 
 ### Summary Examples
 
@@ -670,10 +666,12 @@ Study `input/htm_content_qa/` for exact patterns:
 
 ### Answer Format in CSV
 
-Each answer column (`answer_{i}`) contains all 4 options separated by `\n`:
+Each answer column (`answer_{i}`) contains all 4 options separated by `\n`, **KHÔNG có số thứ tự**:
 ```
-1. Option A text\n2. Option B text\n3. Option C text\n4. Option D text
+Option A text\nOption B text\nOption C text\nOption D text
 ```
+
+**KHÔNG viết** `1. ...`, `2. ...` — chỉ lưu nội dung đáp án, không prefix số.
 
 `correct_answer_{i}` is the option number: `1`, `2`, `3`, or `4`.
 
@@ -702,7 +700,7 @@ Each answer column (`answer_{i}`) contains all 4 options separated by `\n`:
 | `text_read` | Clean HTML (no attributes, collapsed whitespace) |
 | `question_label_{i}` | Always `question_information_search` |
 | `question_{i}` | Question text in Japanese (furigana only for above-level words) |
-| `answer_{i}` | 4 options separated by `\n`: `1. ...\n2. ...\n3. ...\n4. ...` |
+| `answer_{i}` | 4 options separated by `\n` — **KHÔNG có số thứ tự**: `ĐA1\nĐA2\nĐA3\nĐA4` |
 | `correct_answer_{i}` | Number 1–4 |
 | `explain_vn_{i}` | Vietnamese explanation of why the answer is correct |
 | `explain_en_{i}` | English explanation of why the answer is correct |

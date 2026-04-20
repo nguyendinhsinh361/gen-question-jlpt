@@ -125,15 +125,15 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 
 Furigana (`<ruby>/<rt>`) **CHỈ** dùng cho từ **vượt level** của bài. Từ nằm trong level hoặc dưới level → **KHÔNG furigana**.
 
-Một bài viết tốt nên có **rất ít** từ vượt level. Nếu thấy cần thêm nhiều furigana → **viết lại bằng từ đơn giản hơn**.
+N5/N4: hạn chế furigana, ưu tiên thay từ hoặc viết hiragana. N3/N2/N1: **dùng furigana thoải mái** cho từ vượt level và từ chuyên ngành — nội dung ở các level này tự nhiên có nhiều thuật ngữ khó.
 
-| Level | Số từ vượt level | Ruby tags |
-|-------|-------------------|-----------|
-| N5 | 0–2 | 0–5 |
-| N4 | 0–3 | 0–8 |
-| N3 | 0–5 | 0–12 |
-| N2 | 0–3 | 0–8 |
-| N1 | 0–2 | 0–5 |
+| Level | Số từ vượt level | Ruby tags | Ghi chú |
+|-------|-------------------|-----------|---------|
+| N5 | 0–1 | 0–2 | Ưu tiên viết hiragana |
+| N4 | 0–2 | 0–4 | Hiragana hoặc kanji + furigana |
+| N3 | 3–6 | 5–12 | Dùng furigana thoải mái cho từ chuyên ngành |
+| N2 | 3–5 | 5–10 | Nội dung formal, nhiều thuật ngữ |
+| N1 | 2–4 | 3–8 | Y tế, pháp luật, tài chính |
 
 ### Quy tắc từ ghép kanji — Cấm dạng "Ab"
 
@@ -193,7 +193,7 @@ question_label_5, question_5, question_image_5, answer_5, correct_answer_5, expl
 | `general_image` | `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png` — cùng ID với `_id` |
 | `text_read` | Clean HTML (không attribute, không class, gom whitespace) |
 | `question_label_{i}` | Luôn `question_information_search` |
-| `answer_{i}` | 4 đáp án ngăn cách bởi `\n`: `1. ĐA1\n2. ĐA2\n3. ĐA3\n4. ĐA4` |
+| `answer_{i}` | 4 đáp án ngăn cách bởi `\n`, **KHÔNG có số thứ tự**: `ĐA1\nĐA2\nĐA3\nĐA4` |
 | `correct_answer_{i}` | Số 1–4 |
 | `explain_vn_{i}` | Giải thích tiếng Việt |
 | `explain_en_{i}` | Giải thích tiếng Anh |
@@ -309,5 +309,5 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 4. **Furigana = chỉ từ vượt level** — nếu thấy nhiều furigana → viết lại đơn giản hơn
 5. **Không viết dạng "Ab"** — `週かん`, `友だち`, `拠てん` đều SAI
 6. **File naming & _id**: `{LEVEL}_{uuid}` — ví dụ `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5`. UUID 32 ký tự hex (full), không cần check số thứ tự
-7. **Answer format**: `1. A\n2. B\n3. C\n4. D` (dùng `\n`, KHÔNG dùng `|`)
+7. **Answer format**: `A\nB\nC\nD` (dùng `\n` ngăn cách, KHÔNG có số thứ tự, KHÔNG dùng `|`)
 8. **Đọc `references/design-patterns.md`** để biết format label của từng mẫu tham khảo
