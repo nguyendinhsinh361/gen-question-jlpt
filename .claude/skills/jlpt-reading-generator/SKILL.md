@@ -203,6 +203,37 @@ When a word contains kanji above the learner's level, **always write the full ka
 - ❌ `拠てん` (WRONG — "Ab" mixed form, never do this)
 - ❌ `拠点` without furigana (wrong — N1 word in N3 passage needs furigana)
 
+### BẮT BUỘC: Furigana Verification sau khi gen (KHÔNG ĐƯỢC BỎ QUA)
+
+Furigana hay bị bỏ sót vì AI gen xong không quay lại kiểm tra. **Bước này BẮT BUỘC sau mỗi bài gen:**
+
+**Quy trình 3 bước:**
+
+1. **Scan toàn bộ kanji** trong HTML đã gen → liệt kê tất cả từ có kanji
+2. **Check từng từ**: từ này thuộc level nào? Nếu vượt level bài → phải có `<ruby>+<rt>`. Nếu đang viết trần (không furigana) → **LỖI, phải sửa**
+3. **Đếm ruby tags** → so sánh với bảng density. N3: 5–12, N2: 5–10, N1: 3–8. Nếu = 0 hoặc quá ít → **khả năng cao bị sót, review lại**
+
+**Dấu hiệu bị sót furigana (phải kiểm tra):**
+- Bài N3/N2/N1 có **0 ruby tags** → gần như chắc chắn sót
+- Bài có từ chuyên ngành (医療, 保険, 契約, 免責...) mà không có furigana nào
+- Bài dùng kanji N1 (如何, 伴, 踏, 控除, 還付...) trong bài N3 mà viết trần
+
+**Danh sách từ thường vượt level — HAY BỊ QUÊN furigana:**
+
+| Trong bài N3 (cần furigana) | Trong bài N2 (cần furigana) | Trong bài N1 (cần furigana) |
+|------------------------------|-----------------------------|-----------------------------|
+| <ruby>締切<rt>しめきり</rt></ruby> (N2) | <ruby>概要<rt>がいよう</rt></ruby> (N1) | <ruby>遵守<rt>じゅんしゅ</rt></ruby> (ngoài JLPT) |
+| <ruby>受付<rt>うけつけ</rt></ruby> (N2) | <ruby>控除<rt>こうじょ</rt></ruby> (N1) | <ruby>瑕疵<rt>かし</rt></ruby> (ngoài JLPT) |
+| <ruby>割引<rt>わりびき</rt></ruby> (N2) | <ruby>還付<rt>かんぷ</rt></ruby> (N1) | <ruby>斡旋<rt>あっせん</rt></ruby> (ngoài JLPT) |
+| <ruby>申込<rt>もうしこみ</rt></ruby> (N2) | <ruby>免責<rt>めんせき</rt></ruby> (N1) | <ruby>拠点<rt>きょてん</rt></ruby> (N1 hiếm) |
+| <ruby>対象<rt>たいしょう</rt></ruby> (N2) | <ruby>規約<rt>きやく</rt></ruby> (N1) | <ruby>稀<rt>まれ</rt></ruby> (ngoài JLPT) |
+| <ruby>詳細<rt>しょうさい</rt></ruby> (N2) | <ruby>併用<rt>へいよう</rt></ruby> (N1) | <ruby>滞納<rt>たいのう</rt></ruby> (ngoài JLPT) |
+| <ruby>持参<rt>じさん</rt></ruby> (N2) | <ruby>添付<rt>てんぷ</rt></ruby> (N1) | <ruby>譲渡<rt>じょうと</rt></ruby> (ngoài JLPT) |
+| <ruby>掲載<rt>けいさい</rt></ruby> (N1) | <ruby>履歴<rt>りれき</rt></ruby> (N1) | <ruby>充填<rt>じゅうてん</rt></ruby> (ngoài JLPT) |
+
+> **⚠️ Quy tắc vàng: Gen xong → Scan kanji → Check level → Thêm furigana thiếu → Đếm ruby tags**
+> Nếu bỏ qua bước này, furigana SẼ bị sót. Đây là lỗi phổ biến nhất khi gen.
+
 ## Document Formats (from 61 reference samples)
 
 Each passage must be assigned a `format` label from the catalog below. When generating multiple passages, **distribute formats diversely** — avoid repeating the same format within one batch. Use the per-level distribution table to pick formats appropriate for the target level.
@@ -296,13 +327,13 @@ Every generated file follows this structure:
             line-break: strict;        /* Quy tắc ngắt dòng tiếng Nhật nghiêm ngặt nhất */
             overflow-wrap: break-word;  /* Fallback: chỉ ngắt khi từ dài hơn container */
             margin: 0;
-            padding: 16px 20px;
+            padding: 0;                /* Body padding = 0, vì crop bằng container.screenshot() */
         }
         .container {
             width: 700px;
             margin: 0 auto;
             background: white;
-            padding: 24px 28px;
+            padding: 12px 16px;        /* Lề sát nội dung — tối ưu hiển thị trên app */
             box-sizing: border-box;
         }
         /* Đảm bảo table/flex không tràn ra ngoài container */
@@ -338,8 +369,8 @@ Every generated file follows this structure:
 
 **KHÔNG dùng A4.** Layout compact, crop sát nội dung, lề nhỏ để ảnh to hơn trên app.
 
-- **Container = 700px**, `padding: 24px 28px`, nền trắng, **KHÔNG `min-height`**
-- **Viewport Playwright = 772px** (700 + 72px padding tổng)
+- **Container = 700px**, `padding: 12px 16px`, nền trắng, **KHÔNG `min-height`**
+- **Viewport Playwright = 700px** (body padding = 0, crop bằng `container.screenshot()`)
 - **Capture bằng `container.screenshot()`** — crop sát container, KHÔNG `full_page`
 - **Table**: luôn dùng `table-layout: fixed; width: 100%` để cột không bị đẩy ra ngoài
 - **Flex/grid 2 cột**: đảm bảo tổng width ≤ 100% container, thêm `gap` hợp lý
@@ -598,8 +629,8 @@ async def capture_screenshot(html_path, img_path):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        # Viewport = container (700px) + padding (72px) = 772px
-        page = await browser.new_page(viewport={"width": 772, "height": 1200})
+        # Viewport = container width (700px), body padding = 0
+        page = await browser.new_page(viewport={"width": 700, "height": 1200})
         await page.goto(f"file://{html_path}", wait_until="networkidle")
         await page.wait_for_timeout(1500)  # wait for font loading
         container = page.locator('.container')

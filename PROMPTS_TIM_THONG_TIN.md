@@ -54,6 +54,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ---
@@ -84,6 +85,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### N4 — 5 mẫu đa dạng
@@ -112,6 +114,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### N3 — 5 mẫu đa dạng
@@ -140,6 +143,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### N2 — 5 mẫu đa dạng
@@ -168,6 +172,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### N1 — 5 mẫu đa dạng
@@ -196,6 +201,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ---
@@ -236,6 +242,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### Ví dụ sử dụng
@@ -297,6 +304,7 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### Chỉ định format hiếm
@@ -321,6 +329,7 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum, đáp án sai phải tinh vi
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ---
@@ -348,6 +357,7 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### Chủ đề giáo dục (N3)
@@ -371,6 +381,7 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### Chủ đề công việc (N2)
@@ -394,6 +405,7 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum, đáp án sai phải hợp lý
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ---
@@ -475,6 +487,7 @@ Nhắc nhở bắt buộc:
 - Đáp án sai phải hợp lý theo level
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ### Gen bài với visual elements đặc biệt
@@ -498,6 +511,7 @@ Nhắc nhở bắt buộc:
 - Đáp án sai phải hợp lý theo level
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
 ---

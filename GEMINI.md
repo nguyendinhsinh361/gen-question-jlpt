@@ -47,7 +47,7 @@ Project có skill **jlpt-tim-thong-tin** tại `.gemini/skills/jlpt-reading-gene
 - **UUID naming**: Dùng `uuid.uuid4().hex` (full 32-char, KHÔNG cắt) cho _id và tên file. Level prefix UPPERCASE (N1, N2...).
 - **general_image**: Local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`.
 - **question_label**: Luôn là `question_information_search`.
-- **Layout compact**: KHÔNG dùng A4. Container `width: 700px`, `padding: 24px 28px`, nền trắng, KHÔNG `min-height`. Viewport Playwright = 772px. Capture bằng `container.screenshot()` (crop sát nội dung, không full_page). Table dùng `table-layout: fixed`. Nội dung không được tràn ra ngoài container.
+- **Layout compact**: KHÔNG dùng A4. Container `width: 700px`, `padding: 12px 16px`, body padding = 0, nền trắng, KHÔNG `min-height`. Viewport Playwright = 700px. Capture bằng `container.screenshot()` (crop sát nội dung). Table dùng `table-layout: fixed`. Nội dung không được tràn ra ngoài container.
 - **NGHIÊM CẤM ngắt dòng sau mỗi câu**: KHÔNG dùng `<br>` trong paragraph. Text phải chảy liên tục (flow text), tự wrap khi đến mép container — giống đề JLPT thật. Các câu cùng đoạn nằm trong 1 thẻ `<p>` duy nhất. Chỉ ngắt khi chuyển section/heading/list. **KHÔNG ngắt dòng tại mỗi dấu phẩy** — câu phải chảy liên tục, chỉ xuống dòng khi đổi ý/section.
 - **Furigana KHÔNG dùng ngoặc đơn**: Pattern `漢字(ひらがな)` → HARD REJECT, gen lại. BẮT BUỘC dùng `<ruby>漢字<rt>ひらがな</rt></ruby>`.
 - **Câu hỏi phải là TÌNH HUỐNG giả định** (シチュエーション問題): Đặt nhân vật + profile + điều kiện → hỏi nên chọn gì. KHÔNG hỏi đơn thuần "bao nhiêu tiền?" hay "mấy giờ?" mà phải là "Anh A muốn X, điều kiện Y, ngân sách Z → nên chọn phương án nào?".
