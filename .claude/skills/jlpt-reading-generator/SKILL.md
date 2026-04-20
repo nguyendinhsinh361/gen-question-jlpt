@@ -91,19 +91,19 @@ python3 <skill-path>/scripts/process_html.py --count-only --file <html-file>
 
 Dựa trên feedback biên tập viên (bài gen thường ít ký tự hơn tiêu chuẩn), Target Range đã được điều chỉnh lên vùng **Avg → Max** của dữ liệu mẫu:
 
-| Level | Target Range | Hard Reject (< 10% Min) |
-|-------|-------------|------------------------|
-| N1    | **700–800** | < 630 → gen lại |
-| N2    | **700–770** | < 630 → gen lại |
-| N3    | **600–750** | < 540 → gen lại |
-| N4    | **400–500** | < 360 → gen lại |
-| N5    | **250–290** | < 225 → gen lại |
+| Level | Target Range | Hard Reject (< Min) |
+|-------|-------------|---------------------|
+| N1    | **700–800** | < 700 → gen lại |
+| N2    | **700–770** | < 700 → gen lại |
+| N3    | **600–750** | < 600 → gen lại |
+| N4    | **400–500** | < 400 → gen lại |
+| N5    | **250–290** | < 250 → gen lại |
 
 After generating, always verify with `count_body_chars()`. Nếu dưới Target Range, bổ sung nội dung (thêm điều kiện, ghi chú, lưu ý chi tiết) thay vì chấp nhận bài ngắn.
 
 > **🚫 HARD REJECT — Ngưỡng tối thiểu tuyệt đối (không có ngoại lệ)**
 >
-> Nếu `count_body_chars()` thấp hơn **10% so với Min** của Target Range, bài **PHẢI gen lại từ đầu**.
+> Nếu `count_body_chars()` **thấp hơn Min** của Target Range, bài **PHẢI gen lại từ đầu**. Không chấp nhận bài nào dưới minimum.
 > Không chấp nhận, không chỉnh sửa nhỏ — gen lại hoàn toàn.
 >
 > Quy trình: Gen HTML → count chars → nếu < Hard Reject → **xóa và gen lại** → count lại → lặp cho đến khi đạt.

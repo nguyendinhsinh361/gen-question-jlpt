@@ -20,7 +20,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -36,7 +36,7 @@ Giúp tôi tạo dữ liệu level N5 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: store_flyer, event_announcement, regulation_notice, schedule_timetable, travel_listing, access_guide
-- Chars: 250-290 (Hard reject < 225)
+- Chars: 250-290 (Hard reject < 250)
 - Furigana: 0-1 từ vượt N5, ưu tiên viết hiragana thay vì furigana. KHÔNG dùng dạng Ab
 - 1 câu hỏi/bài
 - Text flow liên tục, KHÔNG <br> trong paragraph
@@ -50,7 +50,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -62,7 +62,7 @@ Giúp tôi tạo dữ liệu level N4 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: event_announcement, class_enrollment, regulation_notice, menu_guide, price_comparison_table, service_guide
-- Chars: 400-500 (Hard reject < 360)
+- Chars: 400-500 (Hard reject < 400)
 - Furigana: 0-2 từ vượt N4, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
 - Text flow liên tục, KHÔNG <br> trong paragraph
@@ -76,7 +76,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -88,7 +88,7 @@ Giúp tôi tạo dữ liệu level N3 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: class_enrollment, service_guide, event_announcement, facility_guide, travel_listing, price_comparison_table, recruitment_notice, menu_guide
-- Chars: 600-750 (Hard reject < 540)
+- Chars: 600-750 (Hard reject < 600)
 - Furigana: 0-3 từ vượt N3, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
 - Text flow liên tục, KHÔNG <br> trong paragraph
@@ -102,7 +102,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -114,7 +114,7 @@ Giúp tôi tạo dữ liệu level N2 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: facility_guide, service_guide, comparison_article, event_announcement, class_enrollment, schedule_timetable, menu_guide
-- Chars: 700-770 (Hard reject < 630)
+- Chars: 700-770 (Hard reject < 700)
 - Furigana: 0-2 từ N1, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
 - Text flow liên tục, KHÔNG <br> trong paragraph
@@ -128,7 +128,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -140,7 +140,7 @@ Giúp tôi tạo dữ liệu level N1 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: price_comparison_table, service_guide, facility_guide, schedule_timetable, medicine_info, recruitment_notice, member_notification, event_announcement
-- Chars: 700-800 (Hard reject < 630)
+- Chars: 700-800 (Hard reject < 700)
 - Furigana: gần như không có (0-1 từ cực hiếm). KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
 - Text flow liên tục, KHÔNG <br> trong paragraph
@@ -154,7 +154,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -181,7 +181,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -203,7 +203,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -219,7 +219,7 @@ Gen 1 bài tìm thông tin level N2, format: comparison_article
 Chủ đề: so sánh 3 phòng gym (giá, giờ mở, tiện ích)
 - Đọc mẫu n2_1.html hoặc n2_10.html trước
 - Dạng văn xuôi A/B/C, mỗi section mô tả 1 phòng gym
-- Chars: 700-770 (Hard reject < 630)
+- Chars: 700-770 (Hard reject < 700)
 - 2 câu hỏi: Q1 hỏi điều kiện, Q2 hỏi giá/thời gian
 
 Nhắc nhở bắt buộc:
@@ -241,7 +241,7 @@ Chủ đề: phiếu hướng dẫn thuốc từ phòng khám
 - Đọc mẫu n1_1.html trước
 - Bảng: tên thuốc, tác dụng, liều dùng, lưu ý. Dùng table-layout:fixed
 - Gần như không furigana
-- Chars: 700-800 (Hard reject < 630)
+- Chars: 700-800 (Hard reject < 700)
 - 2 câu hỏi phức tạp: cross-reference nhiều điều kiện
 
 Nhắc nhở bắt buộc:
@@ -276,7 +276,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -298,7 +298,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
@@ -320,7 +320,7 @@ Nhắc nhở bắt buộc:
 - KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
 - KHÔNG che khuất chữ: floating label cần margin-top≥16px trên box, padding-top≥24px trong box, label có background solid
 - Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
-- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- Sau khi gen: count chars → nếu < Min thì gen lại (KHÔNG chấp nhận dưới minimum). Capture screenshot → review layout
 - UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 

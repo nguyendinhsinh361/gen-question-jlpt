@@ -100,13 +100,13 @@ Dùng script hoặc hàm Python để đếm chính xác:
 python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-only --file <html-file>
 ```
 
-| Level | Target Range | Hard Reject (< 10% Min) |
-|-------|-------------|------------------------|
-| N1    | **700–800** | < 630 → gen lại |
-| N2    | **700–770** | < 630 → gen lại |
-| N3    | **600–750** | < 540 → gen lại |
-| N4    | **400–500** | < 360 → gen lại |
-| N5    | **250–290** | < 225 → gen lại |
+| Level | Target Range | Hard Reject (< Min) |
+|-------|-------------|---------------------|
+| N1    | **700–800** | < 700 → gen lại |
+| N2    | **700–770** | < 700 → gen lại |
+| N3    | **600–750** | < 600 → gen lại |
+| N4    | **400–500** | < 400 → gen lại |
+| N5    | **250–290** | < 250 → gen lại |
 
 ### Bước 5 — Screenshot + Clean HTML + CSV
 
