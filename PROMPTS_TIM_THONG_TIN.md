@@ -35,9 +35,9 @@ Hiểu rõ sự khác biệt giữa các level là điều **quan trọng nhất
 
 | Level | Số câu hỏi | Kiểu câu hỏi | Đáp án sai (distractor) |
 |-------|-----------|---------------|------------------------|
-| N5 | 1 | Tình huống đơn giản: "Aさんは～がほしい。どれがいいですか" | Sai rõ ràng nhưng liên quan bài đọc |
-| N4 | 2 | Tình huống 1-2 điều kiện: "Bさんは～たい、～ことができない。どうすればいい?" | Đúng 1 phần nhưng sai chi tiết |
-| N3 | 2 | Tình huống 2 điều kiện: "Cさんは～で、～場合は、どれを選べばいい?" | Đúng 1 điều kiện, sai điều kiện khác |
+| N5 | 1 | Tình huống đơn giản: "田中さんは～がほしい。どれがいいですか" | Sai rõ ràng nhưng liên quan bài đọc |
+| N4 | 2 | Tình huống 1-2 điều kiện: "鈴木さんは～たい、～ことができない。どうすればいい?" | Đúng 1 phần nhưng sai chi tiết |
+| N3 | 2 | Tình huống 2 điều kiện: "中村さんは～で、～場合は、どれを選べばいい?" | Đúng 1 điều kiện, sai điều kiện khác |
 | N2 | 2 | Tình huống 2-3 điều kiện: cross-reference bảng + văn xuôi | Lẫn thông tin giữa các section |
 | N1 | 2 | Tình huống 3+ điều kiện + ngoại lệ: "すべての条件を満たすのはどれ?" | Đúng gần hết, sai đúng 1 điều kiện khó nhận ra |
 
@@ -73,8 +73,8 @@ Yêu cầu nội dung N5:
 - Chủ đề cực đơn giản: tờ rơi siêu thị, giờ mở cửa, bảng giá, lịch xe bus
 - Viết gần như toàn hiragana + kanji N5 cơ bản (日, 月, 人, 円, 時...)
 - Câu ngắn: ～です, ～ます, ～てください. KHÔNG dùng ngữ pháp N4+
-- Furigana: 0-1 từ, ưu tiên viết hiragana thay kanji. KHÔNG dùng dạng Ab
-- 1 câu hỏi/bài: tình huống đơn giản — "Aさんは～がほしい。どれがいいですか" (nhân vật + 1 điều kiện)
+- Furigana: 0-2 ruby, ưu tiên viết hiragana thay kanji. KHÔNG dùng dạng Ab
+- 1 câu hỏi/bài: tình huống đơn giản — "田中さんは～がほしい。どれがいいですか" (nhân vật + 1 điều kiện)
 - Đáp án sai: liên quan bài đọc nhưng sai thông tin (sai giá, sai ngày, sai địa điểm)
 
 Nhắc nhở bắt buộc:
@@ -100,10 +100,10 @@ Yêu cầu nội dung N4:
 - Chủ đề đời sống: sự kiện khu phố, đăng ký lớp học, quy tắc rác, thực đơn nhà hàng
 - Kanji N5+N4, câu lịch sự cơ bản: ～ことができます, ～なければなりません
 - Bảng đơn giản + 1-2 đoạn mô tả ngắn
-- Furigana: 0-2 từ vượt N4. KHÔNG dùng dạng Ab
+- Furigana: 0-4 ruby, từ vượt N4. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài (tình huống giả định):
-  - Q1: "Bさんは～たい、～ことができない。どうすればいい?" (check 1-2 điều kiện)
-  - Q2: "Cさんは～の場合、どれが正しいですか" (áp dụng quy tắc cụ thể)
+  - Q1: "鈴木さんは～たい、～ことができない。どうすればいい?" (check 1-2 điều kiện)
+  - Q2: "山田さんは～の場合、どれが正しいですか" (áp dụng quy tắc cụ thể)
 - Đáp án sai: đúng 1 phần nhưng sai ở 1 chi tiết cụ thể
 
 Nhắc nhở bắt buộc:
@@ -129,7 +129,7 @@ Yêu cầu nội dung N3:
 - Chủ đề xã hội: khóa học, dịch vụ công, hướng dẫn cơ sở, so sánh giá, tuyển dụng
 - Kanji N5-N3, nửa formal nửa conversational: ～について, ～による, ～場合は
 - Nhiều section, bảng có nhiều cột, điều kiện kèm ghi chú
-- Furigana: 0-3 từ vượt N3. KHÔNG dùng dạng Ab
+- Furigana: 3-6 từ vượt N3, 5-12 ruby tags. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài:
   - Q1: cần mang/chuẩn bị gì? (cross-reference 2 điều kiện)
   - Q2: điền form/đăng ký thế nào? (áp dụng quy tắc)
@@ -158,7 +158,7 @@ Yêu cầu nội dung N2:
 - Chủ đề chuyên sâu: so sánh dịch vụ chi tiết, hướng dẫn bảo hiểm, lịch hội thảo
 - Kanji N5-N2, formal văn viết: ～に伴い, ～に基づき, ～を踏まえて, ～に限り
 - Multi-section, bảng so sánh phức tạp, flowchart, nhiều điều kiện phụ
-- Furigana: 0-2 từ N1. KHÔNG dùng dạng Ab
+- Furigana: 3-5 từ vượt N2, 5-10 ruby tags. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài:
   - Q1: ai đủ tiêu chuẩn? (cross-reference 2-3 điều kiện từ bảng + văn xuôi)
   - Q2: quy trình đăng ký/thủ tục thế nào? (tổng hợp nhiều bước)
@@ -187,7 +187,7 @@ Yêu cầu nội dung N1:
 - Chủ đề chuyên môn: hướng dẫn thuốc, hợp đồng dịch vụ, quy chế tuyển dụng, thông báo hội viên
 - Kanji N5-N1 đầy đủ, very formal + keigo: ～いかんによらず, ～をもって, ～に先立ち
 - Dense data: bảng nhiều cột + footnote, điều khoản ngoại lệ, cross-reference phức tạp
-- Furigana: gần như 0 (0-1 từ cực hiếm). KHÔNG dùng dạng Ab
+- Furigana: 2-4 từ chuyên ngành, 3-8 ruby tags. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài:
   - Q1: ai đáp ứng TẤT CẢ điều kiện? (cross-reference 3+ điều kiện, bảng + chú thích)
   - Q2: thủ tục nào đúng trình tự? (tổng hợp nhiều quy tắc + ngoại lệ)
@@ -222,9 +222,15 @@ Gen batch bài tìm thông tin theo số lượng sau, lưu CSV mới trong shee
 - N4: {số} bài
 - N5: {số} bài
 
-Yêu cầu:
+BƯỚC 1 — Lên kế hoạch format (BẮT BUỘC trước khi gen):
+- List format đã dùng cho mỗi level (scan sheets/ và assets/html/)
+- Chọn format CHƯA DÙNG hoặc ÍT DÙNG nhất trước
+- Ghi rõ: "Level X → format Y, visual Z" cho từng bài TRƯỚC khi viết HTML
+- NGHIÊM CẤM gen >2 bài cùng format trong 1 batch
+
+BƯỚC 2 — Gen nội dung:
 - Chủ đề: chọn NGẪU NHIÊN, đa dạng, KHÔNG trùng chủ đề trong cùng batch
-- Format: chọn ngẫu nhiên từ Format Catalog phù hợp level, KHÔNG trùng format liên tiếp
+- Format: theo kế hoạch ở Bước 1, KHÔNG trùng format liên tiếp
 - Mỗi bài phải phản ánh ĐÚNG độ khó level:
   - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tình huống đơn giản
   - N4 (400-500 chars): câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
@@ -240,8 +246,9 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật có tên thật + điều kiện → chọn gì). KHÔNG dùng Aさん/Bさん
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FORMAT ĐA DẠNG**: Scan format đã dùng → ưu tiên format chưa dùng. NGHIÊM CẤM lặp format liên tiếp
 - **FURIGANA BẮT BUỘC KIỂM TRA**: Gen xong → scan toàn bộ kanji → từ nào vượt level phải có <ruby>+<rt>. N3: 5-12 ruby, N2: 5-10 ruby, N1: 3-8 ruby. Nếu 0 ruby → chắc chắn sót, sửa lại.
 ```
 
@@ -256,9 +263,14 @@ Gen batch bài tìm thông tin theo số lượng sau, lưu CSV mới trong shee
 - N4: 3 bài
 - N5: 3 bài
 
-Yêu cầu:
+BƯỚC 1 — Lên kế hoạch format (BẮT BUỘC):
+- Scan sheets/ và assets/html/ → list format đã dùng cho mỗi level
+- Chọn format CHƯA DÙNG hoặc ÍT DÙNG nhất
+- Ghi kế hoạch: "N1 bài 1 → format X, visual Y" cho từng bài
+
+BƯỚC 2 — Gen nội dung:
 - Chủ đề: chọn NGẪU NHIÊN, đa dạng, KHÔNG trùng chủ đề trong cùng batch
-- Format: chọn ngẫu nhiên từ Format Catalog phù hợp level, KHÔNG trùng format liên tiếp
+- Format: theo kế hoạch ở Bước 1, KHÔNG trùng format liên tiếp
 - Mỗi bài phải phản ánh ĐÚNG độ khó level:
   - N5 (250-290 chars): hiragana nhiều, ～です/～ます, 1 câu hỏi tình huống đơn giản
   - N4 (400-500 chars): câu lịch sự cơ bản, 2 câu hỏi check 1-2 điều kiện
@@ -274,8 +286,9 @@ Nhắc nhở bắt buộc:
 - Số ký tự PHẢI đạt minimum (count bằng count_body_chars(), < Min → gen lại)
 - Đáp án sai phải hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
-- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
+- Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật có tên thật + điều kiện → chọn gì). KHÔNG dùng Aさん/Bさん
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- **FORMAT ĐA DẠNG**: Scan format đã dùng → ưu tiên format chưa dùng. NGHIÊM CẤM lặp format liên tiếp
 - Ảnh crop sát dòng text cuối — không có vùng trắng thừa phía dưới và 2 bên trái phải
 ```
 
@@ -319,7 +332,7 @@ Chủ đề: phiếu hướng dẫn thuốc từ phòng khám nội khoa
 - Từ vựng N1 formal: 服用, 禁忌, 併用, 副作用 (KHÔNG cần furigana — N1 phải biết)
 - Chars: 700-800 (< 700 → gen lại)
 - 2 câu hỏi phức tạp:
-  - Q1: "Bệnh nhân A (60 tuổi, dị ứng X, đang uống thuốc Y) nên dùng thuốc nào?" (cross-reference 3+ điều kiện: tuổi + dị ứng + tương tác thuốc)
+  - Q1: "佐藤さん (60 tuổi, dị ứng X, đang uống thuốc Y) nên dùng thuốc nào?" (cross-reference 3+ điều kiện: tuổi + dị ứng + tương tác thuốc)
   - Q2: "Khi nào phải ngừng thuốc Z và liên hệ bác sĩ?" (tổng hợp nhiều lưu ý + ngoại lệ)
 - Đáp án sai: đúng gần hết điều kiện, sai 1 chi tiết khó nhận ra (ví dụ: thuốc đúng nhưng chống chỉ định với dị ứng X)
 
@@ -345,7 +358,7 @@ Gen 3 bài tìm thông tin N4 về chủ đề đời sống hàng ngày, mỗi 
 3. event_announcement — lễ hội mùa hè khu phố (lịch trình + đăng ký + điều kiện tham gia)
 
 Mỗi bài: 400-500 chars, 2 câu hỏi N4 (check 1-2 điều kiện đơn giản)
-- Q kiểu: "Ai có thể tham gia?", "Câu nào đúng?", "Phải làm gì trước ngày X?"
+- Q kiểu: "鈴木さんは～したい。どうすればいい?", "山田さんの場合、正しいのはどれ?", "高橋さんはXまでに何をしなければならない?"
 - Đáp án sai: đúng 1 phần nhưng sai 1 chi tiết (sai ngày, sai đối tượng)
 - Từ vựng N4: ～ことができます, ～までに, ～なければなりません
 
@@ -369,7 +382,7 @@ Gen 3 bài tìm thông tin N3 về chủ đề giáo dục, mỗi bài format kh
 3. price_comparison_table — so sánh học phí 3 trường dạy nghề (bảng: khóa học × trường × giá)
 
 Mỗi bài: 600-750 chars, 2 câu hỏi N3 (cross-reference 2 điều kiện)
-- Q kiểu: "Cần chuẩn bị gì?", "Điền form thế nào?", "Khóa nào phù hợp với người X?"
+- Q kiểu: "中村さんは～を準備する必要がある?", "佐藤さんが申し込む場合、どうすればいい?", "リンさんに合うコースはどれ?"
 - Đáp án sai: đúng 1 điều kiện, sai điều kiện khác
 - Từ vựng N3: ～について, ～場合は, ～ために, ～ことになっている
 
@@ -393,7 +406,7 @@ Gen 3 bài tìm thông tin N2 về chủ đề công việc, mỗi bài format k
 3. service_guide — hướng dẫn đăng ký bảo hiểm lao động (flowchart quy trình, giấy tờ cần thiết)
 
 Mỗi bài: 700-770 chars, 2 câu hỏi N2 (cross-reference 2-3 điều kiện)
-- Q kiểu: "Ai đủ tiêu chuẩn ứng tuyển?", "Quy trình đăng ký gồm những bước nào?"
+- Q kiểu: "山本さんは応募条件を満たしているか?", "高橋さんが登録する場合、正しい手順はどれ?"
 - Đáp án sai: lẫn thông tin giữa các section (đúng ở phần A, sai ở phần B)
 - Từ vựng N2 formal: ～に伴い, ～に基づき, ～に限り, ～を踏まえて
 
@@ -418,12 +431,16 @@ Nhắc nhở bắt buộc:
 Cho các bài tìm thông tin đã có trong sheets/{file}.csv, gen câu hỏi cho mỗi bài.
 
 - Đọc HTML mỗi bài trong assets/html/tim_thong_tin/ trước
+- Câu hỏi phải là TÌNH HUỐNG giả định (シチュエーション問題):
+  - Đặt nhân vật có TÊN THẬT (田中さん, リンさん, 山本さん...) + profile + điều kiện → hỏi nên chọn gì
+  - KHÔNG hỏi đơn thuần "bao nhiêu tiền?", "mấy giờ?" — phải là "佐藤さんは～で、～場合、どれを選べばいい?"
+  - KHÔNG dùng Aさん/Bさん/Cさん — phải dùng tên thật
 - Câu hỏi phải ĐÚNG level:
-  - N5: 1 câu, hỏi thông tin cụ thể (giá, giờ, nơi), đáp án sai rõ ràng
-  - N4: 2 câu, check 1-2 điều kiện, đáp án sai 1 chi tiết
-  - N3: 2 câu, cross-reference 2 điều kiện, đáp án sai 1 điều kiện
-  - N2: 2 câu, cross-reference 2-3 điều kiện, đáp án lẫn thông tin giữa section
-  - N1: 2 câu, cross-reference 3+ điều kiện + ngoại lệ, đáp án sai tinh vi
+  - N5: 1 câu, tình huống 1 điều kiện đơn giản, đáp án sai rõ ràng
+  - N4: 2 câu, tình huống check 1-2 điều kiện, đáp án sai 1 chi tiết
+  - N3: 2 câu, tình huống cross-reference 2 điều kiện, đáp án sai 1 điều kiện
+  - N2: 2 câu, tình huống cross-reference 2-3 điều kiện, đáp án lẫn thông tin giữa section
+  - N1: 2 câu, tình huống cross-reference 3+ điều kiện + ngoại lệ, đáp án sai tinh vi
 - 4 đáp án/câu (1 đúng, 3 sai hợp lý — sai ở chi tiết, KHÔNG sai hiển nhiên)
 - Kiểm tra kỹ: CHỈ CÓ 1 đáp án đúng, không có 2 đáp án cùng đúng
 - Giải thích VN + EN cho mỗi câu
@@ -523,6 +540,9 @@ Nhắc nhở bắt buộc:
 3. **Đáp án sai quan trọng bằng đáp án đúng** — distractor tốt = test chất lượng. N1 distractor phải tinh vi hơn N5
 4. **Chia nhỏ batch** — gen 5 bài/lượt, kiểm tra rồi gen tiếp. Không gen >5 bài 1 lần
 5. **Nêu format cụ thể** — "format: comparison_article" rõ ràng hơn "dạng so sánh"
-6. **Gen xong = kiểm tra ngay** — chạy prompt kiểm tra (section 6) sau mỗi batch
-7. **Review screenshot** — quan trọng nhất là nhìn screenshot, không chỉ đọc HTML
-8. **Các quy tắc kỹ thuật** (UUID, CSS, Playwright, furigana format...) — đã có đầy đủ trong SKILL.md, không cần nhắc lại trong prompt
+6. **Lên kế hoạch format TRƯỚC khi gen** — scan format đã dùng, chọn format chưa dùng/ít dùng, ghi rõ plan
+7. **Gen xong = kiểm tra ngay** — chạy prompt kiểm tra (section 6) sau mỗi batch
+8. **Review screenshot** — quan trọng nhất là nhìn screenshot, không chỉ đọc HTML
+9. **Furigana verification** — gen xong phải scan lại toàn bộ kanji, đối chiếu JLPT level, bổ sung ruby nếu thiếu
+10. **Tên nhân vật thật** — dùng 田中さん, 佐藤さん, リンさん... KHÔNG dùng Aさん/Bさん
+11. **Các quy tắc kỹ thuật** (UUID, CSS, Playwright, furigana format...) — đã có đầy đủ trong SKILL.md, không cần nhắc lại trong prompt
