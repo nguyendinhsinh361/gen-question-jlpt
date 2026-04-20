@@ -244,9 +244,9 @@ Nhắc nhở bắt buộc:
 Gen batch bài tìm thông tin theo số lượng sau, lưu CSV mới trong sheets/
 
 - N1: 3 bài
-- N2: 5 bài
-- N3: 5 bài
-- N4: 4 bài
+- N2: 3 bài
+- N3: 3 bài
+- N4: 3 bài
 - N5: 3 bài
 
 Yêu cầu:
@@ -269,6 +269,7 @@ Nhắc nhở bắt buộc:
 - Format phù hợp level (store_flyer → N5, medicine_info → N1)
 - Câu hỏi phải là TÌNH HUỐNG giả định (nhân vật + điều kiện → chọn gì)
 - Layout compact, flow text, không tách từ, không ngắt dòng tại dấu phẩy, không che khuất chữ (xem SKILL.md)
+- Ảnh crop sát dòng text cuối — không có vùng trắng thừa phía dưới và 2 bên trái phải
 ```
 
 ---
