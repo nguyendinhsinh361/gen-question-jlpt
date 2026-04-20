@@ -236,7 +236,25 @@ Furigana hay bị bỏ sót vì AI gen xong không quay lại kiểm tra. **Bư�
 
 ## Document Formats (from 61 reference samples)
 
-Each passage must be assigned a `format` label from the catalog below. When generating multiple passages, **distribute formats diversely** — avoid repeating the same format within one batch. Use the per-level distribution table to pick formats appropriate for the target level.
+Each passage must be assigned a `format` label from the catalog below.
+
+> **⚠️ VẤN ĐỀ THƯỜNG GẶP: Format không đa dạng ⚠️**
+>
+> Claude hay lặp lại một số format quen thuộc (event_announcement, class_enrollment, service_guide) mà bỏ qua các format khác.
+> **Quy tắc cứng:**
+> 1. **KHÔNG lặp format** trong cùng batch — mỗi bài PHẢI dùng format khác nhau
+> 2. **Ưu tiên format ít dùng** — kiểm tra `assets/html/tim_thong_tin/` xem format nào đã có nhiều → chọn format chưa có hoặc ít nhất
+> 3. **Visual elements phải khác nhau** — ngay cả khi format khác nhau, 2 bài KHÔNG được trông giống nhau. Mỗi bài phải dùng tổ hợp visual elements khác nhau (bảng vs pill labels vs 【】sections vs info grid vs dashed box...)
+> 4. **Chủ đề phải khác nhau** — 2 bài cùng format "event_announcement" nhưng khác batch: 1 về lễ hội mùa hè, 1 về job fair — OK. Nhưng 2 bài cùng về "lớp học" → KHÔNG OK
+
+**BẮT BUỘC: Trước khi gen batch, liệt kê format + visual elements cho TỪNG bài:**
+```
+Bài 1: format=store_flyer, visual=[bảng giá, banner đỏ, dashed contact box]
+Bài 2: format=facility_guide, visual=[info grid, 【】sections, pill labels]
+Bài 3: format=schedule_timetable, visual=[bảng ○/×, footer liên hệ]
+...
+```
+Nếu 2 bài có cùng tổ hợp visual → đổi 1 bài.
 
 ### Format Catalog (15 formats)
 
@@ -280,13 +298,23 @@ Each passage must be assigned a `format` label from the catalog below. When gene
 
 ### Level-Appropriate Format Selection
 
-When generating passages, choose formats that match the level's complexity:
+When generating passages, choose formats that match the level's complexity. **Mỗi level có nhiều format — PHẢI dùng hết, KHÔNG chỉ chọn 2-3 format quen thuộc:**
 
-- **N5**: `store_flyer`, `event_announcement`, `regulation_notice`, `schedule_timetable`, `travel_listing`, `access_guide` — simple layouts, few conditions, minimal text
-- **N4**: `event_announcement`, `class_enrollment`, `regulation_notice`, `menu_guide`, `price_comparison_table`, `service_guide` — simple tables, short rules, daily life topics
-- **N3**: `class_enrollment`, `service_guide`, `event_announcement`, `facility_guide`, `travel_listing`, `price_comparison_table`, `recruitment_notice`, `menu_guide` — moderate tables, multiple conditions, discount rules
-- **N2**: `facility_guide`, `service_guide`, `comparison_article`, `event_announcement`, `class_enrollment`, `schedule_timetable`, `menu_guide` — complex tables, flowcharts, multi-section layouts
-- **N1**: `price_comparison_table`, `service_guide`, `facility_guide`, `schedule_timetable`, `medicine_info`, `recruitment_notice`, `member_notification`, `event_announcement` — dense data tables, cross-referencing multiple conditions, formal register
+- **N5** (6 formats — dùng luân phiên): `store_flyer`, `event_announcement`, `regulation_notice`, `schedule_timetable`, `travel_listing`, `access_guide`
+  - ❌ Hay bị lặp: chỉ gen store_flyer và event_announcement → thiếu đa dạng
+  - ✅ Phải gen cả: regulation_notice (bảng phân loại rác), schedule_timetable (lịch xe bus), access_guide (bản đồ đường đi)
+- **N4** (6 formats): `event_announcement`, `class_enrollment`, `regulation_notice`, `menu_guide`, `price_comparison_table`, `service_guide`
+  - ❌ Hay bị lặp: chỉ gen event_announcement và class_enrollment
+  - ✅ Phải gen cả: menu_guide (thực đơn), price_comparison_table (so sánh giá), regulation_notice (quy tắc)
+- **N3** (8 formats): `class_enrollment`, `service_guide`, `event_announcement`, `facility_guide`, `travel_listing`, `price_comparison_table`, `recruitment_notice`, `menu_guide`
+  - ❌ Hay bị lặp: chỉ gen class_enrollment và service_guide
+  - ✅ Phải gen cả: recruitment_notice (tuyển dụng), travel_listing (tour), facility_guide (thư viện/hồ bơi)
+- **N2** (7 formats): `facility_guide`, `service_guide`, `comparison_article`, `event_announcement`, `class_enrollment`, `schedule_timetable`, `menu_guide`
+  - ❌ Hay bị lặp: chỉ gen service_guide và facility_guide
+  - ✅ Phải gen cả: comparison_article (so sánh văn xuôi A/B/C), schedule_timetable (lịch hội thảo)
+- **N1** (8 formats): `price_comparison_table`, `service_guide`, `facility_guide`, `schedule_timetable`, `medicine_info`, `recruitment_notice`, `member_notification`, `event_announcement`
+  - ❌ Hay bị lặp: chỉ gen service_guide và price_comparison_table
+  - ✅ Phải gen cả: medicine_info (phiếu thuốc), member_notification (thông báo hội viên), recruitment_notice (tuyển dụng)
 
 ## Visual Elements Toolkit
 
@@ -665,34 +693,41 @@ question_label = "question_information_search"
 ### Question Patterns by Level — BẮT BUỘC là câu hỏi TÌNH HUỐNG
 
 > **Câu hỏi dạng "tìm thông tin" PHẢI là câu hỏi TÌNH HUỐNG (シチュエーション問題).**
-> Mỗi câu hỏi phải đưa ra tình huống giả định: nhân vật cụ thể (Aさん, 田中さん...) + điều kiện cá nhân → hỏi nên chọn/làm gì.
+> Mỗi câu hỏi phải đưa ra tình huống giả định: nhân vật có **tên thật** + điều kiện cá nhân → hỏi nên chọn/làm gì.
+>
+> **KHÔNG dùng tên chung chung** như Aさん, Bさん, 人A, 人B. Phải dùng **tên người Nhật hoặc tên nước ngoài tự nhiên**:
+> - Tên Nhật: 田中さん, 佐藤さん, 山田さん, 鈴木さん, 高橋さん, 中村さん, 小林さん, 渡辺さん...
+> - Tên nước ngoài (cho bài có người nước ngoài): リンさん, キムさん, チャンさん, マリアさん, アリさん...
+> - Tên sự vật/địa điểm cũng nên cụ thể: "さくら教室" thay vì "教室A", "みどり公園" thay vì "公園B"
+>
 > ❌ KHÔNG hỏi thông tin thô: "教室は何曜日ですか" — quá đơn giản
+> ❌ KHÔNG dùng tên chung: "Aさんは..." — không gần gũi, không tự nhiên
 > ✅ Hỏi tình huống: "田中さんは水曜と金曜が休みで、基礎から学びたい。どのコースが合いますか。"
 
 Study `input/htm_content_qa/` for exact patterns:
 
 **N1** (n1_qa_1~4): Complex scenario — cross-reference 3+ điều kiện.
-- Q1: Nhân vật A có profile cụ thể → đáp ứng tiêu chuẩn nào?
-- Q2: Nhân vật B trong tình huống → thủ tục theo trình tự nào?
+- Q1: 山本さん có profile cụ thể (tuổi, kinh nghiệm, bằng cấp) → đáp ứng tiêu chuẩn nào?
+- Q2: 佐々木さん trong tình huống → thủ tục theo trình tự nào?
 - 4 đáp án, formal, distractor sai 1 điều kiện khó nhận ra
 
 **N2** (n2_qa_1~4): Practical scenario — cross-reference 2-3 điều kiện.
-- Q1: Nhân vật A có yêu cầu cụ thể → nên chọn gì?
-- Q2: Nhân vật B muốn đăng ký → phải làm gì?
+- Q1: 高橋さん có yêu cầu cụ thể → nên chọn gì?
+- Q2: リンさん muốn đăng ký → phải làm gì?
 - 4 đáp án, semi-formal, distractor lẫn thông tin giữa sections
 
 **N3** (n3_qa_1~4): Daily-life scenario — cross-reference 2 điều kiện.
-- Q1: Nhân vật A trong tình huống → cần chuẩn bị gì?
-- Q2: Nhân vật B muốn đăng ký → điền form thế nào?
+- Q1: 中村さん trong tình huống → cần chuẩn bị gì?
+- Q2: キムさん muốn đăng ký → điền form thế nào?
 - 4 đáp án, nửa formal, distractor đúng 1 điều kiện sai 1
 
 **N4** (n4_qa_1~4): Simple scenario — check 1-2 điều kiện.
-- Q1: Nhân vật A muốn tham gia → có thể không?
-- Q2: Nhân vật B trong tình huống → câu nào đúng?
+- Q1: 鈴木さん muốn tham gia → có thể không?
+- Q2: マリアさん trong tình huống → câu nào đúng?
 - 4 đáp án, simple Japanese, distractor sai 1 chi tiết
 
 **N5** (n5_qa_1~4): Basic scenario — **only 1 question**, 1 điều kiện.
-- Nhân vật A muốn mua/đi → chọn gì? ngày nào?
+- 田中さん muốn mua/đi → chọn gì? ngày nào?
 - 4 đáp án, very basic Japanese
 
 ### Answer Format in CSV
@@ -708,7 +743,7 @@ Option A text\nOption B text\nOption C text\nOption D text
 
 ### Question Quality Rules
 
-1. **BẮT BUỘC là câu hỏi TÌNH HUỐNG** — Nhân vật cụ thể + điều kiện cá nhân → hỏi nên chọn/làm gì. KHÔNG hỏi thông tin thô.
+1. **BẮT BUỘC là câu hỏi TÌNH HUỐNG** — Nhân vật có **tên thật** (田中さん, リンさん... KHÔNG dùng Aさん/Bさん) + điều kiện cá nhân → hỏi nên chọn/làm gì. KHÔNG hỏi thông tin thô.
 2. **Information retrieval, not inference** — Đáp án tìm được bằng cross-reference thông tin trong bài. Không suy luận.
 3. **Wrong answers must be plausible** — Distractor đúng 1 phần, sai 1 điều kiện. Level cao → distractor tinh vi hơn.
 4. **Cross-reference multiple conditions** — Kiểm tra 2+ điều kiện đồng thời.
@@ -758,8 +793,9 @@ def gen_id(level: str) -> str:
 ## Generation Workflow
 
 1. **Generate IDs** → create `{LEVEL}_{uuid}` for each passage using `uuid.uuid4().hex` (full 32-char)
-2. **Select formats** → pick diverse format labels from the Format Catalog (see "Per-Level Format Distribution"). No two passages in the same batch should share a format unless the batch exceeds 15.
-3. **Read 1–2 reference samples** from `input/html/` that match the chosen formats for the target level
+2. **Kiểm tra format đã có** → `ls assets/html/tim_thong_tin/` rồi đọc CSV để xem format (cột `tag`) nào đã gen nhiều → ưu tiên format ít/chưa có
+3. **Lập kế hoạch format + visual** → liệt kê format + tổ hợp visual elements cho TỪNG bài TRƯỚC khi gen. Không được 2 bài cùng format trong batch. Không được 2 bài trông giống nhau về layout.
+4. **Read 1–2 reference samples** from `input/html/` that match the chosen formats for the target level
 4. **Read 1 QA reference** from `input/htm_content_qa/` for the target level (to calibrate question style)
 5. **Generate HTML** → each passage follows its assigned format's layout patterns and visual elements
 6. **Count characters** → verify within ±10% tolerance, adjust if needed

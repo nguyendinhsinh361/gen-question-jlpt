@@ -730,51 +730,51 @@ question_label = "question_information_search"
 
 > **⚠️ QUAN TRỌNG: Câu hỏi dạng "tìm thông tin" PHẢI là câu hỏi TÌNH HUỐNG (シチュエーション問題) ⚠️**
 >
-> Mỗi câu hỏi phải đưa ra **một tình huống giả định cụ thể** về một nhân vật (Aさん, 田中さん, リンさん...)
+> Mỗi câu hỏi phải đưa ra **một tình huống giả định cụ thể** về một nhân vật có **tên thật**
 > với các điều kiện cá nhân, rồi hỏi nhân vật đó nên chọn gì / làm gì dựa trên bài đọc.
 >
-> ❌ SAI — câu hỏi quá đơn giản, KHÔNG phải tình huống:
-> - "教室は何曜日ですか。" (Lớp học ngày mấy?) — đây chỉ là tìm thông tin thô
-> - "月謝はいくらですか。" (Học phí bao nhiêu?) — quá dễ, đọc bảng là thấy
+> **KHÔNG dùng tên chung chung** như Aさん, Bさん, 人A, 人B. Phải dùng **tên người tự nhiên**:
+> - Tên Nhật: 田中さん, 佐藤さん, 山田さん, 鈴木さん, 高橋さん, 中村さん, 小林さん, 渡辺さん...
+> - Tên nước ngoài: リンさん, キムさん, チャンさん, マリアさん, アリさん, グエンさん, パクさん...
+> - Tên sự vật/địa điểm cũng cụ thể: "さくら教室" thay vì "教室A", "みどり公園" thay vì "公園B"
 >
-> ✅ ĐÚNG — câu hỏi tình huống:
-> - "田中さんは水曜日と金曜日が休みで、パソコンの使い方を基礎から学びたいです。田中さんに合うコースはどれですか。"
->   (Tanaka nghỉ thứ 4 và thứ 6, muốn học máy tính từ cơ bản. Khóa nào phù hợp?)
-> - "リンさんは来月から3つのコースを同時に受けたいです。最初の月にかかる費用はいくらですか。"
->   (Lin muốn đăng ký 3 khóa cùng lúc từ tháng sau. Chi phí tháng đầu tiên bao nhiêu?)
+> ❌ KHÔNG hỏi thông tin thô: "教室は何曜日ですか" — quá đơn giản
+> ❌ KHÔNG dùng tên chung: "Aさんは..." — không gần gũi, không tự nhiên
+> ✅ Hỏi tình huống: "田中さんは水曜日と金曜日が休みで、パソコンの使い方を基礎から学びたいです。田中さんに合うコースはどれですか。"
+> ✅ "リンさんは来月から3つのコースを同時に受けたいです。最初の月にかかる費用はいくらですか。"
 
 Study `input/htm_content_qa/` for exact patterns. Key observations:
 
 **N1** (n1_qa_1~4): Complex scenario-based questions — cross-reference 3+ điều kiện.
-- Q1: Nhân vật A có profile cụ thể (tuổi, nơi ở, bằng cấp, kinh nghiệm...) → đáp ứng tiêu chuẩn nào?
+- Q1: 山本さん có profile cụ thể (tuổi, kinh nghiệm, bằng cấp) → đáp ứng tiêu chuẩn nào?
   Ví dụ: "山田さんは35歳、IT企業に5年勤務、TOEICは650点です。応募できる職種はどれですか。"
-- Q2: Nhân vật B trong tình huống cụ thể → phải làm thủ tục gì, theo trình tự nào?
+- Q2: 佐々木さん trong tình huống cụ thể → phải làm thủ tục gì, theo trình tự nào?
   Ví dụ: "佐藤さんは海外在住で、8月に一時帰国して手続きをしたいです。どの順番で進めればよいですか。"
 - 4 đáp án, formal register, distractor đúng gần hết chỉ sai 1 điều kiện khó nhận ra
 
 **N2** (n2_qa_1~4): Practical scenario questions — cross-reference 2-3 điều kiện.
-- Q1: Nhân vật A có yêu cầu cụ thể → nên chọn gì?
+- Q1: 高橋さん có yêu cầu cụ thể → nên chọn gì?
   Ví dụ: "鈴木さんは平日の夜に通いたくて、プールがあるジムを探しています。予算は月8,000円以内です。どのジムが合いますか。"
-- Q2: Nhân vật B muốn đăng ký/sử dụng dịch vụ → phải làm gì?
+- Q2: リンさん muốn đăng ký/sử dụng dịch vụ → phải làm gì?
   Ví dụ: "陳さんは来月から週2回利用したいです。申し込みに必要なものは何ですか。"
 - 4 đáp án, semi-formal, distractor lẫn thông tin giữa sections
 
 **N3** (n3_qa_1~4): Practical daily-life scenario — cross-reference 2 điều kiện.
-- Q1: Nhân vật A trong tình huống đời sống → cần chuẩn bị/chọn gì?
+- Q1: 中村さん trong tình huống đời sống → cần chuẩn bị/chọn gì?
   Ví dụ: "マリアさんは子ども（5歳）と一緒に参加したいです。何を持っていかなければなりませんか。"
-- Q2: Nhân vật B muốn đăng ký → điền form/postcard thế nào?
+- Q2: キムさん muốn đăng ký → điền form/postcard thế nào?
   Ví dụ: "パクさんは土曜日のBコースに申し込みたいです。はがきにどう書けばいいですか。"
 - 4 đáp án, nửa formal nửa conversational, distractor đúng 1 điều kiện sai 1
 
 **N4** (n4_qa_1~4): Simple scenario — check 1-2 điều kiện.
-- Q1: Nhân vật A muốn tham gia → có thể không?
+- Q1: 鈴木さん muốn tham gia → có thể không?
   Ví dụ: "グエンさんは20歳の学生で、土曜日にアルバイトがあります。このイベントに参加できますか。"
-- Q2: Nhân vật B trong tình huống → câu nào đúng?
+- Q2: マリアさん trong tình huống → câu nào đúng?
   Ví dụ: "キムさんは初めてこのお店に来ました。キムさんについて正しいのはどれですか。"
 - 4 đáp án, simple Japanese, distractor sai 1 chi tiết đơn giản
 
 **N5** (n5_qa_1~4): Basic scenario — **only 1 question**, 1 điều kiện.
-- Nhân vật A muốn mua/đi → chọn gì?
+- 田中さん muốn mua/đi → chọn gì?
   Ví dụ: "アンさんはたまごとぎゅうにゅうをいちばんやすくかいたいです。なんようびにいけばいいですか。"
   (An muốn mua trứng và sữa rẻ nhất. Nên đi ngày nào?)
 - 4 đáp án, very basic Japanese, distractor sai ngày/giá/đối tượng
@@ -792,7 +792,7 @@ Option A text\nOption B text\nOption C text\nOption D text
 
 ### Question Quality Rules
 
-1. **BẮT BUỘC là câu hỏi TÌNH HUỐNG** — Mỗi câu hỏi phải đặt ra tình huống giả định: nhân vật cụ thể (tên + profile) + điều kiện cá nhân + hỏi nên chọn/làm gì. KHÔNG BAO GIỜ hỏi thông tin thô ("mấy giờ?", "bao nhiêu tiền?") mà không có tình huống.
+1. **BẮT BUỘC là câu hỏi TÌNH HUỐNG** — Nhân vật có **tên thật** (田中さん, リンさん... KHÔNG dùng Aさん/Bさん) + điều kiện cá nhân + hỏi nên chọn/làm gì. KHÔNG BAO GIỜ hỏi thông tin thô ("mấy giờ?", "bao nhiêu tiền?") mà không có tình huống. Tên sự vật/địa điểm cũng phải cụ thể (さくら教室, みどり公園... KHÔNG dùng 教室A, 公園B).
 2. **Information retrieval, not inference** — Đáp án phải tìm được trực tiếp bằng cách cross-reference thông tin trong bài đọc. Không cần suy luận hay ý kiến.
 3. **Wrong answers must be plausible** — Mỗi distractor đúng ở 1 phần nhưng sai ở 1 điều kiện. Level càng cao, distractor càng tinh vi.
 4. **Cross-reference multiple conditions** — Câu hỏi tốt buộc kiểm tra 2+ điều kiện đồng thời (tuổi + nơi ở, ngày + sản phẩm, điều kiện + thủ tục).
