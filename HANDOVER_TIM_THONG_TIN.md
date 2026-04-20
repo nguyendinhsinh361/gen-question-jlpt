@@ -100,13 +100,13 @@ Dùng script hoặc hàm Python để đếm chính xác:
 python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-only --file <html-file>
 ```
 
-| Level | Khoảng ký tự |
-|-------|-------------|
-| N1 | 500–800 |
-| N2 | 480–770 |
-| N3 | 340–750 |
-| N4 | 300–500 |
-| N5 | 130–290 |
+| Level | Target Range | Hard Reject (< 10% Min) |
+|-------|-------------|------------------------|
+| N1    | **650–800** | < 585 → gen lại |
+| N2    | **620–770** | < 558 → gen lại |
+| N3    | **550–750** | < 495 → gen lại |
+| N4    | **400–500** | < 360 → gen lại |
+| N5    | **220–290** | < 180 → gen lại |
 
 ### Bước 5 — Screenshot + Clean HTML + CSV
 
@@ -240,7 +240,7 @@ Yêu cầu:
 Gen 1 bài tìm thông tin N2, format: comparison_article, chủ đề so sánh phòng gym.
 
 - Đọc mẫu n2_1.html hoặc n2_10.html để tham khảo style
-- Kiểm tra chars trong khoảng 480-770
+- Kiểm tra chars trong khoảng 620-770
 - Furigana chỉ cho từ N1 (rất ít)
 ```
 

@@ -26,7 +26,7 @@ Project có skill **jlpt-tim-thong-tin** tại `.gemini/skills/jlpt-reading-gene
 
 **BẮT BUỘC đọc SKILL.md trước khi gen dữ liệu.** File này chứa tất cả rules quan trọng:
 - Quy tắc furigana (KHÔNG dùng dạng Ab, chỉ furigana cho từ vượt level)
-- Character counting (500-800 chars cho N1, 130-290 cho N5, v.v.)
+- Character counting (650-800 chars cho N1, 620-770 cho N2, 550-750 cho N3, 400-500 cho N4, 200-290 cho N5). Hard reject nếu dưới 10% Min.
 - 15 format catalog + per-level distribution
 - CSV schema 45 cột
 - Question generation rules (N5: 1 câu, N1-N4: 2 câu)

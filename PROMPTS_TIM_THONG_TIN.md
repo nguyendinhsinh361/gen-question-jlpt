@@ -16,8 +16,8 @@ Giúp tôi tạo dữ liệu level N5 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: store_flyer, event_announcement, regulation_notice, schedule_timetable, travel_listing, access_guide
-- Furigana chỉ cho từ vượt N5 (rất ít, 0-2 từ), không dùng dạng Ab
-- Chars: 130-290
+- Furigana chỉ cho từ vượt N5 (rất ít, 0-1 từ), không dùng dạng Ab
+- Chars: 200-290
 - 1 câu hỏi/bài
 ```
 
@@ -29,8 +29,8 @@ Giúp tôi tạo dữ liệu level N4 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: event_announcement, class_enrollment, regulation_notice, menu_guide, price_comparison_table, service_guide
-- Furigana chỉ cho từ vượt N4 (0-3 từ), không dùng dạng Ab
-- Chars: 300-500
+- Furigana chỉ cho từ vượt N4 (0-2 từ), không dùng dạng Ab
+- Chars: 400-500
 - 2 câu hỏi/bài
 ```
 
@@ -42,8 +42,8 @@ Giúp tôi tạo dữ liệu level N3 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: class_enrollment, service_guide, event_announcement, facility_guide, travel_listing, price_comparison_table, recruitment_notice, menu_guide
-- Furigana chỉ cho từ vượt N3 (0-5 từ), không dùng dạng Ab
-- Chars: 340-750
+- Furigana chỉ cho từ vượt N3 (0-3 từ), không dùng dạng Ab
+- Chars: 550-750
 - 2 câu hỏi/bài
 ```
 
@@ -55,8 +55,8 @@ Giúp tôi tạo dữ liệu level N2 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: facility_guide, service_guide, comparison_article, event_announcement, class_enrollment, schedule_timetable, menu_guide
-- Furigana chỉ cho từ N1 (0-3 từ), không dùng dạng Ab
-- Chars: 480-770
+- Furigana chỉ cho từ N1 (0-2 từ), không dùng dạng Ab
+- Chars: 620-770
 - 2 câu hỏi/bài
 ```
 
@@ -68,8 +68,8 @@ Giúp tôi tạo dữ liệu level N1 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: price_comparison_table, service_guide, facility_guide, schedule_timetable, medicine_info, recruitment_notice, member_notification, event_announcement
-- Gần như không furigana (0-2 từ cực hiếm), không dùng dạng Ab
-- Chars: 500-800
+- Gần như không furigana (0-1 từ cực hiếm), không dùng dạng Ab
+- Chars: 650-800
 - 2 câu hỏi/bài
 ```
 
@@ -140,7 +140,7 @@ Gen 1 bài tìm thông tin level N2, format: comparison_article
 Chủ đề: so sánh 3 phòng gym (giá, giờ mở, tiện ích)
 - Đọc mẫu n2_1.html hoặc n2_10.html trước
 - Dạng văn xuôi A/B/C, mỗi section mô tả 1 phòng gym
-- Chars: 480-770
+- Chars: 620-770
 - 2 câu hỏi: Q1 hỏi điều kiện, Q2 hỏi giá/thời gian
 ```
 
@@ -153,7 +153,7 @@ Chủ đề: phiếu hướng dẫn thuốc từ phòng khám
 - Đọc mẫu n1_1.html trước
 - Bảng: tên thuốc, tác dụng, liều dùng, lưu ý
 - Gần như không furigana
-- Chars: 500-800
+- Chars: 650-800
 - 2 câu hỏi phức tạp: cross-reference nhiều điều kiện
 ```
 
@@ -166,7 +166,7 @@ Chủ đề: hướng dẫn đường đến trường
 - Đọc mẫu n5_8.html trước
 - Sơ đồ tuyến đường: nhà ga → bus → trường
 - Viết gần như toàn hiragana, rất ít kanji
-- Chars: 130-290
+- Chars: 200-290
 - 1 câu hỏi đơn giản
 ```
 

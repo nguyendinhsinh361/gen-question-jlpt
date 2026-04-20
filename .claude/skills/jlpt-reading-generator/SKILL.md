@@ -77,17 +77,36 @@ python3 <skill-path>/scripts/process_html.py --count-only --file <html-file>
 
 ## Target Character Counts
 
-Based on 61 approved reference samples in `input/html/`:
+### Dữ liệu tham khảo từ 61 mẫu gốc
 
-| Level | Files | Min | Max | Avg | Target Range |
-|-------|-------|-----|-----|-----|-------------|
-| N1    | 13*   | 499 | 799 | 694 | 500–800     |
-| N2    | 12    | 478 | 767 | 697 | 480–770     |
-| N3    | 15    | 342 | 747 | 618 | 340–750     |
-| N4    | 10    | 306 | 491 | 419 | 300–500     |
-| N5    | 10    | 137 | 285 | 210 | 130–290     |
+| Level | Files | Min | Max | Avg |
+|-------|-------|-----|-----|-----|
+| N1    | 13*   | 499 | 799 | 694 |
+| N2    | 12    | 478 | 767 | 697 |
+| N3    | 15    | 342 | 747 | 618 |
+| N4    | 10    | 306 | 491 | 419 |
+| N5    | 10    | 137 | 285 | 210 |
 
-Aim within the target range (based on actual sample min–max). After generating, always verify with `count_body_chars()` and adjust if outside range.
+### Target Range (BẮT BUỘC tuân thủ)
+
+Dựa trên feedback biên tập viên (bài gen thường ít ký tự hơn tiêu chuẩn), Target Range đã được điều chỉnh lên vùng **Avg → Max** của dữ liệu mẫu:
+
+| Level | Target Range | Hard Reject (< 10% Min) |
+|-------|-------------|------------------------|
+| N1    | **650–800** | < 585 → gen lại |
+| N2    | **620–770** | < 558 → gen lại |
+| N3    | **550–750** | < 495 → gen lại |
+| N4    | **400–500** | < 360 → gen lại |
+| N5    | **220–290** | < 180 → gen lại |
+
+After generating, always verify with `count_body_chars()`. Nếu dưới Target Range, bổ sung nội dung (thêm điều kiện, ghi chú, lưu ý chi tiết) thay vì chấp nhận bài ngắn.
+
+> **🚫 HARD REJECT — Ngưỡng tối thiểu tuyệt đối (không có ngoại lệ)**
+>
+> Nếu `count_body_chars()` thấp hơn **10% so với Min** của Target Range, bài **PHẢI gen lại từ đầu**.
+> Không chấp nhận, không chỉnh sửa nhỏ — gen lại hoàn toàn.
+>
+> Quy trình: Gen HTML → count chars → nếu < Hard Reject → **xóa và gen lại** → count lại → lặp cho đến khi đạt.
 
 ## Vocabulary & Grammar Constraints
 
@@ -147,13 +166,24 @@ In practice, a good passage should have **very few** above-level words:
 
 | Level | Target above-level words | Ruby tags expected |
 |-------|--------------------------|-------------------|
-| N5 | 0–2 words | 0–5 ruby tags |
-| N4 | 0–3 words | 0–8 ruby tags |
-| N3 | 0–5 words | 0–12 ruby tags |
-| N2 | 0–3 words | 0–8 ruby tags |
-| N1 | 0–2 words | 0–5 ruby tags |
+| N5 | 0–1 words | 0–2 ruby tags |
+| N4 | 0–2 words | 0–4 ruby tags |
+| N3 | 0–3 words | 0–6 ruby tags |
+| N2 | 0–2 words | 0–4 ruby tags |
+| N1 | 0–1 words | 0–2 ruby tags |
 
-If you find yourself adding many furigana, **rewrite using simpler vocabulary** rather than adding more ruby tags.
+> **⚠️ NGUYÊN TẮC VÀNG: THAY TỪ, KHÔNG RẮC FURIGANA**
+>
+> Biên tập viên JLPT nhận xét: bài gen thường "rắc furigana không phù hợp từ". Furigana gây 2 vấn đề:
+> 1. **Lệch dòng** — dòng có ruby cao hơn dòng thường, phá vỡ layout đều đặn
+> 2. **Không tự nhiên** — đề thi JLPT thật rất ít furigana; nhiều furigana = không giống đề thật
+>
+> **Ưu tiên theo thứ tự:**
+> 1. 🥇 **Thay bằng từ cùng level** — ví dụ: thay 届く (N3) bằng 来る (N5) trong bài N5
+> 2. 🥈 **Viết full hiragana** (cho N5/N4) — ví dụ: おおもり thay vì <ruby>大盛<rt>おおもり</rt></ruby>
+> 3. 🥉 **Dùng furigana** — CHỈ khi từ không thể thay thế VÀ không thể viết hiragana (ví dụ: tên riêng, thuật ngữ chuyên ngành)
+>
+> Nếu bài có hơn **3 cặp `<ruby>/<rt>`**, hãy xem lại và thay từ đơn giản hơn.
 
 ### Summary Examples
 
@@ -264,7 +294,9 @@ Every generated file follows this structure:
             font-family: 'Noto Sans JP', sans-serif;
             background-color: #f3f4f6;
             color: #000;
-            line-height: 1.6;
+            line-height: 2;          /* ← tăng lên 2 để dòng có ruby không bị lệch so với dòng thường */
+            word-break: keep-all;    /* ← KHÔNG ngắt giữa từ tiếng Nhật — tránh tách 1 từ thành 2 dòng */
+            overflow-wrap: break-word; /* ← chỉ ngắt khi từ dài hơn container */
         }
         .container {
             max-width: 800px;
@@ -274,7 +306,18 @@ Every generated file follows this structure:
             border: 1px solid #d1d5db;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
-        ruby rt { font-size: 0.6em; color: #333; }
+        ruby {
+            ruby-align: center;
+            ruby-position: over;       /* ← furigana luôn ở TRÊN, không đẩy text xuống */
+            vertical-align: baseline;  /* ← giữ text gốc đúng baseline, không bị thấp xuống */
+        }
+        ruby rt {
+            font-size: 0.55em;
+            color: #333;
+            letter-spacing: 0.02em;
+            line-height: 1;            /* ← rt không chiếm thêm chiều cao */
+            vertical-align: top;
+        }
         /* document-specific styles here */
     </style>
 </head>
@@ -285,6 +328,35 @@ Every generated file follows this structure:
 </body>
 </html>
 ```
+
+## Layout & Line-Break Rules (Critical — Editor Feedback)
+
+Biên tập viên JLPT nhận xét: bài gen đôi khi ngắt dòng giữa từ, tách 1 từ đơn thành 2 dòng. Và furigana làm lệch chiều cao dòng.
+
+### CSS bắt buộc (đã tích hợp trong template)
+
+1. **`word-break: keep-all`** — Ngăn trình duyệt ngắt giữa từ tiếng Nhật. Tiếng Nhật mặc định cho phép ngắt giữa bất kỳ 2 ký tự nào, nhưng với JLPT reading, chúng ta cần giữ nguyên từ/cụm từ trên cùng dòng.
+
+2. **`overflow-wrap: break-word`** — Chỉ cho phép ngắt khi 1 từ dài hơn container (fallback an toàn).
+
+3. **`line-height: 2`** — Khoảng cách dòng đủ rộng để dòng có `<ruby>/<rt>` không bị cao hơn dòng thường. Với `line-height: 1.6` (cũ), dòng có furigana sẽ đẩy dòng tiếp theo xuống → layout không đều.
+
+4. **`ruby rt { font-size: 0.55em }`** — Furigana nhỏ hơn, ít ảnh hưởng chiều cao dòng.
+
+5. **`ruby { ruby-position: over; vertical-align: baseline; }`** — **FIX LỖI TỪ CÓ FURIGANA BỊ THẤP XUỐNG.** Mặc định trình duyệt có thể đẩy text gốc xuống dưới baseline để nhường chỗ cho ruby ở trên. 2 thuộc tính này đảm bảo: furigana nằm phía trên, text gốc giữ nguyên baseline với text xung quanh.
+
+6. **`ruby rt { line-height: 1; vertical-align: top; }`** — rt không chiếm thêm chiều cao, không ảnh hưởng layout dòng.
+
+### Kiểm tra ngắt dòng & furigana khi review
+
+Khi review screenshot, kiểm tra:
+- ❌ Từ bị tách giữa 2 dòng (ví dụ: "いたしま" ở cuối dòng, "す" ở đầu dòng tiếp theo)
+- ❌ Dòng có furigana cao hơn dòng không có furigana
+- ❌ Từ có furigana bị **thấp xuống** so với text cùng dòng (baseline lệch)
+- ✅ Tất cả dòng cùng chiều cao, từ không bị cắt giữa
+- ✅ Từ có furigana nằm cùng baseline với text xung quanh
+
+Nếu phát hiện vấn đề, điều chỉnh nội dung (rút ngắn/kéo dài câu) thay vì thêm `<br>` cưỡng ép.
 
 ## Clean HTML Extraction
 
