@@ -2,11 +2,30 @@
 
 Bộ sưu tập prompts để gen dữ liệu training đa dạng. Copy-paste và chỉnh sửa theo nhu cầu.
 
-> **Nguyên tắc vàng:** Mỗi batch gen phải dùng format khác nhau. Nếu gen 5 bài → 5 format khác nhau. Nếu gen 15 bài → dùng hết 15 format rồi mới được lặp.
+> **Trước khi gen, BẮT BUỘC đọc SKILL.md** (`.claude/` hoặc `.gemini/skills/jlpt-reading-generator/SKILL.md`).
+> File này chỉ là prompt template — tất cả quy tắc chi tiết nằm trong SKILL.md.
 
 ---
 
-## 1. Gen theo level — Batch nhỏ (5 bài)
+## Quy tắc nhắc nhở (phải có trong MỌI prompt)
+
+Mỗi prompt gen dữ liệu **PHẢI** bao gồm các nhắc nhở sau (copy block này vào cuối prompt):
+
+```
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
+```
+
+---
+
+## 1. Gen theo level — Batch 5 bài
 
 ### N5 — 5 mẫu đa dạng
 
@@ -16,9 +35,21 @@ Giúp tôi tạo dữ liệu level N5 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: store_flyer, event_announcement, regulation_notice, schedule_timetable, travel_listing, access_guide
-- Furigana chỉ cho từ vượt N5 (rất ít, 0-1 từ), không dùng dạng Ab
-- Chars: 200-290
+- Chars: 200-290 (Hard reject < 180)
+- Furigana: 0-1 từ vượt N5, ưu tiên viết hiragana thay vì furigana. KHÔNG dùng dạng Ab
 - 1 câu hỏi/bài
+- Text flow liên tục, KHÔNG <br> trong paragraph
+- Layout A4
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ### N4 — 5 mẫu đa dạng
@@ -29,9 +60,21 @@ Giúp tôi tạo dữ liệu level N4 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: event_announcement, class_enrollment, regulation_notice, menu_guide, price_comparison_table, service_guide
-- Furigana chỉ cho từ vượt N4 (0-2 từ), không dùng dạng Ab
-- Chars: 400-500
+- Chars: 400-500 (Hard reject < 360)
+- Furigana: 0-2 từ vượt N4, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
+- Text flow liên tục, KHÔNG <br> trong paragraph
+- Layout A4
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ### N3 — 5 mẫu đa dạng
@@ -42,9 +85,21 @@ Giúp tôi tạo dữ liệu level N3 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: class_enrollment, service_guide, event_announcement, facility_guide, travel_listing, price_comparison_table, recruitment_notice, menu_guide
-- Furigana chỉ cho từ vượt N3 (0-3 từ), không dùng dạng Ab
-- Chars: 550-750
+- Chars: 550-750 (Hard reject < 495)
+- Furigana: 0-3 từ vượt N3, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
+- Text flow liên tục, KHÔNG <br> trong paragraph
+- Layout A4
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ### N2 — 5 mẫu đa dạng
@@ -55,9 +110,21 @@ Giúp tôi tạo dữ liệu level N2 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: facility_guide, service_guide, comparison_article, event_announcement, class_enrollment, schedule_timetable, menu_guide
-- Furigana chỉ cho từ N1 (0-2 từ), không dùng dạng Ab
-- Chars: 620-770
+- Chars: 620-770 (Hard reject < 558)
+- Furigana: 0-2 từ N1, ưu tiên thay từ đơn giản. KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
+- Text flow liên tục, KHÔNG <br> trong paragraph
+- Layout A4
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ### N1 — 5 mẫu đa dạng
@@ -68,9 +135,21 @@ Giúp tôi tạo dữ liệu level N1 có tổng cộng 5 mẫu đa dạng trong
 Yêu cầu:
 - 5 bài, mỗi bài dùng format khác nhau từ Format Catalog
 - Chọn từ: price_comparison_table, service_guide, facility_guide, schedule_timetable, medicine_info, recruitment_notice, member_notification, event_announcement
-- Gần như không furigana (0-1 từ cực hiếm), không dùng dạng Ab
-- Chars: 650-800
+- Chars: 650-800 (Hard reject < 585)
+- Furigana: gần như không có (0-1 từ cực hiếm). KHÔNG dùng dạng Ab
 - 2 câu hỏi/bài
+- Text flow liên tục, KHÔNG <br> trong paragraph
+- Layout A4
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ---
@@ -84,9 +163,19 @@ Gen 10 bài tìm thông tin, 2 bài mỗi level N1-N5, lưu CSV mới trong shee
 
 Yêu cầu:
 - Mỗi level chọn 2 format khác nhau
-- Tổng 10 bài → tối thiểu 10 format khác nhau (không trùng format giữa các level nếu có thể)
-- Đọc mẫu tham khảo trong input/html/ trước
+- Tổng 10 bài → tối thiểu 10 format khác nhau
+- Đọc mẫu tham khảo trong input/html/ + input/htm_content_qa/ trước
 - Chủ đề đa dạng, không trùng nhau
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ### 15 bài (3 per level) — Dùng hết 15 format
@@ -97,35 +186,17 @@ Gen 15 bài tìm thông tin, 3 bài mỗi level N1-N5, lưu CSV mới trong shee
 Yêu cầu:
 - Tổng 15 bài → dùng hết 15 format trong Format Catalog, mỗi format đúng 1 lần
 - Phân bổ format theo level cho phù hợp (ví dụ store_flyer → N5, medicine_info → N1)
-- Đọc mẫu tham khảo + mẫu QA trước khi gen
-- Kiểm tra chars + furigana cho từng bài
-```
+- Chia nhỏ: gen 5 bài/lượt, kiểm tra chars + layout + furigana rồi gen tiếp
 
-### 25 bài (5 per level) — Quy mô vừa
-
-```
-Gen 25 bài tìm thông tin, 5 bài mỗi level N1-N5, lưu CSV mới trong sheets/
-
-Yêu cầu:
-- Mỗi level: 5 format khác nhau, không trùng trong cùng level
-- Giữa các level có thể lặp format nhưng phải khác chủ đề
-  (ví dụ: event_announcement ở N5 là "おまつり", ở N2 là "就職フェア")
-- Tham khảo input/topic.json để đa dạng chủ đề
-- Kiểm tra kỹ chars, furigana, format diversity
-```
-
-### 50 bài (10 per level) — Quy mô lớn
-
-```
-Gen 50 bài tìm thông tin, 10 bài mỗi level N1-N5, lưu CSV mới trong sheets/
-
-Yêu cầu:
-- Mỗi level: 10 bài → tối thiểu 6-8 format khác nhau (một số format dùng 2 lần với chủ đề khác)
-- Khi lặp format, phải khác:
-  - Chủ đề hoàn toàn khác
-  - Layout/visual elements khác (ví dụ: cùng event_announcement nhưng 1 bài dùng bảng, 1 bài dùng pill label)
-- Chia nhỏ: gen 5 bài/lượt, kiểm tra rồi gen tiếp
-- Tham khảo input/topic.json
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ---
@@ -140,8 +211,16 @@ Gen 1 bài tìm thông tin level N2, format: comparison_article
 Chủ đề: so sánh 3 phòng gym (giá, giờ mở, tiện ích)
 - Đọc mẫu n2_1.html hoặc n2_10.html trước
 - Dạng văn xuôi A/B/C, mỗi section mô tả 1 phòng gym
-- Chars: 620-770
+- Chars: 620-770 (Hard reject < 558)
 - 2 câu hỏi: Q1 hỏi điều kiện, Q2 hỏi giá/thời gian
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- HTML phải giống tờ A4: container width=794px, min-height=1123px
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph
+- KHÔNG tách giữa từ khi xuống dòng
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
+- Sau khi gen: count chars → capture screenshot → review layout
 ```
 
 ### Chỉ định format hiếm
@@ -151,23 +230,18 @@ Gen 1 bài tìm thông tin level N1, format: medicine_info
 
 Chủ đề: phiếu hướng dẫn thuốc từ phòng khám
 - Đọc mẫu n1_1.html trước
-- Bảng: tên thuốc, tác dụng, liều dùng, lưu ý
+- Bảng: tên thuốc, tác dụng, liều dùng, lưu ý. Dùng table-layout:fixed
 - Gần như không furigana
-- Chars: 650-800
+- Chars: 650-800 (Hard reject < 585)
 - 2 câu hỏi phức tạp: cross-reference nhiều điều kiện
-```
 
-### Gen format chưa từng dùng
-
-```
-Gen 1 bài tìm thông tin level N5, format: access_guide
-
-Chủ đề: hướng dẫn đường đến trường
-- Đọc mẫu n5_8.html trước
-- Sơ đồ tuyến đường: nhà ga → bus → trường
-- Viết gần như toàn hiragana, rất ít kanji
-- Chars: 200-290
-- 1 câu hỏi đơn giản
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- HTML phải giống tờ A4: container width=794px, min-height=1123px
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph
+- KHÔNG tách giữa từ khi xuống dòng
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
+- Sau khi gen: count chars → capture screenshot → review layout
 ```
 
 ---
@@ -183,6 +257,16 @@ Gen 3 bài tìm thông tin N4 về chủ đề đời sống hàng ngày, mỗi 
 3. event_announcement — lễ hội mùa hè khu phố
 
 Lưu CSV mới trong sheets/
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ### Chủ đề giáo dục
@@ -194,6 +278,16 @@ Gen 3 bài tìm thông tin N3 về chủ đề giáo dục, mỗi bài format kh
 3. price_comparison_table — so sánh học phí 3 trường dạy nghề
 
 Lưu CSV mới trong sheets/
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ### Chủ đề công việc
@@ -205,17 +299,16 @@ Gen 3 bài tìm thông tin N2 về chủ đề công việc, mỗi bài format k
 3. service_guide — hướng dẫn đăng ký bảo hiểm lao động
 
 Lưu CSV mới trong sheets/
-```
 
-### Chủ đề du lịch & giải trí
-
-```
-Gen 3 bài tìm thông tin N3 về du lịch và giải trí, mỗi bài format khác nhau:
-1. travel_listing — 4 tour bus mùa thu (núi, biển, onsen, lâu đài)
-2. event_announcement — lễ hội pháo hoa bên sông
-3. facility_guide — hướng dẫn sử dụng khu cắm trại
-
-Lưu CSV mới trong sheets/
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- Đọc 1-2 mẫu tham khảo từ input/html/ và input/htm_content_qa/
+- HTML phải giống tờ A4: container width=794px, min-height=1123px, nền xám + tờ trắng
+- Text chảy liên tục (flow text): KHÔNG dùng <br> trong paragraph. Các câu cùng đoạn gộp trong 1 <p>
+- KHÔNG tách giữa từ khi xuống dòng: CSS word-break:keep-all + line-break:strict
+- Furigana: phải dùng <ruby>+<rt>, ưu tiên thay từ đơn giản hơn thay vì rắc furigana
+- Sau khi gen: count chars → nếu < Hard Reject thì gen lại. Capture screenshot → review layout
+- UUID: dùng uuid.uuid4().hex (full 32-char, KHÔNG cắt)
 ```
 
 ---
@@ -229,7 +322,7 @@ Cho các bài tìm thông tin đã có trong sheets/n5_samples_v2.csv, gen câu 
 
 - Đọc HTML mỗi bài trong assets/html/tim_thong_tin/ trước
 - N5: 1 câu hỏi/bài, đơn giản, tìm thông tin cụ thể
-- 4 đáp án (1 đúng, 3 sai nhưng hợp lý)
+- 4 đáp án (1 đúng, 3 sai nhưng hợp lý — sai ở chi tiết, không sai hiển nhiên)
 - Giải thích VN + EN
 - Cập nhật CSV
 ```
@@ -245,25 +338,28 @@ Cho các bài N1 đã có trong sheets/n1_samples.csv, gen câu hỏi.
   - Q2: quy trình/thủ tục (phải nộp gì? theo thứ tự nào?)
 - Đáp án sai phải hợp lý (đúng 1 điều kiện, sai điều kiện khác)
 - Furigana trong câu hỏi: cùng quy tắc với bài đọc
+- Kiểm tra kỹ: đảm bảo CHỈ CÓ 1 đáp án đúng, không có 2 đáp án cùng đúng
 ```
 
 ---
 
 ## 6. Kiểm tra & sửa lỗi
 
-### Kiểm tra toàn bộ
+### Kiểm tra toàn bộ (chạy sau mỗi batch)
 
 ```
 Kiểm tra tất cả bài tìm thông tin trong assets/html/tim_thong_tin/:
 
-1. Đếm ký tự — báo bài nào ngoài khoảng cho phép
-2. Furigana — có dạng "Ab" nào không? (ví dụ: 週かん, 友だち, 拠てん)
-3. Furigana — có từ đúng level nhưng bị gắn furigana không?
-4. Format diversity — có bài nào trùng format trong cùng batch?
-5. Ruby tags — có vượt giới hạn không? (N5: 0-5, N4: 0-8...)
-6. Screenshot khớp HTML không?
+1. Chars — đếm bằng count_body_chars(), báo bài nào ngoài Target Range hoặc dưới Hard Reject
+2. Layout A4 — screenshot có giống tờ A4 không? Nội dung tràn ra ngoài container?
+3. Flow text — có dùng <br> trong paragraph không? Mỗi câu có nằm trên 1 dòng riêng không?
+4. Ngắt từ — có từ nào bị tách giữa 2 dòng không? (kiểm tra trong screenshot)
+5. Furigana — có dạng "Ab" không? Có từ đúng level bị gắn furigana không? Có quá 3 ruby tags không?
+6. Furigana tags — có dùng <ruby>+<rt> đúng cách không? (không dùng ngoặc, không thiếu <rt>)
+7. Format diversity — có bài nào trùng format trong cùng batch?
+8. Baseline — từ có furigana có bị thấp xuống so với text xung quanh không?
 
-Nếu lỗi, sửa lại HTML, chụp lại screenshot, cập nhật CSV.
+Nếu lỗi, sửa lại HTML → chụp lại screenshot → cập nhật CSV.
 ```
 
 ### Kiểm tra furigana chuyên sâu
@@ -272,23 +368,13 @@ Nếu lỗi, sửa lại HTML, chụp lại screenshot, cập nhật CSV.
 Kiểm tra furigana cho tất cả bài N4 trong assets/html/tim_thong_tin/n4_*.html:
 
 1. Liệt kê tất cả <ruby> tags trong mỗi file
-2. Với mỗi ruby tag, xác nhận từ đó vượt N4 (thuộc N3/N2/N1)
+2. Với mỗi ruby tag, xác nhận từ đó THẬT SỰ vượt N4 (thuộc N3/N2/N1)
 3. Kiểm tra có dạng "Ab" nào không (nửa kanji nửa hiragana)
-4. Kiểm tra từ N5+N4 nào có kanji mà bị viết hiragana không cần thiết
-5. Đếm tổng ruby tags — phải ≤ 8
+4. Kiểm tra có <ruby> thiếu <rt> không (vô nghĩa nếu thiếu)
+5. Đếm tổng ruby tags — phải ≤ 4
+6. Nếu quá nhiều furigana: đề xuất thay bằng từ đơn giản hơn
 
 Báo cáo kết quả và sửa nếu cần.
-```
-
-### Kiểm tra format diversity
-
-```
-Kiểm tra format diversity trong tất cả CSV files trong sheets/:
-
-1. Đọc cột "tag" của mỗi file
-2. Báo nếu cùng 1 file CSV có 2+ bài trùng format
-3. Báo nếu cùng 1 level có quá 2 bài cùng format (across all CSV files)
-4. Đề xuất format thay thế nếu cần
 ```
 
 ---
@@ -303,6 +389,12 @@ Kiểm tra tổng số bài đã gen cho mỗi level, rồi gen thêm cho level 
 Mục tiêu: mỗi level có ít nhất 10 bài.
 - Kiểm tra format đã dùng → chọn format chưa dùng trước
 - Lưu CSV mới riêng cho mỗi level
+
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- HTML phải giống tờ A4, text flow liên tục, không tách từ giữa dòng
+- Furigana: dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
+- Count chars + capture screenshot + review layout sau mỗi bài
 ```
 
 ### Gen bài với visual elements đặc biệt
@@ -312,32 +404,29 @@ Gen 5 bài tìm thông tin (1 per level) với visual elements đặc biệt:
 
 1. N1 — price_comparison_table: bảng phức tạp có rowspan/colspan + chú thích footnote
 2. N2 — facility_guide: flowchart (yes/no decision boxes)
-3. N3 — class_enrollment: 2×2 course grid + SVG illustration
+3. N3 — class_enrollment: 2×2 course grid
 4. N4 — event_announcement: pill labels + 【】section headers
-5. N5 — store_flyer: SVG starburst shapes + promo boxes
+5. N5 — store_flyer: promo boxes + highlight text
 
-Đọc references/design-patterns.md để biết visual elements của từng mẫu tham khảo.
-```
+Đọc references/design-patterns.md để biết visual elements.
+Lưu ý: table dùng table-layout:fixed, flex/grid tổng width ≤ 100%.
 
-### Gen lại bài cũ với quy tắc mới
-
-```
-Đọc tất cả bài đã gen trong assets/html/tim_thong_tin/ và kiểm tra:
-
-1. Bài nào có furigana kiểu cũ (tất cả kanji có furigana)?
-2. Bài nào thiếu format label trong CSV (cột tag)?
-3. Bài nào dùng answer format cũ (| thay vì \n)?
-
-Liệt kê danh sách cần sửa, rồi sửa lại theo quy tắc mới.
+Nhắc nhở bắt buộc:
+- Đọc SKILL.md trước khi gen
+- HTML phải giống tờ A4: container width=794px, min-height=1123px
+- Text chảy liên tục, KHÔNG <br> trong paragraph, KHÔNG tách từ giữa dòng
+- Furigana: dùng <ruby>+<rt>, ưu tiên thay từ đơn giản
+- Count chars + capture screenshot + review layout sau mỗi bài
 ```
 
 ---
 
 ## Mẹo sử dụng prompt
 
-1. **Luôn nói "format khác nhau"** — đây là trigger để AI chọn đa dạng format
+1. **Luôn kèm block "Nhắc nhở bắt buộc"** — đây là cách hiệu quả nhất để AI tuân thủ quy tắc
 2. **Nêu rõ level** — mỗi level có constraints khác nhau (chars, furigana, số câu hỏi)
 3. **Nêu rõ "lưu CSV mới trong sheets/"** — tránh ghi đè file cũ
-4. **Nếu gen nhiều, chia nhỏ** — gen 5 bài/lượt, kiểm tra rồi gen tiếp
-5. **Nêu format cụ thể nếu biết** — "format: comparison_article" rõ ràng hơn "dạng so sánh"
-6. **Kết hợp prompt gen + kiểm tra** — gen xong luôn chạy kiểm tra
+4. **Chia nhỏ batch** — gen 5 bài/lượt, kiểm tra rồi gen tiếp. Không gen >5 bài 1 lần
+5. **Nêu format cụ thể** — "format: comparison_article" rõ ràng hơn "dạng so sánh"
+6. **Gen xong = kiểm tra ngay** — chạy prompt kiểm tra (section 6) sau mỗi batch
+7. **Review screenshot** — quan trọng nhất là nhìn screenshot, không chỉ đọc HTML
