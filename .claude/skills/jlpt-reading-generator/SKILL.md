@@ -290,22 +290,32 @@ Every generated file follows this structure:
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        /* === A4 PAGE LAYOUT === */
+        /* A4 at 96dpi: 794×1123px. Container mô phỏng tờ A4 trắng trên nền xám. */
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background-color: #f3f4f6;
+            background-color: #e5e7eb;
             color: #000;
-            line-height: 2;          /* ← tăng lên 2 để dòng có ruby không bị lệch so với dòng thường */
-            word-break: keep-all;    /* ← KHÔNG ngắt giữa từ tiếng Nhật — tránh tách 1 từ thành 2 dòng */
-            overflow-wrap: break-word; /* ← chỉ ngắt khi từ dài hơn container */
+            line-height: 2;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            margin: 0;
+            padding: 30px;
         }
         .container {
-            max-width: 800px;
-            margin: 2rem auto;
+            width: 794px;              /* A4 width at 96dpi */
+            min-height: 1123px;        /* A4 height at 96dpi — tối thiểu 1 trang */
+            margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 50px 56px;        /* ~18-20mm margins giống A4 thật */
             border: 1px solid #d1d5db;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            box-sizing: border-box;
         }
+        /* Đảm bảo table/flex không tràn ra ngoài A4 */
+        table { width: 100%; table-layout: fixed; }
+        td, th { overflow-wrap: break-word; }
+        .container > * { max-width: 100%; }
         ruby {
             ruby-align: center;
             ruby-position: over;       /* ← furigana luôn ở TRÊN, không đẩy text xuống */
@@ -321,7 +331,7 @@ Every generated file follows this structure:
         /* document-specific styles here */
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body>
 <div class="container">
     <!-- content -->
 </div>
@@ -331,9 +341,25 @@ Every generated file follows this structure:
 
 ## Layout & Line-Break Rules (Critical — Editor Feedback)
 
-Biên tập viên JLPT nhận xét: bài gen đôi khi ngắt dòng giữa từ, tách 1 từ đơn thành 2 dòng. Và furigana làm lệch chiều cao dòng.
+### Quy tắc A4 (BẮT BUỘC)
 
-### CSS bắt buộc (đã tích hợp trong template)
+Mỗi bài phải trông như **1 tờ A4** khi capture screenshot. Đây là yêu cầu bắt buộc.
+
+- **Container = A4**: `width: 794px`, `min-height: 1123px` (A4 at 96dpi = 210×297mm)
+- **Viewport Playwright = 854px** (794 + 60px body padding)
+- **Nội dung phải nằm gọn trong A4** — không tràn, không bị cắt
+- **Table**: luôn dùng `table-layout: fixed; width: 100%` để cột không bị đẩy ra ngoài
+- **Flex/grid 2 cột**: đảm bảo tổng width ≤ 100% container, thêm `gap` hợp lý
+- **Nếu nội dung dài hơn 1 trang**: OK — `full_page: True` sẽ capture hết, nhưng nên cố gắng giữ trong 1 trang
+
+**Checklist A4 khi review screenshot:**
+- ✅ Nền xám, tờ giấy trắng ở giữa với shadow nhẹ
+- ✅ Nội dung có margin đều 4 bên (~50px = ~18mm)
+- ✅ Table/box không bị cắt, không sát mép phải
+- ❌ Nội dung tràn ra ngoài tờ giấy trắng
+- ❌ Box bên phải bị sát mép container
+
+### CSS text bắt buộc (đã tích hợp trong template)
 
 1. **`word-break: keep-all`** — Ngăn trình duyệt ngắt giữa từ tiếng Nhật. Tiếng Nhật mặc định cho phép ngắt giữa bất kỳ 2 ký tự nào, nhưng với JLPT reading, chúng ta cần giữ nguyên từ/cụm từ trên cùng dòng.
 
@@ -404,7 +430,8 @@ async def capture_screenshot(html_path, img_path):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        page = await browser.new_page(viewport={"width": 1000, "height": 800})
+        # Viewport = A4 container (794px) + body padding (60px) = 854px
+        page = await browser.new_page(viewport={"width": 854, "height": 1200})
         await page.goto(f"file://{html_path}", wait_until="networkidle")
         await page.wait_for_timeout(1500)  # wait for font loading
         await page.screenshot(path=img_path, full_page=True)

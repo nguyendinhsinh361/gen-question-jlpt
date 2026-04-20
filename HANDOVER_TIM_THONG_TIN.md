@@ -111,7 +111,7 @@ python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-on
 ### Bước 5 — Screenshot + Clean HTML + CSV
 
 1. Lưu HTML → `assets/html/tim_thong_tin/{LEVEL}_{uuid}.html` (ví dụ: `N3_a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5.html`)
-2. Chụp screenshot (Playwright, viewport 1000×800, full_page, 1500ms chờ font) → `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
+2. Chụp screenshot (Playwright, viewport 854×1200 — khớp A4, full_page, 1500ms chờ font) → `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
 3. Trích clean HTML (bỏ attribute, class, gom whitespace) → cột `text_read` trong CSV
 4. Gen câu hỏi + đáp án + giải thích → điền vào CSV
 5. Cột `general_image` trong CSV = local path `assets/img/tim_thong_tin/{LEVEL}_{uuid}.png`
