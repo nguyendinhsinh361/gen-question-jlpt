@@ -124,6 +124,7 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 - **Từ vượt level → ưu tiên level gần nhất**: bài N3 cần từ vượt level → dùng từ N2 trước, KHÔNG nhảy thẳng lên N1. Bài N2 → dùng từ N1 thông dụng, KHÔNG dùng thuật ngữ hiếm
 - **HẠN CHẾ thuật ngữ chuyên ngành** — chỉ dùng khi ngữ cảnh BẮT BUỘC và không thể thay bằng từ đơn giản hơn (tên thuốc trong medicine_info, tên luật trong hợp đồng). Nếu có từ đúng level diễn đạt được → dùng từ đúng level
 - **KHÔNG BAO GIỜ dùng từ vượt level mà không có furigana** — nếu bắt buộc dùng → phải có `<ruby>/<rt>`
+- **N4/N5: KHÔNG dùng kanji vượt level** — các kanji như 当, 届, 締, 割, 届, 欄 là N3+ và KHÔNG được xuất hiện trong bài N4/N5 (kể cả có furigana). Viết hiragana thay thế hoặc dùng từ khác đúng level
 - N4/N5: simple sentence patterns, everyday topics
 - N1/N2: compound sentences, formal/business register — **nhưng từ vựng vẫn phải quen thuộc với người học level đó, hạn chế thuật ngữ**
 - N3: bridge level — conversational with some formal elements

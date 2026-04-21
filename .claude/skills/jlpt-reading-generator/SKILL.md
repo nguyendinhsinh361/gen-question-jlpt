@@ -120,6 +120,7 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 - **Từ vượt level → ưu tiên level gần nhất**: bài N3 cần từ vượt level → dùng từ N2 trước, KHÔNG nhảy thẳng lên N1. Bài N2 → dùng từ N1 thông dụng, KHÔNG dùng thuật ngữ hiếm
 - **HẠN CHẾ thuật ngữ chuyên ngành** — chỉ dùng khi ngữ cảnh BẮT BUỘC và không thể thay bằng từ đơn giản hơn (tên thuốc trong medicine_info, tên luật trong hợp đồng). Nếu có từ đúng level diễn đạt được → dùng từ đúng level
 - **KHÔNG BAO GIỜ dùng từ vượt level mà không có furigana** — nếu bắt buộc dùng → phải có `<ruby>/<rt>`
+- **N4/N5: KHÔNG dùng kanji vượt level** — các kanji như 当, 届, 締, 割, 届, 欄 là N3+ và KHÔNG được xuất hiện trong bài N4/N5 (kể cả có furigana). Viết hiragana thay thế hoặc dùng từ khác đúng level
 - N4/N5: simple sentence patterns, everyday topics
 - N1/N2: compound sentences, formal/business register — **nhưng từ vựng vẫn phải quen thuộc với người học level đó, hạn chế thuật ngữ**
 - N3: bridge level — conversational with some formal elements
@@ -387,7 +388,7 @@ Every generated file follows this structure:
         }
         .container {
             width: 700px;
-            margin: 0 auto;
+            margin: 0;                 /* KHÔNG dùng auto — viewport = 700 nên không cần center */
             background: white;
             padding: 12px 16px;        /* Lề sát nội dung — tối ưu hiển thị trên app */
             box-sizing: border-box;
@@ -425,18 +426,26 @@ Every generated file follows this structure:
 
 **KHÔNG dùng A4.** Layout compact, crop sát nội dung, lề nhỏ để ảnh to hơn trên app.
 
-- **Container = 700px**, `padding: 12px 16px`, nền trắng, **KHÔNG `min-height`**
-- **Viewport Playwright = 700px** (body padding = 0, crop bằng `container.screenshot()`)
-- **Capture bằng `container.screenshot()`** — crop sát container, KHÔNG `full_page`
+- **Container = 700px**, `margin: 0` (KHÔNG `auto`), `padding: 12px 16px`, nền trắng, **KHÔNG `min-height`**
+- **Viewport Playwright = 700px** — PHẢI bằng đúng container width. Nếu viewport > 700 → viền trắng 2 bên
+- **Capture bằng `container.screenshot()`** — KHÔNG dùng `page.screenshot()`. Crop sát 4 cạnh container
 - **Table**: luôn dùng `table-layout: fixed; width: 100%` để cột không bị đẩy ra ngoài
 - **Flex/grid 2 cột**: đảm bảo tổng width ≤ 100% container, thêm `gap` hợp lý
 
+**⚠️ LỖI THƯỜNG GẶP — ẢNH BỊ THỪA KHOẢNG TRẮNG:**
+- ❌ `viewport width > 700` → viền trắng 2 bên (vì container chỉ 700px)
+- ❌ `page.screenshot()` thay vì `container.screenshot()` → chụp cả body, thừa trắng
+- ❌ Container có `margin: 0 auto` + viewport > 700 → auto margin tạo khoảng trống
+- ✅ `viewport width = 700` + `container.screenshot()` + `margin: 0` → crop sát 4 cạnh
+
 **Checklist layout khi review screenshot:**
-- ✅ Nền trắng, lề nhỏ sát nội dung
-- ✅ Ảnh crop sát dòng text cuối cùng
+- ✅ Viewport Playwright = 700px (PHẢI bằng container width)
+- ✅ Dùng `container.screenshot()` (KHÔNG `page.screenshot()`)
+- ✅ Container `margin: 0` (KHÔNG `margin: 0 auto`)
+- ✅ Nền trắng, lề nhỏ sát nội dung (chỉ padding 12px 16px)
+- ✅ Ảnh crop sát dòng text cuối cùng — không có vùng trắng thừa
 - ✅ Table/box không bị cắt, không sát mép phải
-- ❌ Nền xám, shadow — đã bỏ
-- ❌ Khoảng trắng lớn phía dưới nội dung
+- ❌ Khoảng trắng lớn phía dưới hoặc 2 bên → **kiểm tra viewport > 700 hoặc dùng page.screenshot()**
 
 ### Quy tắc ngắt dòng — Flow Text (RẤT QUAN TRỌNG)
 
