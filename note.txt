@@ -1,2 +1,4 @@
 gemini --approval-mode=yolo
 gemini --approval-mode=yolo  --model gemini-3.1-pro-preview
+
+/resume resume jlpt-tim-thong-tin-v12

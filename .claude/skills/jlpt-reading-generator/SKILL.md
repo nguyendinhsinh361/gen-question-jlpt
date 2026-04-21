@@ -110,11 +110,31 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 
 ## Vocabulary & Grammar Constraints
 
-- **50%+ vocabulary from the target JLPT level**
-- **Never use vocabulary above the target level** (N2 content must not have N1-only words)
+> **⚠️ NGUYÊN TẮC VÀNG: Độ khó đến từ CẤU TRÚC THÔNG TIN, không phải từ vựng khó ⚠️**
+>
+> Bài JLPT khó vì phải cross-reference nhiều điều kiện, đọc bảng phức tạp, tìm ngoại lệ —
+> KHÔNG phải vì nhồi nhét thuật ngữ chuyên ngành. Một bài N1 hay dùng từ vựng bình thường
+> nhưng cấu trúc thông tin dày đặc, nhiều điều kiện chồng chéo, ghi chú nhỏ dễ bỏ sót.
+
+- **80%+ từ vựng thuộc level mục tiêu hoặc thấp hơn** (ví dụ: bài N2 → ≥80% từ N2/N3/N4/N5)
+- **Thuật ngữ chuyên ngành chỉ dùng khi THỰC SỰ CẦN THIẾT** cho ngữ cảnh (tên thuốc trong bài medicine_info, tên khóa học trong bài class_enrollment). KHÔNG thêm thuật ngữ chỉ để "tăng độ khó"
+- **KHÔNG BAO GIỜ dùng từ vượt level mà không có furigana** — nếu bắt buộc dùng → phải có `<ruby>/<rt>`
 - N4/N5: simple sentence patterns, everyday topics
-- N1/N2: compound sentences, formal/business register
+- N1/N2: compound sentences, formal/business register — **nhưng từ vựng vẫn phải quen thuộc với người học level đó**
 - N3: bridge level — conversational with some formal elements
+
+### Nguồn tạo độ khó ĐÚNG CÁCH (theo level)
+
+| Level | Nguồn khó ĐÚNG ✅ | Nguồn khó SAI ❌ |
+|-------|-------------------|-----------------|
+| N5 | Thông tin rải ở nhiều vị trí trong bài | Dùng kanji khó, từ N3+ |
+| N4 | 2 điều kiện cần kết hợp, ghi chú nhỏ | Ngữ pháp N2, từ vựng formal |
+| N3 | Bảng nhiều cột + điều kiện phụ trong văn xuôi | Thuật ngữ chuyên ngành N1 |
+| N2 | Cross-reference bảng + văn xuôi, nhiều ngoại lệ | Nhồi thuật ngữ pháp lý/y tế |
+| N1 | 3+ điều kiện chồng chéo, footnote, ngoại lệ ẩn | Từ hiếm không ai dùng, keigo cực đoan |
+
+> **Ví dụ N2 SAI**: Bài về gym nhưng dùng "施設利用規約に基づく減免措置" — quá formal, thực tế không ai viết tờ rơi gym như vậy.
+> **Ví dụ N2 ĐÚNG**: Bài về gym dùng "会員の方は月額500円引き。ただし、学生証の提示が必要です。" — từ vựng bình thường, khó vì phải cross-reference điều kiện giảm giá.
 
 ## Furigana Density
 
@@ -122,7 +142,7 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 
 Furigana (`<ruby>/<rt>`) is **only** added for words/kanji that **exceed** the passage's target JLPT level. Words at or below the target level are written without furigana — the learner is expected to know them.
 
-**Key principle**: Most vocabulary and kanji should be within the target level. Tuy nhiên, nội dung N3/N2/N1 thường có từ chuyên ngành hoặc từ vượt level một cách tự nhiên (thuật ngữ y tế, pháp luật, tài chính, tên dịch vụ...). Những từ này **NÊN giữ nguyên kanji + thêm furigana** thay vì tránh né — vì chúng giúp nội dung sát thực tế hơn.
+**Key principle**: ≥80% từ vựng phải thuộc level mục tiêu hoặc thấp hơn. Từ vượt level chỉ xuất hiện khi ngữ cảnh BẮT BUỘC (tên thuốc, tên dịch vụ, thuật ngữ không thể thay thế). Khi dùng từ vượt level → **giữ nguyên kanji + thêm furigana**. KHÔNG thêm thuật ngữ chuyên ngành chỉ để tăng độ khó — độ khó phải đến từ cấu trúc thông tin phức tạp.
 
 ### Compound Word Rule (Critical — Matches Real JLPT Exams)
 
@@ -166,9 +186,9 @@ When a word contains kanji above the learner's level, **always write the full ka
 |-------|--------------------------|-------------------|---------|
 | N5 | 0–1 words | 0–2 ruby tags | Ưu tiên viết hiragana thay kanji |
 | N4 | 0–2 words | 0–4 ruby tags | Hiragana hoặc kanji + furigana |
-| N3 | 3–6 words | 5–12 ruby tags | Nội dung N3 tự nhiên có từ N2/N1, chuyên ngành → dùng furigana thoải mái |
-| N2 | 3–5 words | 5–10 ruby tags | Nội dung formal, nhiều từ N1 và thuật ngữ → nên có furigana |
-| N1 | 2–4 words | 3–8 ruby tags | Y tế, pháp luật, tài chính → thuật ngữ chuyên ngành cần furigana |
+| N3 | 3–6 words | 5–12 ruby tags | Chỉ furigana cho từ thực sự vượt N3 và cần thiết cho ngữ cảnh |
+| N2 | 3–5 words | 5–10 ruby tags | Furigana cho từ N1 xuất hiện tự nhiên — KHÔNG nhồi thuật ngữ |
+| N1 | 2–4 words | 3–8 ruby tags | Furigana cho thuật ngữ chuyên ngành không thể thay thế (tên thuốc, tên luật...) |
 
 > **NGUYÊN TẮC FURIGANA THEO LEVEL**
 >
@@ -177,7 +197,7 @@ When a word contains kanji above the learner's level, **always write the full ka
 > - 🥈 **Viết full hiragana** — ví dụ: おおもり thay vì <ruby>大盛<rt>おおもり</rt></ruby>
 > - 🥉 **Dùng furigana** — chỉ khi không thể thay thế
 >
-> **N3/N2/N1**: **Dùng furigana thoải mái** cho từ vượt level và từ chuyên ngành. Nội dung ở các level này tự nhiên có nhiều thuật ngữ khó (y tế: 服用, 禁忌; pháp luật: 規約, 免責; tài chính: 控除, 還付...). Những từ này giúp nội dung sát thực tế — **giữ kanji + thêm furigana**, KHÔNG nên tránh né hay thay bằng từ đơn giản hơn.
+> **N3/N2/N1**: Dùng furigana cho từ vượt level khi ngữ cảnh BẮT BUỘC (tên thuốc, tên dịch vụ, thuật ngữ không thể thay thế). **KHÔNG nhồi thuật ngữ chuyên ngành** chỉ để bài trông "khó hơn". Nếu có thể diễn đạt bằng từ đúng level → dùng từ đúng level. Ví dụ: dùng "申し込み" (N3) thay vì "出願手続き" (N1) khi cả hai đều phù hợp ngữ cảnh.
 >
 > **Lưu ý chung**: Furigana chỉ cho từ VƯỢT level. Từ đúng level hoặc dưới level → KHÔNG furigana.
 
@@ -730,6 +750,29 @@ Study `input/htm_content_qa/` for exact patterns:
 - 田中さん muốn mua/đi → chọn gì? ngày nào?
 - 4 đáp án, very basic Japanese
 
+### Đa dạng hóa câu hỏi — NGHIÊM CẤM lặp kiểu hỏi
+
+> **⚠️ Câu hỏi phải ĐA DẠNG về kiểu tình huống, góc nhìn, và cách hỏi.**
+> KHÔNG lặp lại cùng một pattern "Xさんは～したい。どれがいいですか" cho mọi câu.
+
+**8 kiểu câu hỏi tình huống — xoay vòng sử dụng:**
+
+| # | Kiểu tình huống | Ví dụ | Level phù hợp |
+|---|----------------|-------|---------------|
+| 1 | **Chọn phương án phù hợp** | 田中さんは～で、～条件がある。どれが合いますか。 | All |
+| 2 | **Kiểm tra tư cách/điều kiện** | 山本さんは～歳、～経験。応募できるのはどれですか。 | N3-N1 |
+| 3 | **Xác định thủ tục/trình tự** | リンさんが申し込む場合、最初に何をしますか。 | N3-N1 |
+| 4 | **Tính toán chi phí/thời gian** | 佐藤さんが3か月利用する場合、合計でいくらかかりますか。 | N4-N1 |
+| 5 | **Xác định đúng/sai về nội dung** | このお知らせの内容と合っているのはどれですか。 | All |
+| 6 | **Tìm ngoại lệ/điều kiện đặc biệt** | 高橋さんの場合、通常と違う点は何ですか。 | N2-N1 |
+| 7 | **So sánh và chọn** | 鈴木さんの条件に最も近いのはAとBのどちらですか。なぜですか。 | N3-N1 |
+| 8 | **Hành động khi có vấn đề** | キムさんは～の状況になった。どうすればいいですか。 | N4-N1 |
+
+**Quy tắc đa dạng:**
+- Q1 và Q2 trong cùng bài PHẢI dùng **kiểu khác nhau** (ví dụ: Q1 = kiểu 1, Q2 = kiểu 3)
+- Trong batch 5 bài cùng level, KHÔNG lặp cùng kiểu quá **2 lần**
+- Mỗi câu hỏi phải có **profile nhân vật cụ thể** — không chỉ "muốn X" mà còn có tuổi, nghề, hoàn cảnh, ngân sách, lịch trình...
+
 ### Answer Format in CSV
 
 Each answer column (`answer_{i}`) contains all 4 options separated by `\n`, **KHÔNG có số thứ tự**:
@@ -750,6 +793,49 @@ Option A text\nOption B text\nOption C text\nOption D text
 5. **Each question tests a different aspect** — Q1 và Q2 test khía cạnh khác nhau.
 6. **Furigana in questions** — Cùng quy tắc với bài đọc. Chỉ dùng `<ruby>/<rt>`.
 7. **No question images** — `question_image_{i}` luôn để trống.
+
+### 🚫 HARD REJECT — Nội dung & Câu hỏi (gen lại nếu vi phạm)
+
+> Ngoài Hard Reject về số ký tự, các trường hợp sau cũng BẮT BUỘC gen lại toàn bộ:
+
+**A. Nội dung bài đọc không logic → GEN LẠI**
+
+Bài đọc phải mô phỏng tài liệu thực tế. Nếu nội dung có bất kỳ điểm nào phi logic, mâu thuẫn, hoặc không thực tế → gen lại.
+
+- ❌ Giá quá vô lý (cốc cà phê 50,000円, vé xe bus 1円)
+- ❌ Thời gian mâu thuẫn (đăng ký trước ngày 5 nhưng sự kiện ngày 3)
+- ❌ Điều kiện tự mâu thuẫn (miễn phí cho tất cả nhưng phải trả 500円)
+- ❌ Thông tin không thực tế (bể bơi mở 24/7, bệnh viện nhận trẻ dưới 0 tuổi)
+- ❌ Nội dung không phù hợp ngữ cảnh (tờ rơi siêu thị viết như hợp đồng pháp lý)
+- ✅ Giá hợp lý, thời gian hợp lý, điều kiện nhất quán, đọc như tài liệu thật
+
+**B. Đáp án đúng — phải paraphrase từ bài đọc → GEN LẠI nếu không đạt**
+
+- ✅ Đáp án đúng PHẢI có căn cứ rõ ràng trong bài đọc (cross-reference được)
+- ✅ Đáp án đúng nên **paraphrase** (diễn đạt lại) thông tin trong bài — KHÔNG copy nguyên văn
+- ❌ Đáp án đúng copy nguyên câu từ bài đọc → học sinh chỉ cần tìm câu giống nhất, không cần hiểu
+- ❌ Đáp án đúng chứa thông tin không có trong bài → suy luận, không phải tìm thông tin
+
+> Ví dụ: Bài viết "月曜日と水曜日は休館です" → đáp án đúng nên viết "火曜日に利用できる" (paraphrase, cần suy nghĩ), KHÔNG nên viết "月曜日と水曜日は休みです" (copy gần nguyên văn, quá dễ nhận ra)
+
+**C. Đáp án sai (distractor) — phải cần suy nghĩ mới loại được → GEN LẠI nếu không đạt**
+
+- ✅ Distractor PHẢI chứa thông tin **có trong bài đọc** nhưng áp dụng sai (sai điều kiện, sai đối tượng, sai thời gian)
+- ✅ Distractor phải hợp lý đến mức học sinh **phải đọc kỹ và so sánh** mới loại được
+- ❌ Distractor chứa thông tin hoàn toàn KHÔNG có trong bài → loại ngay, không cần đọc bài
+- ❌ Distractor sai hiển nhiên (giá khác xa, ngày không tồn tại) → loại ngay
+- ❌ Distractor dùng từ ngữ tiêu cực/phủ định rõ ràng trong khi 3 đáp án còn lại tích cực → đoán được
+
+> **Test nhanh**: Che bài đọc, chỉ nhìn 4 đáp án → nếu đoán được đáp án đúng → câu hỏi THẤT BẠI, gen lại.
+> Học sinh phải BẮT BUỘC đọc bài mới trả lời được — đó mới là câu hỏi tìm thông tin tốt.
+
+**D. Kiểm tra chéo đáp án — PHẢI thực hiện sau khi gen**
+
+Sau khi gen xong câu hỏi + 4 đáp án:
+1. Đọc lại bài gốc → xác nhận đáp án đúng thực sự đúng (có căn cứ trong bài)
+2. Đọc lại bài gốc → xác nhận 3 distractor thực sự SAI (không có trường hợp 2 đáp án cùng đúng)
+3. Che bài đọc → nhìn 4 đáp án → nếu đoán được → sửa distractor
+4. Kiểm tra distractor có thông tin trong bài không → nếu distractor bịa thông tin → sửa lại
 
 ## CSV Schema
 
