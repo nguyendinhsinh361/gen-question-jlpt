@@ -4,120 +4,93 @@
 
 ---
 
-## Nhắc nhở bắt buộc (copy vào cuối MỌI prompt)
+## Prompt chính — Gen + QC xuyên suốt
+
+Đây là prompt duy nhất cần dùng. Bao gồm đầy đủ: chuẩn bị → gen → QC → sửa → output.
 
 ```
-Nhắc nhở bắt buộc:
-- Đọc SKILL.md + 1-2 mẫu từ input/html/ và input/htm_content_qa/
-- ≥80% từ vựng đúng level. Từ vượt level → ưu tiên level gần nhất, hạn chế thuật ngữ. N4/N5 KHÔNG dùng kanji N3+ (当, 届, 締, 割...)
-- Độ khó từ CẤU TRÚC THÔNG TIN (cross-reference, ngoại lệ), KHÔNG từ nhồi thuật ngữ
-- Chars đạt minimum (N1:700-800, N2:700-770, N3:600-750, N4:400-500, N5:250-290). Dưới Min → gen lại
-- Nội dung phải logic, thực tế (giá hợp lý, thời gian không mâu thuẫn). Phi logic → gen lại
-- Câu hỏi TÌNH HUỐNG: nhân vật tên thật + profile + điều kiện → chọn gì. KHÔNG Aさん/Bさん
-- Q1 và Q2 phải khác kiểu (chọn phương án / kiểm tra tư cách / thủ tục / tính chi phí / đúng-sai / ngoại lệ / so sánh / xử lý vấn đề)
-- Đáp án đúng: paraphrase từ bài đọc, KHÔNG copy nguyên văn
-- Đáp án sai: chứa thông tin CÓ trong bài nhưng sai điều kiện, phải đọc kỹ mới loại được. KHÔNG bịa thông tin
-- Test: che bài đọc, nhìn 4 đáp án → nếu đoán được → gen lại
-- Furigana: chỉ <ruby>+<rt> cho từ vượt level. KHÔNG ngoặc (), KHÔNG dạng Ab. Gen xong → đếm ruby tags → N1≥3, N2≥5, N3≥5. Nếu = 0 → gen lại
-- Layout compact: viewport=700, container.screenshot(), margin:0, padding:12px 16px. Flow text, không <br>, không tách từ
-- Format đa dạng: scan format đã dùng → chọn format chưa dùng/ít dùng
-- QC: gen xong → chạy quality check (6 tiêu chí) → 1 FAIL = gen lại
-```
+Đọc jlpt-reading-generator/SKILL.md và jlpt-quality-check/SKILL.md trước khi bắt đầu.
 
----
-
-## 1. Gen theo level — Batch 5 bài
-
-```
-Gen 5 bài tìm thông tin level {LEVEL}, mỗi bài format khác nhau. Lưu CSV trong sheets/
-
-BƯỚC 1: Scan format đã dùng → chọn 5 format chưa dùng/ít dùng
-BƯỚC 2: Gen nội dung theo SKILL.md
-BƯỚC 3 (QC): Với MỖI bài vừa gen, chạy quality check 6 tiêu chí:
-  - TC1: count_body_chars() ≥ minimum?
-  - TC2: chủ đề phù hợp level? nội dung logic?
-  - TC3: flow text (không <br>)? container CSS đúng?
-  - TC4: ≥80% từ vựng đúng level? ngữ pháp phù hợp?
-  - TC5: đếm <ruby> tags ≥ minimum? format furigana đúng?
-  - TC6: câu hỏi tình huống? paraphrase? distractor cần suy nghĩ?
-  → 1 FAIL bất kỳ = sửa/gen lại → chạy lại QC đến khi PASS
-
-{Paste nhắc nhở bắt buộc}
-```
-
----
-
-## 2. Gen batch lớn — Chỉ định số lượng
-
-```
-Gen batch bài tìm thông tin, lưu CSV trong sheets/
-
+Gen {SỐ LƯỢNG} bài tìm thông tin, lưu CSV trong sheets/
 - N1: {số} bài
 - N2: {số} bài
 - N3: {số} bài
 - N4: {số} bài
 - N5: {số} bài
 
-BƯỚC 1: Scan format đã dùng → lên kế hoạch format cho từng bài
-BƯỚC 2: Gen tối đa 5 bài/lượt
-BƯỚC 3 (QC): Sau mỗi lượt 5 bài, chạy quality check 6 tiêu chí cho từng bài:
-  TC1(chars) → TC2(topic) → TC3(layout) → TC4(vocab) → TC5(furigana) → TC6(question)
-  → Sửa bài FAIL → confirm PASS → gen lượt tiếp
+═══ BƯỚC 1: CHUẨN BỊ ═══
+- Đọc 1-2 mẫu từ input/html/ và input/htm_content_qa/ cho level cần gen
+- Scan format đã dùng trong sheets/ → chọn format chưa dùng/ít dùng
+- Lên kế hoạch: mỗi bài gán format + chủ đề + visual elements (không trùng nhau)
 
-{Paste nhắc nhở bắt buộc}
-```
+═══ BƯỚC 2: GEN NỘI DUNG (tối đa 5 bài/lượt) ═══
+Với mỗi bài, thực hiện tuần tự:
 
----
+2a. Gen HTML theo SKILL.md:
+    - ≥80% từ vựng đúng level. Từ vượt level → level gần nhất. N4/N5 KHÔNG kanji N3+
+    - Độ khó từ CẤU TRÚC THÔNG TIN, KHÔNG nhồi thuật ngữ
+    - Layout compact: viewport=700, container 700px, margin:0, padding:12px 16px
+    - Flow text (không <br> ngắt câu), word-break: keep-all
 
-## 3. Gen theo format cụ thể
+2b. Gen câu hỏi + đáp án:
+    - MỌI câu hỏi là TÌNH HUỐNG: nhân vật tên thật + profile + điều kiện. KHÔNG Aさん/Bさん
+    - Q1 và Q2 khác kiểu (8 kiểu: chọn phương án / tư cách / thủ tục / chi phí / đúng-sai / ngoại lệ / so sánh / xử lý vấn đề)
+    - Đáp án đúng: paraphrase, KHÔNG copy nguyên văn
+    - Đáp án sai: thông tin CÓ trong bài nhưng sai điều kiện. KHÔNG bịa
 
-```
-Gen 1 bài tìm thông tin level {LEVEL}, format: {FORMAT}
+2c. Furigana verification (BLOCKING — không qua không được tiếp):
+    - Scan kanji → check level → thêm furigana thiếu
+    - Đếm <ruby> tags: N1≥3, N2≥5, N3≥5. Nếu dưới minimum → sửa ngay
+    - Chỉ <ruby>+<rt>. KHÔNG ngoặc (), KHÔNG dạng Ab
 
-Chủ đề: {mô tả ngắn}
-- Đọc mẫu {LEVEL}_*.html trước
+2d. Screenshot + CSV:
+    - Chụp container.screenshot() (KHÔNG page.screenshot())
+    - Ghi CSV: correct_answer = integer ("2" không "2.0")
 
-Sau khi gen xong → chạy quality check 6 tiêu chí (TC1-TC6). Nếu FAIL → sửa/gen lại.
+═══ BƯỚC 3: QUALITY CHECK (BẮT BUỘC sau mỗi lượt) ═══
+Với MỖI bài vừa gen, kiểm tra 6 tiêu chí. 1 FAIL = phải sửa.
 
-{Paste nhắc nhở bắt buộc}
-```
+TC1 — Ký tự:
+  count_body_chars() ≥ minimum? (N1:700, N2:700, N3:600, N4:400, N5:250)
 
----
+TC2 — Chủ đề & Format:
+  Chủ đề phù hợp level? (N5 không bảo hiểm, N4 không pháp lý)
+  Nội dung logic? (giá hợp lý, thời gian không mâu thuẫn, điều kiện nhất quán)
 
-## 4. Chỉ gen câu hỏi (cho bài đã có)
+TC3 — Layout:
+  Flow text? (tìm 。<br> → nếu có = FAIL)
+  Container: width 700px, margin:0, padding 12px 16px?
+  Table: table-layout fixed, width 100%?
 
-```
-Gen câu hỏi cho các bài trong sheets/{file}.csv
+TC4 — Từ vựng & Ngữ pháp:
+  ≥80% từ đúng level?
+  Từ vượt level dùng level gần nhất? (N3→N2, không N3→N1)
+  N4/N5 không kanji N3+ (当, 届, 締, 割)?
+  Độ khó từ cấu trúc, không từ nhồi thuật ngữ?
+  Ngữ pháp phù hợp level? (N5 không dùng ～において)
 
-- Đọc HTML mỗi bài trước
-- Câu hỏi TÌNH HUỐNG với tên thật + profile cụ thể
-- Q1 và Q2 khác kiểu
-- Đáp án đúng paraphrase, đáp án sai có căn cứ trong bài
-- Test: che bài → nhìn đáp án → không đoán được
-- Cập nhật CSV
+TC5 — Furigana:
+  Ruby count ≥ minimum? (N1≥3, N2≥5, N3≥5)
+  Chỉ dùng <ruby>+<rt>? (không ngoặc, không Ab)
+  Furigana chỉ cho từ VƯỢT level? (không furigana cho từ đúng level)
 
-QC sau khi gen: kiểm tra TC6 cho từng bài (tình huống, kiểu hỏi, paraphrase, distractor, correct_answer format). FAIL → sửa lại.
-```
+TC6 — Câu hỏi & Lựa chọn:
+  MỌI câu hỏi có tình huống? (tên thật + profile + điều kiện)
+  Q1 ≠ Q2 kiểu hỏi?
+  Đáp án đúng paraphrase? (không copy nguyên văn)
+  Đáp án sai có căn cứ trong bài? (không bịa thông tin)
+  Test che bài: nhìn 4 đáp án → đoán được = FAIL
+  correct_answer = integer? ("2" không "2.0")
 
----
+═══ BƯỚC 4: SỬA BÀI FAIL ═══
+- TC1 (chars thiếu) / TC2 (topic sai) / TC4 (vocab sai): gen lại toàn bộ HTML
+- TC3 (layout): sửa HTML (bỏ <br>, fix CSS) → chụp lại screenshot
+- TC5 (furigana): thêm/sửa ruby tags → chụp lại screenshot
+- TC6 (question): sửa câu hỏi/đáp án → cập nhật CSV
+→ Sau khi sửa → chạy lại QC bài đó → confirm PASS
 
-## 5. Kiểm tra & sửa lỗi (Quality Check toàn bộ)
+═══ BƯỚC 5: LẶP LẠI ═══
+Quay lại BƯỚC 2 cho lượt 5 bài tiếp theo. Tiếp tục đến hết số lượng yêu cầu.
 
-```
-Đọc jlpt-quality-check/SKILL.md, sau đó kiểm tra chất lượng tất cả bài trong sheets/{file}.csv
-
-Chạy 6 tiêu chí cho từng bài:
-  TC1: Ký tự (count_body_chars ≥ minimum)
-  TC2: Chủ đề & format phù hợp level, nội dung logic thực tế
-  TC3: Layout (flow text không <br>, container 700px margin:0)
-  TC4: Từ vựng ≥80% đúng level, ngữ pháp phù hợp, không nhồi thuật ngữ
-  TC5: Furigana (ruby count ≥ minimum, chỉ <ruby>+<rt>, không ngoặc/Ab)
-  TC6: Câu hỏi tình huống, Q1≠Q2, paraphrase, distractor có căn cứ, correct_answer integer
-
-Output: bảng PASS/FAIL từng bài + tổng kết batch.
-Sửa bài FAIL:
-  - TC3/TC5: sửa HTML → chụp lại screenshot
-  - TC6: sửa câu hỏi/đáp án → cập nhật CSV
-  - TC1/TC2/TC4: gen lại toàn bộ
-Chạy lại QC sau khi sửa → confirm PASS.
+Kết thúc: output bảng tổng kết PASS/FAIL toàn batch.
 ```
