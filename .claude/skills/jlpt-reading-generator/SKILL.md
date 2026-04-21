@@ -232,20 +232,34 @@ When a word contains kanji above the learner's level, **always write the full ka
 - ❌ `拠てん` (WRONG — "Ab" mixed form, never do this)
 - ❌ `拠点` without furigana (wrong — N1 word in N3 passage needs furigana)
 
-### BẮT BUỘC: Furigana Verification sau khi gen (KHÔNG ĐƯỢC BỎ QUA)
+### 🚫 BẮT BUỘC: Furigana Verification sau khi gen (KHÔNG ĐƯỢC BỎ QUA — HARD REJECT)
 
-Furigana hay bị bỏ sót vì AI gen xong không quay lại kiểm tra. **Bước này BẮT BUỘC sau mỗi bài gen:**
+> **⛔ ĐÂY LÀ BƯỚC BLOCKING — Không qua được bước này thì KHÔNG ĐƯỢC lưu HTML, KHÔNG ĐƯỢC chụp ảnh, KHÔNG ĐƯỢC ghi CSV.**
+> **Thực tế: 9/15 bài đã gen vi phạm furigana vì bước này bị bỏ qua. KHÔNG ĐƯỢC lặp lại lỗi này.**
 
-**Quy trình 3 bước:**
+**Quy trình 3 bước (BẮT BUỘC thực hiện, không có ngoại lệ):**
 
 1. **Scan toàn bộ kanji** trong HTML đã gen → liệt kê tất cả từ có kanji
-2. **Check từng từ**: từ này thuộc level nào? Nếu vượt level bài → phải có `<ruby>+<rt>`. Nếu đang viết trần (không furigana) → **LỖI, phải sửa**
-3. **Đếm ruby tags** → so sánh với bảng density. N3: 5–12, N2: 5–10, N1: 3–8. Nếu = 0 hoặc quá ít → **khả năng cao bị sót, review lại**
+2. **Check từng từ**: từ này thuộc level nào? Nếu vượt level bài → phải có `<ruby>+<rt>`. Nếu đang viết trần (không furigana) → **LỖI, phải sửa ngay**
+3. **Đếm ruby tags** → so sánh với bảng minimum bên dưới. **Nếu không đạt minimum → GEN LẠI (HARD REJECT)**
 
-**Dấu hiệu bị sót furigana (phải kiểm tra):**
-- Bài N3/N2/N1 có **0 ruby tags** → gần như chắc chắn sót
-- Bài có từ chuyên ngành (医療, 保険, 契約, 免責...) mà không có furigana nào
-- Bài dùng kanji N1 (如何, 伴, 踏, 控除, 還付...) trong bài N3 mà viết trần
+**Ngưỡng minimum ruby tags — KHÔNG CÓ NGOẠI LỆ:**
+
+| Level | Minimum ruby tags | Nếu vi phạm |
+|-------|------------------|-------------|
+| N1 | ≥ 3 | 0-2 ruby → **GEN LẠI** |
+| N2 | ≥ 5 | 0-4 ruby → **GEN LẠI** |
+| N3 | ≥ 5 | 0-4 ruby → **GEN LẠI** |
+| N4 | ≥ 0 | Không bắt buộc, nhưng nếu có từ vượt level phải có furigana |
+| N5 | ≥ 0 | Không bắt buộc, nhưng nếu có từ vượt level phải có furigana |
+
+> **Cách đếm nhanh:** Tìm `<ruby>` trong HTML → đếm số lần xuất hiện. Nếu N1/N2/N3 mà count = 0 → **REJECT NGAY, không cần kiểm tra thêm.**
+
+**Dấu hiệu bị sót furigana (REJECT ngay):**
+- Bài N3/N2/N1 có **0 ruby tags** → **GEN LẠI NGAY** (không phải "review", mà là GEN LẠI)
+- Bài có từ chuyên ngành (医療, 保険, 契約, 免責...) mà không có furigana nào → **GEN LẠI**
+- Bài dùng kanji N1 (如何, 伴, 踏, 控除, 還付...) trong bài N3 mà viết trần → **GEN LẠI**
+- Bài dùng furigana dạng ngoặc `()` hoặc `【】` thay vì `<ruby>+<rt>` → **GEN LẠI**
 
 **Danh sách từ thường vượt level — HAY BỊ QUÊN furigana:**
 
@@ -260,8 +274,9 @@ Furigana hay bị bỏ sót vì AI gen xong không quay lại kiểm tra. **Bư�
 | <ruby>持参<rt>じさん</rt></ruby> (N2) | <ruby>添付<rt>てんぷ</rt></ruby> (N1) | <ruby>譲渡<rt>じょうと</rt></ruby> (ngoài JLPT) |
 | <ruby>掲載<rt>けいさい</rt></ruby> (N1) | <ruby>履歴<rt>りれき</rt></ruby> (N1) | <ruby>充填<rt>じゅうてん</rt></ruby> (ngoài JLPT) |
 
-> **⚠️ Quy tắc vàng: Gen xong → Scan kanji → Check level → Thêm furigana thiếu → Đếm ruby tags**
-> Nếu bỏ qua bước này, furigana SẼ bị sót. Đây là lỗi phổ biến nhất khi gen.
+> **⛔ Quy tắc vàng (BLOCKING): Gen xong → Scan kanji → Check level → Thêm furigana thiếu → Đếm ruby tags → Nếu dưới minimum → GEN LẠI**
+> Nếu bỏ qua bước này → furigana SẼ bị sót → bài SẼ bị REJECT. **Đây là lỗi phổ biến nhất khi gen — 60% bài đã gen bị reject vì lỗi này.**
+> **KHÔNG ĐƯỢC tiếp tục sang bước screenshot nếu chưa đếm ruby tags.**
 
 ## Document Formats (from 61 reference samples)
 
@@ -800,16 +815,27 @@ Option A text\nOption B text\nOption C text\nOption D text
 **KHÔNG viết** `1. ...`, `2. ...` — chỉ lưu nội dung đáp án, không prefix số.
 
 `correct_answer_{i}` is the option number: `1`, `2`, `3`, or `4`.
+**BẮT BUỘC là integer string** — viết `2`, KHÔNG viết `2.0`. Nếu dùng Python/Pandas, cast bằng `str(int(value))`.
 
 ### Question Quality Rules
 
-1. **BẮT BUỘC là câu hỏi TÌNH HUỐNG** — Nhân vật có **tên thật** (田中さん, リンさん... KHÔNG dùng Aさん/Bさん) + điều kiện cá nhân → hỏi nên chọn/làm gì. KHÔNG hỏi thông tin thô.
+1. **MỌI câu hỏi (Q1 VÀ Q2) đều BẮT BUỘC là TÌNH HUỐNG** — Nhân vật có **tên thật** + profile cụ thể + điều kiện cá nhân → hỏi nên chọn/làm gì.
+   - ❌ `薬の保管や服用に関する説明として、正しいものはどれか` — KHÔNG CÓ nhân vật, KHÔNG CÓ tình huống → **REJECT**
+   - ❌ `この公園のルールについて、正しいものはどれか` — hỏi thông tin thô → **REJECT**
+   - ✅ `佐藤さん（70歳）は毎日薬を飲んでいますが、昨日飲み忘れました。佐藤さんはどうすればいいですか` — có nhân vật + tình huống cụ thể
+   - ✅ `リンさんは犬を連れて公園に行きたいです。リンさんが気をつけなければならないことはどれですか` — có nhân vật + điều kiện
+   - **Q2 cũng phải có nhân vật khác Q1** (Q1: 田中さん → Q2: 鈴木さん) — tránh lặp cùng nhân vật
 2. **Information retrieval, not inference** — Đáp án tìm được bằng cross-reference thông tin trong bài. Không suy luận.
 3. **Wrong answers must be plausible** — Distractor đúng 1 phần, sai 1 điều kiện. Level cao → distractor tinh vi hơn.
 4. **Cross-reference multiple conditions** — Kiểm tra 2+ điều kiện đồng thời.
-5. **Each question tests a different aspect** — Q1 và Q2 test khía cạnh khác nhau.
+5. **Each question tests a different aspect** — Q1 và Q2 test khía cạnh khác nhau VÀ dùng kiểu câu hỏi khác nhau.
 6. **Furigana in questions** — Cùng quy tắc với bài đọc. Chỉ dùng `<ruby>/<rt>`.
 7. **No question images** — `question_image_{i}` luôn để trống.
+
+> **⚠️ LỖI PHỔ BIẾN NHẤT: Q1 có tình huống nhưng Q2 thì không.**
+> AI thường gen Q1 đúng format (có nhân vật + điều kiện) nhưng Q2 lại viết dạng
+> "～について、正しいものはどれか" — thiếu nhân vật, thiếu tình huống. Đây là **REJECT**.
+> **CẢ Q1 VÀ Q2 đều PHẢI có nhân vật + tình huống. Không có ngoại lệ.**
 
 ### 🚫 HARD REJECT — Nội dung & Câu hỏi (gen lại nếu vi phạm)
 
@@ -846,13 +872,44 @@ Bài đọc phải mô phỏng tài liệu thực tế. Nếu nội dung có b�
 > **Test nhanh**: Che bài đọc, chỉ nhìn 4 đáp án → nếu đoán được đáp án đúng → câu hỏi THẤT BẠI, gen lại.
 > Học sinh phải BẮT BUỘC đọc bài mới trả lời được — đó mới là câu hỏi tìm thông tin tốt.
 
-**D. Kiểm tra chéo đáp án — PHẢI thực hiện sau khi gen**
+**D. Q2 thiếu tình huống → GEN LẠI câu hỏi**
+
+Lỗi phổ biến nhất: Q1 có tình huống nhưng Q2 viết dạng "～について、正しいものはどれか" → REJECT.
+- Kiểm tra: Q2 có chứa tên nhân vật (さん) không? Có điều kiện cá nhân không?
+- Nếu Q2 chỉ là "正しいものはどれか" mà không có nhân vật → sửa lại Q2
+
+**E. correct_answer phải là integer → FIX nếu sai**
+
+- ✅ `2` — đúng
+- ❌ `2.0` — sai (Pandas tự chuyển thành float). Fix bằng `str(int(value))`
+
+**F. Kiểm tra chéo đáp án — PHẢI thực hiện sau khi gen**
 
 Sau khi gen xong câu hỏi + 4 đáp án:
 1. Đọc lại bài gốc → xác nhận đáp án đúng thực sự đúng (có căn cứ trong bài)
 2. Đọc lại bài gốc → xác nhận 3 distractor thực sự SAI (không có trường hợp 2 đáp án cùng đúng)
 3. Che bài đọc → nhìn 4 đáp án → nếu đoán được → sửa distractor
 4. Kiểm tra distractor có thông tin trong bài không → nếu distractor bịa thông tin → sửa lại
+
+**G. Furigana không đạt minimum → GEN LẠI HTML**
+
+Đây là lỗi phổ biến nhất (60% bài đã gen vi phạm). Sau khi gen HTML, BẮT BUỘC đếm `<ruby>` tags:
+
+| Level | Minimum | Vi phạm → Hành động |
+|-------|---------|---------------------|
+| N1 | ≥ 3 ruby | 0-2 → **GEN LẠI** |
+| N2 | ≥ 5 ruby | 0-4 → **GEN LẠI** |
+| N3 | ≥ 5 ruby | 0-4 → **GEN LẠI** |
+| N4/N5 | ≥ 0 | Furigana dạng `()` hoặc `【】` → **GEN LẠI** |
+
+- ❌ Bài N2 có 0 ruby tags → **REJECT** (phải có ≥5)
+- ❌ Bài N3 có 2 ruby tags → **REJECT** (phải có ≥5)
+- ❌ Bài N5 dùng `売店(みせ)` → **REJECT** (phải dùng `<ruby>売店<rt>みせ</rt></ruby>`)
+- ✅ Bài N1 có 5 ruby tags → OK
+- ✅ Bài N3 có 8 ruby tags → OK
+
+> **⛔ KHÔNG ĐƯỢC chụp screenshot, KHÔNG ĐƯỢC ghi CSV nếu furigana chưa đạt minimum.**
+> **Thứ tự bắt buộc: Gen HTML → Đếm ruby → Đạt minimum? → Screenshot → CSV**
 
 ## CSV Schema
 
