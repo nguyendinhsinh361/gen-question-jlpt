@@ -179,12 +179,55 @@ Rules:
 > Gemini có xu hướng dùng dạng ngoặc `漢字(かんじ)` thay vì `<ruby>漢字<rt>かんじ</rt></ruby>`.
 > Đây là lỗi nghiêm trọng — dạng ngoặc KHÔNG được chấp nhận.
 
-### Core Rule — Furigana Only for Above-Level Words
+### Core Rule — Furigana ONLY for Above-Level Words (KHÔNG rắc toàn bộ)
 
-Furigana (`<ruby>/<rt>`) is **only** added for words/kanji that **exceed** the passage's target JLPT level. Words at or below the target level are written without furigana.
+> **🚫 LỖI PHỔ BIẾN NHẤT: AI rắc furigana lên HẦU HẾT mọi kanji — kể cả từ đúng level và dưới level.**
+> Đây là SAI NGHIÊM TRỌNG. Nếu 80% từ vựng thuộc level mục tiêu → 80% kanji KHÔNG CẦN furigana.
+> **Chỉ ~20% từ vượt level mới cần furigana.** Bài N3 có 111 ruby tags = SAI. Bài N3 nên có ~10-20 ruby tags.
 
-> **Quy tắc duy nhất: TẤT CẢ từ vượt level → phải có furigana. Không có ngưỡng tối thiểu, không giới hạn số lượng.**
-> Bài có 1 từ vượt level → 1 ruby tag. Bài có 20 từ vượt level → 20 ruby tags. Quan trọng là KHÔNG SÓT.
+Furigana (`<ruby>/<rt>`) is **ONLY** added for words/kanji that **exceed** the passage's target JLPT level. Words **at or below** the target level are written **WITHOUT furigana** — người học ở level đó được kỳ vọng đã biết những từ này.
+
+> **Quy tắc: TẤT CẢ từ vượt level → phải có furigana. Từ đúng/dưới level → KHÔNG furigana.**
+
+### Ước tính ruby count hợp lý (QUAN TRỌNG)
+
+Vì 80%+ từ vựng đúng level → chỉ ~20% từ vượt level → ruby count phải THẤP:
+
+| Level | Ruby count hợp lý | Nếu vượt mức này → kiểm tra lại |
+|-------|-------------------|----------------------------------|
+| N5 | **0–3** | > 5 → đang furigana từ đúng level |
+| N4 | **0–5** | > 8 → đang furigana từ đúng level |
+| N3 | **5–15** | > 20 → đang furigana từ đúng level |
+| N2 | **5–15** | > 20 → đang furigana từ đúng level |
+| N1 | **3–10** | > 15 → đang furigana từ đúng level |
+
+### Ví dụ cụ thể — N3 passage
+
+**❌ SAI — furigana toàn bộ (111 ruby tags!):**
+```
+<ruby>最近<rt>さいきん</rt></ruby>は、<ruby>仕事<rt>しごと</rt></ruby>や<ruby>生活<rt>せいかつ</rt></ruby>で...
+<ruby>教室<rt>きょうしつ</rt></ruby>は...15<ruby>名<rt>めい</rt></ruby>までの<ruby>少人数<rt>しょうにんずう</rt></ruby>...
+```
+→ 最近(N3), 仕事(N4), 生活(N3), 教室(N3), 名(N4) đều đúng level → KHÔNG cần furigana
+
+**✅ ĐÚNG — chỉ furigana từ vượt N3 (~12 ruby tags):**
+```
+最近は、仕事や生活で...
+教室は...15名までの<ruby>少人数<rt>しょうにんずう</rt></ruby>...
+<ruby>経験豊富<rt>けいけんほうふ</rt></ruby>な<ruby>講師<rt>こうし</rt></ruby>が<ruby>丁寧<rt>ていねい</rt></ruby>にお教えします。
+```
+→ 少人数(N2), 経験豊富(N2), 講師(N2), 丁寧(N2) vượt N3 → CẦN furigana
+→ 最近, 仕事, 生活, 教室, 名 đúng level → viết trần
+
+### Danh sách từ KHÔNG cần furigana (AI hay nhầm)
+
+| Level | Từ KHÔNG cần furigana (đúng level hoặc dưới) |
+|-------|----------------------------------------------|
+| N5 | 日, 月, 人, 円, 大, 小, 時, 年, 何, 前, 後, 店, 上, 下, 中, 外 |
+| N4 | 場所, 仕事, 電話, 大丈夫, 手紙, 先生, 買う, 使う, 教える, 名前, 方, 時間, 市, 町, 村, 写真, 必要 |
+| N3 | 最近, 生活, 機会, 質問, 内容, 基本, 簡単, 教室, 文書, 作成, 地域, 説明, 練習, 経験, 予約, 申し込み |
+| N2 | 受付, 締切, 割引, 対象, 詳細, 申込, 制度, 条件, 届出, 規定, 設備, 施設, 担当, 了承, 開催 |
+| N1 | Hầu hết kanji thông thường — chỉ furigana cho thuật ngữ chuyên ngành hiếm |
 
 ### Compound Word Rule (Matches Real JLPT Exams)
 
@@ -440,6 +483,8 @@ CSS `word-break: keep-all` + `line-break: strict` đã xử lý. Nếu screensho
 
 ```python
 class CleanHTMLExtractor(HTMLParser):
+    SKIP_TAGS = ('style', 'script')   # skip tag AND content (không hiển thị)
+    # ruby và rt được GIỮ NGUYÊN — furigana cần có trong clean HTML
     def __init__(self):
         super().__init__()
         self.result, self.skip_depth = [], 0
@@ -447,13 +492,13 @@ class CleanHTMLExtractor(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag == 'body': self.in_body = True; return
         if not self.in_body or self.body_done: return
-        if tag in ('style', 'script', 'rt'): self.skip_depth += 1; return
+        if tag in self.SKIP_TAGS: self.skip_depth += 1; return
         if self.skip_depth > 0: return
         self.result.append(f'<{tag}>')
     def handle_endtag(self, tag):
         if tag == 'body': self.body_done = True; return
         if not self.in_body or self.body_done: return
-        if tag in ('style', 'script', 'rt'): self.skip_depth -= 1; return
+        if tag in self.SKIP_TAGS: self.skip_depth -= 1; return
         if self.skip_depth > 0: return
         self.result.append(f'</{tag}>')
     def handle_data(self, data):
@@ -583,7 +628,7 @@ Kiểm tra 5 tiêu chí HTML. **1 FAIL = phải sửa.**
 | TC2 | Chủ đề & Format | Chủ đề phù hợp level? Nội dung logic? (giá hợp lý, thời gian không mâu thuẫn) | Chủ đề sai level, nội dung phi logic |
 | TC3 | Layout | Flow text? (tìm `。<br>` → FAIL). Container 700px, margin:0? Table fixed? | `<br>` trong văn xuôi, container sai |
 | TC4 | Từ vựng & NP | ≥80% từ đúng level? Từ vượt level dùng level gần nhất? N4/N5 không kanji N3+? Ngữ pháp phù hợp? | <80%, kanji vượt level ở N4/N5, ngữ pháp sai level |
-| TC5 | Furigana | Mọi từ vượt level có `<ruby>+<rt>`? Chỉ `<ruby>+<rt>` (không ngoặc, không Ab)? Không furigana cho từ đúng level? | Sót furigana, format sai, thừa furigana |
+| TC5 | Furigana | (a) Mọi từ vượt level có `<ruby>+<rt>`? (b) Không furigana cho từ đúng/dưới level? (c) Đếm ruby count: N5≤3, N4≤5, N3≤15, N2≤15, N1≤10 — vượt = đang furigana thừa? | Sót furigana, thừa furigana (furigana từ đúng level), format sai |
 
 ### BƯỚC 5: ⛔ QUALITY CHECK — PHẦN B: CÂU HỎI & ĐÁP ÁN (TC6)
 
