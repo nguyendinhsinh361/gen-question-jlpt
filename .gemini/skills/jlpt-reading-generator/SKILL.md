@@ -121,11 +121,19 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 > nhưng cấu trúc thông tin dày đặc, nhiều điều kiện chồng chéo, ghi chú nhỏ dễ bỏ sót.
 
 - **80%+ từ vựng thuộc level mục tiêu hoặc thấp hơn** (ví dụ: bài N2 → ≥80% từ N2/N3/N4/N5)
-- **Thuật ngữ chuyên ngành chỉ dùng khi THỰC SỰ CẦN THIẾT** cho ngữ cảnh (tên thuốc trong bài medicine_info, tên khóa học trong bài class_enrollment). KHÔNG thêm thuật ngữ chỉ để "tăng độ khó"
+- **Từ vượt level → ưu tiên level gần nhất**: bài N3 cần từ vượt level → dùng từ N2 trước, KHÔNG nhảy thẳng lên N1. Bài N2 → dùng từ N1 thông dụng, KHÔNG dùng thuật ngữ hiếm
+- **HẠN CHẾ thuật ngữ chuyên ngành** — chỉ dùng khi ngữ cảnh BẮT BUỘC và không thể thay bằng từ đơn giản hơn (tên thuốc trong medicine_info, tên luật trong hợp đồng). Nếu có từ đúng level diễn đạt được → dùng từ đúng level
 - **KHÔNG BAO GIỜ dùng từ vượt level mà không có furigana** — nếu bắt buộc dùng → phải có `<ruby>/<rt>`
 - N4/N5: simple sentence patterns, everyday topics
-- N1/N2: compound sentences, formal/business register — **nhưng từ vựng vẫn phải quen thuộc với người học level đó**
+- N1/N2: compound sentences, formal/business register — **nhưng từ vựng vẫn phải quen thuộc với người học level đó, hạn chế thuật ngữ**
 - N3: bridge level — conversational with some formal elements
+
+> **Quy tắc chọn từ vượt level:**
+> - Bài N5 cần từ vượt → dùng từ N4 (KHÔNG dùng N3+)
+> - Bài N4 cần từ vượt → dùng từ N3 (KHÔNG dùng N2+)
+> - Bài N3 cần từ vượt → dùng từ N2 (KHÔNG dùng N1 trừ khi không thể thay thế)
+> - Bài N2 cần từ vượt → dùng từ N1 thông dụng (KHÔNG dùng thuật ngữ hiếm)
+> - Bài N1 → dùng từ N1 đầy đủ, thuật ngữ chỉ khi ngữ cảnh yêu cầu (y tế, pháp lý)
 
 ### Nguồn tạo độ khó ĐÚNG CÁCH (theo level)
 
@@ -178,7 +186,7 @@ After generating, always verify with `count_body_chars()`. Nếu dưới Target 
 
 Furigana (`<ruby>/<rt>`) is **only** added for words/kanji that **exceed** the passage's target JLPT level. Words at or below the target level are written without furigana — the learner is expected to know them.
 
-**Key principle**: ≥80% từ vựng phải thuộc level mục tiêu hoặc thấp hơn. Từ vượt level chỉ xuất hiện khi ngữ cảnh BẮT BUỘC (tên thuốc, tên dịch vụ, thuật ngữ không thể thay thế). Khi dùng từ vượt level → **giữ nguyên kanji + thêm furigana**. KHÔNG thêm thuật ngữ chuyên ngành chỉ để tăng độ khó — độ khó phải đến từ cấu trúc thông tin phức tạp.
+**Key principle**: ≥80% từ vựng phải thuộc level mục tiêu hoặc thấp hơn. Từ vượt level → **ưu tiên level gần nhất** (N3 dùng từ N2, N2 dùng từ N1 thông dụng). Hạn chế thuật ngữ chuyên ngành — chỉ dùng khi ngữ cảnh bắt buộc và không thể thay bằng từ đơn giản hơn. Khi dùng từ vượt level → **giữ nguyên kanji + thêm furigana**.
 
 ### Compound Word Rule (Critical — Matches Real JLPT Exams)
 
