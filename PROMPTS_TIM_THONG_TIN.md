@@ -47,8 +47,8 @@ Với mỗi bài, thực hiện tuần tự:
     - Chụp container.screenshot() (KHÔNG page.screenshot())
     - Ghi CSV: correct_answer = integer ("2" không "2.0")
 
-═══ BƯỚC 3: QUALITY CHECK (BẮT BUỘC sau mỗi lượt) ═══
-Với MỖI bài vừa gen, kiểm tra 6 tiêu chí. 1 FAIL = phải sửa.
+═══ BƯỚC 3: QUALITY CHECK — PHẦN A: HTML (TC1-TC5) ═══
+Với MỖI bài vừa gen, kiểm tra 5 tiêu chí HTML. 1 FAIL = phải sửa.
 
 TC1 — Ký tự:
   count_body_chars() ≥ minimum? (N1:700, N2:700, N3:600, N4:400, N5:250)
@@ -74,23 +74,32 @@ TC5 — Furigana:
   Chỉ dùng <ruby>+<rt>? (không ngoặc, không Ab)
   Furigana chỉ cho từ VƯỢT level? (không furigana cho từ đúng level)
 
-TC6 — Câu hỏi & Lựa chọn:
-  MỌI câu hỏi có tình huống? (tên thật + profile + điều kiện)
-  Q1 ≠ Q2 kiểu hỏi?
-  Đáp án đúng paraphrase? (không copy nguyên văn)
-  Đáp án sai có căn cứ trong bài? (không bịa thông tin)
-  Test che bài: nhìn 4 đáp án → đoán được = FAIL
-  correct_answer = integer? ("2" không "2.0")
+═══ BƯỚC 4: QUALITY CHECK — PHẦN B: CÂU HỎI & ĐÁP ÁN (TC6) — KHÔNG ĐƯỢC BỎ QUA ═══
+⛔ AI HAY BỎ QUÊN BƯỚC NÀY. Check TC1-TC5 xong CHƯA PHẢI LÀ XONG.
+Đọc lại câu hỏi + đáp án từ CSV, kiểm tra từng mục:
 
-═══ BƯỚC 4: SỬA BÀI FAIL ═══
+TC6a — Tình huống: MỌI câu hỏi (Q1 VÀ Q2) có nhân vật tên thật + profile + điều kiện?
+  ❌ "～について正しいものはどれか" = FAIL (thiếu tình huống)
+  ❌ "Aさん" = FAIL (tên chung chung)
+TC6b — Kiểu hỏi: Q1 và Q2 dùng kiểu khác nhau?
+  (chọn phương án / tư cách / thủ tục / chi phí / đúng-sai / ngoại lệ / so sánh / xử lý)
+TC6c — Đáp án đúng: paraphrase, không copy nguyên văn từ bài?
+TC6d — Đáp án sai: có căn cứ trong bài nhưng sai điều kiện? Không bịa thông tin?
+TC6e — Test che bài: che bài đọc, nhìn 4 đáp án → đoán được = FAIL
+TC6f — Format: correct_answer = integer ("2" không "2.0")
+
+→ CHECKPOINT: "Tôi đã đọc question_1, question_2, answer_1, answer_2 từ CSV chưa?"
+→ Nếu chưa đọc = QC chưa hoàn thành, KHÔNG được kết luận.
+
+═══ BƯỚC 5: SỬA BÀI FAIL ═══
 - TC1 (chars thiếu) / TC2 (topic sai) / TC4 (vocab sai): gen lại toàn bộ HTML
 - TC3 (layout): sửa HTML (bỏ <br>, fix CSS) → chụp lại screenshot
 - TC5 (furigana): thêm/sửa ruby tags → chụp lại screenshot
 - TC6 (question): sửa câu hỏi/đáp án → cập nhật CSV
-→ Sau khi sửa → chạy lại QC bài đó → confirm PASS
+→ Sau khi sửa → chạy lại QC (CẢ PHẦN A + B) bài đó → confirm PASS
 
-═══ BƯỚC 5: LẶP LẠI ═══
+═══ BƯỚC 6: LẶP LẠI ═══
 Quay lại BƯỚC 2 cho lượt 5 bài tiếp theo. Tiếp tục đến hết số lượng yêu cầu.
 
-Kết thúc: output bảng tổng kết PASS/FAIL toàn batch.
+Kết thúc: output bảng tổng kết PASS/FAIL toàn batch (bảng PHẢI có cả PHẦN A + PHẦN B).
 ```

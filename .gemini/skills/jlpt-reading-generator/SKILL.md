@@ -1015,7 +1015,16 @@ def gen_id(level: str) -> str:
 10. **Generate questions** → create questions, answer options, correct answers, and explanations per the rules above
 11. **Fill CSV columns** → `tag` = format label, `general_image` = local PNG path, `question_label_{i}`, `question_{i}`, `answer_{i}`, `correct_answer_{i}`, `explain_vn_{i}`, `explain_en_{i}`
 12. **Append to CSV** (or create new if starting fresh)
-13. **Verify** all character counts, question counts, format diversity, and file integrity
+13. **⛔ QUALITY CHECK — PHẦN A: HTML (TC1-TC5)** → character count đạt minimum? chủ đề phù hợp level? layout flow text? từ vựng ≥80% đúng level? furigana ruby count ≥ minimum?
+14. **⛔ QUALITY CHECK — PHẦN B: CÂU HỎI & ĐÁP ÁN (TC6) — KHÔNG ĐƯỢC BỎ QUA** → Đọc lại question + answer từ CSV vừa ghi:
+    - TC6a: MỌI câu hỏi (Q1 VÀ Q2) có tình huống? (tên thật + profile + điều kiện)
+    - TC6b: Q1 ≠ Q2 kiểu hỏi?
+    - TC6c: Đáp án đúng paraphrase? (không copy nguyên văn)
+    - TC6d: Đáp án sai có căn cứ trong bài nhưng sai điều kiện? (không bịa)
+    - TC6e: Che bài, nhìn 4 đáp án → đoán được = FAIL
+    - TC6f: correct_answer = integer? ("2" không "2.0")
+    → **1 FAIL = sửa bài đó → chạy lại QC → confirm PASS mới tiếp tục**
+15. **Output bảng QC** cho mỗi bài (PHẢI có cả PHẦN A + PHẦN B, thiếu PHẦN B = QC chưa xong)
 
 ## Reference Samples
 

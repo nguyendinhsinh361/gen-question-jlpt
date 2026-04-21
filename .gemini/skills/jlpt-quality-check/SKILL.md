@@ -14,6 +14,12 @@ Skill này kiểm tra chất lượng toàn diện các bài đọc JLPT tìm th
 
 > **Nguyên tắc: 1 FAIL = REJECT cả bài.** Không có ngoại lệ, không có "gần đạt".
 
+> **⛔ CẢNH BÁO: AI HAY BỎ QUÊN TC6 (Câu hỏi & Lựa chọn)**
+> Thực tế: AI thường check TC1→TC5 rồi kết luận PASS mà KHÔNG kiểm tra TC6.
+> TC6 là tiêu chí quan trọng nhất — 80% bài đã gen FAIL ở TC6.
+> **QC chưa check TC6 = QC CHƯA HOÀN THÀNH. KHÔNG được kết luận PASS/REJECT khi chưa check đủ 6 TC.**
+> **Thứ tự bắt buộc: TC1 → TC2 → TC3 → TC4 → TC5 → TC6 → KẾT LUẬN. Bỏ TC nào = QC vô hiệu.**
+
 ## Đầu vào
 
 Skill nhận 1 trong 3 dạng:
@@ -211,7 +217,11 @@ Kiểm tra bằng cách đọc bài, ước lượng tỉ lệ từ vựng thu�
 
 ---
 
-### 6. CHẤT LƯỢNG CÂU HỎI & LỰA CHỌN (Question & Answer Quality)
+### 6. ⛔ CHẤT LƯỢNG CÂU HỎI & LỰA CHỌN (Question & Answer Quality) — HAY BỊ BỎ QUÊN
+
+> **ĐÂY LÀ TIÊU CHÍ QUAN TRỌNG NHẤT VÀ HAY BỊ BỎ QUA NHẤT.**
+> AI thường check TC1-TC5 rồi kết luận "looks good" mà QUÊN kiểm tra câu hỏi + đáp án.
+> **80% bài FAIL ở TC6.** Nếu không check TC6, QC vô nghĩa.
 
 **6a. Tình huống (BẮT BUỘC cho MỌI câu hỏi):**
 - MỌI câu hỏi (Q1 VÀ Q2) phải là TÌNH HUỐNG: nhân vật có tên thật + profile + điều kiện
@@ -261,20 +271,33 @@ html_dir = "assets/html/tim_thong_tin/"
 html_files = glob.glob(f"{html_dir}*.html")
 ```
 
-### Bước 2: Kiểm tra từng bài
+### Bước 2: Kiểm tra từng bài (BẮT BUỘC đủ 6 TC)
 
 Với mỗi bài (HTML + dòng CSV tương ứng):
 
 ```
+── PHẦN A: KIỂM TRA HTML (TC1-TC5) ──
 1. Đọc HTML file
 2. [TC1] Đếm chars → count_body_chars() → so sánh minimum
 3. [TC2] Đọc nội dung → đánh giá chủ đề/format/logic
 4. [TC3] Kiểm tra layout: <br> trong văn xuôi? Container CSS? 
 5. [TC4] Đọc từ vựng → ước lượng tỉ lệ đúng level, kiểm tra kanji N4/N5
 6. [TC5] Đếm ruby tags → so sánh minimum, kiểm tra format furigana
-7. [TC6] Đọc câu hỏi + đáp án từ CSV → kiểm tra tình huống, paraphrase, distractor
-8. Tổng hợp: 1 FAIL = REJECT cả bài
+
+── PHẦN B: KIỂM TRA CÂU HỎI & ĐÁP ÁN (TC6) — KHÔNG ĐƯỢC BỎ QUA ──
+7. [TC6a] Đọc question_1, question_2 từ CSV → có tên nhân vật thật + profile + điều kiện?
+8. [TC6b] Q1 và Q2 kiểu hỏi có khác nhau không?
+9. [TC6c] Đọc answer_1, answer_2 → đáp án đúng paraphrase hay copy nguyên văn?
+10. [TC6d] 3 distractor có căn cứ trong bài? Có cần suy nghĩ mới loại?
+11. [TC6e] Test che bài: chỉ nhìn 4 đáp án → đoán được không?
+12. [TC6f] correct_answer = integer? ("2" không "2.0")
+
+── KẾT LUẬN (chỉ sau khi check đủ 6 TC) ──
+13. Tổng hợp: 1 FAIL = REJECT cả bài
 ```
+
+> **⛔ CHECKPOINT: Trước khi viết KẾT LUẬN, tự hỏi: "Tôi đã đọc câu hỏi + đáp án từ CSV chưa?"**
+> Nếu chưa → DỪNG LẠI, đọc CSV, check TC6 trước rồi mới kết luận.
 
 ### Bước 3: Script tự động (phần kiểm tra được)
 
@@ -365,22 +388,31 @@ def check_csv_row(row: dict, level: str) -> dict:
 
 ### Bước 4: Báo cáo
 
-Output bảng tổng hợp cho mỗi bài:
+Output bảng tổng hợp cho mỗi bài. **TC6 phải có chi tiết cụ thể, không được ghi "OK" chung chung:**
 
 ```
-╔══════════════════════════════════════════════════════════════╗
-║  QUALITY CHECK REPORT — {_id}  (Level: {level})            ║
-╠══════════════════════════════════════════════════════════════╣
-║ TC1  Ký tự         │ {count} chars (min {min})  │ ✅ PASS   ║
-║ TC2  Chủ đề/Format │ {đánh giá}                 │ ✅ PASS   ║
-║ TC3  Layout         │ Flow text OK, container OK │ ✅ PASS   ║
-║ TC4  Từ vựng/NP    │ ~85% đúng level            │ ✅ PASS   ║
-║ TC5  Furigana       │ {count} ruby (min {min})   │ ❌ FAIL   ║
-║ TC6  Câu hỏi       │ Q1 ✅ Q2 ❌ (thiếu tên)    │ ❌ FAIL   ║
-╠══════════════════════════════════════════════════════════════╣
-║ KẾT LUẬN: ❌ REJECT — Cần sửa TC5, TC6                     ║
-╚══════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════════════════╗
+║  QUALITY CHECK REPORT — {_id}  (Level: {level})                        ║
+╠═══════════════ PHẦN A: HTML ════════════════════════════════════════════╣
+║ TC1  Ký tự         │ {count} chars (min {min})          │ ✅ PASS      ║
+║ TC2  Chủ đề/Format │ {chủ đề} — phù hợp {level}        │ ✅ PASS      ║
+║ TC3  Layout         │ Flow text OK, container OK         │ ✅ PASS      ║
+║ TC4  Từ vựng/NP    │ ~{%}% đúng level, NP phù hợp      │ ✅ PASS      ║
+║ TC5  Furigana       │ {count} ruby (min {min})           │ ✅ PASS      ║
+╠═══════════════ PHẦN B: CÂU HỎI & ĐÁP ÁN ══════════════════════════════╣
+║ TC6a Tình huống Q1  │ {tên}さん + profile: {mô tả}      │ ✅ PASS      ║
+║ TC6a Tình huống Q2  │ {tên}さん + profile: {mô tả}      │ ❌ FAIL      ║
+║ TC6b Kiểu hỏi      │ Q1={kiểu}, Q2={kiểu} — khác nhau? │ ✅ PASS      ║
+║ TC6c Đáp án đúng    │ Q1: paraphrase ✅  Q2: copy ❌     │ ❌ FAIL      ║
+║ TC6d Distractor     │ Q1: có căn cứ ✅  Q2: bịa info ❌  │ ❌ FAIL      ║
+║ TC6e Test che bài   │ Q1: không đoán ✅  Q2: đoán được ❌ │ ❌ FAIL      ║
+║ TC6f Format         │ correct_answer: "2","3" — OK       │ ✅ PASS      ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║ KẾT LUẬN: ❌ REJECT — TC6a(Q2), TC6c(Q2), TC6d(Q2), TC6e(Q2)          ║
+╚══════════════════════════════════════════════════════════════════════════╝
 ```
+
+> **Nếu bảng chỉ có PHẦN A mà thiếu PHẦN B → QC CHƯA HOÀN THÀNH. Phải bổ sung PHẦN B.**
 
 Cuối cùng, tổng hợp batch:
 
