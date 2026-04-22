@@ -139,7 +139,37 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 | 23 | **Test che bài** | Che bài, nhìn 4 đáp án | KHÔNG đoán được đáp án đúng chỉ từ đáp án |
 | 24 | **Q2 exists (N1-N4)** | Xem CSV | Có câu hỏi 2 + 4 đáp án + correct_answer (bỏ qua nếu N5) |
 | 25 | **Q2 ≠ Q1 kiểu** | So sánh Q1 và Q2 | Q1 và Q2 khác kiểu hỏi (ví dụ: Q1 hỏi thời gian, Q2 hỏi điều kiện) |
-| 26 | **Explanations** | Xem CSV | Có explain_vn_1 và explain_en_1 (không trống) |
+| 26 | **Explanations đầy đủ** | Đọc explain_vn_1 + explain_en_1 | Giải thích đủ 3 phần (xem format bên dưới) |
+
+> **⛔ CHECK #26 — FORMAT EXPLANATION BẮT BUỘC**
+>
+> Explanation không chỉ "có nội dung" — nó phải **chứng minh** câu hỏi + đáp án đúng logic.
+> Agent viết explain_vn_1 và explain_en_1 theo đúng 3 phần sau:
+>
+> **Phần 1 — Đáp án đúng:** Giải thích TẠI SAO đáp án đúng là đúng. Trích dẫn cụ thể vị trí trong bài
+> (ví dụ: "Theo bảng 【クラスと料金】..." hoặc "Phần 【予約について】 ghi rằng...").
+> Phải cross-reference ≥2 thông tin từ bài.
+>
+> **Phần 2 — Đáp án sai:** Giải thích TẠI SAO từng đáp án sai là sai. Nêu rõ loại bẫy
+> (detail swap / condition miss / partial match / plausible wrong) và chỉ ra thông tin nào trong bài
+> khiến đáp án đó sai.
+>
+> **Phần 3 — Tóm tắt:** 1 câu ngắn tóm lại logic tìm đáp án.
+>
+> **Ví dụ explain_vn_1:**
+> ```
+> ĐÁP ÁN ĐÚNG (2): 10時
+> Theo bảng【クラスと料金】, ngày Thứ Bảy có lớp 週末ヨガ lúc 14:00～15:30.
+> Phần【わりびき】ghi: đi cùng bạn được giảm 500円/người → 2,500 - 500 = 2,000円.
+> Vậy đáp án đúng là 2,000円.
+>
+> ĐÁP ÁN SAI:
+> (1) 1,500円 — detail swap: đây là giá lớp はじめてのヨガ (Thứ Ba), không phải 週末ヨガ.
+> (3) 2,500円 — condition miss: bỏ qua điều kiện giảm giá khi đi cùng bạn.
+> (4) 3,000円 — plausible wrong: không có giá này trong bài.
+>
+> Tóm tắt: Cần kết hợp bảng giá + điều kiện giảm giá để tính đúng.
+> ```
 
 #### PHẦN D: ẢNH
 
@@ -190,6 +220,32 @@ Chỉ khi **TẤT CẢ 32 checks PASS** → log:
 🎉 ALL PASSED (32/32) — {_id} hoàn thành
 ```
 → Chuyển sang bài tiếp theo (quay lại BƯỚC 1).
+
+---
+
+## BƯỚC CUỐI: GỘP CSV (sau khi gen xong TẤT CẢ bài)
+
+> Sau khi hoàn thành toàn bộ batch, gộp các file CSV theo level thành **1 file duy nhất**.
+
+```bash
+python3 -c "
+import csv, glob, os
+files = sorted(glob.glob('sheets/N*.csv'))
+rows = []
+for f in files:
+    with open(f, 'r', encoding='utf-8') as fh:
+        rows.extend(list(csv.DictReader(fh)))
+if rows:
+    out = 'sheets/all_tim_thong_tin.csv'
+    with open(out, 'w', encoding='utf-8', newline='') as fh:
+        w = csv.DictWriter(fh, fieldnames=rows[0].keys())
+        w.writeheader()
+        w.writerows(rows)
+    print(f'✅ Merged {len(rows)} rows from {len(files)} files → {out}')
+"
+```
+
+Output: `sheets/all_tim_thong_tin.csv` — chứa tất cả bài từ N1→N5.
 
 ---
 
