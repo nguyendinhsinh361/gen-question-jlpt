@@ -123,7 +123,7 @@ def count_body_chars(html_string):
 
 ### Container & Capture
 
-- Container: `width: 700px; margin: 0; padding: 12px 16px;` — KHÔNG `auto`, KHÔNG `min-height`
+- Container: `width: 700px; margin: 0; padding: 6px 8px;` — KHÔNG `auto`, KHÔNG `min-height`
 - Viewport Playwright = 700px. Capture bằng `container.screenshot()` (KHÔNG `page.screenshot()`)
 - Table: `table-layout: fixed; width: 100%`
 
@@ -371,7 +371,7 @@ Câu hỏi + 4 lựa chọn phải **thống nhất thì** (ưu tiên thì hiệ
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
         html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
         body { font-family: 'Noto Sans JP', sans-serif; color: #000; line-height: 2; word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
-        .container { width: 700px; margin: 0; background: #fff; padding: 12px 16px; box-sizing: border-box; }
+        .container { width: 700px; margin: 0; background: #fff; padding: 6px 8px; box-sizing: border-box; }
         table { width: 100%; table-layout: fixed; }
         td, th { overflow-wrap: break-word; }
         .container > * { max-width: 100%; }
@@ -441,22 +441,51 @@ async def capture_screenshot(html_path, img_path):
         page = await browser.new_page(viewport={"width": 700, "height": 800})
         await page.goto(f"file://{html_path}", wait_until="networkidle")
         await page.wait_for_timeout(1500)
-        # Force white background (phòng Tailwind override)
-        await page.evaluate("document.documentElement.style.background='#fff'")
-        await page.evaluate("document.body.style.background='#fff'")
-        container = page.locator('.container')
-        box = await container.bounding_box()
-        # Resize viewport cho vừa nội dung (tránh cắt cụt)
-        await page.set_viewport_size({"width": 700, "height": round(box["height"]) + 20})
+        # Force white background
+        await page.evaluate("""
+            document.documentElement.style.cssText += 'background:#fff!important;';
+            document.body.style.cssText += 'background:#fff!important;';
+        """)
+        # Đo content height thực (KHÔNG dùng bounding_box vì container stretch theo body)
+        clip = await page.evaluate("""
+            (() => {
+                const c = document.querySelector('.container');
+                const cRect = c.getBoundingClientRect();
+                let maxBottom = cRect.top;
+                for (const ch of c.children) {
+                    const r = ch.getBoundingClientRect();
+                    if (r.bottom > maxBottom) maxBottom = r.bottom;
+                }
+                return {
+                    x: Math.round(cRect.left),
+                    y: Math.round(cRect.top),
+                    width: Math.round(cRect.width),
+                    height: Math.ceil(maxBottom - cRect.top) + 8
+                };
+            })()
+        """)
+        # Resize viewport vừa content (tránh cắt cụt bài dài)
+        await page.set_viewport_size({"width": 700, "height": clip["height"] + 20})
         await page.wait_for_timeout(300)
-        box = await container.bounding_box()  # lấy lại sau resize
-        # Clip chính xác — không thừa 1 pixel
-        await page.screenshot(path=img_path, clip={
-            "x": round(box["x"]),
-            "y": round(box["y"]),
-            "width": round(box["width"]),
-            "height": round(box["height"])
-        })
+        # Re-measure sau resize
+        clip = await page.evaluate("""
+            (() => {
+                const c = document.querySelector('.container');
+                const cRect = c.getBoundingClientRect();
+                let maxBottom = cRect.top;
+                for (const ch of c.children) {
+                    const r = ch.getBoundingClientRect();
+                    if (r.bottom > maxBottom) maxBottom = r.bottom;
+                }
+                return {
+                    x: Math.round(cRect.left),
+                    y: Math.round(cRect.top),
+                    width: Math.round(cRect.width),
+                    height: Math.ceil(maxBottom - cRect.top) + 8
+                };
+            })()
+        """)
+        await page.screenshot(path=img_path, clip=clip)
         await page.close()
         await browser.close()
 ```
