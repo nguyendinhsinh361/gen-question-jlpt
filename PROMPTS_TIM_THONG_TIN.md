@@ -36,6 +36,7 @@ Gen {SỐ LƯỢNG} bài tìm thông tin, lưu CSV trong sheets/
 
 ═══ CHUẨN BỊ ═══
 - Đọc 1-2 mẫu từ input/html/ và input/htm_content_qa/ cho level cần gen
+- Đọc input/rule_gen_tim_thong_tin.md (quy tắc giáo viên: 3-tier vocabulary, character counts, distractor types)
 - Scan format đã dùng trong sheets/ → chọn format chưa dùng/ít dùng
 - Lên kế hoạch: mỗi bài gán format + chủ đề + visual elements (không trùng nhau)
 
