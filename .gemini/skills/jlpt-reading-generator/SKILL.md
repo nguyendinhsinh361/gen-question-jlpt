@@ -142,7 +142,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 11 | **Chủ đề đúng level** | Đọc nội dung, đối chiếu `rules/content.md` R1 | Chủ đề phù hợp level (N5: đời sống cơ bản, N1: chuyên ngành) |
 | 12 | **Nội dung logic** | Đọc toàn bài | Thông tin nhất quán, không mâu thuẫn, số liệu hợp lý |
 | 13 | **Đủ dữ liệu tra cứu** | Đọc toàn bài | Có bảng/danh sách/lịch... để người đọc tra cứu |
-| 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥2 vị trí khác nhau (không tập trung 1 chỗ) |
+| 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
 | 16 | **Furigana đúng từ** | Xem các `<ruby>` tags | Context words vượt level → CÓ furigana. Key terms đúng level → KHÔNG furigana |
 
@@ -152,18 +152,19 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 
 | # | Check | Cách verify | PASS nếu |
 |---|-------|-------------|----------|
-| 17 | **Q1 tình huống** | Đọc câu hỏi 1 | Có nhân vật tên thật (không phải Aさん) + profile + điều kiện cụ thể |
-| 18 | **Q1 cross-reference** | Thử trả lời Q1 | Phải scan ≥2 vị trí trong bài mới tìm được đáp án |
-| 19 | **A1 format** | Xem 4 đáp án | Đúng 4 options, đều độ dài (ratio < 2.5), thì động từ nhất quán |
+| 17 | **Q1 tình huống** | Đọc câu hỏi 1 | Nhân vật tên thật + profile + **≥3 điều kiện ràng buộc** đồng thời |
+| 18 | **Q1 cross-reference** | Thử trả lời Q1 | Phải scan **≥3 vị trí** trong bài mới tìm được đáp án |
+| 19 | **A1 format** | Xem 4 đáp án | Đúng 4 options, đều độ dài (ratio < 2.0), thì động từ nhất quán |
 | 20 | **A1 correct_answer** | Xem giá trị correct_answer_1 | Integer 1-4 |
-| 21 | **A1 đáp án đúng** | Đọc đáp án đúng + so bài | Paraphrase (N3+), không copy nguyên văn từ bài |
-| 22 | **A1 distractors** | Đọc 3 đáp án sai | Có ≥2 loại bẫy: detail swap / condition miss / partial match / plausible wrong |
-| 23 | **Test che bài** | Che bài, nhìn 4 đáp án | KHÔNG đoán được đáp án đúng chỉ từ đáp án |
-| 24 | **Q2 exists (N1-N4)** | Xem CSV | Có câu hỏi 2 + 4 đáp án + correct_answer (bỏ qua nếu N5) |
-| 25 | **Q2 ≠ Q1 kiểu** | So sánh Q1 và Q2 | Q1 và Q2 khác kiểu hỏi (ví dụ: Q1 hỏi thời gian, Q2 hỏi điều kiện) |
-| 26 | **Explanations đầy đủ** | Đọc explain_vn_1 + explain_en_1 | Giải thích đủ 3 phần (xem format bên dưới) |
+| 21 | **A1 paraphrase** | So đáp án đúng với bài gốc | KHÔNG trùng cụm ≥4 từ liên tiếp (N3+) hoặc ≥6 từ (N4/N5) |
+| 22 | **A1 đủ 4 loại bẫy** | Đọc 3 đáp án sai, xác định loại bẫy | Đủ: ① condition miss ② calculation trap ③ detail swap ④ partial match |
+| 23 | **A1 distractor khó loại** | Với mỗi đáp án sai: có dùng info thật? Cần quay lại bài mới loại? | Không có đáp án nào loại được trong <3 giây bằng common sense |
+| 24 | **Test che bài** | Che bài, nhìn 4 đáp án | Cả 4 đều hợp lý như nhau, KHÔNG đoán được đáp án đúng |
+| 25 | **Q2 exists (N1-N4)** | Xem CSV | Có câu hỏi 2 + 4 đáp án + correct_answer (bỏ qua nếu N5) |
+| 26 | **Q2 ≠ Q1 kiểu** | So sánh Q1 và Q2 | Q1 và Q2 khác kiểu hỏi (ví dụ: Q1 hỏi thời gian, Q2 hỏi điều kiện) |
+| 27 | **Explanations đầy đủ** | Đọc explain_vn_1 + explain_en_1 | Giải thích đủ 3 phần (xem format bên dưới) |
 
-> **⛔ CHECK #26 — FORMAT EXPLANATION BẮT BUỘC**
+> **⛔ CHECK #27 — FORMAT EXPLANATION BẮT BUỘC**
 >
 > Explanation không chỉ "có nội dung" — nó phải **chứng minh** câu hỏi + đáp án đúng logic.
 > Agent viết explain_vn_1 và explain_en_1 theo đúng 3 phần sau:
@@ -199,12 +200,12 @@ Agent mở file PNG và xem:
 
 | # | Check | Cách verify | PASS nếu |
 |---|-------|-------------|----------|
-| 27 | **Screenshot tồn tại** | Xem file PNG | File tồn tại, không rỗng |
-| 28 | **Crop sát** | Nhìn ảnh | Không thừa khoảng trắng/viền xám bất kỳ cạnh nào |
-| 29 | **Đủ nội dung** | Nhìn ảnh | Không bị cắt cụt — hiển thị đầy đủ bài |
-| 30 | **Chữ rõ ràng** | Nhìn ảnh | Chữ không mờ, không bị che, không tràn |
-| 31 | **Furigana hiển thị** | Nhìn ảnh | Ruby text hiện đúng vị trí, không lệch |
-| 32 | **Bảng biểu nguyên vẹn** | Nhìn ảnh | Bảng không vỡ layout, cột không tràn |
+| 28 | **Screenshot tồn tại** | Xem file PNG | File tồn tại, không rỗng |
+| 29 | **Crop sát** | Nhìn ảnh | Không thừa khoảng trắng/viền xám bất kỳ cạnh nào |
+| 30 | **Đủ nội dung** | Nhìn ảnh | Không bị cắt cụt — hiển thị đầy đủ bài |
+| 31 | **Chữ rõ ràng** | Nhìn ảnh | Chữ không mờ, không bị che, không tràn |
+| 32 | **Furigana hiển thị** | Nhìn ảnh | Ruby text hiện đúng vị trí, không lệch |
+| 33 | **Bảng biểu nguyên vẹn** | Nhìn ảnh | Bảng không vỡ layout, cột không tràn |
 
 ---
 
@@ -220,8 +221,8 @@ Agent mở file PNG và xem:
 | #2, #3, #4, #5, #9, #10 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
-| #17-#26 | Sửa câu hỏi/đáp án trong CSV (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
-| #27-#32 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #17-#27 | Sửa câu hỏi/đáp án trong CSV (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
+| #28-#33 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 
 **Lệnh chạy lại screenshot (BẮT BUỘC sau mỗi lần sửa HTML):**
 ```bash
@@ -237,9 +238,9 @@ python3 .gemini/skills/jlpt-reading-generator/scripts/screenshot.py \
 
 ### BƯỚC 5: ✅ HOÀN THÀNH → BÀI TIẾP THEO
 
-Chỉ khi **TẤT CẢ 32 checks PASS** → log:
+Chỉ khi **TẤT CẢ 33 checks PASS** → log:
 ```
-🎉 ALL PASSED (32/32) — {_id} hoàn thành
+🎉 ALL PASSED (33/33) — {_id} hoàn thành
 ```
 → Chuyển sang bài tiếp theo (quay lại BƯỚC 1).
 
