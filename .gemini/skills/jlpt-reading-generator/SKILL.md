@@ -164,23 +164,27 @@ Agent mở file PNG và xem:
 
 ### BƯỚC 4: SỬA & LẶP LẠI
 
+> **⛔ RULE BẮT BUỘC: Bất kỳ khi nào sửa file HTML (dù chỉ 1 ký tự CSS/ruby/content),
+> PHẢI chạy lại screenshot TRƯỚC KHI quay lại QC.**
+> Ảnh cũ = ảnh sai. Không chạy lại screenshot = Phần D sẽ QC trên ảnh cũ → vô nghĩa.
+
 | Nếu FAIL | Hành động | Sau đó |
 |-----------|-----------|--------|
-| #1, #11, #12, #13, #15 | Gen lại toàn bộ HTML | Quay lại BƯỚC 2 |
-| #2, #3, #4, #5, #9, #10 | Sửa HTML/CSS | Quay lại BƯỚC 2 |
-| #6, #7, #8, #16 | Sửa ruby tags | Quay lại BƯỚC 2 |
-| #14 | Sửa bố cục bài (phân tán thông tin) | Quay lại BƯỚC 2 |
-| #17-#26 | Sửa câu hỏi/đáp án trong CSV | Quay lại BƯỚC 2 |
-| #27-#32 | Sửa HTML/CSS → chạy lại screenshot | Quay lại BƯỚC 2 |
+| #1, #11, #12, #13, #15 | Gen lại toàn bộ HTML → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #2, #3, #4, #5, #9, #10 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #17-#26 | Sửa câu hỏi/đáp án trong CSV (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
+| #27-#32 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 
-**Lệnh chạy lại screenshot:**
+**Lệnh chạy lại screenshot (BẮT BUỘC sau mỗi lần sửa HTML):**
 ```bash
 python3 .gemini/skills/jlpt-reading-generator/scripts/screenshot.py \
   --html assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
   --png  assets/img/tim_thong_tin/{LEVEL}_{uuid}.png
 ```
 
-> **Vòng lặp: sửa → quay lại BƯỚC 2 (QC lại TẤT CẢ) → nếu còn FAIL thì lặp lại.**
+> **Vòng lặp: sửa HTML → chạy lại screenshot → quay lại BƯỚC 2 (QC lại TẤT CẢ) → nếu còn FAIL thì lặp lại.**
 > **Tối đa 5 vòng. Sau 5 vòng vẫn FAIL → báo lỗi cho user, KHÔNG bỏ qua.**
 
 ---
