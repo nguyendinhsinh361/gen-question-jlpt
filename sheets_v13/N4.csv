@@ -1,0 +1,50 @@
+"_id","level","tag","jp_char_count","kind","general_audio","general_image","text_read","text_read_vn","text_read_en","question_label_1","question_1","question_image_1","answer_1","correct_answer_1","explain_vn_1","explain_en_1","question_label_2","question_2","question_image_2","answer_2","correct_answer_2","explain_vn_2","explain_en_2","question_label_3","question_3","question_image_3","answer_3","correct_answer_3","explain_vn_3","explain_en_3","question_label_4","question_4","question_image_4","answer_4","correct_answer_4","explain_vn_4","explain_en_4","question_label_5","question_5","question_image_5","answer_5","correct_answer_5","explain_vn_5","explain_en_5"
+"N4_359ce32ce48e47d1b242ccc97ae8e06c","N4","class_enrollment","399","tìm thông tin","","assets/img/tim_thong_tin/N4_359ce32ce48e47d1b242ccc97ae8e06c.png","<div><div>ヘルシー料理教室の お知らせ</div><p>体に やさしい 料理を いっしょに 作りませんか。初心者の方も 大歓迎です。プロの 先生が ていねいに 教えます。</p><div><div>【クラスと 料金】</div><table><tr><th>クラス</th><th>曜日・時間</th><th>料金</th><th>定員</th></tr><tr><td>基本コース</td><td>火曜日<br>10:00～12:00</td><td>2,000円</td><td>10名</td></tr><tr><td>週末コース</td><td>土曜日<br>14:00～16:00</td><td>2,500円</td><td>15名</td></tr><tr><td>夜間コース</td><td>金曜日<br>19:00～21:00</td><td>2,500円</td><td>12名</td></tr></table></div><div><div>【わりびき】</div><p>● 学生の方は、料金から 500円 安くなります。<br>● 3名以上の グループで 申し込むと、一人 200円 安くなります。<br>※ わりびきは 一つだけ 使えます。</p></div><div><div>【申し込み・持ち物】</div><p>◆ 申し込み：参加したい日の 3日前までに、メールで 送ってください。<br>◆ 持ち物：エプロン、手を ふく タオル、筆記用具。<br>◆ 場所：中央市民センター 3階 料理実習室</p></div></div>","","","question_information_search","留学生の アリスさんは、友だち 二人と いっしょに、土曜日の クラスに 申し込みました。アリスさんが 払う お金は いくらですか。","","1,800円
+2,000円
+2,300円
+2,500円","2","ĐÁP ÁN ĐÚNG (2): 2,000円
+Theo bảng 【クラスと 料金】, lớp cuối tuần (土曜日) có giá là 2,500円.
+アリスさん là sinh viên (留学生) nên được giảm 500円 (điều kiện 1). Cô ấy đi cùng 2 người bạn (tổng nhóm 3 người) nên mỗi người được giảm 200円 (điều kiện 2).
+Tuy nhiên, phần 【わりびき】 có ghi: ※ わりびきは 一つだけ 使えます.
+So sánh: 2,500 - 500 = 2,000円 và 2,500 - 200 = 2,300円.
+Vì được chọn mức giảm cao nhất, アリスさん sẽ trả 2,000円.
+
+ĐÁP ÁN SAI:
+(1) 1,800円 — calculation trap: áp dụng cả hai loại giảm giá (2,500 - 500 - 200).
+(3) 2,300円 — partial match: chỉ áp dụng giảm giá nhóm, chưa phải mức rẻ nhất cho sinh viên.
+(4) 2,500円 — condition miss: không áp dụng bất kỳ mã giảm giá nào.
+
+Tóm tắt: Cần chọn mức giảm giá cao nhất trong các điều kiện được phép.","CORRECT ANSWER (2): 2,000 yen
+According to the [Classes and Prices] table, the weekend class (Saturday) costs 2,500 yen.
+Alice-san is an international student (留学生), so she qualifies for a 500 yen discount (Condition 1). She is with 2 friends (group of 3), so each gets a 200 yen discount (Condition 2).
+However, the [Discounts] section states: *Only one discount can be used.
+Comparing: 2,500 - 500 = 2,000 yen and 2,500 - 200 = 2,300 yen.
+Choosing the higher discount, she pays 2,000 yen.
+
+WRONG ANSWERS:
+(1) 1,800 yen — calculation trap: applied both discounts (2,500 - 500 - 200).
+(3) 2,300 yen — partial match: only applied the group discount, which is not the cheapest for a student.
+(4) 2,500 yen — condition miss: did not apply any discount.
+
+Summary: Must choose the single highest applicable discount.","question_information_search","アリスさんは 6月10日 (土曜日) の クラスに 出たいです。いつまでに 申し込みを しなければなりませんか。","","6月5日
+6月7日
+6月9日 午後5時
+6月10日","2","ĐÁP ÁN ĐÚNG (2): 6月7日
+Phần 【申し込み・持ち物】 ghi: 参加したい日の 3日前までに (trước ngày tham gia 3 ngày).
+アリスさん muốn tham gia ngày 6月10日, nên 10 - 3 = 7. Vậy hạn cuối là ngày 6月7日.
+
+ĐÁP ÁN SAI:
+(1) 6月5日 — plausible wrong: không có căn cứ trong bài.
+(3) 6月9日 午後5時 — detail swap: đây là hạn chót để hủy buổi học (キャンセル) mà không mất phí, không phải hạn đăng ký.
+(4) 6月10日 — condition miss: ngày diễn ra buổi học, quá hạn đăng ký.
+
+Tóm tắt: Tính toán ngày đăng ký dựa trên quy định '3 ngày trước'.","CORRECT ANSWER (2): June 7th
+The [Application/Items] section states: 3 days before the day you want to participate.
+Alice-san wants to join on June 10th, so 10 - 3 = 7. The deadline is June 7th.
+
+WRONG ANSWERS:
+(1) June 5th — plausible wrong: no basis in the text.
+(3) June 9th at 5:00 PM — detail swap: this is the deadline for cancellation, not for application.
+(4) June 10th — condition miss: the day of the class, too late to apply.
+
+Summary: Calculate the application date based on the '3 days before' rule.","","","","","","","","","","","","","","","","","","","","",""

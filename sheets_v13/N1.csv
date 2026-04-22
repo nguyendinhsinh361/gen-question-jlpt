@@ -1,0 +1,54 @@
+"_id","level","tag","jp_char_count","kind","general_audio","general_image","text_read","text_read_vn","text_read_en","question_label_1","question_1","question_image_1","answer_1","correct_answer_1","explain_vn_1","explain_en_1","question_label_2","question_2","question_image_2","answer_2","correct_answer_2","explain_vn_2","explain_en_2","question_label_3","question_3","question_image_3","answer_3","correct_answer_3","explain_vn_3","explain_en_3","question_label_4","question_4","question_image_4","answer_4","correct_answer_4","explain_vn_4","explain_en_4","question_label_5","question_5","question_image_5","answer_5","correct_answer_5","explain_vn_5","explain_en_5"
+"N1_bf16e7562ed744e8946e3b582b95d1e0","N1","recruitment_notice","740","tìm thông tin","","assets/img/tim_thong_tin/N1_bf16e7562ed744e8946e3b582b95d1e0.png","<div><div>シニアITエンジニア（正社員）募集要項</div><p>グローバルテックでは、次世代のシステム開発を牽引するリーダーを募集しています。技術力だけでなく、チームの<ruby>調整<rt>ちょうせい</rt></ruby>能力に長けた方の応募をお待ちしております。</p><div>給与・諸手当</div><table><tr><th>グレード</th><th>実務経験</th><th>基本給（月額）</th></tr><tr><td>G1（リーダー級）</td><td>5年以上</td><td>45万円～</td></tr><tr><td>G2（マネージャー級）</td><td>8年以上</td><td>55万円～</td></tr><tr><td>G3（部長級）</td><td>12年以上</td><td>70万円～</td></tr></table><p>※ 住宅手当（3万円）、通勤手当（実費）、リモートワーク手当（5,000円）が別途支給されます。</p><div>応募資格</div><p>● IT業界での実務経験が5年以上あること。<br>● 言語能力：日本語（JLPT N1以上）または英語（CEFR C1以上）。<br>● 高度情報処理技術者試験の合格者は優遇します。</p><div>選考フローと免除規定</div><p>通常、選考は「①書類審査」「②技術面接」「③最終面接」の順で行われます。ただし、以下の条件に該当する場合、一部の選考を<ruby>免除<rt>めんじょ</rt></ruby>します。</p><table><tr><th>免除の条件</th><th>免除される内容</th></tr><tr><td>PMP資格（プロジェクトマネジメント）<ruby>保持<rt>ほじ</rt></ruby>者</td><td>②技術面接をスキップ</td></tr><tr><td>当社提携企業からの<ruby>紹介<rt>しょうかい</rt></ruby></td><td>①書類審査をスキップ</td></tr><tr><td>当社が指定する<ruby>懸賞<rt>けんしょう</rt></ruby>論文の受賞者</td><td>①書類審査および②技術面接をスキップ</td></tr></table><div>その他</div><p>入社後3ヶ月間は試用期間となります。この期間中も給与・<ruby>福利厚生<rt>ふくりこうせい</rt></ruby>に変更はありません。</p></div>","","","question_information_search","リー・シャンさんはIT業界で10年の実務経験があり、JLPT N1を保持しています。また、PMP資格を持っており、当社と提携している企業からの紹介で応募しました。リーさんの選考はどのようになりますか。","","通常通り、①書類審査、②技術面接、③最終面接のすべてを受ける。
+PMP保持者のため②技術面接のみ免除され、①と③を受ける。
+提携企業からの紹介のため①書類審査のみ免除され、②と③を受ける。
+免除規定により、①書類審査と②技術面接の両方が免除される。","4","ĐÁP ÁN ĐÚNG (4): ①書類審査と②技術面接の両方が免除される。
+Phân tích các điều kiện miễn giảm dành cho リー・シャンさん:
+1. Có chứng chỉ PMP (PMP資格保持者): Theo bảng quy định miễn giảm, người này được miễn '②技術面接'.
+2. Được giới thiệu từ doanh nghiệp liên kết (当社提携企業からの紹介): Theo bảng quy định, người này được miễn '①書類審査'.
+Kết hợp cả hai điều kiện, リーさん được miễn cả bước 1 và bước 2, chỉ cần thực hiện bước 3 là Phỏng vấn cuối cùng.
+
+ĐÁP ÁN SAI:
+(1) 通常通り...を受ける — condition miss: bỏ qua cả hai quy định miễn giảm.
+(2) ②技術面接のみ免除... — partial match: chỉ áp dụng một trong hai quy định miễn giảm.
+(3) ①書類審査のみ免除... — partial match: tương tự câu (2), chỉ áp dụng một quy định.
+
+Tóm tắt: Cần kết hợp hai điều kiện độc lập từ bảng quy định miễn giảm để đưa ra kết luận cuối cùng.","CORRECT ANSWER (4): Both document screening and technical interview are exempted.
+Analysis of exemptions for Li Xiang-san:
+1. Has PMP certification: According to the exemption table, the technical interview (②) is skipped.
+2. Introduction from a partner company: According to the table, document screening (①) is skipped.
+Combining these two, both the first and second steps are exempted, and only the final interview is required.
+
+WRONG ANSWERS:
+(1) Take all steps as usual — condition miss: ignored both exemption rules.
+(2) Only the technical interview is exempted — partial match: only applied one of the two applicable rules.
+(3) Only document screening is exempted — partial match: same as (2), only applied one rule.
+
+Summary: Must combine two independent conditions from the exemption table to reach the correct conclusion.","question_information_search","パク・ジミンさんはIT業界で13年の実務経験があり、英語能力はCEFR C1です（日本語能力試験は未受験）。パクさんが採用された場合、基本給と固定の手当（住宅、リモートワーク）を合わせた月額はいくらになりますか。","","700,000円
+730,000円
+735,000円
+740,000円","3","ĐÁP ÁN ĐÚNG (3): 735,000円
+Phân tích mức lương và trợ cấp của パク・ジミンさん:
+1. Trình độ và Kinh nghiệm: Có 13 năm kinh nghiệm, tương ứng với cấp độ 'G3（部長級）' (áp dụng cho người trên 12 năm kinh nghiệm). Mức lương cơ bản là 700,000円.
+2. Điều kiện ngôn ngữ: Mặc dù không có JLPT N1, nhưng có CEFR C1 tiếng Anh, thỏa mãn yêu cầu '日本語または英語のいずれか一方に精通' (thông thạo một trong hai thứ tiếng).
+3. Các khoản trợ cấp cố định: Trợ cấp nhà ở (住宅手当) 30,000円 + Trợ cấp làm việc từ xa (リモートワーク手当) 5,000円 = 35,000円.
+Tổng cộng: 700,000 + 35,000 = 735,000円.
+
+ĐÁP ÁN SAI:
+(1) 700,000円 — condition miss: chỉ tính lương cơ bản, quên cộng các khoản trợ cấp.
+(2) 730,000円 — partial match: quên cộng trợ cấp làm việc từ xa (5,000円).
+(4) 740,000円 — calculation trap: cộng sai con số hoặc nhầm lẫn mức trợ cấp.
+
+Tóm tắt: Xác định đúng cấp độ theo số năm kinh nghiệm và cộng đầy đủ các khoản trợ cấp cố định được liệt kê.","CORRECT ANSWER (3): 735,000 yen
+Analysis of salary and allowances for Park Ji-min san:
+1. Grade and Experience: 13 years of experience matches 'G3 (Director level)' (for 12+ years). Basic pay is 700,000 yen.
+2. Language requirement: Although no JLPT N1, the CEFR C1 in English satisfies the 'proficient in either Japanese or English' requirement.
+3. Fixed allowances: Housing allowance (30,000) + Remote work allowance (5,000) = 35,000 yen.
+Total: 700,000 + 35,000 = 735,000 yen.
+
+WRONG ANSWERS:
+(1) 700,000 yen — condition miss: only included basic pay and forgot allowances.
+(2) 730,000 yen — partial match: forgot the remote work allowance (5,000 yen).
+(4) 740,000 yen — calculation trap: incorrect addition or misidentified allowance amounts.
+
+Summary: Identify the correct grade based on years of experience and add all listed fixed allowances.","","","","","","","","","","","","","","","","","","","","",""

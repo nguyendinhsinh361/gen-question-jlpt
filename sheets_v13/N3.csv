@@ -1,0 +1,50 @@
+"_id","level","tag","jp_char_count","kind","general_audio","general_image","text_read","text_read_vn","text_read_en","question_label_1","question_1","question_image_1","answer_1","correct_answer_1","explain_vn_1","explain_en_1","question_label_2","question_2","question_image_2","answer_2","correct_answer_2","explain_vn_2","explain_en_2","question_label_3","question_3","question_image_3","answer_3","correct_answer_3","explain_vn_3","explain_en_3","question_label_4","question_4","question_image_4","answer_4","correct_answer_4","explain_vn_4","explain_en_4","question_label_5","question_5","question_image_5","answer_5","correct_answer_5","explain_vn_5","explain_en_5"
+"N3_27aae756d91946be883b414f4b7b45d5","N3","service_guide","574","tìm thông tin","","assets/img/tim_thong_tin/N3_27aae756d91946be883b414f4b7b45d5.png","<div><div>街めぐり<ruby>電動<rt>でんどう</rt></ruby>自転車レンタル</div><p>観光やビジネスに便利なレンタル自転車をご利用ください。電動アシスト付きなので、坂道もラクラク進めます。</p><div>料金プラン</div><table><tr><th>プラン名</th><th>利用時間</th><th>基本料金</th></tr><tr><td>ショートプラン</td><td>1時間まで</td><td>500円</td></tr><tr><td>ハーフプラン</td><td>3時間まで</td><td>1,200円</td></tr><tr><td>1日プラン</td><td>当日20:00まで</td><td>2,500円</td></tr></table><p>※ 延長料金：30分ごとに 200円<br>※ 保険料：300円（全てのプランで<ruby>加入<rt>かにゅう</rt></ruby>が<ruby>必須<rt>ひっす</rt></ruby>です）</p><div>特別会員制度</div><p>月額 1,000円で「街めぐり会員」に登録すると、全てのプラン料金が 20％<ruby>割引<rt>わりびき</rt></ruby>になります。（保険料は割引対象外）</p><div>ご利用の注意</div><div><p>1.<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>（免許証、パスポートなど）を必ずお持ちください。<br>2. 自転車は元のポートに返却してください。別の提携ポートに返却する場合は、<ruby>手数料<rt>てすうりょう</rt></ruby>として 300円をいただきます。<br>3.<ruby>故障<rt>こしょう</rt></ruby>やバッテリー<ruby>切れ<rt>ぎれ</rt></ruby>の際は、無理に動かさずサポートセンターまでご連絡ください。<br>4. 事前に専用アプリから<ruby>予約<rt>よやく</rt></ruby>することをお勧めします。当日の空き状況は電話でも確認できます。</p></div></div>","","","question_information_search","ロドリゴさんは「街めぐり会員」です。ハーフプランを予約して、4時間利用しました。また、返却は元の場所ではない別の提携ポートに行いました。ロドリゴさんが払う合計金額はいくらですか。","","1,580円
+1,680円
+1,880円
+2,200円","3","ĐÁP ÁN ĐÚNG (3): 1,880円
+Phân tích chi phí cho ロドリゴさん (là hội viên):
+1. Phí thuê: ハーフプラン (1,200円) + 1 giờ gia hạn (30 phút x 2 = 200 x 2 = 400円) = 1,600円.
+2. Giảm giá hội viên: Vì là hội viên, phí thuê được giảm 20% → 1,600 x 0.8 = 1,280円.
+3. Phí bảo hiểm: 300円 (bắt buộc, không được giảm giá).
+4. Phí trả xe khác trạm: 300円 (theo mục ご利用上のルール).
+Tổng cộng: 1,280 + 300 + 300 = 1,880円.
+
+ĐÁP ÁN SAI:
+(1) 1,580円 — condition miss: quên tính phí trả xe khác trạm (1,280 + 300).
+(2) 1,680円 — calculation trap: tính sai phần giảm giá hoặc phí bảo hiểm.
+(4) 2,200円 — condition miss: không áp dụng giảm giá hội viên (1,600 + 300 + 300).
+
+Tóm tắt: Cần tính phí thuê kèm gia hạn, áp dụng giảm giá hội viên, sau đó cộng thêm các phí cố định.","CORRECT ANSWER (3): 1,880 yen
+Analysis of Rodrigo-san's costs (Member):
+1. Rental fee: Half Plan (1,200) + 1 hour extension (30 min x 2 = 200 x 2 = 400) = 1,600 yen.
+2. Member discount: As a member, rental fee is 20% OFF -> 1,600 x 0.8 = 1,280 yen.
+3. Insurance: 300 yen (Mandatory, no discount).
+4. Return fee: 300 yen (For returning to a different port, per the rules).
+Total: 1,280 + 300 + 300 = 1,880 yen.
+
+WRONG ANSWERS:
+(1) 1,580 yen — condition miss: forgot the different-port return fee (1,280 + 300).
+(2) 1,680 yen — calculation trap: error in discount or insurance calculation.
+(4) 2,200 yen — condition miss: did not apply the member discount (1,600 + 300 + 300).
+
+Summary: Calculate rental plus extensions, apply the discount, and add fixed fees.","question_information_search","自転車を利用しているときに、故障して動かなくなってしまいました。どうすればいいですか。","","そのまま近くの道に置いて帰る。
+無理に動かして、借りた場所まで戻る。
+すぐにサポートセンターへ連絡する。
+アプリの利用終了ボタンを押して、そこに止める。","3","ĐÁP ÁN ĐÚNG (3): すぐにサポートセンターへ連絡する。
+Trong mục 【ご利用上のルール】, phần cuối có ghi rõ: 万が一の故障や事故の際は、すぐにサポートセンターへ連絡してください.
+
+ĐÁP ÁN SAI:
+(1) そのまま近くの道に置いて帰る — detail swap: bài ghi '自転車の放置は厳禁です' (nghiêm cấm bỏ mặc xe).
+(2) 無理に動かして、借りた場所まで戻る — detail swap: bài ghi '無理に動かさず' (không cố di chuyển).
+(4) アプリの利用終了ボタンを押して、そこに止める — partial match: nút này chỉ dùng khi trả xe đúng quy định tại trạm, không dùng cho trường hợp hỏng giữa đường.
+
+Tóm tắt: Tuân thủ hướng dẫn xử lý sự cố trong mục quy tắc.","CORRECT ANSWER (3): Contact the support center immediately.
+In the [Rules for Use] section, the last point explicitly states: In the event of a breakdown or accident, contact the support center immediately.
+
+WRONG ANSWERS:
+(1) Abandon it on a nearby road and go home — detail swap: the text states 'abandoning bicycles is strictly prohibited.'
+(2) Move it by force and return to the starting point — detail swap: the text states 'do not move it by force.'
+(4) Press the end button on the app and stop there — partial match: this button is for normal returns at designated ports, not for mid-trip breakdowns.
+
+Summary: Follow the emergency instructions in the rules section.","","","","","","","","","","","","","","","","","","","","",""

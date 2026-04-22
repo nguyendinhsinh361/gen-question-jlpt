@@ -39,16 +39,44 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 ## R4. Furigana
 
-### Core Rule — CHỈ cho từ ngữ cảnh vượt level
+### ⛔ Dữ liệu tham chiếu — BẮT BUỘC dùng
+
+> **File `input/jlpt_kanji.csv`** chứa 2150 kanji với level JLPT (N5→N1).
+> Agent PHẢI tra file này khi quyết định furigana. KHÔNG đoán level kanji từ trí nhớ.
+
+### Core Rule — Tra từng kanji trong từ
 
 > **LỖI PHỔ BIẾN NHẤT: AI rắc furigana lên MỌI kanji.**
-> Key terms đúng level → KHÔNG furigana. Chỉ context words vượt level → furigana.
+> **LỖI PHỔ BIẾN THỨ 2: AI đoán sai level kanji → thiếu furigana cho kanji khó.**
 
-| Loại từ | Furigana? |
-|---------|-----------|
-| Key terms (≤ level) | KHÔNG — người học đã biết |
-| Context words (> level) | CÓ — `<ruby>+<rt>` |
-| Jargon (> level, không liên quan câu hỏi) | CÓ — `<ruby>+<rt>` + chú thích nếu cần |
+**Quy trình xét furigana cho từ kanji (ví dụ từ "AB"):**
+
+1. Tra **từng ký tự kanji** trong `input/jlpt_kanji.csv` → lấy level của từng ký tự
+2. So sánh level từng kanji với **level mục tiêu** của bài
+3. Nếu **TẤT CẢ kanji ≤ level mục tiêu** → KHÔNG furigana
+4. Nếu **BẤT KỲ kanji > level mục tiêu** → CẢ TỪ cần furigana
+5. Nếu kanji **không có trong file** → coi như > level mục tiêu → cần furigana
+
+**Thứ tự level (thấp → cao):** N5 < N4 < N3 < N2 < N1
+
+> Ví dụ: Từ 割引 (割=N3, 引=N4):
+> - Bài N3: 割(N3) ≤ N3 ✓, 引(N4) ≤ N3 ✓ → **không furigana** → `割引`
+> - Bài N4: 割(N3) > N4 ✗ → **cần furigana** → `<ruby>割引<rt>わりびき</rt></ruby>`
+>
+> Ví dụ: Từ 経験 (経=N2, 験=N3):
+> - Bài N3: 経(N2) > N3 ✗ → **cần furigana** → `<ruby>経験<rt>けいけん</rt></ruby>`
+> - Bài N2: 経(N2) ≤ N2 ✓, 験(N3) ≤ N2 ✓ → **không furigana** → `経験`
+
+### Phân loại từ vựng kết hợp kanji level
+
+| Loại từ | Kanji tra CSV | Furigana? |
+|---------|--------------|-----------|
+| Key terms — TẤT CẢ kanji ≤ level | Tất cả ≤ level | KHÔNG — người học đã biết |
+| Context words — CÓ kanji > level | Ít nhất 1 kanji > level | CÓ — `<ruby>+<rt>` |
+| Jargon — CÓ kanji > level | Ít nhất 1 kanji > level | CÓ — `<ruby>+<rt>` + chú thích nếu cần |
+| Kanji không có trong CSV | Không tìm thấy | CÓ — mặc định cần furigana |
+
+> **Hệ quả**: Key terms phải dùng kanji ≤ level (tra CSV xác nhận) → không furigana. Chỉ context words có kanji vượt level → furigana → **số lượng furigana phải THẤP**.
 
 ### Ruby count hợp lý
 
@@ -70,7 +98,7 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 ### Compound Word Rule
 
-Từ vượt level → chọn 1 trong 2:
+Từ có kanji vượt level → chọn 1 trong 2:
 1. Full kanji + furigana: `<ruby>週間<rt>しゅうかん</rt></ruby>`
 2. Full hiragana: `しゅうかん`
 
@@ -80,19 +108,28 @@ Okurigana ngoại lệ: `<ruby>届<rt>とど</rt></ruby>く` (kanji stem + okuri
 
 ### N5/N4: Ưu tiên thay thế trước furigana
 
-1. Thay bằng từ cùng level (届く→来る)
+1. Thay bằng từ cùng level (tra CSV xác nhận level → 届=N3 > N4 → 届く→来る)
 2. Viết full hiragana (おおもり)
 3. Furigana — chỉ khi không thể thay
 
-### Ví dụ N3
+### Ví dụ — Bài N3
 
-**SAI (111 ruby tags — furigana toàn bộ):**
+**Bước tra CSV:**
+- 最(N3) 近(N4) → cả 2 ≤ N3 → không furigana
+- 仕(N4) 事(N4) → cả 2 ≤ N3 → không furigana
+- 生(N5) 活(N4) → cả 2 ≤ N3 → không furigana
+- 経(N2) 験(N3) → 経=N2 > N3 → **cần furigana**
+- 豊(N2) 富(N3) → 豊=N2 > N3 → **cần furigana**
+- 講(N2) 師(N3) → 講=N2 > N3 → **cần furigana**
+- 丁(N2) 寧(N1) → cả 2 > N3 → **cần furigana**
+
+**SAI (111 ruby tags — furigana toàn bộ, không tra CSV):**
 ```html
 <ruby>最近<rt>さいきん</rt></ruby>は、<ruby>仕事<rt>しごと</rt></ruby>や<ruby>生活<rt>せいかつ</rt></ruby>で...
 ```
-→ 最近(N3), 仕事(N4), 生活(N3) đều ≤ N3 → KHÔNG furigana
+→ 最近(N3+N4), 仕事(N4+N4), 生活(N5+N4) đều ≤ N3 → KHÔNG furigana
 
-**ĐÚNG (~12 ruby tags — chỉ context words vượt N3):**
+**ĐÚNG (tra CSV → chỉ từ có kanji > N3 mới thêm furigana):**
 ```html
 最近は、仕事や生活で...
 <ruby>経験豊富<rt>けいけんほうふ</rt></ruby>な<ruby>講師<rt>こうし</rt></ruby>が<ruby>丁寧<rt>ていねい</rt></ruby>にお教えします。

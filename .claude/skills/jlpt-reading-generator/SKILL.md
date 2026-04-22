@@ -44,9 +44,10 @@ description: >
 ## BƯỚC 0: CHUẨN BỊ (1 lần cho batch)
 
 1. **Đọc rules**: `rules/content.md` + `rules/vocabulary.md` + `rules/technical.md`
-2. Scan `sheets/` xem format đã dùng → chọn format chưa/ít dùng
-3. Lập kế hoạch: mỗi bài gán format + visual + chủ đề (không trùng)
-4. Read references: 1-2 HTML mẫu `input/html/` + 1 QA mẫu `input/htm_content_qa/` + `input/rule_gen_tim_thong_tin.md`
+2. **Đọc `input/jlpt_kanji.csv`** — dùng để tra level từng kanji khi quyết định furigana
+3. Scan `sheets/` xem format đã dùng → chọn format chưa/ít dùng
+4. Lập kế hoạch: mỗi bài gán format + visual + chủ đề (không trùng)
+5. Read references: 1-2 HTML mẫu `input/html/` + 1 QA mẫu `input/htm_content_qa/` + `input/rule_gen_tim_thong_tin.md`
 
 ---
 
@@ -56,16 +57,18 @@ description: >
 > Đọc: `rules/content.md` + `rules/vocabulary.md` + `rules/technical.md` + `rules/questions.md`
 
 1. Gen `_id` = `{LEVEL}_{uuid.uuid4().hex}`
-2. Gen HTML theo rules → save `assets/html/tim_thong_tin/{id}.html`
-3. Gen câu hỏi + đáp án theo `rules/questions.md`
-4. Chạy process_html.py để tạo CSV + screenshot:
+2. Chọn format tag từ R7 (`rules/content.md`) — xem danh sách 15 formats. Scan `sheets/` để chọn format chưa/ít dùng.
+3. Gen HTML theo rules → save `assets/html/tim_thong_tin/{id}.html`
+4. Gen câu hỏi + đáp án theo `rules/questions.md`
+5. Chạy process_html.py để tạo CSV + screenshot (⚠️ **BẮT BUỘC truyền `--tag`**):
    ```bash
    python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py \
      --file assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
      --img-dir assets/img/tim_thong_tin \
-     --csv sheets/{LEVEL}.csv
+     --csv sheets/{LEVEL}.csv \
+     --tag {format_tag}
    ```
-5. Điền câu hỏi, đáp án, explanation vào CSV bằng **fill_qa.py**:
+6. Điền câu hỏi, đáp án, explanation vào CSV bằng **fill_qa.py**:
    > **⛔ KHÔNG ĐƯỢC sửa CSV bằng tay. Commas trong nội dung (ví dụ 100,000円) sẽ làm vỡ cột.**
    > **LUÔN dùng script fill_qa.py — script tự quote đúng.**
    ```bash
@@ -138,7 +141,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 13 | **Đủ dữ liệu tra cứu** | Đọc toàn bài | Có bảng/danh sách/lịch... để người đọc tra cứu |
 | 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
-| 16 | **Furigana đúng từ** | Xem các `<ruby>` tags | Context words vượt level → CÓ furigana. Key terms đúng level → KHÔNG furigana |
+| 16 | **Furigana đúng từ (tra CSV)** | Tra từng kanji trong `input/jlpt_kanji.csv`: có kanji > level → phải có furigana; tất cả kanji ≤ level → không furigana | Mọi từ có kanji vượt level đều có `<ruby><rt>`. Không thừa furigana cho từ đúng level |
 
 #### PHẦN C: CÂU HỎI & ĐÁP ÁN
 
@@ -188,26 +191,41 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 > Tóm tắt: Cần kết hợp bảng giá + điều kiện giảm giá để tính đúng.
 > ```
 
+#### PHẦN C2: VERIFY ĐÁP ÁN (⛔ QUAN TRỌNG NHẤT)
+
+> **Agent tự giải bài từ đầu — KHÔNG nhìn đáp án đã gen.**
+> Đây là bước bắt lỗi tính toán sai, thông tin mơ hồ, distractor bịa.
+
+| # | Check | Cách verify | PASS nếu |
+|---|-------|-------------|----------|
+| 28 | **Tự tính Q1** | Đọc bài + câu hỏi 1, tự tính/tìm đáp án từ đầu (KHÔNG nhìn 4 options) | Kết quả tự tính KHỚP với correct_answer trong CSV |
+| 29 | **Tự tính Q2** | Tương tự cho câu hỏi 2 (bỏ qua nếu N5) | Kết quả tự tính KHỚP với correct_answer trong CSV |
+| 30 | **Test mơ hồ** | Đọc lại mỗi điều kiện/giảm giá/ngoại lệ, thử hiểu theo 2 cách khác nhau | Chỉ có DUY NHẤT 1 cách hiểu hợp lý. Nếu có 2 cách → FAIL → sửa bài viết cho rõ |
+| 31 | **Distractor self-test** | Với TỪNG đáp án sai: trích dẫn chính xác câu/vị trí trong bài dùng để bác bỏ | Mỗi distractor đều trích được câu cụ thể. Không trích được = BỊA → FAIL |
+| 32 | **Đếm vị trí cross-ref** | Liệt kê CỤ THỂ các vị trí người đọc phải scan để trả lời mỗi câu hỏi | Mỗi câu hỏi cần scan ≥3 vị trí khác nhau. Ít hơn = câu hỏi quá dễ → FAIL |
+
 #### PHẦN D: ẢNH
 
 Agent mở file PNG và xem:
 
 | # | Check | Cách verify | PASS nếu |
 |---|-------|-------------|----------|
-| 28 | **Screenshot tồn tại** | Xem file PNG | File tồn tại, không rỗng |
-| 29 | **Crop sát** | Nhìn ảnh | Không thừa khoảng trắng/viền xám bất kỳ cạnh nào |
-| 30 | **Đủ nội dung** | Nhìn ảnh | Không bị cắt cụt — hiển thị đầy đủ bài |
-| 31 | **Chữ rõ ràng** | Nhìn ảnh | Chữ không mờ, không bị che, không tràn |
-| 32 | **Furigana hiển thị** | Nhìn ảnh | Ruby text hiện đúng vị trí, không lệch |
-| 33 | **Bảng biểu nguyên vẹn** | Nhìn ảnh | Bảng không vỡ layout, cột không tràn |
+| 33 | **Screenshot tồn tại** | Xem file PNG | File tồn tại, không rỗng |
+| 34 | **Crop sát** | Nhìn ảnh | Không thừa khoảng trắng/viền xám bất kỳ cạnh nào |
+| 35 | **Đủ nội dung** | Nhìn ảnh | Không bị cắt cụt — hiển thị đầy đủ bài |
+| 36 | **Chữ rõ ràng** | Nhìn ảnh | Chữ không mờ, không bị che, không tràn |
+| 37 | **Furigana hiển thị** | Nhìn ảnh | Ruby text hiện đúng vị trí, không lệch |
+| 38 | **Bảng biểu nguyên vẹn** | Nhìn ảnh | Bảng không vỡ layout, cột không tràn |
 
 ---
 
 ### BƯỚC 4: SỬA & LẶP LẠI
 
-> **⛔ RULE BẮT BUỘC: Bất kỳ khi nào sửa file HTML (dù chỉ 1 ký tự CSS/ruby/content),
-> PHẢI chạy lại screenshot TRƯỚC KHI quay lại QC.**
-> Ảnh cũ = ảnh sai. Không chạy lại screenshot = Phần D sẽ QC trên ảnh cũ → vô nghĩa.
+> **⛔ RULE BẮT BUỘC: Bất kỳ khi nào sửa file HTML (dù chỉ 1 ký tự CSS/ruby/content):**
+> 1. **Chạy lại screenshot** — ảnh cũ = ảnh sai
+> 2. **Cập nhật jp_char_count** trong CSV — chạy lại `process_html.py` hoặc đếm lại bằng `count_body_chars()`
+>
+> Không làm 2 bước này = QC trên data cũ → vô nghĩa.
 
 | Nếu FAIL | Hành động | Sau đó |
 |-----------|-----------|--------|
@@ -216,7 +234,11 @@ Agent mở file PNG và xem:
 | #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #17-#27 | Sửa câu hỏi/đáp án trong CSV (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
-| #28-#33 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #28-#29 (tự tính sai) | Kiểm tra lại phép tính, sửa đáp án hoặc sửa bài viết | Quay lại BƯỚC 2 |
+| #30 (mơ hồ) | Sửa bài viết cho rõ ràng → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #31 (distractor bịa) | Viết lại distractor dùng info thật từ bài | Quay lại BƯỚC 2 |
+| #32 (câu hỏi dễ) | Viết lại câu hỏi + tình huống phức tạp hơn | Quay lại BƯỚC 2 |
+| #33-#38 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 
 **Lệnh chạy lại screenshot (BẮT BUỘC sau mỗi lần sửa HTML):**
 ```bash
@@ -234,7 +256,7 @@ python3 .claude/skills/jlpt-reading-generator/scripts/screenshot.py \
 
 Chỉ khi **TẤT CẢ 33 checks PASS** → log:
 ```
-🎉 ALL PASSED (33/33) — {_id} hoàn thành
+🎉 ALL PASSED (38/38) — {_id} hoàn thành
 ```
 → Chuyển sang bài tiếp theo (quay lại BƯỚC 1).
 

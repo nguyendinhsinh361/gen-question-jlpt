@@ -283,6 +283,7 @@ def main():
     parser.add_argument('--file', help='Process a single HTML file')
     parser.add_argument('--no-screenshot', action='store_true', help='Skip screenshot capture')
     parser.add_argument('--count-only', action='store_true', help='Only count characters')
+    parser.add_argument('--tag', default='', help='Format tag (e.g. store_flyer, class_enrollment)')
     args = parser.parse_args()
 
     # Collect HTML files
@@ -321,7 +322,7 @@ def main():
     rows = []
     for html_path in html_files:
         img_path = screenshot_map.get(html_path, '')
-        row = build_csv_row(html_path, img_path)
+        row = build_csv_row(html_path, img_path, tag=args.tag)
         rows.append(row)
 
     append_to_csv(args.csv, rows)

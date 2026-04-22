@@ -1,0 +1,25 @@
+"_id","level","tag","jp_char_count","kind","general_audio","general_image","text_read","text_read_vn","text_read_en","question_label_1","question_1","question_image_1","answer_1","correct_answer_1","explain_vn_1","explain_en_1","question_label_2","question_2","question_image_2","answer_2","correct_answer_2","explain_vn_2","explain_en_2","question_label_3","question_3","question_image_3","answer_3","correct_answer_3","explain_vn_3","explain_en_3","question_label_4","question_4","question_image_4","answer_4","correct_answer_4","explain_vn_4","explain_en_4","question_label_5","question_5","question_image_5","answer_5","correct_answer_5","explain_vn_5","explain_en_5"
+"N5_fcd2c67b473a45c6a5608af7fdd8d783","N5","store_flyer","232","tìm thông tin","","assets/img/tim_thong_tin/N5_fcd2c67b473a45c6a5608af7fdd8d783.png","<div><div>スマイルパンの お知らせ</div><p>あたらしい パンやが できました。おいしい パンを たくさん つくっています。ぜひ きてください。</p><div>【パンの<ruby>値段<rt>ねだん</rt></ruby>】</div><table><tr><th>パンの なまえ</th><th>一つ</th></tr><tr><td>あんパン</td><td>150円</td></tr><tr><td>メロンパン</td><td>180円</td></tr><tr><td>カレーパン</td><td>200円</td></tr></table><div>【おトクな セット】</div><p>◆モーニングセット（あさ 8じ ～ 10じ）<br>すきな パン 二つ ＋ コーヒー ＝ 400円</p><p>◆ランチセット（ひる 11じ ～ 2じ）<br>カレーパン ＋ サラダ ＋ おちゃ ＝ 500円</p><div>【おやすみの ひ】</div><p>まいしゅう<ruby>月曜日<rt>げつようび</rt></ruby>は おやすみです。<br>※ 10にちは 「スマイルのひ」です。パンが 全部 20円 やすくなります。</p></div>","","","question_information_search","田中さんは 10日に パンを 買いに 行きます。午前11時に あんパンを 二つ 買います。いくら 払いますか。","","260円
+280円
+300円
+400円","1","ĐÁP ÁN ĐÚNG (1): 260円
+Theo bảng 【パンの 値段】, giá một chiếc あんパン là 150円.
+Phần 【おやすみの ひ】 ghi chú: ngày 10 là 「スマイルのひ」, toàn bộ bánh mì được giảm 20円 → 150 - 20 = 130円/chiếc.
+田中さん mua hai chiếc vào lúc 11:00 (không thuộc khung giờ Morning set 8:00-10:00) nên giá là: 130 x 2 = 260円.
+
+ĐÁP ÁN SAI:
+(2) 280円 — calculation trap: chỉ giảm giá cho 1 chiếc bánh (150 + 130).
+(3) 300円 — condition miss: quên điều kiện giảm giá ngày 10 (150 x 2).
+(4) 400円 — detail swap: đây là giá của Morning set, nhưng Tanaka-san đi lúc 11:00 và không mua cà phê.
+
+Tóm tắt: Cần kết hợp giá bánh, điều kiện ngày giảm giá và số lượng để tính đúng.","CORRECT ANSWER (1): 260 yen
+According to the [Bread Prices] table, one Anpan costs 150 yen.
+The [Holidays] section notes: the 10th is 'Smile Day', and all bread is 20 yen cheaper -> 150 - 20 = 130 yen per bread.
+Tanaka-san buys two at 11:00 AM (outside the Morning set hours of 8:00-10:00), so the price is: 130 x 2 = 260 yen.
+
+WRONG ANSWERS:
+(2) 280 yen — calculation trap: applied the discount to only one bread (150 + 130).
+(3) 300 yen — condition miss: forgot the 10th-day discount (150 x 2).
+(4) 400 yen — detail swap: this is the price of the Morning set, but Tanaka-san goes at 11:00 and doesn't buy coffee.
+
+Summary: Combine the item price, the special day discount, and the quantity to calculate correctly.","","","","","","","","","","","","","","","","","","","","","","","","","","","",""

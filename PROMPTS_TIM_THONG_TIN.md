@@ -3,7 +3,7 @@
 ## Cách dùng
 
 Copy prompt bên dưới, thay `{số}` rồi paste vào Claude hoặc Gemini.
-SKILL.md chứa workflow + checklist 33 mục QC. rules/ chứa chi tiết. Prompt chỉ cần nói **cái gì** và **bao nhiêu**.
+SKILL.md chứa workflow + checklist 38 mục QC. rules/ chứa chi tiết. Prompt chỉ cần nói **cái gì** và **bao nhiêu**.
 
 ---
 
@@ -18,7 +18,7 @@ SKILL.md chứa workflow + checklist 33 mục QC. rules/ chứa chi tiết. Prom
 - N1: {số} bài
 
 Lưu CSV vào sheets/. Làm đúng theo SKILL.md — từng bài một, đọc rules/ trước khi gen.
-Sau khi gen xong mỗi bài, tự QC checklist 33 mục (đọc lại HTML + CSV + ảnh, log PASS/FAIL từng mục). Tất cả 33 mục PASS mới chuyển sang bài tiếp.
+Sau khi gen xong mỗi bài, tự QC checklist 38 mục (đọc lại HTML + CSV + ảnh, log PASS/FAIL từng mục). Tất cả 38 mục PASS mới chuyển sang bài tiếp.
 Điền Q&A vào CSV bằng scripts/fill_qa.py (KHÔNG sửa CSV bằng tay).
 Chụp ảnh bằng scripts/screenshot.py (KHÔNG tự viết code).
 Sửa HTML = PHẢI chạy lại screenshot trước khi QC lại.
@@ -50,7 +50,7 @@ Yêu cầu chất lượng câu hỏi (áp dụng tất cả level):
 - Distractor: đủ 4 loại bẫy (condition miss, calculation trap, detail swap, partial match), mỗi đáp án sai phải dùng info thật từ bài, phải quay lại bài mới loại được
 - Explanation: giải thích đủ 3 phần (đáp án đúng + từng đáp án sai + tóm tắt)
 
-Sau khi gen xong mỗi bài, BẮT BUỘC tự QC theo checklist 33 mục trong SKILL.md:
+Sau khi gen xong mỗi bài, BẮT BUỘC tự QC theo checklist 38 mục trong SKILL.md:
 - Đọc lại HTML → check Phần A (HTML) + Phần B (Nội dung & Từ vựng)
 - Đọc lại CSV → check Phần C (Câu hỏi & Đáp án) — đặc biệt check paraphrase + 4 loại bẫy + distractor khó loại
 - Mở ảnh PNG → check Phần D (Ảnh)

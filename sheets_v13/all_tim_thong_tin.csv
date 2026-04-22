@@ -1,0 +1,229 @@
+"_id","level","tag","jp_char_count","kind","general_audio","general_image","text_read","text_read_vn","text_read_en","question_label_1","question_1","question_image_1","answer_1","correct_answer_1","explain_vn_1","explain_en_1","question_label_2","question_2","question_image_2","answer_2","correct_answer_2","explain_vn_2","explain_en_2","question_label_3","question_3","question_image_3","answer_3","correct_answer_3","explain_vn_3","explain_en_3","question_label_4","question_4","question_image_4","answer_4","correct_answer_4","explain_vn_4","explain_en_4","question_label_5","question_5","question_image_5","answer_5","correct_answer_5","explain_vn_5","explain_en_5"
+"N5_fcd2c67b473a45c6a5608af7fdd8d783","N5","store_flyer","232","tìm thông tin","","assets/img/tim_thong_tin/N5_fcd2c67b473a45c6a5608af7fdd8d783.png","<div><div>スマイルパンの お知らせ</div><p>あたらしい パンやが できました。おいしい パンを たくさん つくっています。ぜひ きてください。</p><div>【パンの<ruby>値段<rt>ねだん</rt></ruby>】</div><table><tr><th>パンの なまえ</th><th>一つ</th></tr><tr><td>あんパン</td><td>150円</td></tr><tr><td>メロンパン</td><td>180円</td></tr><tr><td>カレーパン</td><td>200円</td></tr></table><div>【おトクな セット】</div><p>◆モーニングセット（あさ 8じ ～ 10じ）<br>すきな パン 二つ ＋ コーヒー ＝ 400円</p><p>◆ランチセット（ひる 11じ ～ 2じ）<br>カレーパン ＋ サラダ ＋ おちゃ ＝ 500円</p><div>【おやすみの ひ】</div><p>まいしゅう<ruby>月曜日<rt>げつようび</rt></ruby>は おやすみです。<br>※ 10にちは 「スマイルのひ」です。パンが 全部 20円 やすくなります。</p></div>","","","question_information_search","田中さんは 10日に パンを 買いに 行きます。午前11時に あんパンを 二つ 買います。いくら 払いますか。","","260円
+280円
+300円
+400円","1","ĐÁP ÁN ĐÚNG (1): 260円
+Theo bảng 【パンの 値段】, giá một chiếc あんパン là 150円.
+Phần 【おやすみの ひ】 ghi chú: ngày 10 là 「スマイルのひ」, toàn bộ bánh mì được giảm 20円 → 150 - 20 = 130円/chiếc.
+田中さん mua hai chiếc vào lúc 11:00 (không thuộc khung giờ Morning set 8:00-10:00) nên giá là: 130 x 2 = 260円.
+
+ĐÁP ÁN SAI:
+(2) 280円 — calculation trap: chỉ giảm giá cho 1 chiếc bánh (150 + 130).
+(3) 300円 — condition miss: quên điều kiện giảm giá ngày 10 (150 x 2).
+(4) 400円 — detail swap: đây là giá của Morning set, nhưng Tanaka-san đi lúc 11:00 và không mua cà phê.
+
+Tóm tắt: Cần kết hợp giá bánh, điều kiện ngày giảm giá và số lượng để tính đúng.","CORRECT ANSWER (1): 260 yen
+According to the [Bread Prices] table, one Anpan costs 150 yen.
+The [Holidays] section notes: the 10th is 'Smile Day', and all bread is 20 yen cheaper -> 150 - 20 = 130 yen per bread.
+Tanaka-san buys two at 11:00 AM (outside the Morning set hours of 8:00-10:00), so the price is: 130 x 2 = 260 yen.
+
+WRONG ANSWERS:
+(2) 280 yen — calculation trap: applied the discount to only one bread (150 + 130).
+(3) 300 yen — condition miss: forgot the 10th-day discount (150 x 2).
+(4) 400 yen — detail swap: this is the price of the Morning set, but Tanaka-san goes at 11:00 and doesn't buy coffee.
+
+Summary: Combine the item price, the special day discount, and the quantity to calculate correctly.","","","","","","","","","","","","","","","","","","","","","","","","","","","",""
+"N4_359ce32ce48e47d1b242ccc97ae8e06c","N4","class_enrollment","399","tìm thông tin","","assets/img/tim_thong_tin/N4_359ce32ce48e47d1b242ccc97ae8e06c.png","<div><div>ヘルシー料理教室の お知らせ</div><p>体に やさしい 料理を いっしょに 作りませんか。初心者の方も 大歓迎です。プロの 先生が ていねいに 教えます。</p><div><div>【クラスと 料金】</div><table><tr><th>クラス</th><th>曜日・時間</th><th>料金</th><th>定員</th></tr><tr><td>基本コース</td><td>火曜日<br>10:00～12:00</td><td>2,000円</td><td>10名</td></tr><tr><td>週末コース</td><td>土曜日<br>14:00～16:00</td><td>2,500円</td><td>15名</td></tr><tr><td>夜間コース</td><td>金曜日<br>19:00～21:00</td><td>2,500円</td><td>12名</td></tr></table></div><div><div>【わりびき】</div><p>● 学生の方は、料金から 500円 安くなります。<br>● 3名以上の グループで 申し込むと、一人 200円 安くなります。<br>※ わりびきは 一つだけ 使えます。</p></div><div><div>【申し込み・持ち物】</div><p>◆ 申し込み：参加したい日の 3日前までに、メールで 送ってください。<br>◆ 持ち物：エプロン、手を ふく タオル、筆記用具。<br>◆ 場所：中央市民センター 3階 料理実習室</p></div></div>","","","question_information_search","留学生の アリスさんは、友だち 二人と いっしょに、土曜日の クラスに 申し込みました。アリスさんが 払う お金は いくらですか。","","1,800円
+2,000円
+2,300円
+2,500円","2","ĐÁP ÁN ĐÚNG (2): 2,000円
+Theo bảng 【クラスと 料金】, lớp cuối tuần (土曜日) có giá là 2,500円.
+アリスさん là sinh viên (留学生) nên được giảm 500円 (điều kiện 1). Cô ấy đi cùng 2 người bạn (tổng nhóm 3 người) nên mỗi người được giảm 200円 (điều kiện 2).
+Tuy nhiên, phần 【わりびき】 có ghi: ※ わりびきは 一つだけ 使えます.
+So sánh: 2,500 - 500 = 2,000円 và 2,500 - 200 = 2,300円.
+Vì được chọn mức giảm cao nhất, アリスさん sẽ trả 2,000円.
+
+ĐÁP ÁN SAI:
+(1) 1,800円 — calculation trap: áp dụng cả hai loại giảm giá (2,500 - 500 - 200).
+(3) 2,300円 — partial match: chỉ áp dụng giảm giá nhóm, chưa phải mức rẻ nhất cho sinh viên.
+(4) 2,500円 — condition miss: không áp dụng bất kỳ mã giảm giá nào.
+
+Tóm tắt: Cần chọn mức giảm giá cao nhất trong các điều kiện được phép.","CORRECT ANSWER (2): 2,000 yen
+According to the [Classes and Prices] table, the weekend class (Saturday) costs 2,500 yen.
+Alice-san is an international student (留学生), so she qualifies for a 500 yen discount (Condition 1). She is with 2 friends (group of 3), so each gets a 200 yen discount (Condition 2).
+However, the [Discounts] section states: *Only one discount can be used.
+Comparing: 2,500 - 500 = 2,000 yen and 2,500 - 200 = 2,300 yen.
+Choosing the higher discount, she pays 2,000 yen.
+
+WRONG ANSWERS:
+(1) 1,800 yen — calculation trap: applied both discounts (2,500 - 500 - 200).
+(3) 2,300 yen — partial match: only applied the group discount, which is not the cheapest for a student.
+(4) 2,500 yen — condition miss: did not apply any discount.
+
+Summary: Must choose the single highest applicable discount.","question_information_search","アリスさんは 6月10日 (土曜日) の クラスに 出たいです。いつまでに 申し込みを しなければなりませんか。","","6月5日
+6月7日
+6月9日 午後5時
+6月10日","2","ĐÁP ÁN ĐÚNG (2): 6月7日
+Phần 【申し込み・持ち物】 ghi: 参加したい日の 3日前までに (trước ngày tham gia 3 ngày).
+アリスさん muốn tham gia ngày 6月10日, nên 10 - 3 = 7. Vậy hạn cuối là ngày 6月7日.
+
+ĐÁP ÁN SAI:
+(1) 6月5日 — plausible wrong: không có căn cứ trong bài.
+(3) 6月9日 午後5時 — detail swap: đây là hạn chót để hủy buổi học (キャンセル) mà không mất phí, không phải hạn đăng ký.
+(4) 6月10日 — condition miss: ngày diễn ra buổi học, quá hạn đăng ký.
+
+Tóm tắt: Tính toán ngày đăng ký dựa trên quy định '3 ngày trước'.","CORRECT ANSWER (2): June 7th
+The [Application/Items] section states: 3 days before the day you want to participate.
+Alice-san wants to join on June 10th, so 10 - 3 = 7. The deadline is June 7th.
+
+WRONG ANSWERS:
+(1) June 5th — plausible wrong: no basis in the text.
+(3) June 9th at 5:00 PM — detail swap: this is the deadline for cancellation, not for application.
+(4) June 10th — condition miss: the day of the class, too late to apply.
+
+Summary: Calculate the application date based on the '3 days before' rule.","","","","","","","","","","","","","","","","","","","","",""
+"N3_27aae756d91946be883b414f4b7b45d5","N3","service_guide","574","tìm thông tin","","assets/img/tim_thong_tin/N3_27aae756d91946be883b414f4b7b45d5.png","<div><div>街めぐり<ruby>電動<rt>でんどう</rt></ruby>自転車レンタル</div><p>観光やビジネスに便利なレンタル自転車をご利用ください。電動アシスト付きなので、坂道もラクラク進めます。</p><div>料金プラン</div><table><tr><th>プラン名</th><th>利用時間</th><th>基本料金</th></tr><tr><td>ショートプラン</td><td>1時間まで</td><td>500円</td></tr><tr><td>ハーフプラン</td><td>3時間まで</td><td>1,200円</td></tr><tr><td>1日プラン</td><td>当日20:00まで</td><td>2,500円</td></tr></table><p>※ 延長料金：30分ごとに 200円<br>※ 保険料：300円（全てのプランで<ruby>加入<rt>かにゅう</rt></ruby>が<ruby>必須<rt>ひっす</rt></ruby>です）</p><div>特別会員制度</div><p>月額 1,000円で「街めぐり会員」に登録すると、全てのプラン料金が 20％<ruby>割引<rt>わりびき</rt></ruby>になります。（保険料は割引対象外）</p><div>ご利用の注意</div><div><p>1.<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>（免許証、パスポートなど）を必ずお持ちください。<br>2. 自転車は元のポートに返却してください。別の提携ポートに返却する場合は、<ruby>手数料<rt>てすうりょう</rt></ruby>として 300円をいただきます。<br>3.<ruby>故障<rt>こしょう</rt></ruby>やバッテリー<ruby>切れ<rt>ぎれ</rt></ruby>の際は、無理に動かさずサポートセンターまでご連絡ください。<br>4. 事前に専用アプリから<ruby>予約<rt>よやく</rt></ruby>することをお勧めします。当日の空き状況は電話でも確認できます。</p></div></div>","","","question_information_search","ロドリゴさんは「街めぐり会員」です。ハーフプランを予約して、4時間利用しました。また、返却は元の場所ではない別の提携ポートに行いました。ロドリゴさんが払う合計金額はいくらですか。","","1,580円
+1,680円
+1,880円
+2,200円","3","ĐÁP ÁN ĐÚNG (3): 1,880円
+Phân tích chi phí cho ロドリゴさん (là hội viên):
+1. Phí thuê: ハーフプラン (1,200円) + 1 giờ gia hạn (30 phút x 2 = 200 x 2 = 400円) = 1,600円.
+2. Giảm giá hội viên: Vì là hội viên, phí thuê được giảm 20% → 1,600 x 0.8 = 1,280円.
+3. Phí bảo hiểm: 300円 (bắt buộc, không được giảm giá).
+4. Phí trả xe khác trạm: 300円 (theo mục ご利用上のルール).
+Tổng cộng: 1,280 + 300 + 300 = 1,880円.
+
+ĐÁP ÁN SAI:
+(1) 1,580円 — condition miss: quên tính phí trả xe khác trạm (1,280 + 300).
+(2) 1,680円 — calculation trap: tính sai phần giảm giá hoặc phí bảo hiểm.
+(4) 2,200円 — condition miss: không áp dụng giảm giá hội viên (1,600 + 300 + 300).
+
+Tóm tắt: Cần tính phí thuê kèm gia hạn, áp dụng giảm giá hội viên, sau đó cộng thêm các phí cố định.","CORRECT ANSWER (3): 1,880 yen
+Analysis of Rodrigo-san's costs (Member):
+1. Rental fee: Half Plan (1,200) + 1 hour extension (30 min x 2 = 200 x 2 = 400) = 1,600 yen.
+2. Member discount: As a member, rental fee is 20% OFF -> 1,600 x 0.8 = 1,280 yen.
+3. Insurance: 300 yen (Mandatory, no discount).
+4. Return fee: 300 yen (For returning to a different port, per the rules).
+Total: 1,280 + 300 + 300 = 1,880 yen.
+
+WRONG ANSWERS:
+(1) 1,580 yen — condition miss: forgot the different-port return fee (1,280 + 300).
+(2) 1,680 yen — calculation trap: error in discount or insurance calculation.
+(4) 2,200 yen — condition miss: did not apply the member discount (1,600 + 300 + 300).
+
+Summary: Calculate rental plus extensions, apply the discount, and add fixed fees.","question_information_search","自転車を利用しているときに、故障して動かなくなってしまいました。どうすればいいですか。","","そのまま近くの道に置いて帰る。
+無理に動かして、借りた場所まで戻る。
+すぐにサポートセンターへ連絡する。
+アプリの利用終了ボタンを押して、そこに止める。","3","ĐÁP ÁN ĐÚNG (3): すぐにサポートセンターへ連絡する。
+Trong mục 【ご利用上のルール】, phần cuối có ghi rõ: 万が一の故障や事故の際は、すぐにサポートセンターへ連絡してください.
+
+ĐÁP ÁN SAI:
+(1) そのまま近くの道に置いて帰る — detail swap: bài ghi '自転車の放置は厳禁です' (nghiêm cấm bỏ mặc xe).
+(2) 無理に動かして、借りた場所まで戻る — detail swap: bài ghi '無理に動かさず' (không cố di chuyển).
+(4) アプリの利用終了ボタンを押して、そこに止める — partial match: nút này chỉ dùng khi trả xe đúng quy định tại trạm, không dùng cho trường hợp hỏng giữa đường.
+
+Tóm tắt: Tuân thủ hướng dẫn xử lý sự cố trong mục quy tắc.","CORRECT ANSWER (3): Contact the support center immediately.
+In the [Rules for Use] section, the last point explicitly states: In the event of a breakdown or accident, contact the support center immediately.
+
+WRONG ANSWERS:
+(1) Abandon it on a nearby road and go home — detail swap: the text states 'abandoning bicycles is strictly prohibited.'
+(2) Move it by force and return to the starting point — detail swap: the text states 'do not move it by force.'
+(4) Press the end button on the app and stop there — partial match: this button is for normal returns at designated ports, not for mid-trip breakdowns.
+
+Summary: Follow the emergency instructions in the rules section.","","","","","","","","","","","","","","","","","","","","",""
+"N2_591224c6bfcb4eba951a08ff62123608","N2","facility_guide","706","tìm thông tin","","assets/img/tim_thong_tin/N2_591224c6bfcb4eba951a08ff62123608.png","<div><div><h1>シェアオフィス「スカイワーク」へようこそ</h1><p>快適なワークスペースと、ビジネスを加速させる設備を提供いたします。</p></div><div>利用プラン・料金</div><table><tr><th>種別</th><th>内容</th><th>料金</th></tr><tr><td>ビジター利用</td><td>1日使い放題（当日限り）</td><td>2,000円</td></tr><tr><td>個人マンスリー</td><td>1ヶ月自由利用（記名式）</td><td>15,000円</td></tr><tr><td>法人プラン</td><td>最大5名まで同時に利用可能</td><td>50,000円</td></tr></table><div>会議室・貸出備品</div><p>会議室のご利用は事前予約が必要です。会員は室料が50％オフになります。</p><table><tr><th>施設・備品</th><th>一般料金（1時間）</th><th>備考</th></tr><tr><td>会議室A（6名）</td><td>1,500円</td><td>ホワイトボード無料</td></tr><tr><td>会議室B（10名）</td><td>3,000円</td><td>プロジェクター完備</td></tr><tr><td>ノートPC</td><td>500円</td><td>数に限りがあります</td></tr></table><div>施設利用のルール</div><ul><li><strong>クワイエットゾーン：</strong>集中して作業するためのエリアです。会話や通話は<ruby>厳禁<rt>げんきん</rt></ruby>です。</li><li><strong>通話・WEB会議：</strong>専用のフォンブース（無料・予約不要）をご利用ください。</li><li><strong>飲食：</strong>においの強い食べ物の持ち込みはご遠慮ください。お飲み物は全エリアで可能です。</li><li><strong>ゲスト<ruby>同伴<rt>どうはん</rt></ruby>：</strong>会員の方に限り、2名までゲストを招くことができます（1名につき 500円/1時間）。ただし、<ruby>滞在<rt>たいざい</rt></ruby>は2時間までとさせていただきます。</li></ul><div>※ 初回利用時には、<ruby>身分証<rt>みぶんしょう</rt></ruby>のご提示による本人確認と、会員<ruby>規約<rt>きやく</rt></ruby>への同意が必要となります。</div></div>","","","question_information_search","マンスリー会員の小林さんは、仕事の打ち合わせのため、同僚4名と一緒に「会議室B」を2時間利用しました。また、その際、受付でノートPCを1台借りました。小林さんが今日支払う追加料金の合計はいくらですか。","","3,500円
+4,500円
+6,500円
+7,500円","1","ĐÁP ÁN ĐÚNG (1): 3,500円
+Phân tích chi phí bổ sung cho 小林さん (hội viên マンスリー):
+1. Thuê phòng họp B: Giá gốc là 3,000円/giờ. Vì là hội viên nên được giảm 50% → 1,500円/giờ. Sử dụng 2 giờ: 1,500 x 2 = 3,000円.
+2. Phí khách mời: Theo phần よくある質問, nếu hội viên sử dụng phòng họp thì không cần trả phí nhập cảnh cho khách mời đi cùng. Do đó phí này là 0円.
+3. Thuê laptop: 500円/chiếc.
+Tổng cộng: 3,000 + 500 = 3,500円.
+
+ĐÁP ÁN SAI:
+(2) 4,500円 — calculation trap: tính phí phòng họp có giảm giá nhưng lại cộng thêm phí khách mời cho 3 người (500 x 3) hoặc tính sai logic khác.
+(3) 6,500円 — condition miss: không áp dụng giảm giá 50% cho hội viên thuê phòng (6,000 + 500).
+(4) 7,500円 — condition miss: không áp dụng giảm giá và tính thêm cả phí khách mời.
+
+Tóm tắt: Cần áp dụng đúng ưu đãi giảm giá phòng họp cho hội viên và quy định miễn phí khách mời khi dùng phòng họp.","CORRECT ANSWER (1): 3,500 yen
+Analysis of additional fees for Kobayashi-san (Monthly Member):
+1. Meeting Room B rental: Original price is 3,000 yen/hour. Members get 50% OFF -> 1,500 yen/hour. Used for 2 hours: 1,500 x 2 = 3,000 yen.
+2. Guest fees: According to the FAQ, if a member uses a meeting room, guest entry fees are not required. Therefore, this fee is 0 yen.
+3. Laptop rental: 500 yen per unit.
+Total: 3,000 + 500 = 3,500 yen.
+
+WRONG ANSWERS:
+(2) 4,500 yen — calculation trap: applied the room discount but added guest fees, or other incorrect logic.
+(3) 6,500 yen — condition miss: did not apply the 50% member discount for the room (6,000 + 500).
+(4) 7,500 yen — condition miss: did not apply the discount and added guest fees.
+
+Summary: Apply the member room discount and the 'no guest fee' rule for meeting room use.","question_information_search","法人プランを契約している会社の社員、鈴木さんが同僚6名と一緒に、合計7名でこのオフィスを今日一日利用したいと考えています。この場合、今日支払う必要がある追加料金はいくらですか。","","2,000円
+4,000円
+14,000円
+50,000円","2","ĐÁP ÁN ĐÚNG (2): 4,000円
+Theo bảng 【利用プラン・料金】, 法人プラン (Gói pháp nhân) cho phép tối đa 5 người cùng sử dụng đồng thời.
+Nhóm của 鈴木さん có 7 người, tức là thừa ra 2 người (7 - 5 = 2).
+Theo phần よくある質問, từ người thứ 6 trở đi sẽ phải trả phí ビジター (vãng lai) là 2,000円/ngày.
+Vậy chi phí thêm là: 2,000 x 2 = 4,000円.
+
+ĐÁP ÁN SAI:
+(1) 2,000円 — partial match: chỉ mới tính phí cho 1 người thừa ra.
+(3) 14,000円 — condition miss: tính phí vãng lai cho toàn bộ 7 người (2,000 x 7).
+(4) 50,000円 — detail swap: đây là mức phí thuê bao hàng tháng của gói pháp nhân, không phải phí trả thêm theo ngày.
+
+Tóm tắt: Xác định số người vượt mức quy định của gói và nhân với đơn giá vãng lai.","CORRECT ANSWER (2): 4,000 yen
+According to the [Usage Plans and Fees] table, the Corporate Plan allows up to 5 people to use the space simultaneously.
+Suzuki-san's group has 7 people, meaning 2 people are extra (7 - 5 = 2).
+According to the FAQ, the 6th person onwards must pay the Visitor fee (2,000 yen/day).
+Therefore, the additional fee is: 2,000 x 2 = 4,000 yen.
+
+WRONG ANSWERS:
+(1) 2,000 yen — partial match: only calculated the fee for 1 extra person.
+(3) 14,000 yen — condition miss: calculated the visitor fee for all 7 people (2,000 x 7).
+(4) 50,000 yen — detail swap: this is the monthly subscription fee for the corporate plan, not an additional daily fee.
+
+Summary: Identify the number of people exceeding the plan's limit and multiply by the visitor rate.","","","","","","","","","","","","","","","","","","","","",""
+"N1_bf16e7562ed744e8946e3b582b95d1e0","N1","recruitment_notice","740","tìm thông tin","","assets/img/tim_thong_tin/N1_bf16e7562ed744e8946e3b582b95d1e0.png","<div><div>シニアITエンジニア（正社員）募集要項</div><p>グローバルテックでは、次世代のシステム開発を牽引するリーダーを募集しています。技術力だけでなく、チームの<ruby>調整<rt>ちょうせい</rt></ruby>能力に長けた方の応募をお待ちしております。</p><div>給与・諸手当</div><table><tr><th>グレード</th><th>実務経験</th><th>基本給（月額）</th></tr><tr><td>G1（リーダー級）</td><td>5年以上</td><td>45万円～</td></tr><tr><td>G2（マネージャー級）</td><td>8年以上</td><td>55万円～</td></tr><tr><td>G3（部長級）</td><td>12年以上</td><td>70万円～</td></tr></table><p>※ 住宅手当（3万円）、通勤手当（実費）、リモートワーク手当（5,000円）が別途支給されます。</p><div>応募資格</div><p>● IT業界での実務経験が5年以上あること。<br>● 言語能力：日本語（JLPT N1以上）または英語（CEFR C1以上）。<br>● 高度情報処理技術者試験の合格者は優遇します。</p><div>選考フローと免除規定</div><p>通常、選考は「①書類審査」「②技術面接」「③最終面接」の順で行われます。ただし、以下の条件に該当する場合、一部の選考を<ruby>免除<rt>めんじょ</rt></ruby>します。</p><table><tr><th>免除の条件</th><th>免除される内容</th></tr><tr><td>PMP資格（プロジェクトマネジメント）<ruby>保持<rt>ほじ</rt></ruby>者</td><td>②技術面接をスキップ</td></tr><tr><td>当社提携企業からの<ruby>紹介<rt>しょうかい</rt></ruby></td><td>①書類審査をスキップ</td></tr><tr><td>当社が指定する<ruby>懸賞<rt>けんしょう</rt></ruby>論文の受賞者</td><td>①書類審査および②技術面接をスキップ</td></tr></table><div>その他</div><p>入社後3ヶ月間は試用期間となります。この期間中も給与・<ruby>福利厚生<rt>ふくりこうせい</rt></ruby>に変更はありません。</p></div>","","","question_information_search","リー・シャンさんはIT業界で10年の実務経験があり、JLPT N1を保持しています。また、PMP資格を持っており、当社と提携している企業からの紹介で応募しました。リーさんの選考はどのようになりますか。","","通常通り、①書類審査、②技術面接、③最終面接のすべてを受ける。
+PMP保持者のため②技術面接のみ免除され、①と③を受ける。
+提携企業からの紹介のため①書類審査のみ免除され、②と③を受ける。
+免除規定により、①書類審査と②技術面接の両方が免除される。","4","ĐÁP ÁN ĐÚNG (4): ①書類審査と②技術面接の両方が免除される。
+Phân tích các điều kiện miễn giảm dành cho リー・シャンさん:
+1. Có chứng chỉ PMP (PMP資格保持者): Theo bảng quy định miễn giảm, người này được miễn '②技術面接'.
+2. Được giới thiệu từ doanh nghiệp liên kết (当社提携企業からの紹介): Theo bảng quy định, người này được miễn '①書類審査'.
+Kết hợp cả hai điều kiện, リーさん được miễn cả bước 1 và bước 2, chỉ cần thực hiện bước 3 là Phỏng vấn cuối cùng.
+
+ĐÁP ÁN SAI:
+(1) 通常通り...を受ける — condition miss: bỏ qua cả hai quy định miễn giảm.
+(2) ②技術面接のみ免除... — partial match: chỉ áp dụng một trong hai quy định miễn giảm.
+(3) ①書類審査のみ免除... — partial match: tương tự câu (2), chỉ áp dụng một quy định.
+
+Tóm tắt: Cần kết hợp hai điều kiện độc lập từ bảng quy định miễn giảm để đưa ra kết luận cuối cùng.","CORRECT ANSWER (4): Both document screening and technical interview are exempted.
+Analysis of exemptions for Li Xiang-san:
+1. Has PMP certification: According to the exemption table, the technical interview (②) is skipped.
+2. Introduction from a partner company: According to the table, document screening (①) is skipped.
+Combining these two, both the first and second steps are exempted, and only the final interview is required.
+
+WRONG ANSWERS:
+(1) Take all steps as usual — condition miss: ignored both exemption rules.
+(2) Only the technical interview is exempted — partial match: only applied one of the two applicable rules.
+(3) Only document screening is exempted — partial match: same as (2), only applied one rule.
+
+Summary: Must combine two independent conditions from the exemption table to reach the correct conclusion.","question_information_search","パク・ジミンさんはIT業界で13年の実務経験があり、英語能力はCEFR C1です（日本語能力試験は未受験）。パクさんが採用された場合、基本給と固定の手当（住宅、リモートワーク）を合わせた月額はいくらになりますか。","","700,000円
+730,000円
+735,000円
+740,000円","3","ĐÁP ÁN ĐÚNG (3): 735,000円
+Phân tích mức lương và trợ cấp của パク・ジミンさん:
+1. Trình độ và Kinh nghiệm: Có 13 năm kinh nghiệm, tương ứng với cấp độ 'G3（部長級）' (áp dụng cho người trên 12 năm kinh nghiệm). Mức lương cơ bản là 700,000円.
+2. Điều kiện ngôn ngữ: Mặc dù không có JLPT N1, nhưng có CEFR C1 tiếng Anh, thỏa mãn yêu cầu '日本語または英語のいずれか一方に精通' (thông thạo một trong hai thứ tiếng).
+3. Các khoản trợ cấp cố định: Trợ cấp nhà ở (住宅手当) 30,000円 + Trợ cấp làm việc từ xa (リモートワーク手当) 5,000円 = 35,000円.
+Tổng cộng: 700,000 + 35,000 = 735,000円.
+
+ĐÁP ÁN SAI:
+(1) 700,000円 — condition miss: chỉ tính lương cơ bản, quên cộng các khoản trợ cấp.
+(2) 730,000円 — partial match: quên cộng trợ cấp làm việc từ xa (5,000円).
+(4) 740,000円 — calculation trap: cộng sai con số hoặc nhầm lẫn mức trợ cấp.
+
+Tóm tắt: Xác định đúng cấp độ theo số năm kinh nghiệm và cộng đầy đủ các khoản trợ cấp cố định được liệt kê.","CORRECT ANSWER (3): 735,000 yen
+Analysis of salary and allowances for Park Ji-min san:
+1. Grade and Experience: 13 years of experience matches 'G3 (Director level)' (for 12+ years). Basic pay is 700,000 yen.
+2. Language requirement: Although no JLPT N1, the CEFR C1 in English satisfies the 'proficient in either Japanese or English' requirement.
+3. Fixed allowances: Housing allowance (30,000) + Remote work allowance (5,000) = 35,000 yen.
+Total: 700,000 + 35,000 = 735,000 yen.
+
+WRONG ANSWERS:
+(1) 700,000 yen — condition miss: only included basic pay and forgot allowances.
+(2) 730,000 yen — partial match: forgot the remote work allowance (5,000 yen).
+(4) 740,000 yen — calculation trap: incorrect addition or misidentified allowance amounts.
+
+Summary: Identify the correct grade based on years of experience and add all listed fixed allowances.","","","","","","","","","","","","","","","","","","","","",""

@@ -111,18 +111,38 @@ Câu hỏi + 4 lựa chọn phải **thống nhất thì** (ưu tiên thì hiệ
 - Người đọc phải **suy nghĩ và quay lại bài đọc** mới loại được — KHÔNG được loại bằng common sense
 - Nếu che bài đọc đi, nhìn 4 đáp án phải thấy **cả 4 đều hợp lý như nhau**
 
-### Test chất lượng distractor (agent tự kiểm tra)
+### ⛔ Self-test BẮT BUỘC cho mỗi distractor
 
-Với mỗi đáp án sai, agent phải trả lời được:
-1. **Thông tin thật nào** từ bài được dùng trong đáp án này?
-2. **Tại sao** đáp án này sai? (chỉ rõ điều kiện/vị trí nào trong bài bác bỏ)
-3. **Người đọc cần làm gì** để loại đáp án này? (scan vị trí nào, so sánh gì)
+> **Agent PHẢI thực hiện self-test này cho TỪNG đáp án sai. Không được bỏ qua.**
 
-Nếu không trả lời được cả 3 câu → distractor chưa đạt → viết lại.
+Với mỗi đáp án sai, agent phải:
+1. **Trích dẫn chính xác** câu/vị trí trong bài dùng để bác bỏ đáp án này (copy nguyên văn + ghi vị trí: bảng dòng X, ghi chú ※, đoạn Y...)
+2. **Giải thích** tại sao đáp án này sai dựa trên trích dẫn đó
+3. **Xác nhận** thông tin trong đáp án sai CÓ xuất hiện trong bài (số liệu, tên, ngày, giá...)
+
+**REJECT ngay nếu:**
+- Không trích dẫn được câu cụ thể từ bài → đáp án đang bịa thông tin
+- Phải dùng kiến thức ngoài bài để loại → đáp án không có căn cứ bác bỏ trong bài
+
+**Ví dụ SAI (từ lỗi thực tế):**
+> Đáp án: 「6月9日 午後5時」
+> → Bài chỉ ghi "3日前までに" — KHÔNG có thông tin giờ nào → "午後5時" là BỊA → REJECT
+
+> Đáp án: 「アプリの利用終了ボタンを押して、そこに止める」
+> → Bài có nhắc "アプリ" ở mục 4 nhưng KHÔNG nhắc "利用終了ボタン" → BỊA chi tiết → REJECT
+
+> Đáp án: 「そのまま近くの道に置いて帰る」
+> → Bài KHÔNG có câu nào liên quan "道に置く" → BỊA → REJECT
+
+**Ví dụ ĐÚNG (distractor có căn cứ):**
+> Đáp án sai: 「2,500円」 (cho câu hỏi giá sau giảm)
+> → Trích dẫn: bảng giá "週末コース 2,500円" — đây là giá GỐC, đúng thông tin nhưng sai vì chưa áp dụng giảm giá
+> → Người đọc phải đọc thêm phần 【わりびき】 mới loại được ✅
 
 ### Loại trừ tuyệt đối — REJECT nếu có bất kỳ
 
-- Bịa thông tin không có trong bài
+- Bịa thông tin không có trong bài (kể cả bịa 1 chi tiết nhỏ: giờ, nút bấm, tên...)
+- Đáp án chỉ loại được bằng common sense, không cần đọc bài
 - Sai hiển nhiên (loại ngay không cần đọc bài)
 - 3 đáp án tích cực + 1 phủ định rõ ràng
 - Đáp án chỉ khác nhau 1 con số tròn (100, 200, 300, 400)

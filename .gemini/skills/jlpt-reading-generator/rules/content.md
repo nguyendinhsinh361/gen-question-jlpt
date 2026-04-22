@@ -48,6 +48,26 @@
 | N2 | Bảng phức tạp với điều kiện lồng nhau. Brochure 2-3 phần, phần "Lưu ý" dài |
 | N1 | Đa bảng biểu, mật độ thông tin dày (6-8+ dòng). Tham chiếu chéo ("xem chú thích 1, 2") |
 
+### ⛔ Quy tắc viết rõ ràng — KHÔNG mơ hồ
+
+> **Mọi điều kiện, giảm giá, ngoại lệ PHẢI ghi rõ phạm vi áp dụng.**
+> Nếu có 2 cách hiểu hợp lý → bài CHƯA ĐẠT, phải viết lại cho rõ ràng.
+
+Yêu cầu cụ thể:
+
+- **Giảm giá/ưu đãi**: ghi rõ áp dụng cho khoản nào, KHÔNG áp dụng cho khoản nào. Ví dụ: `※ 割引はプラン基本料金のみ。延長料金・保険料は割引対象外です。` hoặc `※ 延長料金も割引になります。`
+- **Đối tượng áp dụng**: ghi rõ ai được, ai không. Ví dụ: `学生（留学生を含む）` thay vì chỉ `学生`.
+- **Deadline/hạn chế**: ghi rõ tính từ đâu. Ví dụ: `参加日の3日前（例：10日参加→7日まで）`.
+- **Test mơ hồ**: Đọc lại mỗi điều kiện, thử hiểu theo 2 cách khác nhau. Nếu cả 2 đều hợp lý → PHẢI bổ sung chi tiết.
+
+**Ví dụ SAI (mơ hồ):**
+> 全てのプラン料金が20％割引になります。
+> → "プラン料金" có gồm 延長料金 không? → MƠ HỒ → REJECT
+
+**Ví dụ ĐÚNG (rõ ràng):**
+> プラン基本料金が20％割引になります。延長料金・保険料は割引対象外です。
+> → Rõ ràng: chỉ giá gốc trong bảng được giảm.
+
 ### Loại trừ (format KHÔNG đạt)
 
 - Văn bản thuần túy (chỉ đoạn văn dài, không bảng biểu/danh sách)
