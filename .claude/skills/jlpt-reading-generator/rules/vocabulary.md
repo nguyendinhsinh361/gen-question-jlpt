@@ -63,9 +63,10 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 ### Format — Chỉ `<ruby>+<rt>`
 
 - ĐÚNG: `<ruby>漢字<rt>かんじ</rt></ruby>`
-- SAI → REJECT: `漢字(かんじ)`
-- SAI → REJECT: `漢字【かんじ】`
-- SAI → REJECT: `拠てん` (dạng "Ab")
+- SAI → REJECT: `漢字(かんじ)` (ngoặc thay ruby)
+- SAI → REJECT: `漢字【かんじ】` (ngoặc thay ruby)
+- SAI → REJECT: `<ruby>漢字</ruby>` (thiếu `<rt>` → vô nghĩa)
+- SAI → REJECT: `拠てん` (dạng "Ab" hỗn hợp)
 
 ### Compound Word Rule
 

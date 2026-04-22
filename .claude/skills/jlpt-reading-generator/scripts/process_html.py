@@ -73,7 +73,7 @@ class CleanHTMLExtractor(HTMLParser):
             return
         if not self.in_body or self.body_done:
             return
-        if tag in ('style', 'script', 'rt'):
+        if tag in ('style', 'script'):
             self.skip_depth += 1
             return
         if self.skip_depth > 0:
@@ -86,7 +86,7 @@ class CleanHTMLExtractor(HTMLParser):
             return
         if not self.in_body or self.body_done:
             return
-        if tag in ('style', 'script', 'rt'):
+        if tag in ('style', 'script'):
             self.skip_depth -= 1
             return
         if self.skip_depth > 0:
@@ -114,7 +114,7 @@ def clean_html(full_html):
 # ── Screenshot Capture ──────────────────────────────────────────────
 
 async def capture_screenshots(html_files, img_dir):
-    """Capture full-page screenshots of HTML files using Playwright."""
+    """Capture screenshots cropped tight to content — no whitespace/gray borders."""
     try:
         from playwright.async_api import async_playwright
     except ImportError:
@@ -126,21 +126,66 @@ async def capture_screenshots(html_files, img_dir):
     os.makedirs(img_dir, exist_ok=True)
     results = {}
 
+    JS_MEASURE = """
+        (() => {
+            const c = document.querySelector('.container');
+            if (!c) return null;
+            const cRect = c.getBoundingClientRect();
+            let maxBottom = cRect.top;
+            for (const ch of c.children) {
+                const r = ch.getBoundingClientRect();
+                if (r.bottom > maxBottom) maxBottom = r.bottom;
+            }
+            return {
+                x: Math.round(cRect.left),
+                y: Math.round(cRect.top),
+                width: Math.round(cRect.width),
+                height: Math.ceil(maxBottom - cRect.top) + 8
+            };
+        })()
+    """
+
     async with async_playwright() as p:
         browser = await p.chromium.launch()
         for html_path in html_files:
             name = Path(html_path).stem
             img_path = os.path.join(img_dir, f"{name}.png")
 
-            page = await browser.new_page(viewport={"width": 1000, "height": 800})
-            await page.goto(f"file://{os.path.abspath(html_path)}", wait_until="networkidle")
-            await page.wait_for_timeout(1500)  # wait for fonts
-            await page.screenshot(path=img_path, full_page=True)
-            await page.close()
+            try:
+                if not os.path.exists(html_path):
+                    print(f"  ❌ File not found: {html_path}", file=sys.stderr)
+                    continue
 
-            results[html_path] = img_path
-            size_kb = os.path.getsize(img_path) // 1024
-            print(f"  Screenshot: {name}.png ({size_kb}KB)")
+                page = await browser.new_page(viewport={"width": 700, "height": 800})
+                print(f"  📄 Loading: {name}.html")
+                await page.goto(f"file://{os.path.abspath(html_path)}", wait_until="networkidle")
+                await page.wait_for_timeout(1500)
+                # Force white background
+                await page.evaluate("""
+                    document.documentElement.style.cssText += 'background:#fff!important;';
+                    document.body.style.cssText += 'background:#fff!important;';
+                """)
+                # Measure content height
+                clip = await page.evaluate(JS_MEASURE)
+                if clip is None:
+                    print(f"  ❌ No .container element in {name}.html", file=sys.stderr)
+                    await page.close()
+                    continue
+
+                print(f"  📐 Measure: {clip['width']}x{clip['height']}px")
+                # Resize viewport to fit content (avoid clipping long pages)
+                await page.set_viewport_size({"width": 700, "height": clip["height"] + 20})
+                await page.wait_for_timeout(300)
+                # Re-measure after resize
+                clip = await page.evaluate(JS_MEASURE)
+                await page.screenshot(path=img_path, clip=clip)
+                await page.close()
+
+                results[html_path] = img_path
+                size_kb = os.path.getsize(img_path) // 1024
+                print(f"  ✅ {name}.png — {clip['width']}x{clip['height']}px ({size_kb}KB)")
+            except Exception as e:
+                print(f"  ❌ Error capturing {name}.html: {e}", file=sys.stderr)
 
         await browser.close()
 
@@ -161,9 +206,9 @@ CSV_FIELDNAMES = [
 
 
 def parse_filename(filename):
-    """Extract level and id from filename like n1_3.html → ('N1', 'n1_3')"""
+    """Extract level and id from filename like N5_uuid.html → ('N5', 'N5_uuid')"""
     stem = Path(filename).stem
-    match = re.match(r'(n\d)_(\d+)', stem)
+    match = re.match(r'([nN]\d)_([0-9a-fA-F]+)', stem)
     if match:
         level = match.group(1).upper()
         return level, stem
@@ -190,6 +235,7 @@ def build_csv_row(html_path, img_path, tag=''):
 
     row = {field: '' for field in CSV_FIELDNAMES}
     row.update({
+        '_id': name,  # e.g. N5_c1da8a43ccaa4701b9f228b7f75ae5f1
         'level': level or '',
         'tag': tag,
         'jp_char_count': str(char_count),
@@ -203,20 +249,21 @@ def build_csv_row(html_path, img_path, tag=''):
 def append_to_csv(csv_path, rows):
     """Append rows to existing CSV or create new one."""
     existing_rows = []
-    next_id = 1
 
     if os.path.exists(csv_path):
         with open(csv_path, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             existing_rows = list(reader)
-            if existing_rows:
-                next_id = max(int(r['_id']) for r in existing_rows) + 1
 
-    for row in rows:
-        row['_id'] = str(next_id)
-        next_id += 1
+    # Skip rows whose _id already exists in CSV (avoid duplicates)
+    existing_ids = {r['_id'] for r in existing_rows if r.get('_id')}
+    new_rows = [r for r in rows if r.get('_id') not in existing_ids]
 
-    all_rows = existing_rows + rows
+    if len(new_rows) < len(rows):
+        skipped = len(rows) - len(new_rows)
+        print(f"  Skipped {skipped} duplicate row(s)")
+
+    all_rows = existing_rows + new_rows
 
     with open(csv_path, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDNAMES)

@@ -144,12 +144,16 @@ def check_html(html_path: str, level: str) -> dict:
     html = Path(html_path).read_text(encoding='utf-8')
     results = {}
     
-    # TC1: Character count
+    # TC1: Character count (min AND max)
     char_count = count_body_chars(html)
-    min_chars = {"N1": 660, "N2": 660, "N3": 560, "N4": 370, "N5": 230}
+    char_range = {
+        "N1": (660, 740), "N2": (660, 740), "N3": (560, 640),
+        "N4": (370, 430), "N5": (230, 280)
+    }
+    lo, hi = char_range[level]
     results["TC1_chars"] = {
-        "count": char_count, "min": min_chars[level],
-        "pass": char_count >= min_chars[level]
+        "count": char_count, "range": f"{lo}-{hi}",
+        "pass": lo <= char_count <= hi
     }
     
     # TC3a: Flow text
@@ -174,8 +178,9 @@ def check_html(html_path: str, level: str) -> dict:
         "pass": len(paren_furigana) == 0 and len(bracket_furigana) == 0
     }
     
-    # TC5c: Ruby without rt
-    ruby_without_rt = re.findall(r'<ruby>[^<]*</ruby>(?!.*<rt>)', html)
+    # TC5c: Ruby without rt (check each <ruby>...</ruby> block has <rt> inside)
+    ruby_blocks = re.findall(r'<ruby>(.*?)</ruby>', html, re.DOTALL)
+    ruby_without_rt = [b for b in ruby_blocks if '<rt>' not in b]
     results["TC5_ruby_has_rt"] = {
         "missing_rt": ruby_without_rt,
         "pass": len(ruby_without_rt) == 0
@@ -189,6 +194,12 @@ def check_html(html_path: str, level: str) -> dict:
 ## Bundled Scripts
 
 ```bash
-python3 <skill>/scripts/process_html.py --count-only --file <html-file>
-python3 <skill>/scripts/process_html.py --file <html-file> --img-dir assets/img/tim_thong_tin --csv sheets/<file>.csv
+# Đếm ký tự:
+python3 .gemini/skills/jlpt-reading-generator/scripts/process_html.py --count-only --file <html-file>
+
+# Chụp ảnh + tạo CSV (all-in-one):
+python3 .gemini/skills/jlpt-reading-generator/scripts/process_html.py \
+  --file <html-file> \
+  --img-dir assets/img/tim_thong_tin \
+  --csv sheets/<file>.csv
 ```
