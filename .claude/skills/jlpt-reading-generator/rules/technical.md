@@ -129,7 +129,11 @@ python3 .claude/skills/jlpt-reading-generator/scripts/screenshot.py \
 | `question_{i}` | Question text |
 | `answer_{i}` | 4 options `\n` separated, KHÔNG số thứ tự |
 | `correct_answer_{i}` | Integer `1`-`4` (KHÔNG `2.0`) |
-| `explain_vn_{i}` / `explain_en_{i}` | Explanations |
+| `explain_vn_{i}` / `explain_en_{i}` | Explanations (3 phần: đáp án đúng + đáp án sai + tóm tắt) |
+
+> **⛔ KHÔNG BAO GIỜ sửa CSV bằng tay (text editor / sed / echo >>).**
+> Nội dung câu hỏi thường chứa commas (ví dụ `100,000円`) → sẽ vỡ cột CSV.
+> **LUÔN dùng `scripts/fill_qa.py`** để điền Q&A — script tự quote đúng mọi trường hợp.
 
 ---
 

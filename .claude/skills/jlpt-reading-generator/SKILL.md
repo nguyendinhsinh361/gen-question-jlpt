@@ -28,7 +28,8 @@ description: >
 | `rules/questions.md` | R5 câu hỏi + R6 đáp án/bẫy | Gen Q&A + QC |
 | `rules/technical.md` | R9 HTML template + R10 clean HTML + R11 CSV | Gen HTML + CSV |
 | `scripts/screenshot.py` | Chụp ảnh (KHÔNG tự viết code) | Sau khi PASS checklist |
-| `scripts/process_html.py` | Xử lý HTML → CSV | Gen CSV |
+| `scripts/process_html.py` | Xử lý HTML → CSV (tạo row) | Gen CSV |
+| `scripts/fill_qa.py` | Điền Q&A vào CSV (quote an toàn) | Sau khi gen Q&A |
 
 ## Outputs Per Passage
 
@@ -64,7 +65,22 @@ description: >
      --img-dir assets/img/tim_thong_tin \
      --csv sheets/{LEVEL}.csv
    ```
-5. Điền câu hỏi, đáp án, explanation vào CSV
+5. Điền câu hỏi, đáp án, explanation vào CSV bằng **fill_qa.py**:
+   > **⛔ KHÔNG ĐƯỢC sửa CSV bằng tay. Commas trong nội dung (ví dụ 100,000円) sẽ làm vỡ cột.**
+   > **LUÔN dùng script fill_qa.py — script tự quote đúng.**
+   ```bash
+   python3 .claude/skills/jlpt-reading-generator/scripts/fill_qa.py \
+     --csv sheets/{LEVEL}.csv --row-id {LEVEL}_{uuid} \
+     --q1 "Câu hỏi 1..." \
+     --a1 "Đáp án 1
+   Đáp án 2
+   Đáp án 3
+   Đáp án 4" \
+     --ca1 2 \
+     --evn1 "Explanation VN..." \
+     --een1 "Explanation EN..."
+   ```
+   Với N1-N4 (2 câu hỏi), thêm `--q2`, `--a2`, `--ca2`, `--evn2`, `--een2`.
 
 ---
 
