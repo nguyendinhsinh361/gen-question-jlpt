@@ -426,18 +426,28 @@ def clean_html(full_html):
     return raw.strip()
 ```
 
-### Screenshot
+### Screenshot (PHẢI crop sát — không thừa khoảng trắng)
+
+> **⛔ NGHIÊM CẤM ảnh thừa khoảng trắng / viền xám xung quanh.**
+> Dùng `bounding_box()` + `page.screenshot(clip=...)` để crop chính xác pixel.
+> KHÔNG dùng `container.screenshot()` vì có thể bao gồm body background.
 
 ```python
 async def capture_screenshot(html_path, img_path):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        page = await browser.new_page(viewport={"width": 700, "height": 1200})
+        page = await browser.new_page(viewport={"width": 700, "height": 800})
         await page.goto(f"file://{html_path}", wait_until="networkidle")
         await page.wait_for_timeout(1500)
         container = page.locator('.container')
-        await container.screenshot(path=img_path)
+        box = await container.bounding_box()
+        await page.screenshot(path=img_path, clip={
+            "x": box["x"],
+            "y": box["y"],
+            "width": box["width"],
+            "height": box["height"]
+        })
         await page.close()
         await browser.close()
 ```
@@ -530,7 +540,7 @@ async def capture_screenshot(html_path, img_path):
 | TC6 | Sửa câu hỏi/đáp án → cập nhật CSV |
 
 ### BƯỚC 6: CHỤP ẢNH (CHỈ SAU KHI PASS)
-1. `container.screenshot()`, viewport=700
+1. `bounding_box()` + `page.screenshot(clip=box)` — crop sát container, KHÔNG thừa khoảng trắng
 2. Save PNG. **Không sửa HTML sau khi chụp.**
 
 ## BƯỚC 7: LẶP LẠI → bài tiếp theo

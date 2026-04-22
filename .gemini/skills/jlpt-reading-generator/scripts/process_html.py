@@ -73,7 +73,7 @@ class CleanHTMLExtractor(HTMLParser):
             return
         if not self.in_body or self.body_done:
             return
-        if tag in ('style', 'script', 'rt'):
+        if tag in ('style', 'script'):
             self.skip_depth += 1
             return
         if self.skip_depth > 0:
@@ -86,7 +86,7 @@ class CleanHTMLExtractor(HTMLParser):
             return
         if not self.in_body or self.body_done:
             return
-        if tag in ('style', 'script', 'rt'):
+        if tag in ('style', 'script'):
             self.skip_depth -= 1
             return
         if self.skip_depth > 0:
@@ -161,9 +161,9 @@ CSV_FIELDNAMES = [
 
 
 def parse_filename(filename):
-    """Extract level and id from filename like n1_3.html → ('N1', 'n1_3')"""
+    """Extract level and id from filename like N5_uuid.html → ('N5', 'N5_uuid')"""
     stem = Path(filename).stem
-    match = re.match(r'(n\d)_(\d+)', stem)
+    match = re.match(r'([nN]\d)_([0-9a-fA-F]+)', stem)
     if match:
         level = match.group(1).upper()
         return level, stem
