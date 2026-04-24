@@ -179,7 +179,30 @@ transform: translateY(-50%);     /* dịch chuyển lên trên */
 
 **Quy tắc đơn giản:** Nếu label dùng `negative top/margin` → `margin-top` của box PHẢI ≥ |negative value| + 16px. Ví dụ label `top: -12px` → box cần `margin-top: ≥ 28px`.
 
-#### Lỗi #2 — Element chồng chéo khác
+#### Lỗi #2 — Chữ trắng/sáng trên nền trắng (KHÔNG ĐỌC ĐƯỢC)
+
+> **⛔ NGHIÊM CẤM dùng `color: #fff` hoặc `color: white` cho text.**
+> Nền bài luôn là `#fff` (trắng) → chữ trắng = vô hình.
+
+Nguyên nhân: Table header dùng `background: dark` + `color: #fff` — trông đẹp trên web nhưng khi text bị extract (clean HTML) hoặc screenshot bị lỗi render → chữ biến mất.
+
+**Quy tắc màu chữ:**
+- Body text: `color: #000` (mặc định từ template)
+- Table header (`th`): `color: #000` hoặc `color: #333` — KHÔNG `#fff`
+- Nếu muốn header nổi bật: dùng `background: #f0f0f0` + `font-weight: bold` + `color: #000`
+- Label/badge: `background` bất kỳ nhưng `color` PHẢI tối (≤ `#666`) — KHÔNG BAO GIỜ `#fff`
+
+**SAI:**
+```css
+th { background: #1a1a2e; color: #fff; }  /* chữ trắng trên nền tối — KHÔNG ĐƯỢC */
+```
+
+**ĐÚNG:**
+```css
+th { background: #e8e8e8; color: #000; font-weight: bold; }  /* nền xám nhạt, chữ đen */
+```
+
+#### Lỗi #3 — Element chồng chéo khác
 
 - KHÔNG dùng `position: absolute` hoặc `negative margin` trên text content
 - Hình che chữ → **Không thể hiển thị cả hình VÀ chữ rõ 100% → BỎ HÌNH, GIỮ CHỮ**
