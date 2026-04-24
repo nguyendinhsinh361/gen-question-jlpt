@@ -263,12 +263,25 @@ def append_to_csv(csv_path, rows, replace=False):
     new_ids = {r['_id'] for r in rows if r.get('_id')}
 
     if replace:
-        # Replace mode: remove old rows with matching IDs, then add new ones
-        replaced = [r for r in existing_rows if r.get('_id') in new_ids]
+        # Replace mode: MERGE new HTML fields into existing rows (preserve Q&A fields)
+        old_by_id = {r['_id']: r for r in existing_rows if r.get('_id')}
+        merged_new = []
+        for new_row in rows:
+            rid = new_row.get('_id', '')
+            if rid in old_by_id:
+                # Merge: start with old row, overwrite ONLY non-empty fields from new row
+                merged = dict(old_by_id[rid])
+                for key, val in new_row.items():
+                    if val:  # only overwrite if new value is non-empty
+                        merged[key] = val
+                merged_new.append(merged)
+            else:
+                merged_new.append(new_row)
         kept_rows = [r for r in existing_rows if r.get('_id') not in new_ids]
-        all_rows = kept_rows + rows
-        if replaced:
-            print(f"  Replaced {len(replaced)} existing row(s)")
+        all_rows = kept_rows + merged_new
+        replaced_count = sum(1 for r in rows if r.get('_id') in old_by_id)
+        if replaced_count:
+            print(f"  Merged {replaced_count} existing row(s) (HTML fields updated, Q&A preserved)")
     else:
         # Append mode: skip rows whose _id already exists
         new_rows = [r for r in rows if r.get('_id') not in existing_ids]
