@@ -15,6 +15,28 @@
 
 > **Hệ quả trực tiếp**: Vì key terms phải đúng level (không furigana) và chỉ context words mới vượt level (có furigana) → **số lượng furigana phải THẤP** (chỉ ~10-20% từ trong bài).
 
+### ⛔ Rule từ vượt level — KHÔNG được liên quan đến câu hỏi
+
+> **Từ vượt level mục tiêu CHỈ được phép xuất hiện nếu KHÔNG liên quan đến câu hỏi và đáp án.**
+> Thí sinh PHẢI trả lời được câu hỏi mà KHÔNG CẦN hiểu từ vượt level đó.
+
+Cụ thể:
+- Từ vượt level xuất hiện ở **vị trí trang trí/bối cảnh** (mô tả chung, slogan, giới thiệu) → ✅ OK (kèm furigana)
+- Từ vượt level xuất hiện ở **vị trí liên quan đến điều kiện/đáp án** câu hỏi → ❌ REJECT
+- Nếu từ vượt level nằm trong **bảng giá, lưu ý ※, điều kiện giảm giá** mà câu hỏi hỏi về → ❌ REJECT — phải thay bằng từ đúng level
+
+**Ví dụ:**
+> Bài N4 có câu: "電動アシスト付きなので、坂道もラクラク進めます。"
+> → 電動(N2), アシスト(katakana), 坂道(N3) — nhưng câu này chỉ giới thiệu, KHÔNG liên quan đến câu hỏi → ✅ OK (kèm furigana)
+
+> Bài N4 có điều kiện: "延長料金は割引対象外です"
+> → 延長(N2), 対象外(N2) — nếu câu hỏi hỏi về giá sau giảm → từ này LIÊN QUAN trực tiếp → ❌ REJECT
+> → Phải viết lại: "のばした分は わりびきに なりません" (dùng từ N4)
+
+**Test:** Với mỗi từ vượt level trong bài, hỏi: "Nếu thí sinh KHÔNG hiểu từ này, có trả lời đúng câu hỏi được không?"
+- Có → ✅ OK (từ ngữ cảnh)
+- Không → ❌ REJECT (từ then chốt vượt level)
+
 ### Tiêu chuẩn chi tiết theo level
 
 | Level | Kanji | Từ vựng | Ngữ pháp |
@@ -49,21 +71,30 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 > **LỖI PHỔ BIẾN NHẤT: AI rắc furigana lên MỌI kanji.**
 > **LỖI PHỔ BIẾN THỨ 2: AI đoán sai level kanji → thiếu furigana cho kanji khó.**
 
-**Quy trình xét furigana cho từ kanji (ví dụ từ "AB"):**
+**Quy trình xét furigana cho từ kanji (áp dụng cho từ có BẤT KỲ số lượng kanji: 2, 3, 4, 5+ ký tự):**
 
-1. Tra **từng ký tự kanji** trong `input/jlpt_kanji.csv` → lấy level của từng ký tự
-2. So sánh level từng kanji với **level mục tiêu** của bài
-3. Nếu **TẤT CẢ kanji ≤ level mục tiêu** → KHÔNG furigana
-4. Nếu **BẤT KỲ kanji > level mục tiêu** → CẢ TỪ cần furigana
-5. Nếu kanji **không có trong file** → coi như > level mục tiêu → cần furigana
+1. Tra **TỪNG ký tự kanji** trong từ (không chỉ 2 ký tự — từ có thể dài: 身分証明書=5 kanji, 自転車=3 kanji...)
+2. Tra mỗi ký tự trong `input/jlpt_kanji.csv` → lấy level
+3. So sánh level từng kanji với **level mục tiêu** của bài
+4. Nếu **TẤT CẢ kanji ≤ level mục tiêu** → KHÔNG furigana
+5. Nếu **BẤT KỲ kanji > level mục tiêu** → CẢ TỪ cần furigana
+6. Nếu kanji **không có trong file** → coi như > level mục tiêu → cần furigana
 
 **Thứ tự level (thấp → cao):** N5 < N4 < N3 < N2 < N1
 
-> Ví dụ: Từ 割引 (割=N3, 引=N4):
+> **Ví dụ 2 kanji — 割引** (割=N3, 引=N4):
 > - Bài N3: 割(N3) ≤ N3 ✓, 引(N4) ≤ N3 ✓ → **không furigana** → `割引`
 > - Bài N4: 割(N3) > N4 ✗ → **cần furigana** → `<ruby>割引<rt>わりびき</rt></ruby>`
 >
-> Ví dụ: Từ 経験 (経=N2, 験=N3):
+> **Ví dụ 3 kanji — 自転車** (自=N4, 転=không có trong CSV, 車=N5):
+> - Bài N4: 転 không có trong CSV → mặc định > N4 → **cần furigana** → `<ruby>自転車<rt>じてんしゃ</rt></ruby>`
+> - Bài N3: 転 không có trong CSV → mặc định > N3 → **cần furigana** → `<ruby>自転車<rt>じてんしゃ</rt></ruby>`
+>
+> **Ví dụ 5 kanji — 身分証明書** (身=N3, 分=N5, 証=N2, 明=N5, 書=N5):
+> - Bài N4: 身(N3) > N4, 証(N2) > N4 → **cần furigana** → `<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>`
+> - Bài N2: 身(N3) ≤ N2 ✓, 証(N2) ≤ N2 ✓ → tất cả ≤ N2 → **không furigana** → `身分証明書`
+>
+> **Ví dụ 2 kanji — 経験** (経=N2, 験=N3):
 > - Bài N3: 経(N2) > N3 ✗ → **cần furigana** → `<ruby>経験<rt>けいけん</rt></ruby>`
 > - Bài N2: 経(N2) ≤ N2 ✓, 験(N3) ≤ N2 ✓ → **không furigana** → `経験`
 
@@ -133,4 +164,29 @@ Okurigana ngoại lệ: `<ruby>届<rt>とど</rt></ruby>く` (kanji stem + okuri
 ```html
 最近は、仕事や生活で...
 <ruby>経験豊富<rt>けいけんほうふ</rt></ruby>な<ruby>講師<rt>こうし</rt></ruby>が<ruby>丁寧<rt>ていねい</rt></ruby>にお教えします。
+```
+
+### Ví dụ N4 — Từ dài (3-5 kanji)
+
+**Bước tra CSV (chú ý từ dài hơn 2 kanji):**
+- 利用(利=N4, 用=N3) → 用=N3 > N4 → **cần furigana**
+- 自転車(自=N4, 転=???, 車=N5) → 転 không có CSV → **cần furigana**
+- 身分証明書(身=N3, 分=N5, 証=N2, 明=N5, 書=N5) → 身=N3, 証=N2 > N4 → **cần furigana**
+- 注意(注=N3, 意=N3) → cả 2 > N4 → **cần furigana**
+- 無料(無=N3, 料=N4) → 無=N3 > N4 → **cần furigana**
+- 予約(予=N3, 約=N3) → cả 2 > N4 → **cần furigana**
+- 料金(料=N4, 金=N5) → cả 2 ≤ N4 → **không furigana**
+- 場合(場=N4, 合=N4) → cả 2 ≤ N4 → **không furigana**
+
+**SAI (thiếu furigana cho từ có kanji > N4):**
+```html
+◆ 利用料金（一人）
+...身分証明書（パスポートなど）を 見せてください。
+```
+→ 利用(用=N3), 身分証明書(身=N3,証=N2) đều có kanji > N4 → PHẢI có furigana
+
+**ĐÚNG:**
+```html
+◆ <ruby>利用<rt>りよう</rt></ruby>料金（一人）
+...<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>（パスポートなど）を 見せてください。
 ```

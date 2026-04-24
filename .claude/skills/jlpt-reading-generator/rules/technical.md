@@ -13,11 +13,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
         html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
-        body { font-family: 'Noto Sans JP', sans-serif; color: #000; line-height: 2; word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
-        .container { width: 700px; margin: 0; background: #fff; padding: 6px 8px; box-sizing: border-box; }
+        body { font-family: 'Noto Sans JP', sans-serif; color: #000; line-height: 2; word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; text-align: justify; text-spacing-trim: auto; }
+        .container { width: 700px; margin: 0; background: #fff; padding: 6px 8px; box-sizing: border-box; position: relative; }
         table { width: 100%; table-layout: fixed; }
-        td, th { overflow-wrap: break-word; }
-        .container > * { max-width: 100%; }
+        td, th { overflow-wrap: break-word; text-align: left; }
+        .container > * { max-width: 100%; position: relative; }
         ruby { ruby-align: center; ruby-position: over; vertical-align: baseline; }
         ruby rt { font-size: 0.55em; color: #333; letter-spacing: 0.02em; line-height: 1; vertical-align: top; }
     </style>

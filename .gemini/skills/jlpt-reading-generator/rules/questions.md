@@ -95,6 +95,17 @@ Câu hỏi + 4 lựa chọn phải **thống nhất thì** (ưu tiên thì hiệ
 - **Độ dài tương đương**: tỷ lệ dài/ngắn nhất < 2.0 (khắt khe hơn trước)
 - **Từ vựng trong đáp án ≤ level thí sinh**
 
+### ⛔ Phân bố vị trí đáp án đúng — KHÔNG lặp vị trí
+
+> **Đáp án đúng PHẢI nằm ở các vị trí khác nhau (1, 2, 3, 4) giữa các câu hỏi trong batch.**
+> KHÔNG được để tất cả đáp án đúng đều ở vị trí 1 — thí sinh sẽ nhận ra pattern.
+
+Quy tắc:
+- Trong 1 bài (N1-N4 có Q1 + Q2): `correct_answer_1` ≠ `correct_answer_2` (hai câu hỏi khác vị trí đáp án đúng)
+- Trong batch (nhiều bài cùng level): phân bố đều 4 vị trí. Ví dụ 4 bài → đáp án đúng lần lượt ở vị trí 1, 3, 2, 4
+- **KHÔNG BAO GIỜ** có ≥3 câu hỏi liên tiếp cùng vị trí đáp án đúng
+- Agent phải **random vị trí** đáp án đúng trước khi sắp xếp 4 options, KHÔNG luôn đặt đáp án đúng ở vị trí 1 rồi shuffle sau
+
 ### ⛔ 4 loại bẫy BẮT BUỘC — mỗi câu hỏi PHẢI có đủ 4 loại
 
 > **Trước đây chỉ yêu cầu ≥2 loại. Giờ BẮT BUỘC đủ 4 loại cho MỌI câu hỏi, MỌI level.**

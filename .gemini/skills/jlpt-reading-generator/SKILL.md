@@ -66,13 +66,14 @@ description: >
 2. Chọn format tag từ R7 (`rules/content.md`) — xem danh sách 15 formats. Scan `sheets/` để chọn format chưa/ít dùng.
 3. Gen HTML theo rules → save `assets/html/tim_thong_tin/{id}.html`
 4. Gen câu hỏi + đáp án theo `rules/questions.md`
-5. Chạy process_html.py để tạo CSV + screenshot (⚠️ **BẮT BUỘC truyền `--tag`**):
+5. Chạy process_html.py để tạo CSV + screenshot (⚠️ **BẮT BUỘC truyền `--tag` và `--replace`**):
    ```bash
    python3 .gemini/skills/jlpt-reading-generator/scripts/process_html.py \
      --file assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
      --img-dir assets/img/tim_thong_tin \
      --csv sheets/{LEVEL}.csv \
-     --tag {format_tag}
+     --tag {format_tag} \
+     --replace
    ```
 6. Điền câu hỏi, đáp án, explanation vào CSV bằng **fill_qa.py**:
    > **⛔ KHÔNG ĐƯỢC sửa CSV bằng tay. Commas trong nội dung (ví dụ 100,000円) sẽ làm vỡ cột.**
@@ -127,7 +128,7 @@ Agent đọc lại file HTML và kiểm tra:
 |---|-------|-------------|----------|
 | 1 | **Char count** | Đếm ký tự visible trong body (bỏ whitespace, bỏ `<rt>`) | Trong ngưỡng: N5 230-280, N4 370-430, N3 560-640, N2/N1 660-740 |
 | 2 | **Flow text** | Tìm `。<br>` trong HTML | Không có `。<br>` nào |
-| 3 | **Container CSS** | Xem CSS trong HTML | Không có `margin:0 auto`, không `min-height` |
+| 3 | **Container CSS + word-break** | Xem CSS trong HTML | Không có `margin:0 auto`, không `min-height`. `word-break: auto-phrase` + `text-align: justify` (KHÔNG `keep-all`, KHÔNG `normal`) |
 | 4 | **`.container`** | Xem HTML structure | Có `<div class="container">` bọc nội dung |
 | 5 | **White background** | Xem CSS | Có `background:#fff` |
 | 6 | **Furigana format** | Tìm ngoặc `漢字(かんじ)` hoặc `漢字【かんじ】` | Không có — tất cả furigana dùng `<ruby><rt>` |
@@ -158,7 +159,7 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 | 17 | **Q1 tình huống** | Đọc câu hỏi 1 | Nhân vật tên thật + profile + **≥3 điều kiện ràng buộc** đồng thời |
 | 18 | **Q1 cross-reference** | Thử trả lời Q1 | Phải scan **≥3 vị trí** trong bài mới tìm được đáp án |
 | 19 | **A1 format** | Xem 4 đáp án | Đúng 4 options, đều độ dài (ratio < 2.0), thì động từ nhất quán |
-| 20 | **A1 correct_answer** | Xem giá trị correct_answer_1 | Integer 1-4 |
+| 20 | **A1 correct_answer** | Xem giá trị correct_answer_1 | Integer 1-4. Vị trí ≠ correct_answer_2 (nếu có Q2). Scan batch: không lặp cùng vị trí ≥3 lần liên tiếp |
 | 21 | **A1 paraphrase** | So đáp án đúng với bài gốc | KHÔNG trùng cụm ≥4 từ liên tiếp (N3+) hoặc ≥6 từ (N4/N5) |
 | 22 | **A1 đủ 4 loại bẫy** | Đọc 3 đáp án sai, xác định loại bẫy | Đủ: ① condition miss ② calculation trap ③ detail swap ④ partial match |
 | 23 | **A1 distractor khó loại** | Với mỗi đáp án sai: có dùng info thật? Cần quay lại bài mới loại? | Không có đáp án nào loại được trong <3 giây bằng common sense |
@@ -229,7 +230,7 @@ Agent mở file PNG và xem:
 
 > **⛔ RULE BẮT BUỘC: Bất kỳ khi nào sửa file HTML (dù chỉ 1 ký tự CSS/ruby/content):**
 > 1. **Chạy lại screenshot** — ảnh cũ = ảnh sai
-> 2. **Cập nhật jp_char_count** trong CSV — chạy lại `process_html.py` hoặc đếm lại bằng `count_body_chars()`
+> 2. **Cập nhật jp_char_count** trong CSV — chạy lại `process_html.py --replace` để cập nhật `text_read`, `jp_char_count`, `general_image` trong CSV
 >
 > Không làm 2 bước này = QC trên data cũ → vô nghĩa.
 

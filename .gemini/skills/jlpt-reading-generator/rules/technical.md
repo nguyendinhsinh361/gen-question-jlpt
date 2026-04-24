@@ -13,11 +13,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
         html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
-        body { font-family: 'Noto Sans JP', sans-serif; color: #000; line-height: 2; word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
-        .container { width: 700px; margin: 0; background: #fff; padding: 6px 8px; box-sizing: border-box; }
+        body { font-family: 'Noto Sans JP', sans-serif; color: #000; line-height: 2; word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; text-align: justify; text-spacing-trim: auto; }
+        .container { width: 700px; margin: 0; background: #fff; padding: 6px 8px; box-sizing: border-box; position: relative; }
         table { width: 100%; table-layout: fixed; }
-        td, th { overflow-wrap: break-word; }
-        .container > * { max-width: 100%; }
+        td, th { overflow-wrap: break-word; text-align: left; }
+        .container > * { max-width: 100%; position: relative; }
         ruby { ruby-align: center; ruby-position: over; vertical-align: baseline; }
         ruby rt { font-size: 0.55em; color: #333; letter-spacing: 0.02em; line-height: 1; vertical-align: top; }
     </style>
@@ -100,12 +100,12 @@ def count_body_chars(html_string):
 
 ```bash
 # Chụp 1 file:
-python3 .gemini/skills/jlpt-reading-generator/scripts/screenshot.py \
+python3 .claude/skills/jlpt-reading-generator/scripts/screenshot.py \
   --html assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
   --png  assets/img/tim_thong_tin/{LEVEL}_{uuid}.png
 
 # Chụp cả thư mục:
-python3 .gemini/skills/jlpt-reading-generator/scripts/screenshot.py \
+python3 .claude/skills/jlpt-reading-generator/scripts/screenshot.py \
   --html-dir assets/html/tim_thong_tin/ \
   --png-dir  assets/img/tim_thong_tin/
 ```
@@ -199,10 +199,10 @@ def check_html(html_path: str, level: str) -> dict:
 
 ```bash
 # Đếm ký tự:
-python3 .gemini/skills/jlpt-reading-generator/scripts/process_html.py --count-only --file <html-file>
+python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py --count-only --file <html-file>
 
 # Chụp ảnh + tạo CSV (all-in-one):
-python3 .gemini/skills/jlpt-reading-generator/scripts/process_html.py \
+python3 .claude/skills/jlpt-reading-generator/scripts/process_html.py \
   --file <html-file> \
   --img-dir assets/img/tim_thong_tin \
   --csv sheets/<file>.csv

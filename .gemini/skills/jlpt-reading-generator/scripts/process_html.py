@@ -246,8 +246,12 @@ def build_csv_row(html_path, img_path, tag=''):
     return row
 
 
-def append_to_csv(csv_path, rows):
-    """Append rows to existing CSV or create new one."""
+def append_to_csv(csv_path, rows, replace=False):
+    """Append rows to existing CSV or create new one.
+
+    If replace=True, existing rows with matching _id will be REPLACED (updated).
+    If replace=False (default), existing rows with matching _id will be SKIPPED.
+    """
     existing_rows = []
 
     if os.path.exists(csv_path):
@@ -255,22 +259,30 @@ def append_to_csv(csv_path, rows):
             reader = csv.DictReader(f)
             existing_rows = list(reader)
 
-    # Skip rows whose _id already exists in CSV (avoid duplicates)
     existing_ids = {r['_id'] for r in existing_rows if r.get('_id')}
-    new_rows = [r for r in rows if r.get('_id') not in existing_ids]
+    new_ids = {r['_id'] for r in rows if r.get('_id')}
 
-    if len(new_rows) < len(rows):
-        skipped = len(rows) - len(new_rows)
-        print(f"  Skipped {skipped} duplicate row(s)")
-
-    all_rows = existing_rows + new_rows
+    if replace:
+        # Replace mode: remove old rows with matching IDs, then add new ones
+        replaced = [r for r in existing_rows if r.get('_id') in new_ids]
+        kept_rows = [r for r in existing_rows if r.get('_id') not in new_ids]
+        all_rows = kept_rows + rows
+        if replaced:
+            print(f"  Replaced {len(replaced)} existing row(s)")
+    else:
+        # Append mode: skip rows whose _id already exists
+        new_rows = [r for r in rows if r.get('_id') not in existing_ids]
+        if len(new_rows) < len(rows):
+            skipped = len(rows) - len(new_rows)
+            print(f"  Skipped {skipped} duplicate row(s) (use --replace to update)")
+        all_rows = existing_rows + new_rows
 
     with open(csv_path, 'w', encoding='utf-8', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=CSV_FIELDNAMES)
+        writer = csv.DictWriter(f, fieldnames=CSV_FIELDNAMES, quoting=csv.QUOTE_ALL)
         writer.writeheader()
         writer.writerows(all_rows)
 
-    print(f"  CSV: {len(rows)} rows added → {csv_path} (total: {len(all_rows)})")
+    print(f"  CSV: {csv_path} (total: {len(all_rows)} rows)")
 
 
 # ── Main ────────────────────────────────────────────────────────────
@@ -284,6 +296,7 @@ def main():
     parser.add_argument('--no-screenshot', action='store_true', help='Skip screenshot capture')
     parser.add_argument('--count-only', action='store_true', help='Only count characters')
     parser.add_argument('--tag', default='', help='Format tag (e.g. store_flyer, class_enrollment)')
+    parser.add_argument('--replace', action='store_true', help='Replace existing rows with same _id (instead of skipping)')
     args = parser.parse_args()
 
     # Collect HTML files
@@ -325,7 +338,7 @@ def main():
         row = build_csv_row(html_path, img_path, tag=args.tag)
         rows.append(row)
 
-    append_to_csv(args.csv, rows)
+    append_to_csv(args.csv, rows, replace=args.replace)
     print("\nDone!")
 
 

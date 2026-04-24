@@ -89,16 +89,67 @@ Yêu cầu cụ thể:
 - Văn bản cùng đoạn → 1 thẻ `<p>`, KHÔNG `<br>` bên trong. `。<br>` → REJECT
 - Chỉ ngắt khi: chuyển section, sau heading, list items, key-value, chuyển ý hoàn toàn
 
+### Word-break — Text điền đầy + KHÔNG tách từ ngắn
+
+> **CSS BẮT BUỘC: `word-break: auto-phrase`** (KHÔNG dùng `keep-all` hay `normal`)
+>
+> - `keep-all` → khoảng trống lớn (text wrap sớm, không bẻ giữa CJK)
+> - `normal` → tách từ ngắn (遵守 bị tách thành 遵\n守)
+> - **`auto-phrase`** → Chromium tự phân tích cụm từ tiếng Nhật, giữ nguyên từ ghép ngắn (遵守, 効果, 服用...), chỉ bẻ dòng ở ranh giới cụm từ tự nhiên
+
+CSS body bắt buộc:
+- `word-break: auto-phrase` → giữ từ ghép ngắn, bẻ dòng thông minh
+- `line-break: strict` → không bẻ trước 。、）」 và kana nhỏ
+- `overflow-wrap: break-word` → phòng trường hợp URL/email dài
+- `text-align: justify` → phân bố đều khoảng trắng, giảm gap cuối dòng
+
+**SAI** (`keep-all` → khoảng trống lớn):
+```
+本剤は、体内の炎症を抑え、痛みを和らげる効果があります。以下の事項を遵守し、
+正しく服用してください。また、他の医療機関を受診する際は、
+```
+
+**SAI** (`normal` → tách từ ngắn 遵守):
+```
+...以下の事項を遵
+守し、正しく服用してください。
+```
+→ 遵守 bị tách 遵/守 giữa 2 dòng
+
+**ĐÚNG** (`auto-phrase` → từ ghép giữ nguyên, text điền đầy):
+```
+本剤は、体内の炎症を抑え、痛みを和らげる効果があります。以下の事項を
+遵守し、正しく服用してください。また、他の医療機関を受診する際は、本剤を服用中であること
+```
+→ "遵守" giữ nguyên, xuống dòng cả từ nếu không đủ chỗ
+
 ### Container & Capture
 
 - Container: `width: 700px; margin: 0; padding: 6px 8px;` — KHÔNG `auto`, KHÔNG `min-height`
 - Viewport Playwright = 700px. Capture bằng `scripts/screenshot.py` — KHÔNG tự viết code
 - Table: `table-layout: fixed; width: 100%`
 
-### Cấm che khuất chữ
+### ⛔ Cấm che khuất chữ — KHÔNG BAO GIỜ text bị đè
 
-- Floating label → box có `margin-top ≥ 16px`, `padding-top ≥ 24px`, label có `background-color` solid
-- **Không thể hiển thị cả hình VÀ chữ rõ 100% → BỎ HÌNH, GIỮ CHỮ**
+> **Mọi text trong bài PHẢI hiển thị đầy đủ, không bị element nào che/đè lên.**
+> Đây là lỗi nghiêm trọng — text bị che = thí sinh mất thông tin = bài không hợp lệ.
+
+Nguyên nhân phổ biến và cách phòng:
+- **Label/badge đè lên text dòng trước** → PHẢI có `margin-top` đủ lớn (≥ 16px) để tách khỏi text phía trên. Label dùng `display: inline-block` hoặc `display: block`, KHÔNG dùng `position: absolute/fixed` lên text.
+- **Floating label che text** → box bọc label có `padding-top ≥ 24px`, label có `background-color` solid, KHÔNG transparent
+- **Element chồng chéo** → KHÔNG dùng `position: absolute` hoặc `negative margin` trên text content. Mọi element dùng `position: relative` hoặc `static` (flow bình thường)
+- **Hình che chữ** → **Không thể hiển thị cả hình VÀ chữ rõ 100% → BỎ HÌNH, GIỮ CHỮ**
+
+**CSS phòng chống:**
+```css
+.container > * { position: relative; } /* flow bình thường, không đè nhau */
+```
+Heading/label sections nên dùng:
+```css
+margin-top: 16px; /* tách khỏi text phía trên */
+padding: 4px 12px;
+display: inline-block; /* không chiếm toàn bộ dòng */
+```
 
 ---
 
