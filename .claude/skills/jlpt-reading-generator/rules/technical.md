@@ -16,8 +16,13 @@
         body { font-family: 'Noto Sans JP', sans-serif; color: #000; line-height: 2; word-break: auto-phrase; line-break: strict; overflow-wrap: break-word; text-align: justify; text-spacing-trim: auto; }
         .container { width: 700px; margin: 0; background: #fff; padding: 6px 8px; box-sizing: border-box; position: relative; }
         table { width: 100%; table-layout: fixed; }
-        td, th { overflow-wrap: break-word; text-align: left; }
+        td, th { overflow-wrap: break-word; text-align: left; color: #000; }
+        th { background: #e8e8e8; font-weight: bold; }
         .container > * { max-width: 100%; position: relative; }
+        /* ⛔ Section label — KHÔNG dùng position:absolute + negative top */
+        /* Dùng pattern này thay vì floating label: */
+        .section-box { border: 1px solid #ccc; margin-top: 20px; padding: 12px; }
+        .section-label { font-weight: bold; background: #f0f0f0; padding: 4px 12px; margin: -12px -12px 10px -12px; border-bottom: 1px solid #ccc; color: #000; }
         ruby { ruby-align: center; ruby-position: over; vertical-align: baseline; }
         ruby rt { font-size: 0.55em; color: #333; letter-spacing: 0.02em; line-height: 1; vertical-align: top; }
     </style>
