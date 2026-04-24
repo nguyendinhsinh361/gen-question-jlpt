@@ -134,22 +134,61 @@ CSS body bắt buộc:
 > **Mọi text trong bài PHẢI hiển thị đầy đủ, không bị element nào che/đè lên.**
 > Đây là lỗi nghiêm trọng — text bị che = thí sinh mất thông tin = bài không hợp lệ.
 
-Nguyên nhân phổ biến và cách phòng:
-- **Label/badge đè lên text dòng trước** → PHẢI có `margin-top` đủ lớn (≥ 16px) để tách khỏi text phía trên. Label dùng `display: inline-block` hoặc `display: block`, KHÔNG dùng `position: absolute/fixed` lên text.
-- **Floating label che text** → box bọc label có `padding-top ≥ 24px`, label có `background-color` solid, KHÔNG transparent
-- **Element chồng chéo** → KHÔNG dùng `position: absolute` hoặc `negative margin` trên text content. Mọi element dùng `position: relative` hoặc `static` (flow bình thường)
-- **Hình che chữ** → **Không thể hiển thị cả hình VÀ chữ rõ 100% → BỎ HÌNH, GIỮ CHỮ**
+#### Lỗi #1 — Label/badge đè lên text dòng trước (LỖI PHỔ BIẾN NHẤT)
 
-**CSS phòng chống:**
+Nguyên nhân: Label section (ví dụ "募集内容", "ご予約のキャンセル") dùng `negative margin-top` hoặc `position: relative; top: -Xpx` để "nổi" trên đường viền box → đè lên text phía trên.
+
+**⛔ NGHIÊM CẤM các CSS sau cho label/badge:**
 ```css
-.container > * { position: relative; } /* flow bình thường, không đè nhau */
+/* TẤT CẢ đều bị CẤM — sẽ che text dòng trước */
+margin-top: -10px;        /* negative margin */
+position: relative; top: -12px;  /* relative + negative top */
+position: absolute; top: -10px;  /* absolute positioning */
+transform: translateY(-50%);     /* dịch chuyển lên trên */
 ```
-Heading/label sections nên dùng:
+
+**✅ CSS ĐÚNG cho label/badge section:**
 ```css
-margin-top: 16px; /* tách khỏi text phía trên */
-padding: 4px 12px;
-display: inline-block; /* không chiếm toàn bộ dòng */
+/* Cách 1: Label nằm TRONG box, không float */
+.section-box {
+    margin-top: 20px;     /* khoảng cách với text/section phía trên */
+    border: 1px solid #ccc;
+    padding: 12px;
+}
+.section-label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;       /* nằm trong flow bình thường */
+}
+
+/* Cách 2: Label nằm trên border NHƯNG box có padding-top đủ lớn */
+.section-box {
+    margin-top: 32px;     /* ĐỦ CHỖ cho label + khoảng cách */
+    border: 1px solid #ccc;
+    padding: 28px 12px 12px 12px;  /* padding-top lớn */
+    position: relative;
+}
+.section-label {
+    position: absolute;
+    top: -12px; left: 12px;
+    background: #fff;     /* che border, KHÔNG che text */
+    padding: 2px 8px;
+}
+/* → margin-top: 32px đảm bảo KHÔNG đè text phía trên */
 ```
+
+**Quy tắc đơn giản:** Nếu label dùng `negative top/margin` → `margin-top` của box PHẢI ≥ |negative value| + 16px. Ví dụ label `top: -12px` → box cần `margin-top: ≥ 28px`.
+
+#### Lỗi #2 — Element chồng chéo khác
+
+- KHÔNG dùng `position: absolute` hoặc `negative margin` trên text content
+- Hình che chữ → **Không thể hiển thị cả hình VÀ chữ rõ 100% → BỎ HÌNH, GIỮ CHỮ**
+
+#### Test nhanh
+
+> Nhìn screenshot: có chữ nào bị che/mờ/cắt bởi element khác không?
+> - Có → FAIL #31 (screenshot QC) — sửa CSS margin/padding → chạy lại screenshot
+> - Không → PASS
 
 ---
 
