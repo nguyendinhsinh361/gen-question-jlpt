@@ -11,13 +11,79 @@
 
 ### Chủ đề phù hợp theo level
 
-| Level | Chủ đề phù hợp | Ví dụ |
-|-------|----------------|-------|
-| N5 | Đời sống hàng ngày cơ bản, thông báo công cộng đơn giản | Lịch xe buýt, giờ mở cửa bể bơi, nội quy cấm hút thuốc |
-| N4 | Sinh hoạt cộng đồng, dịch vụ đơn giản, lịch trình học tập | Thực đơn nhà hàng, lịch học yoga, bảng giá thuê phòng, tờ rơi khuyến mãi |
-| N3 | Dịch vụ phổ biến, giải trí, du lịch, sức khỏe cơ bản | Brochure tour, quy định khách sạn, hướng dẫn gym, thông báo khu dân cư |
-| N2 | Tài liệu kinh doanh, hành chính, giáo dục, y tế cơ bản | Thông báo tuyển dụng, hợp đồng thuê phòng, hướng dẫn thuốc, đào tạo chuyên môn |
-| N1 | Văn bản chuyên sâu, pháp lý, tài chính, kỹ thuật phức tạp | Quy chế bảo hiểm, khai báo thuế, phân tích thị trường, hợp đồng lao động |
+| Level | Yêu cầu nhận thức | Mô tả khái quát | Chủ đề phù hợp (slug + mức độ) | Ví dụ |
+|-------|-------------------|-----------------|-------------------------------|-------|
+| N5 (~250 ký tự) | Tìm 1–2 thông tin đơn giản. Tối đa 2 điều kiện kết hợp | Đời sống hàng ngày rất cơ bản, thông báo công cộng đơn giản | store_flyer_simple ★★★, schedule_timetable ★★★, event_announcement_simple ★★, access_guide ★★, regulation_notice_simple ★★, service_guide_simple ★★, travel_listing_simple ★ | Lịch xe buýt, giờ mở cửa bể bơi, tờ rơi khuyến mãi đơn giản, nội quy cơ bản |
+| N4 (~400 ký tự) | Kết hợp 3–4 điều kiện. Chứa điều kiện ẩn trong ※. Giá có thêm/bớt | Sinh hoạt cộng đồng, dịch vụ đơn giản và lịch trình học tập | event_announcement ★★★, class_enrollment ★★★, price_comparison_table ★★★, menu_guide ★★, service_guide ★★, regulation_notice ★★, community_notice ★★, store_flyer ★ | Thực đơn nhà hàng (set lunch), lịch học yoga, bảng giá thuê phòng |
+| N3 (~600 ký tự) | Kết hợp 5–6 điều kiện. Chính sách hủy theo %. Deadline kép. Điều kiện tiên quyết | Dịch vụ phổ biến, giải trí, du lịch và sức khỏe cơ bản | facility_guide ★★★, class_enrollment ★★★, travel_listing ★★★, service_guide ★★, recruitment_notice ★★, price_comparison_table ★★, event_announcement ★★, regulation_notice ★ | Brochure tour có phí hủy %, quy định khách sạn, hướng dẫn gym |
+| N2 (~700 ký tự) | 6–8 điều kiện. Flowchart đa nhánh. Giảm giá không kết hợp. Deadline theo phương thức. Ngưỡng có ngoại lệ | Tài liệu kinh doanh, hành chính, giáo dục chuyên nghiệp và y tế cơ bản | service_guide ★★★, facility_guide ★★★, price_comparison_table ★★★, recruitment_notice ★★, class_enrollment ★★, membership_guide ★★, event_announcement ★★, regulation_notice ★, comparison_article ★, training_program_guide ★, product_announcement ★, product_manual ★ | Thông báo tuyển dụng, hợp đồng thuê phòng, hướng dẫn thuốc |
+| N1 (~700 ký tự, mật độ dày) | 7+ điều kiện đồng thời bắt buộc. Quy trình xét duyệt 2 vòng. Điều kiện loại trừ đặc biệt. Nộp qua trung gian bắt buộc. Bẫy ẩn, nuance tinh tế | Văn bản chuyên sâu, pháp lý, tài chính hoặc hướng dẫn kỹ thuật phức tạp | recruitment_notice ★★★, facility_guide ★★, regulation_notice ★★, event_announcement ★★, membership_guide ★, price_comparison_table ★, service_guide ★ | Quy chế bảo hiểm, khai báo thuế, hợp đồng lao động phức tạp |
+
+### Bảng tổng hợp chủ đề theo cấp độ
+
+> *★★★ = thường xuyên / ★★ = vừa / ★ = ít / — = không phù hợp*
+
+| Chủ đề (slug) | N5 | N4 | N3 | N2 | N1 |
+|---------------|----|----|----|----|-----|
+| store_flyer_simple | ★★★ | — | — | — | — |
+| store_flyer | — | ★ | — | — | — |
+| schedule_timetable | ★★★ | — | — | — | — |
+| access_guide | ★★ | — | — | — | — |
+| regulation_notice_simple | ★★ | — | — | — | — |
+| service_guide_simple | ★★ | — | — | — | — |
+| travel_listing_simple | ★ | — | — | — | — |
+| event_announcement_simple | ★★ | — | — | — | — |
+| event_announcement | — | ★★★ | ★★ | ★★ | ★★ |
+| class_enrollment | — | ★★★ | ★★★ | ★★ | — |
+| price_comparison_table | — | ★★★ | ★★ | ★★★ | ★ |
+| menu_guide | — | ★★ | — | — | — |
+| service_guide | ★★ | ★★ | ★★ | ★★★ | ★ |
+| regulation_notice | — | ★★ | ★ | ★ | ★★ |
+| community_notice | — | ★★ | — | — | — |
+| facility_guide | — | — | ★★★ | ★★★ | ★★ |
+| travel_listing | — | — | ★★★ | — | — |
+| recruitment_notice | — | — | ★★ | ★★ | ★★★ |
+| membership_guide | — | — | — | ★★ | ★ |
+| comparison_article | — | — | — | ★ | — |
+| training_program_guide | — | — | — | ★ | — |
+| product_announcement | — | — | — | ★ | — |
+| product_manual | — | — | — | ★ | — |
+
+### Thước đo độ phức tạp — Phân biệt level
+
+**Theo số điều kiện cần kết hợp:**
+
+| Level | Số điều kiện | Tính chất |
+|-------|-------------|-----------|
+| N5 | 1–2 | Đơn, độc lập, tìm thẳng |
+| N4 | 3–4 | Kết hợp, có ẩn trong ※ |
+| N3 | 5–6 | Tiên quyết, hủy theo %, deadline kép |
+| N2 | 6–8 | Không kết hợp, flowchart, ngưỡng có ngoại lệ |
+| N1 | 7+ | Đồng thời bắt buộc, loại trừ đặc biệt, bẫy ẩn |
+
+**Loại bẫy điển hình theo level:**
+
+| Level | Loại bẫy điển hình |
+|-------|-------------------|
+| N5 | Nhìn nhầm hàng/cột trong bảng |
+| N4 | Bỏ sót điều kiện ẩn trong ※ |
+| N3 | Nhầm mốc % hủy, bỏ điều kiện tiên quyết |
+| N2 | Dùng nhầm giảm giá không thể kết hợp, nhầm deadline |
+| N1 | Bỏ sót điều kiện loại trừ, nhầm điều kiện đồng thời bắt buộc |
+
+**Dấu hiệu phân biệt level liền kề:**
+
+| Bước chuyển | Dấu hiệu nhận biết |
+|-------------|---------------------|
+| **N5 → N4** | Xuất hiện ※ chứa điều kiện ẩn. Giá có thêm/bớt theo điều kiện. Bảng có 3+ cột thông tin |
+| **N4 → N3** | Chính sách hủy/hoàn tiền theo %. Điều kiện tiên quyết. Deadline kép (cố định + 先着順) |
+| **N3 → N2** | 「一番いい条件のみ」(không kết hợp). Đăng ký bằng はがき vật lý. Flowchart đa nhánh. キャンセル待ち |
+| **N2 → N1** | Điều kiện bắt buộc đồng thời (thiếu 1 = không hợp lệ). Quy trình xét duyệt 2 vòng. Nộp qua trung gian bắt buộc |
+
+### Checklist kiểm tra chủ đề
+
+- Số điều kiện cần kết hợp có đúng với thước đo của level (N5: 1–2 / N4: 3–4 / N3: 5–6 / N2: 6–8 / N1: 7+) không?
+- Slug chủ đề có nằm trong danh mục phù hợp với level không? (Tra bảng tổng hợp hệ thống)
 
 ### Chủ đề KHÔNG đạt chuẩn (loại trừ)
 
@@ -44,8 +110,8 @@
 |-------|--------|
 | N5 | Bố cục đơn giản. Bảng tối giản 2-3 cột/hàng. Tiêu đề, thời gian, địa điểm tách biệt rõ |
 | N4 | Bảng 3-5 hàng, nhóm thông tin riêng biệt. Dấu hiệu phân cách 【】, ◆ |
-| N3 | Bảng nhiều cột/hàng hơn (4-6 cột). Kết hợp nhiều nguồn + chú thích điều kiện phức tạp |
-| N2 | Bảng phức tạp với điều kiện lồng nhau. Brochure 2-3 phần, phần "Lưu ý" dài |
+| N3 | Bảng nhiều cột/hàng hơn (4-6 cột). Kết hợp nhiều nguồn + chú thích điều kiện phức tạp (ví dụ: giảm giá theo đối tượng, chính sách hủy %) |
+| N2 | Bảng phức tạp với điều kiện lồng nhau. Brochure 2-3 phần, phần "Lưu ý" dài. Có thể có flowchart |
 | N1 | Đa bảng biểu, mật độ thông tin dày (6-8+ dòng). Tham chiếu chéo ("xem chú thích 1, 2") |
 
 ### ⛔ Quy tắc viết rõ ràng — KHÔNG mơ hồ
@@ -73,6 +139,7 @@ Yêu cầu cụ thể:
 - Văn bản thuần túy (chỉ đoạn văn dài, không bảng biểu/danh sách)
 - Thông tin tập trung 1 chỗ (không cần scan)
 - Thiếu tính thực tế (không giống tờ rơi/thông báo thật)
+- Thì động từ không nhất quán: Câu hỏi và các lựa chọn không thống nhất về thì
 
 ### Số lượng ký tự (đếm bằng `count_body_chars()`)
 
@@ -82,7 +149,9 @@ Yêu cầu cụ thể:
 | N4 | ~400 | 370–430 | < 370 → gen lại |
 | N3 | ~600 | 560–640 | < 560 → gen lại |
 | N2 | ~700 | 660–740 | < 660 → gen lại |
-| N1 | ~700-800 | 660–740 | < 660 → gen lại |
+| N1 | ~700 | 660–740 | < 660 → gen lại |
+
+> **N1 note:** Mật độ thông tin dày đặc (không tăng độ dài, tăng độ phức tạp). Tiêu chuẩn ký tự N1 giống N2.
 
 ### Flow Text (NGHIÊM CẤM `<br>` ngắt câu)
 

@@ -32,13 +32,13 @@ Mỗi câu hỏi PHẢI xây dựng tình huống với:
 
 ### Yêu cầu nhận thức theo level
 
-| Level | Dạng câu hỏi | Yêu cầu cross-reference |
-|-------|-------------|--------------------------|
-| N5 | Tìm thông tin + 1 phép so sánh/tính toán đơn giản | ≥3 vị trí (bảng + lưu ý + điều kiện) |
-| N4 | Kết hợp nhiều nguồn + tính toán cộng/trừ | ≥3 vị trí, có phép tính |
-| N3 | Kết hợp thông tin + quy tắc + tính % | ≥3 vị trí, có điều kiện ngoại lệ |
-| N2 | Điều kiện lồng nhau & mapping phức tạp | ≥3 vị trí, có ngoại lệ "nếu... thì" |
-| N1 | Lọc thông tin mâu thuẫn & suy luận nhiều bước | ≥3 vị trí, thuật ngữ chuyên môn + điều kiện phức tạp |
+| Level | Dạng câu hỏi | Yêu cầu cross-reference | Số câu/văn bản |
+|-------|-------------|--------------------------|----------------|
+| N5 | Tìm thông tin + 1 phép so sánh/tính toán đơn giản | ≥3 vị trí (bảng + lưu ý + điều kiện) | 1 câu |
+| N4 | Kết hợp nhiều nguồn + tính toán cộng/trừ | ≥3 vị trí, có phép tính | 2 câu |
+| N3 | Kết hợp thông tin + quy tắc + tính % | ≥3 vị trí, có điều kiện ngoại lệ | 2 câu |
+| N2 | Điều kiện lồng nhau & mapping phức tạp | ≥3 vị trí, có ngoại lệ "nếu... thì" | 2 câu |
+| N1 | Lọc thông tin mâu thuẫn & suy luận nhiều bước | ≥3 vị trí, thuật ngữ chuyên môn + điều kiện phức tạp | 2 câu |
 
 ### Số lượng & tên nhân vật
 
@@ -117,6 +117,16 @@ Quy tắc:
 | **③ Bẫy thông tin chéo (detail swap)** | Dữ liệu THẬT từ bài nhưng thuộc đối tượng/dòng khác | Phải xác nhận đúng dòng/cột/đối tượng mới loại được |
 | **④ Bẫy tương tự (partial match)** | Đúng một phần nhưng thiếu/thừa 1 yếu tố | Phải cross-check đầy đủ điều kiện mới phát hiện |
 
+### Đặc điểm lựa chọn theo level
+
+| Level | Đặc điểm các lựa chọn | Loại bẫy đặc trưng |
+|-------|----------------------|---------------------|
+| N5 | 4 lựa chọn. Nhiễu rõ ràng, lấy từ thông tin khác trong bài (ngày khác, giờ khác) | Bẫy đơn giản: sai ngày, sai giờ. Không có bẫy phép tính |
+| N4 | 4 lựa chọn. Nhiễu có vẻ hợp lý với người đọc lướt, có thể có phương án đúng một phần | Quên điều kiện đi kèm hoặc sai phép tính cộng/trừ đơn giản |
+| N3 | 4 lựa chọn. Nhiễu tinh tế hơn, yêu cầu tra cứu lại ít nhất 2 nguồn thông tin | Hiểu sai quy tắc (rule), nhầm lẫn giữa các điều kiện (ví dụ: nhầm phí hủy tour) |
+| N2 | 4 lựa chọn. Xây dựng từ các chi tiết có thật, không tự bịa con số | Hiểu sai điều kiện lồng nhau (nested conditions) hoặc bỏ sót ngoại lệ |
+| N1 | 4 lựa chọn. Đòi hỏi đọc kỹ từng chữ, không thể đoán mò | Hiểu sai sắc thái (nuance), thuật ngữ chuyên ngành hoặc áp dụng sai quy tắc ưu tiên |
+
 **Quy tắc quan trọng:**
 - Mỗi distractor phải dùng **ít nhất 1 thông tin THẬT** có trong bài (số liệu, tên, ngày, giá...)
 - Người đọc phải **suy nghĩ và quay lại bài đọc** mới loại được — KHÔNG được loại bằng common sense
@@ -150,6 +160,10 @@ Với mỗi đáp án sai, agent phải:
 > → Trích dẫn: bảng giá "週末コース 2,500円" — đây là giá GỐC, đúng thông tin nhưng sai vì chưa áp dụng giảm giá
 > → Người đọc phải đọc thêm phần 【わりびき】 mới loại được ✅
 
+### ⛔ Red flag câu hỏi
+
+- **Đúng vì lý do sai**: Thí sinh sử dụng logic sai nhưng vẫn chọn được kết luận đúng → câu hỏi không phân biệt được năng lực thật → REJECT, phải thiết kế lại để chỉ logic đúng mới dẫn tới đáp án đúng
+
 ### Loại trừ tuyệt đối — REJECT nếu có bất kỳ
 
 - Bịa thông tin không có trong bài (kể cả bịa 1 chi tiết nhỏ: giờ, nút bấm, tên...)
@@ -158,5 +172,6 @@ Với mỗi đáp án sai, agent phải:
 - 3 đáp án tích cực + 1 phủ định rõ ràng
 - Đáp án chỉ khác nhau 1 con số tròn (100, 200, 300, 400)
 - Đáp án dùng từ vựng vượt level thí sinh
+- Dùng cấu trúc phủ định kép gây khó hiểu không cần thiết
 - **Test che bài**: che bài, nhìn 4 đáp án → đoán được = REJECT
 - **Test loại nhanh**: đọc 1 đáp án sai, loại được trong <3 giây không cần quay lại bài = REJECT

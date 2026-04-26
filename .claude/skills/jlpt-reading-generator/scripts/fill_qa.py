@@ -111,13 +111,53 @@ def main():
             target[f'explain_en_{i}'] = een
         updated.append(f'Q{i}')
 
+    # ── Validate: all required fields must be non-empty after fill ──
+    level = target.get('level', '')
+    max_q = 1 if level == 'N5' else 2
+    errors = []
+    for i in range(1, max_q + 1):
+        required_fields = {
+            f'question_label_{i}': target.get(f'question_label_{i}', ''),
+            f'question_{i}': target.get(f'question_{i}', ''),
+            f'answer_{i}': target.get(f'answer_{i}', ''),
+            f'correct_answer_{i}': target.get(f'correct_answer_{i}', ''),
+            f'explain_vn_{i}': target.get(f'explain_vn_{i}', ''),
+            f'explain_en_{i}': target.get(f'explain_en_{i}', ''),
+        }
+        for field_name, field_val in required_fields.items():
+            if not field_val or not field_val.strip():
+                errors.append(field_name)
+
+    # Also check answer has exactly 4 options
+    for i in range(1, max_q + 1):
+        a_val = target.get(f'answer_{i}', '')
+        if a_val:
+            opts = [x.strip() for x in a_val.strip().split('\n') if x.strip()]
+            if len(opts) != 4:
+                errors.append(f'answer_{i} (got {len(opts)} options, need 4)')
+
+    # Also check basic row fields
+    for field in ['_id', 'level', 'tag', 'jp_char_count', 'text_read', 'general_image']:
+        if not target.get(field, '').strip():
+            errors.append(field)
+
+    if errors:
+        print(f"\n⚠️  WARNING: {len(errors)} required field(s) are EMPTY after fill:", file=sys.stderr)
+        for e in errors:
+            print(f"   ❌ {e}", file=sys.stderr)
+        print(f"\n   Agent PHẢI fill đầy đủ trước khi chuyển sang QC!", file=sys.stderr)
+        # Don't exit — still save, but warn loudly
+
     # Write back CSV with proper quoting
     with open(csv_path, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=CSV_FIELDNAMES, quoting=csv.QUOTE_ALL)
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"✅ Updated {', '.join(updated)} for {args.row_id} in {csv_path}")
+    if errors:
+        print(f"\n⚠️  CSV saved BUT {len(errors)} field(s) missing — see warnings above")
+    else:
+        print(f"\n✅ All required fields present — data complete")
 
     # Show summary
     for qi in updated:

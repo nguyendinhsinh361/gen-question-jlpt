@@ -47,7 +47,7 @@ description: >
 2. **Đọc `input/jlpt_kanji.csv`** — dùng để tra level từng kanji khi quyết định furigana
 3. Scan `sheets/` xem format đã dùng → chọn format chưa/ít dùng
 4. Lập kế hoạch: mỗi bài gán format + visual + chủ đề (không trùng)
-5. Read references: 1-2 HTML mẫu `input/html/` + 1 QA mẫu `input/htm_content_qa/` + `input/rule_gen_tim_thong_tin.md`
+5. Read references: 1-2 HTML mẫu `input/html/` + 1 QA mẫu `input/htm_content_qa/` + `input/rule_doc_hieu.md`
 
 ---
 
@@ -142,7 +142,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 13 | **Đủ dữ liệu tra cứu** | Đọc toàn bài | Có bảng/danh sách/lịch... để người đọc tra cứu |
 | 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
-| 16 | **Furigana đúng từ (tra CSV)** | Tra từng kanji trong `input/jlpt_kanji.csv`: có kanji > level → phải có furigana; tất cả kanji ≤ level → không furigana | Mọi từ có kanji vượt level đều có `<ruby><rt>`. Không thừa furigana cho từ đúng level |
+| 16 | **⛔ Furigana đúng từ (tra CSV)** | Liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/jlpt_kanji.csv` → ghi: `từ(ký tự=level)` → kết luận cần/không cần furigana. **PHẢI log bảng tra này.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | Mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
 
 #### PHẦN C: CÂU HỎI & ĐÁP ÁN
 
@@ -161,6 +161,7 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 | 25 | **Q2 exists (N1-N4)** | Xem CSV | Có câu hỏi 2 + 4 đáp án + correct_answer (bỏ qua nếu N5) |
 | 26 | **Q2 ≠ Q1 kiểu** | So sánh Q1 và Q2 | Q1 và Q2 khác kiểu hỏi (ví dụ: Q1 hỏi thời gian, Q2 hỏi điều kiện) |
 | 27 | **Explanations đầy đủ** | Đọc explain_vn_1 + explain_en_1 | Giải thích đủ 3 phần (xem format bên dưới) |
+| 28 | **⛔ CSV data completeness** | Đọc CSV row, kiểm tra TỪNG field bắt buộc | TẤT CẢ fields PHẢI có dữ liệu (không empty): `_id`, `level`, `tag`, `jp_char_count`, `text_read`, `general_image`, `question_label_1`, `question_1`, `answer_1` (đủ 4 options), `correct_answer_1`, `explain_vn_1`, `explain_en_1`. Với N1-N4: thêm tất cả `_2` fields. Thiếu BẤT KỲ field nào = FAIL |
 
 > **⛔ CHECK #27 — FORMAT EXPLANATION BẮT BUỘC**
 >
@@ -199,11 +200,11 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 
 | # | Check | Cách verify | PASS nếu |
 |---|-------|-------------|----------|
-| 28 | **Tự tính Q1** | Đọc bài + câu hỏi 1, tự tính/tìm đáp án từ đầu (KHÔNG nhìn 4 options) | Kết quả tự tính KHỚP với correct_answer trong CSV |
-| 29 | **Tự tính Q2** | Tương tự cho câu hỏi 2 (bỏ qua nếu N5) | Kết quả tự tính KHỚP với correct_answer trong CSV |
-| 30 | **Test mơ hồ** | Đọc lại mỗi điều kiện/giảm giá/ngoại lệ, thử hiểu theo 2 cách khác nhau | Chỉ có DUY NHẤT 1 cách hiểu hợp lý. Nếu có 2 cách → FAIL → sửa bài viết cho rõ |
-| 31 | **Distractor self-test** | Với TỪNG đáp án sai: trích dẫn chính xác câu/vị trí trong bài dùng để bác bỏ | Mỗi distractor đều trích được câu cụ thể. Không trích được = BỊA → FAIL |
-| 32 | **Đếm vị trí cross-ref** | Liệt kê CỤ THỂ các vị trí người đọc phải scan để trả lời mỗi câu hỏi | Mỗi câu hỏi cần scan ≥3 vị trí khác nhau. Ít hơn = câu hỏi quá dễ → FAIL |
+| 29 | **Tự tính Q1** | Đọc bài + câu hỏi 1, tự tính/tìm đáp án từ đầu (KHÔNG nhìn 4 options) | Kết quả tự tính KHỚP với correct_answer trong CSV |
+| 30 | **Tự tính Q2** | Tương tự cho câu hỏi 2 (bỏ qua nếu N5) | Kết quả tự tính KHỚP với correct_answer trong CSV |
+| 31 | **Test mơ hồ** | Đọc lại mỗi điều kiện/giảm giá/ngoại lệ, thử hiểu theo 2 cách khác nhau | Chỉ có DUY NHẤT 1 cách hiểu hợp lý. Nếu có 2 cách → FAIL → sửa bài viết cho rõ |
+| 32 | **Distractor self-test** | Với TỪNG đáp án sai: trích dẫn chính xác câu/vị trí trong bài dùng để bác bỏ | Mỗi distractor đều trích được câu cụ thể. Không trích được = BỊA → FAIL |
+| 33 | **Đếm vị trí cross-ref** | Liệt kê CỤ THỂ các vị trí người đọc phải scan để trả lời mỗi câu hỏi | Mỗi câu hỏi cần scan ≥3 vị trí khác nhau. Ít hơn = câu hỏi quá dễ → FAIL |
 
 #### PHẦN D: ẢNH
 
@@ -211,12 +212,12 @@ Agent mở file PNG và xem:
 
 | # | Check | Cách verify | PASS nếu |
 |---|-------|-------------|----------|
-| 33 | **Screenshot tồn tại** | Xem file PNG | File tồn tại, không rỗng |
-| 34 | **Crop sát** | Nhìn ảnh | Không thừa khoảng trắng/viền xám bất kỳ cạnh nào |
-| 35 | **Đủ nội dung** | Nhìn ảnh | Không bị cắt cụt — hiển thị đầy đủ bài |
-| 36 | **Chữ rõ ràng** | Nhìn ảnh | Chữ không mờ, không bị che, không tràn |
-| 37 | **Furigana hiển thị** | Nhìn ảnh | Ruby text hiện đúng vị trí, không lệch |
-| 38 | **Bảng biểu nguyên vẹn** | Nhìn ảnh | Bảng không vỡ layout, cột không tràn |
+| 34 | **Screenshot tồn tại** | Xem file PNG | File tồn tại, không rỗng |
+| 35 | **Crop sát** | Nhìn ảnh | Không thừa khoảng trắng/viền xám bất kỳ cạnh nào |
+| 36 | **Đủ nội dung** | Nhìn ảnh | Không bị cắt cụt — hiển thị đầy đủ bài |
+| 37 | **Chữ rõ ràng, không bị che** | Nhìn ảnh | Chữ không mờ, không bị element khác đè, không tràn. Label/badge KHÔNG che text dòng trước |
+| 38 | **Furigana hiển thị** | Nhìn ảnh | Ruby text hiện đúng vị trí, không lệch |
+| 39 | **Bảng biểu nguyên vẹn** | Nhìn ảnh | Bảng không vỡ layout, cột không tràn |
 
 ---
 
@@ -234,12 +235,12 @@ Agent mở file PNG và xem:
 | #2, #3, #4, #5, #9, #10 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
-| #17-#27 | Sửa câu hỏi/đáp án trong CSV (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
-| #28-#29 (tự tính sai) | Kiểm tra lại phép tính, sửa đáp án hoặc sửa bài viết | Quay lại BƯỚC 2 |
-| #30 (mơ hồ) | Sửa bài viết cho rõ ràng → **chạy lại screenshot** | Quay lại BƯỚC 2 |
-| #31 (distractor bịa) | Viết lại distractor dùng info thật từ bài | Quay lại BƯỚC 2 |
-| #32 (câu hỏi dễ) | Viết lại câu hỏi + tình huống phức tạp hơn | Quay lại BƯỚC 2 |
-| #33-#38 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #17-#28 | Sửa câu hỏi/đáp án/CSV fields (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
+| #29-#30 (tự tính sai) | Kiểm tra lại phép tính, sửa đáp án hoặc sửa bài viết | Quay lại BƯỚC 2 |
+| #31 (mơ hồ) | Sửa bài viết cho rõ ràng → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #32 (distractor bịa) | Viết lại distractor dùng info thật từ bài | Quay lại BƯỚC 2 |
+| #33 (câu hỏi dễ) | Viết lại câu hỏi + tình huống phức tạp hơn | Quay lại BƯỚC 2 |
+| #34-#39 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 
 **Lệnh chạy lại screenshot (BẮT BUỘC sau mỗi lần sửa HTML):**
 ```bash
@@ -257,7 +258,7 @@ python3 .claude/skills/jlpt-reading-generator/scripts/screenshot.py \
 
 Chỉ khi **TẤT CẢ 33 checks PASS** → log:
 ```
-🎉 ALL PASSED (38/38) — {_id} hoàn thành
+🎉 ALL PASSED (39/39) — {_id} hoàn thành
 ```
 → Chuyển sang bài tiếp theo (quay lại BƯỚC 1).
 
@@ -293,4 +294,4 @@ Output: `sheets/all_tim_thong_tin.csv` — chứa tất cả bài từ N1→N5.
 
 - Passage HTML (61 files): `input/html/` — N1(14), N2(12), N3(15), N4(10), N5(10)
 - QA references (20 files): `input/htm_content_qa/` — 4 per level
-- Teacher rules: `input/rule_gen_tim_thong_tin.md`
+- Teacher rules: `input/rule_doc_hieu.md`

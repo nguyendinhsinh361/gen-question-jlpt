@@ -22,7 +22,7 @@ gen-questions-label-ver-2/
 │   ├── question_format.json       ← Số câu hỏi per level/kind
 │   ├── mission.json               ← 9 loại nhãn câu hỏi
 │   ├── kind_mission_mapping.json  ← Độ dài ký tự theo level
-│   └── topic.json                 ← 287 chủ đề có thể dùng
+│   └── rule_doc_hieu.md           ← Rule đọc hiểu từ giáo viên (bảng slug chủ đề + tiêu chuẩn)
 ├── assets/
 │   ├── html/tim_thong_tin/        ← HTML output
 │   └── img/tim_thong_tin/         ← Screenshot PNG tương ứng
