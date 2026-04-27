@@ -19,23 +19,31 @@ SKILL.md chứa workflow + checklist 39 mục QC. rules/ chứa chi tiết (bả
 
 Lưu CSV vào sheets/. Làm đúng theo SKILL.md — từng bài một, đọc rules/ trước khi gen.
 
-⛔ ĐA DẠNG CHỦ ĐỀ — BẮT BUỘC:
-1. Đọc rules/content.md — chứa bảng slug chủ đề + star rating theo level + thước đo độ phức tạp.
+⛔ ĐA DẠNG CHỦ ĐỀ + FORMAT + LAYOUT — BẮT BUỘC:
+1. Đọc rules/content.md — chứa bảng slug chủ đề + star rating + thước đo + LAYOUT VARIANTS (R2) + 19 formats (R7).
    (Nguồn gốc: input/rule_doc_hieu.md — dùng để cross-check nếu cần)
-2. Scan sheets/ xem chủ đề + format đã dùng trong các bài trước.
-3. Lên kế hoạch: liệt kê bảng (level, slug chủ đề, format từ R7) cho từng bài.
+2. Scan sheets/ xem chủ đề + format + layout đã dùng trong các bài trước.
+3. Lên kế hoạch: liệt kê bảng (level, slug chủ đề, format từ R7, layout variant từ R2) cho từng bài.
    - KHÔNG trùng topic giữa các bài (cùng level VÀ cross-level).
    - KHÔNG trùng format giữa các bài cùng level.
+   - KHÔNG trùng layout variant giữa các bài (cùng level VÀ cross-level).
    - Ưu tiên slug ★★★ → ★★ → ★. Chọn slug phù hợp level (tra bảng tổng hợp).
    - Kiểm tra số điều kiện đúng thước đo level (N5:1–2 / N4:3–4 / N3:5–6 / N2:6–8 / N1:7+).
-4. Xác nhận kế hoạch không trùng → mới bắt đầu gen.
+   - Tra bảng "Format × Layout" trong R7 để chọn kết hợp tự nhiên.
+4. Xác nhận kế hoạch không trùng cả 3 chiều (topic + format + layout) → mới bắt đầu gen.
+
+⛔ COLOR PALETTE — BẮT BUỘC:
+Đọc rules/content.md R8 "Color Palette" — chứa palette chuẩn (base + 5 accent).
+- CHỈ dùng hex code trong palette. KHÔNG tự nghĩ màu.
+- Tối đa 2 accent / bài. Fill nhạt, text tối. KHÔNG dùng nền đậm + chữ trắng.
+- ○=Green, ×=Red, △=Amber (cố định).
 
 ⛔ FURIGANA ZERO-TOLERANCE:
 Sau khi gen HTML, BẮT BUỘC chạy scripts/check_furigana.py --html {file} --level {LEVEL}.
 Exit 1 = có kanji vượt level thiếu furigana → sửa (thêm ruby hoặc viết hiragana) → chạy lại.
 KHÔNG được QC nếu check_furigana chưa PASS.
 
-Sau khi gen xong mỗi bài, tự QC checklist 39 mục (đọc lại HTML + CSV + ảnh, log PASS/FAIL từng mục). Tất cả 39 mục PASS mới chuyển sang bài tiếp.
+Sau khi gen xong mỗi bài, tự QC checklist (đọc lại HTML + CSV + ảnh, log PASS/FAIL từng mục). Tất cả PASS mới chuyển sang bài tiếp.
 Điền Q&A vào CSV bằng scripts/fill_qa.py (KHÔNG sửa CSV bằng tay).
 Chụp ảnh bằng scripts/screenshot.py (KHÔNG tự viết code).
 Sửa HTML = PHẢI chạy lại screenshot + check_furigana trước khi QC lại.
@@ -58,15 +66,24 @@ Lưu CSV vào sheets/. Trước khi gen:
 1. Đọc rules/content.md + rules/vocabulary.md + rules/technical.md + rules/questions.md
 2. Đọc input/jlpt_kanji.csv để tra level kanji khi quyết định furigana
 3. Đọc 1-2 mẫu input/html/ + 1 mẫu input/htm_content_qa/ cho level cần gen
-4. Scan sheets/ xem chủ đề + format nào đã dùng → chọn chủ đề + format chưa/ít dùng
-   (rules/content.md đã chứa bảng slug + star rating + thước đo. input/rule_doc_hieu.md là nguồn gốc — dùng để cross-check)
+4. Scan sheets/ xem chủ đề + format + layout nào đã dùng → chọn chủ đề + format + layout chưa/ít dùng
+   (rules/content.md đã chứa bảng slug + star rating + thước đo + LAYOUT VARIANTS (R2) + 19 formats (R7). input/rule_doc_hieu.md là nguồn gốc — dùng để cross-check)
 
-⛔ ĐA DẠNG CHỦ ĐỀ — BẮT BUỘC:
+⛔ ĐA DẠNG CHỦ ĐỀ + FORMAT + LAYOUT — BẮT BUỘC:
 - Chọn slug chủ đề từ bảng tổng hợp trong rules/content.md. Chọn slug phù hợp level (★★★ → ★★ → ★).
-- Mỗi bài PHẢI khác topic VÀ khác format với tất cả bài trước.
-- Ưu tiên slug chưa dùng → đảm bảo đa dạng tối đa.
-- Lên kế hoạch trước: liệt kê bảng (level, slug, format) → xác nhận không trùng → mới gen.
+- Chọn layout variant từ bảng "Layout Variants" trong R2 — mỗi level có 5-6 layout riêng.
+- Mỗi bài PHẢI khác topic VÀ khác format VÀ khác layout variant với tất cả bài trước.
+- Ưu tiên slug/layout chưa dùng → đảm bảo đa dạng tối đa.
+- Lên kế hoạch trước: liệt kê bảng (level, slug, format, layout variant) → xác nhận không trùng → mới gen.
 - Kiểm tra số điều kiện đúng thước đo level (N5:1–2 / N4:3–4 / N3:5–6 / N2:6–8 / N1:7+).
+- Tra bảng "Format × Layout" trong R7 để chọn kết hợp tự nhiên.
+
+⛔ COLOR PALETTE — BẮT BUỘC:
+- Đọc rules/content.md R8 "Color Palette" — chứa palette chuẩn (9 base + 5 accent).
+- CHỈ dùng hex code trong palette. KHÔNG tự nghĩ màu.
+- Tối đa 2 accent / bài. Fill nhạt pastel, text/stroke tối. KHÔNG dùng nền đậm + chữ trắng.
+- ○=Green(#2f855a), ×=Red(#c53030), △=Amber(#92400e) — cố định.
+- Cùng loại element trong bài → cùng màu (nhất quán).
 
 Yêu cầu chất lượng câu hỏi (áp dụng tất cả level):
 - Tình huống: nhân vật tên thật + profile + ≥3 điều kiện ràng buộc đồng thời

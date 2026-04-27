@@ -114,6 +114,70 @@
 | N2 | Bảng phức tạp với điều kiện lồng nhau. Brochure 2-3 phần, phần "Lưu ý" dài. Có thể có flowchart |
 | N1 | Đa bảng biểu, mật độ thông tin dày (6-8+ dòng). Tham chiếu chéo ("xem chú thích 1, 2") |
 
+### ⛔ Layout Variants — BẮT BUỘC đa dạng
+
+> **KHÔNG lặp layout variant** trong batch (cùng level VÀ cross-level).
+> Mỗi bài PHẢI chọn 1 layout variant từ bảng dưới. Ghi layout slug vào kế hoạch trước khi gen.
+
+#### N5 — Layout Variants (5 loại)
+
+| Layout slug | Mô tả | CSS/HTML chính | Ví dụ thực tế |
+|-------------|--------|----------------|---------------|
+| `simple_table` | Bảng đơn 2-3 cột, header xám, nội dung gọn | `<table>` bordered, `th` bg gray | Bảng giờ mở cửa, giá vé đơn giản |
+| `promo_boxes` | Hộp khuyến mãi div-based, không dùng table | `<div>` bordered boxes, dashed highlight, badge ★ | Tờ rơi siêu thị: 3 ô sale riêng biệt |
+| `horizontal_flowchart` | Sơ đồ ngang: box → connector → box | Flexbox `.station-box` + `.connector` div | Hướng dẫn đường đi: ga A → bus → trường |
+| `dual_sheets` | 2 "tờ giấy" song song, mỗi tờ có bảng riêng | 2 bordered containers side-by-side hoặc stacked | 2 lịch trình xe buýt (tuyến A vs tuyến B) |
+| `icon_list_sections` | Danh sách theo section với ký hiệu ●/◆/★, không table | `<div>` sections, ký hiệu prefix, key-value rows | Nội quy hồ bơi: ●giờ mở ●giá ●quy tắc |
+
+#### N4 — Layout Variants (6 loại)
+
+| Layout slug | Mô tả | CSS/HTML chính | Ví dụ thực tế |
+|-------------|--------|----------------|---------------|
+| `info_table` | Bảng thông tin 2 cột label–value, 5-8 hàng | `<table>` 2-col, `td:first-child` bold | Thông báo seminar: ngày/giờ/phí/đối tượng |
+| `side_by_side_tables` | 2 bảng cạnh nhau so sánh (plan A vs B) | 2 `<table>` trong flex container | So sánh giá phòng: đặt online vs điện thoại |
+| `calendar_grid` | Lưới 7 cột (thứ 2→CN), ô có nội dung/màu | CSS grid 7 columns, color-coded cells | Lịch tư vấn: màu theo chủ đề/thời gian |
+| `step_process` | Danh sách bước numbered ①②③, không table chính | Ordered list, ①②③ spans, indented details | Quy trình đăng ký: ①gửi form ②thanh toán ③nhận thẻ |
+| `rowspan_grouped` | Bảng có rowspan nhóm dữ liệu (nhóm ①②) | `<table>` with `rowspan`, grouped rows | Lịch lớp thể thao: nhóm sáng/chiều |
+| `pill_label_sections` | Sections với pill label (border-radius 9999px) | `.pill` labels + content blocks | Chương trình sự kiện: pill "Phần 1" "Phần 2" |
+
+#### N3 — Layout Variants (6 loại)
+
+| Layout slug | Mô tả | CSS/HTML chính | Ví dụ thực tế |
+|-------------|--------|----------------|---------------|
+| `grid_cards_2x2` | 4 card CSS grid 2×2, mỗi card chứa info riêng | `display: grid; grid-template-columns: 1fr 1fr` | 4 tour du lịch: mỗi card = 1 tour |
+| `dual_part_ab` | Tài liệu 2 phần A/B, mỗi phần có bảng/danh sách riêng | 2 bordered `.part-box` (Part A, Part B) | Phần A: lịch cơ sở + Phần B: lịch cá nhân |
+| `merged_header_table` | Bảng phức tạp colspan/rowspan (3-4 level header) | Multi-level `<th>` with colspan/rowspan | Bảng giá sân tennis: cư dân/ngoài × ngày thường/cuối tuần |
+| `vertical_card_list` | Danh sách card dọc, mỗi card có icon/number | Stacked `.card` divs with circled numbers | 4 khóa học: card ①②③④ xếp dọc |
+| `symbol_legend_table` | Bảng dùng ○×△ + legend giải thích | `<table>` + `.legend` box below | Lịch sử dụng phòng: ○=trống ×=đầy △=có điều kiện |
+| `bullet_kv_sections` | ● bullet sections + key-value pairs, table phụ | ● prefix headings, flex label-value, small table | Thông báo lớp nhiếp ảnh: ●nội dung ●phí ●cách đăng ký |
+
+#### N2 — Layout Variants (6 loại)
+
+| Layout slug | Mô tả | CSS/HTML chính | Ví dụ thực tế |
+|-------------|--------|----------------|---------------|
+| `multi_section_text` | 3-4 sections text + bảng, 【】/◆ headers | Section divs, 【】headers, embedded tables | Hướng dẫn bảo tàng: 【giờ】【phí】【cách đăng ký】 |
+| `flowchart_decision` | Sơ đồ quyết định dọc: nhánh a/b, ▼ arrows | CSS vertical flowchart, `.branch-node`, `▼` | Chọn plan dọn nhà: trả lời câu hỏi → plan phù hợp |
+| `nested_tables` | Bảng lồng bảng (sub-table trong cell) | `<table>` inside `<td>` of outer table | Chương trình seminar: Part 3 có 4 phòng riêng |
+| `accent_border_sections` | Sections với border-left accent color | `border-left: 3px solid color`, stacked sections | So sánh dịch vụ: mỗi section = 1 provider |
+| `troubleshooting_table` | Bảng "triệu chứng → kiểm tra → hành động" | 3-col `<table>`: symptom/check/action | Hướng dẫn sử dụng thuốc: triệu chứng → cách xử lý |
+| `comparison_cards` | Card so sánh A社/B社 với floating label | Bordered boxes, absolutely-positioned company label | So sánh 2 công ty dọn nhà: A社 (table) vs B社 (flowchart) |
+
+#### N1 — Layout Variants (5 loại)
+
+| Layout slug | Mô tả | CSS/HTML chính | Ví dụ thực tế |
+|-------------|--------|----------------|---------------|
+| `dense_data_table` | Bảng dày 8-12 hàng × 5-7 cột, multi-line cells | Large `<table>`, `white-space: normal` in cells | Danh sách 10 việc làm part-time: lương/giờ/điều kiện |
+| `multi_table_doc` | 2-3 bảng riêng biệt + text sections xen kẽ | Multiple `<table>` separated by `<p>` sections | Tour + workshop: bảng tour + bảng lịch + lưu ý |
+| `numbered_steps_table` | Mục ①②③ có sub-items + bảng so sánh ứng viên | ○-numbered sections + comparison table | Quy chế học bổng: ①đối tượng ②hồ sơ + bảng 4 ứng viên |
+| `merged_complex_table` | Bảng header phức tạp (4+ level merge) | Deep colspan/rowspan, multi-row header | Bảng giá thẻ tín dụng: loại × hạng × ưu đãi × phí |
+| `section_boxes_mixed` | Mix nhiều kiểu box: 【】+ pill + grid + list | Varied section types within same document | Cuộc thi phát minh: 【hạng mục】pill "giải thưởng" + bảng |
+
+### Checklist layout diversity
+
+- Layout slug có khác với tất cả bài trước trong batch không? (cùng level VÀ cross-level)
+- Layout slug có nằm trong danh mục phù hợp với level không? (Tra bảng trên)
+- Bài có thực sự dùng đúng CSS/HTML đặc trưng của layout slug đã chọn không? (Không chỉ ghi slug mà dùng layout khác)
+
 ### ⛔ Quy tắc viết rõ ràng — KHÔNG mơ hồ
 
 > **Mọi điều kiện, giảm giá, ngoại lệ PHẢI ghi rõ phạm vi áp dụng.**
@@ -284,9 +348,10 @@ th { background: #e8e8e8; color: #000; font-weight: bold; }  /* nền xám nhạ
 
 ---
 
-## R7. Document Formats (15 formats)
+## R7. Document Formats (19 formats)
 
 > **KHÔNG lặp format** trong batch. **Ưu tiên format ít dùng**. Visual elements + chủ đề phải khác nhau.
+> **Format ≠ Layout**: Format = loại tài liệu (NỘI DUNG gì). Layout = cách trình bày (NHÌN thế nào). Cùng 1 format có thể dùng nhiều layout khác nhau.
 
 | Format | Description |
 |--------|-------------|
@@ -305,14 +370,39 @@ th { background: #e8e8e8; color: #000; font-weight: bold; }  /* nền xám nhạ
 | `comparison_article` | So sánh văn xuôi A/B/C |
 | `member_notification` | Thông báo hội viên |
 | `access_guide` | Hướng dẫn đường đi |
+| `consultation_schedule` | Lịch tư vấn/khám: ngày/giờ/chủ đề theo lưới |
+| `troubleshooting_guide` | Hướng dẫn xử lý sự cố: triệu chứng → hành động |
+| `application_procedure` | Quy trình nộp đơn/đăng ký: bước ①②③ + điều kiện |
+| `secondhand_shop` | Mua/bán đồ cũ: danh mục + điều kiện + cách gửi |
 
 ### Formats theo level
 
 - **N5**: store_flyer, event_announcement, regulation_notice, schedule_timetable, travel_listing, access_guide
-- **N4**: event_announcement, class_enrollment, regulation_notice, menu_guide, price_comparison_table, service_guide
-- **N3**: class_enrollment, service_guide, event_announcement, facility_guide, travel_listing, price_comparison_table, recruitment_notice, menu_guide
-- **N2**: facility_guide, service_guide, comparison_article, event_announcement, class_enrollment, schedule_timetable, menu_guide
-- **N1**: price_comparison_table, service_guide, facility_guide, schedule_timetable, medicine_info, recruitment_notice, member_notification, event_announcement
+- **N4**: event_announcement, class_enrollment, regulation_notice, menu_guide, price_comparison_table, service_guide, consultation_schedule, application_procedure
+- **N3**: class_enrollment, service_guide, event_announcement, facility_guide, travel_listing, price_comparison_table, recruitment_notice, menu_guide, secondhand_shop, application_procedure
+- **N2**: facility_guide, service_guide, comparison_article, event_announcement, class_enrollment, schedule_timetable, menu_guide, troubleshooting_guide, consultation_schedule
+- **N1**: price_comparison_table, service_guide, facility_guide, schedule_timetable, medicine_info, recruitment_notice, member_notification, event_announcement, application_procedure
+
+### Format × Layout: Gợi ý kết hợp
+
+> Mỗi format có thể dùng nhiều layout variant khác nhau. Bảng dưới gợi ý kết hợp tự nhiên — KHÔNG bắt buộc, nhưng giúp tránh lặp.
+
+| Format | Layout variants phù hợp |
+|--------|------------------------|
+| `store_flyer` | promo_boxes, simple_table, icon_list_sections |
+| `event_announcement` | info_table, pill_label_sections, bullet_kv_sections, multi_section_text |
+| `class_enrollment` | grid_cards_2x2, vertical_card_list, rowspan_grouped, info_table |
+| `price_comparison_table` | side_by_side_tables, merged_header_table, dense_data_table, comparison_cards |
+| `access_guide` | horizontal_flowchart, dual_sheets, simple_table |
+| `schedule_timetable` | calendar_grid, symbol_legend_table, merged_complex_table |
+| `facility_guide` | dual_part_ab, multi_section_text, bullet_kv_sections, section_boxes_mixed |
+| `service_guide` | accent_border_sections, flowchart_decision, multi_section_text, numbered_steps_table |
+| `recruitment_notice` | info_table, numbered_steps_table, section_boxes_mixed, dense_data_table |
+| `travel_listing` | grid_cards_2x2, vertical_card_list, simple_table, multi_table_doc |
+| `consultation_schedule` | calendar_grid, symbol_legend_table, dual_part_ab |
+| `troubleshooting_guide` | troubleshooting_table, flowchart_decision, accent_border_sections |
+| `application_procedure` | step_process, numbered_steps_table, flowchart_decision |
+| `secondhand_shop` | bullet_kv_sections, dual_part_ab, icon_list_sections |
 
 ---
 
@@ -324,3 +414,82 @@ th { background: #e8e8e8; color: #000; font-weight: bold; }  /* nền xám nhạ
 - **Content boxes**: floating label (padding-top ≥ 24px, margin-top ≥ 16px)
 - **Ghi chú**: ※ (Lưu ý quan trọng), ★, ◆, ◎
 - **Dashed contact box**, **Footer** với border-top
+
+### ⛔ Color Palette — BẮT BUỘC tuân thủ
+
+> Palette chuẩn hóa từ 81 file đề thi mẫu (input/html + input/htm_content_qa).
+> Mọi bài gen PHẢI dùng các màu trong palette này. KHÔNG được tự nghĩ hex code khác.
+
+#### Base (nền + text + border)
+
+| Token | Hex | Dùng cho | CSS |
+|-------|-----|----------|-----|
+| `page-bg` | `#f3f4f6` | Nền body toàn trang | `body { background: #f3f4f6; }` |
+| `card-bg` | `#ffffff` | Nền `.container`, `.section-box` | `background: #fff;` |
+| `text-primary` | `#1a202c` | Body text chính | `color: #1a202c;` |
+| `text-secondary` | `#4b5563` | Text phụ, furigana `<rt>` | `color: #4b5563;` |
+| `text-muted` | `#718096` | Ghi chú nhỏ, placeholder | `color: #718096;` |
+| `border-hard` | `#000000` | Viền table `th/td`, `.section-box` | `border: 1px solid #000;` |
+| `border-medium` | `#333333` | Viền `.container` ngoài cùng | `border: 1px solid #333;` |
+| `border-soft` | `#d1d5db` | Viền nhẹ: note box, flyer, divider | `border: 1px solid #d1d5db;` |
+| `border-dashed` | `#cbd5e0` | Đường đứt nét: separator, contact box | `border: 2px dashed #cbd5e0;` |
+
+#### Header & Label (nền section header, table header)
+
+| Token | Hex | Dùng cho | CSS |
+|-------|-----|----------|-----|
+| `th-bg` | `#f9fafb` | Nền table header `<th>` | `background: #f9fafb;` |
+| `th-text` | `#000000` | Chữ table header | `color: #000; font-weight: bold;` |
+| `label-bg` | `#f9fafb` | Nền section label, `.section-header` | `background: #f9fafb;` |
+| `title-border` | `#000000` | Gạch dưới tiêu đề `.main-title` | `border-bottom: 2px solid #000;` |
+
+#### ⛔ NGHIÊM CẤM — Header tối + chữ trắng
+
+> **KHÔNG BAO GIỜ dùng `color: #fff` cho text** (xem R2 Lỗi #2).
+> Header nổi bật = `background: #f9fafb` + `font-weight: bold` + `color: #000`.
+
+#### Accent (5 màu chủ đề — dùng cho layout elements)
+
+> Mỗi bài chọn **1 accent chính** (primary) + tùy chọn **1 accent phụ** (secondary).
+> KHÔNG dùng quá 2 accent trong 1 bài. Giữ tông nhẹ nhàng, phong cách tờ rơi Nhật.
+
+| Tên | Fill (nền nhạt) | Stroke (viền) | Text (chữ trên nền fill) | Dùng cho |
+|-----|----------------|---------------|--------------------------|----------|
+| **Blue** | `#ebf4ff` | `#2b6cb0` | `#2b6cb0` | Pill labels, badge, flowchart node, section highlight |
+| **Green** | `#f0fff4` | `#2f855a` | `#2f855a` | Giá ưu đãi, status ○, điều kiện đạt, check ✓ |
+| **Amber** | `#fffbeb` | `#b7791f` | `#92400e` | Ghi chú ※, cảnh báo nhẹ, highlight giá, deadline |
+| **Red** | `#fff5f5` | `#c53030` | `#c53030` | Cảnh báo mạnh ⛔, điều kiện ×, status không được |
+| **Purple** | `#faf5ff` | `#6b46c1` | `#6b46c1` | Card category, pill label phụ, số thứ tự ①② |
+
+#### Cách dùng accent theo layout variant
+
+| Layout element | Dùng accent | Ví dụ CSS |
+|---------------|-------------|-----------|
+| Pill label | Fill + Text | `background: #ebf4ff; color: #2b6cb0; border-radius: 9999px; padding: 2px 12px;` |
+| Flowchart node | Fill + Stroke | `background: #ebf4ff; border: 2px solid #2b6cb0;` |
+| Flowchart connector | Stroke | `border-top: 2px solid #2b6cb0;` hoặc `border-left: 2px solid #2b6cb0;` |
+| Card highlight (active) | Fill + Stroke | `background: #f0fff4; border: 1px solid #2f855a;` |
+| Calendar cell (color-coded) | Fill | `background: #ebf4ff;` (loại A), `background: #f0fff4;` (loại B), `background: #fffbeb;` (loại C) |
+| Section border-left accent | Stroke | `border-left: 3px solid #2b6cb0;` |
+| ※ Note box | Fill + Stroke | `background: #fffbeb; border: 1px solid #b7791f; padding: 8px;` |
+| Badge/tag | Fill + Text | `background: #faf5ff; color: #6b46c1; font-size: 12px;` |
+| Symbol legend ○ | Green text | `color: #2f855a;` |
+| Symbol legend × | Red text | `color: #c53030;` |
+| Symbol legend △ | Amber text | `color: #92400e;` |
+
+#### Quy tắc màu tổng quát
+
+1. **Tối đa 2 accent / bài**: Chọn 1 primary + 1 secondary từ bảng 5 màu. Ví dụ: Blue primary + Amber cho ※ notes.
+2. **Fill luôn nhạt, text luôn tối**: KHÔNG BAO GIỜ dùng nền đậm + chữ trắng. Fill = pastel, Text/Stroke = đậm cùng ramp.
+3. **Nhất quán trong bài**: Cùng loại element → cùng màu. Ví dụ: tất cả pill label trong 1 bài dùng chung 1 accent.
+4. **Không dùng accent cho body text**: Body text luôn `#1a202c`. Accent chỉ cho UI elements (pill, badge, border, icon).
+5. **Không dùng gradient, shadow, glow**: Flat design. Nền solid color + viền solid.
+6. **○×△ symbols**: Luôn dùng Green/Red/Amber tương ứng (xem bảng trên). KHÔNG đổi màu.
+
+#### Checklist màu sắc (QC)
+
+- Bài có dùng hex code ngoài palette không? → FAIL nếu có
+- Body text có dùng `color: #fff` hoặc `color: white` không? → FAIL nếu có (xem R2 Lỗi #2)
+- Có quá 2 accent color trong 1 bài không? → FAIL nếu có
+- Cùng loại element có nhất quán màu không? → FAIL nếu không
+- ○×△ symbols có đúng Green/Red/Amber không? → FAIL nếu sai

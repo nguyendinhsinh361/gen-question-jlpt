@@ -46,8 +46,11 @@ description: >
 
 1. **Đọc rules**: `rules/content.md` + `rules/vocabulary.md` + `rules/technical.md`
 2. **Đọc `input/jlpt_kanji.csv`** — dùng để tra level từng kanji khi quyết định furigana
-3. Scan `sheets/` xem format đã dùng → chọn format chưa/ít dùng
-4. Lập kế hoạch: mỗi bài gán format + visual + chủ đề (không trùng)
+3. Scan `sheets/` xem format + layout đã dùng → chọn format + layout chưa/ít dùng
+4. Lập kế hoạch: mỗi bài gán **format** (R7) + **layout variant** (R2) + chủ đề slug (R1) — cả 3 KHÔNG trùng
+   - Format = loại tài liệu (nội dung gì). Layout = cách trình bày (nhìn thế nào). Topic = chủ đề.
+   - Tra bảng "Layout Variants" trong `rules/content.md` R2 để chọn layout phù hợp level.
+   - Tra bảng "Format × Layout" trong `rules/content.md` R7 để chọn kết hợp tự nhiên.
 5. Read references: 1-2 HTML mẫu `input/html/` + 1 QA mẫu `input/htm_content_qa/` + `input/rule_doc_hieu.md`
 
 ---
@@ -58,7 +61,7 @@ description: >
 > Đọc: `rules/content.md` + `rules/vocabulary.md` + `rules/technical.md` + `rules/questions.md`
 
 1. Gen `_id` = `{LEVEL}_{uuid.uuid4().hex}`
-2. Chọn format tag từ R7 (`rules/content.md`) — xem danh sách 15 formats. Scan `sheets/` để chọn format chưa/ít dùng.
+2. Chọn format tag từ R7 (`rules/content.md`) — xem danh sách 19 formats + chọn layout variant từ R2 (bảng Layout Variants theo level). Scan `sheets/` để chọn format + layout chưa/ít dùng.
 3. Gen HTML theo rules → save `assets/html/tim_thong_tin/{id}.html`
 4. Gen câu hỏi + đáp án theo `rules/questions.md`
 5. Chạy process_html.py để tạo CSV + screenshot (⚠️ **BẮT BUỘC truyền `--tag` và `--replace`**):
@@ -139,6 +142,7 @@ Agent đọc lại file HTML và kiểm tra:
 | 8 | **Ruby count** | Đếm số `<ruby>` | Trong ngưỡng: N5 0-5 (vượt >8 = thừa), N4 0-8 (vượt >12 = thừa), N3 5-20, N2 5-20, N1 3-15 |
 | 9 | **Table layout** | Xem CSS nếu có `<table>` | Có `table-layout:fixed` (bỏ qua nếu không có table) |
 | 10 | **Symbols** | Tìm ○×△※★◆◎【】 | Có ít nhất 1 symbol trong nội dung |
+| 10b | **⛔ Color palette** | Scan tất cả hex code trong CSS | Chỉ dùng màu trong palette R8 (`rules/content.md`). Không `color:#fff`. Tối đa 2 accent. ○=Green, ×=Red, △=Amber |
 
 #### PHẦN B: NỘI DUNG & TỪ VỰNG
 
@@ -150,6 +154,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 12 | **Nội dung logic** | Đọc toàn bài | Thông tin nhất quán, không mâu thuẫn, số liệu hợp lý |
 | 13 | **Đủ dữ liệu tra cứu** | Đọc toàn bài | Có bảng/danh sách/lịch... để người đọc tra cứu |
 | 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
+| 14b | **⛔ Layout variant đúng** | Đối chiếu HTML structure với layout slug đã chọn trong kế hoạch | HTML thực sự dùng đúng CSS/HTML đặc trưng của layout variant (tra bảng R2). Không trùng layout với bài trước trong batch |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
 | 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --html {file} --level {LEVEL}`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output, sửa HTML (thêm ruby hoặc viết hiragana), chạy lại screenshot, chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/jlpt_kanji.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
 
