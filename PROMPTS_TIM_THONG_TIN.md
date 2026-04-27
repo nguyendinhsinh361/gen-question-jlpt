@@ -30,10 +30,15 @@ Lưu CSV vào sheets/. Làm đúng theo SKILL.md — từng bài một, đọc r
    - Kiểm tra số điều kiện đúng thước đo level (N5:1–2 / N4:3–4 / N3:5–6 / N2:6–8 / N1:7+).
 4. Xác nhận kế hoạch không trùng → mới bắt đầu gen.
 
+⛔ FURIGANA ZERO-TOLERANCE:
+Sau khi gen HTML, BẮT BUỘC chạy scripts/check_furigana.py --html {file} --level {LEVEL}.
+Exit 1 = có kanji vượt level thiếu furigana → sửa (thêm ruby hoặc viết hiragana) → chạy lại.
+KHÔNG được QC nếu check_furigana chưa PASS.
+
 Sau khi gen xong mỗi bài, tự QC checklist 39 mục (đọc lại HTML + CSV + ảnh, log PASS/FAIL từng mục). Tất cả 39 mục PASS mới chuyển sang bài tiếp.
 Điền Q&A vào CSV bằng scripts/fill_qa.py (KHÔNG sửa CSV bằng tay).
 Chụp ảnh bằng scripts/screenshot.py (KHÔNG tự viết code).
-Sửa HTML = PHẢI chạy lại screenshot trước khi QC lại.
+Sửa HTML = PHẢI chạy lại screenshot + check_furigana trước khi QC lại.
 Gen xong tất cả → gộp CSV thành sheets/all_tim_thong_tin.csv.
 ```
 
@@ -82,6 +87,7 @@ Sau khi gen xong mỗi bài, BẮT BUỘC tự QC theo checklist 39 mục trong 
 Lưu ý kỹ thuật:
 - Điền Q&A vào CSV bằng scripts/fill_qa.py (KHÔNG sửa CSV bằng tay — commas sẽ vỡ cột)
 - Chụp ảnh bằng scripts/screenshot.py (KHÔNG tự viết code)
-- Sửa HTML = PHẢI chạy lại screenshot trước khi QC lại
+- Kiểm tra furigana bằng scripts/check_furigana.py (KHÔNG đoán level kanji — phải dùng script)
+- Sửa HTML = PHẢI chạy lại screenshot + check_furigana trước khi QC lại
 - Gen xong tất cả → gộp CSV thành sheets/all_tim_thong_tin.csv
 ```

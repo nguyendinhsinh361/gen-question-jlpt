@@ -61,7 +61,18 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 ## R4. Furigana
 
-### ⛔ Dữ liệu tham chiếu — BẮT BUỘC dùng
+### ⛔ ZERO-TOLERANCE: Không sót kanji vượt level
+
+> **Mọi kanji vượt level mục tiêu mà xuất hiện trong bài BẮT BUỘC phải có `<ruby><rt>` hoặc viết hiragana.**
+> **Không có ngoại lệ. Sót 1 kanji = FAIL.**
+>
+> Dùng script `check_furigana.py` để kiểm tra tự động:
+> ```bash
+> python3 scripts/check_furigana.py --html {file} --level {LEVEL}
+> ```
+> Exit 0 = OK. Exit 1 = FAIL → sửa HTML → chạy lại.
+
+### Dữ liệu tham chiếu — BẮT BUỘC dùng
 
 > **File `input/jlpt_kanji.csv`** chứa 2150 kanji với level JLPT (N5→N1).
 > Agent PHẢI tra file này khi quyết định furigana. KHÔNG đoán level kanji từ trí nhớ.
@@ -113,8 +124,8 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 | Level | Ruby count | Vượt mức → đang furigana thừa |
 |-------|-----------|-------------------------------|
-| N5 | **0–3** | > 5 |
-| N4 | **0–5** | > 8 |
+| N5 | **0–5** | > 8 |
+| N4 | **0–8** | > 12 |
 | N3 | **5–15** | > 20 |
 | N2 | **5–15** | > 20 |
 | N1 | **3–10** | > 15 |

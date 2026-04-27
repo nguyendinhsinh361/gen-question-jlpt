@@ -36,6 +36,7 @@ description: >
 | `scripts/screenshot.py` | Chụp ảnh (KHÔNG tự viết code) | Sau khi PASS checklist |
 | `scripts/process_html.py` | Xử lý HTML → CSV (tạo row) | Gen CSV |
 | `scripts/fill_qa.py` | Điền Q&A vào CSV (quote an toàn) | Sau khi gen Q&A |
+| `scripts/check_furigana.py` | Kiểm tra kanji thiếu furigana (exit 0=OK, 1=FAIL) | Sau gen HTML, trước QC |
 
 ## Outputs Per Passage
 
@@ -91,6 +92,14 @@ description: >
      --een1 "Explanation EN..."
    ```
    Với N1-N4 (2 câu hỏi), thêm `--q2`, `--a2`, `--ca2`, `--evn2`, `--een2`.
+7. **⛔ Chạy check_furigana.py** — kiểm tra KHÔNG sót kanji vượt level thiếu furigana:
+   ```bash
+   python3 .gemini/skills/jlpt-reading-generator/scripts/check_furigana.py \
+     --html assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
+     --level {LEVEL}
+   ```
+   > **Exit 0 = OK. Exit 1 = FAIL → sửa HTML (thêm ruby hoặc viết hiragana) → chạy lại screenshot → chạy lại check_furigana.**
+   > **KHÔNG được chuyển sang BƯỚC 2 (QC) nếu check_furigana FAIL.**
 
 ---
 
@@ -133,7 +142,7 @@ Agent đọc lại file HTML và kiểm tra:
 | 5 | **White background** | Xem CSS | Có `background:#fff` |
 | 6 | **Furigana format** | Tìm ngoặc `漢字(かんじ)` hoặc `漢字【かんじ】` | Không có — tất cả furigana dùng `<ruby><rt>` |
 | 7 | **Ruby có `<rt>`** | Xem mọi `<ruby>...</ruby>` | Tất cả đều có `<rt>` bên trong |
-| 8 | **Ruby count** | Đếm số `<ruby>` | Trong ngưỡng: N5 0-5, N4 0-8, N3 5-20, N2 5-20, N1 3-15 |
+| 8 | **Ruby count** | Đếm số `<ruby>` | Trong ngưỡng: N5 0-5 (vượt >8 = thừa), N4 0-8 (vượt >12 = thừa), N3 5-20, N2 5-20, N1 3-15 |
 | 9 | **Table layout** | Xem CSS nếu có `<table>` | Có `table-layout:fixed` (bỏ qua nếu không có table) |
 | 10 | **Symbols** | Tìm ○×△※★◆◎【】 | Có ít nhất 1 symbol trong nội dung |
 
@@ -148,7 +157,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 13 | **Đủ dữ liệu tra cứu** | Đọc toàn bài | Có bảng/danh sách/lịch... để người đọc tra cứu |
 | 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
-| 16 | **⛔ Furigana đúng từ (tra CSV)** | Liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/jlpt_kanji.csv` → ghi: `từ(ký tự=level)` → kết luận cần/không cần furigana. **PHẢI log bảng tra này.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | Mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
+| 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --html {file} --level {LEVEL}`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output, sửa HTML (thêm ruby hoặc viết hiragana), chạy lại screenshot, chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/jlpt_kanji.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
 
 #### PHẦN C: CÂU HỎI & ĐÁP ÁN
 
@@ -239,7 +248,7 @@ Agent mở file PNG và xem:
 |-----------|-----------|--------|
 | #1, #11, #12, #13, #15 | Gen lại toàn bộ HTML → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #2, #3, #4, #5, #9, #10 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
-| #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** | Quay lại BƯỚC 2 |
+| #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** → **chạy lại check_furigana.py** | Quay lại BƯỚC 2 |
 | #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #17-#28 | Sửa câu hỏi/đáp án trong CSV (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
 | #29-#30 (tự tính sai) | Kiểm tra lại phép tính, sửa đáp án hoặc sửa bài viết | Quay lại BƯỚC 2 |
@@ -262,7 +271,7 @@ python3 .gemini/skills/jlpt-reading-generator/scripts/screenshot.py \
 
 ### BƯỚC 5: ✅ HOÀN THÀNH → BÀI TIẾP THEO
 
-Chỉ khi **TẤT CẢ 33 checks PASS** → log:
+Chỉ khi **TẤT CẢ 39 checks PASS** → log:
 ```
 🎉 ALL PASSED (39/39) — {_id} hoàn thành
 ```
