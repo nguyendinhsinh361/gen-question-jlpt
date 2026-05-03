@@ -43,6 +43,13 @@ Sau khi gen HTML, BẮT BUỘC chạy scripts/check_furigana.py --html {file} --
 Exit 1 = có kanji vượt level thiếu furigana → sửa (thêm ruby hoặc viết hiragana) → chạy lại.
 KHÔNG được QC nếu check_furigana chưa PASS.
 
+⛔ NGHIÊM CẤM CHO SẴN DỮ KIỆN TRONG CÂU HỎI (Data Leak):
+Đọc rules/questions.md "⛔ NGHIÊM CẤM — Cho sẵn dữ kiện trong câu hỏi".
+- Câu hỏi chỉ cho TÌNH HUỐNG (ai, khi nào, muốn gì) — KHÔNG cho số liệu/dữ kiện.
+- Mọi điều kiện trong câu hỏi PHẢI ảnh hưởng đáp án — không có thông tin thừa.
+- Nếu bài có ※ trap, câu hỏi KHÔNG được bypass bằng cách cho sẵn kết quả.
+- Test: đọc câu hỏi MỘT MÌNH → nếu đã đủ số để tính = ❌ phải viết lại.
+
 Sau khi gen xong mỗi bài, tự QC checklist (đọc lại HTML + CSV + ảnh, log PASS/FAIL từng mục). Tất cả PASS mới chuyển sang bài tiếp.
 Điền Q&A vào CSV bằng scripts/fill_qa.py (KHÔNG sửa CSV bằng tay).
 Chụp ảnh bằng scripts/screenshot.py (KHÔNG tự viết code).
@@ -64,7 +71,7 @@ Gen xong tất cả → gộp CSV thành sheets/all_tim_thong_tin.csv.
 
 Lưu CSV vào sheets/. Trước khi gen:
 1. Đọc rules/content.md + rules/vocabulary.md + rules/technical.md + rules/questions.md
-2. Đọc input/jlpt_kanji.csv để tra level kanji khi quyết định furigana
+2. Đọc input/kanji_simplified.csv để tra level kanji khi quyết định furigana
 3. Đọc 1-2 mẫu input/html/ + 1 mẫu input/htm_content_qa/ cho level cần gen
 4. Scan sheets/ xem chủ đề + format + layout nào đã dùng → chọn chủ đề + format + layout chưa/ít dùng
    (rules/content.md đã chứa bảng slug + star rating + thước đo + LAYOUT VARIANTS (R2) + 19 formats (R7). input/rule_doc_hieu.md là nguồn gốc — dùng để cross-check)
@@ -84,6 +91,15 @@ Lưu CSV vào sheets/. Trước khi gen:
 - Tối đa 2 accent / bài. Fill nhạt pastel, text/stroke tối. KHÔNG dùng nền đậm + chữ trắng.
 - ○=Green(#2f855a), ×=Red(#c53030), △=Amber(#92400e) — cố định.
 - Cùng loại element trong bài → cùng màu (nhất quán).
+
+⛔ NGHIÊM CẤM CHO SẴN DỮ KIỆN TRONG CÂU HỎI (Data Leak):
+- Câu hỏi chỉ cho TÌNH HUỐNG (ai, khi nào, muốn gì) — KHÔNG cho số liệu mà thí sinh cần tra cứu.
+- Mọi điều kiện trong câu hỏi PHẢI ảnh hưởng đáp án — không có thông tin thừa/trang trí.
+- Nếu bài có ※ trap, câu hỏi KHÔNG được bypass ※ bằng cách cho sẵn kết quả.
+- Test: đọc câu hỏi MỘT MÌNH (không nhìn bài) → nếu đã đủ số để tính đáp án = ❌ phải viết lại.
+- Test: bỏ từng điều kiện → đáp án không đổi = điều kiện thừa = ❌.
+- Test: liệt kê ※ → câu hỏi cho sẵn kết quả của ※ = bẫy bị vô hiệu = ❌.
+(Chi tiết + ví dụ: rules/questions.md "⛔ NGHIÊM CẤM — Cho sẵn dữ kiện trong câu hỏi")
 
 Yêu cầu chất lượng câu hỏi (áp dụng tất cả level):
 - Tình huống: nhân vật tên thật + profile + ≥3 điều kiện ràng buộc đồng thời

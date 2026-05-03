@@ -22,9 +22,19 @@ Mỗi câu hỏi PHẢI xây dựng tình huống với:
    - Hạn chế đặc biệt (dị ứng, không có xe, có trẻ nhỏ...)
 3. **Điều kiện phải PHÂN TÁN trong bài** — mỗi điều kiện match với 1 vị trí khác nhau, buộc người đọc scan toàn bộ
 
-**Ví dụ tốt (N5):**
-> 田中さん（30歳）は 土曜日に 友だちと 二人で プールに 行きたいです。田中さんは 午前中だけ 時間が あります。いくら 払いますか。
+**Ví dụ tốt — đa dạng kiểu hỏi:**
+
+> **[Giá/chi phí]** 田中さん（30歳）は 土曜日に 友だちと 二人で プールに 行きたいです。田中さんは 午前中だけ 時間が あります。いくら 払いますか。
 > → 3 điều kiện: (1) 土曜日 → check lịch mở cửa, (2) 友だちと二人 → check giảm giá nhóm, (3) 午前中だけ → check giờ mở cửa buổi sáng
+
+> **[Thời gian/lịch trình]** リンさんは 来週の 水曜日に 子どもを つれて 図書館に 行きたいです。午後から 仕事が あります。何時から 何時まで いられますか。
+> → 3 điều kiện: (1) 水曜日 → check lịch mở cửa theo ngày, (2) 子ども → check phòng đọc trẻ em giờ nào, (3) 午後仕事 → check giờ kết thúc buổi sáng
+
+> **[Thủ tục/trình tự]** 佐藤さんは 会社の 近くの スポーツジムに 入りたいです。週末だけ 使いたいです。佐藤さんは まず 何を しなければ なりませんか。
+> → 3 điều kiện: (1) 会社の近く → check 場所/支店, (2) 週末だけ → check プラン種類, (3) まず何を → check 申し込み手順
+
+> **[条件チェック]** マリアさんは 大学生で、アルバイトを さがしています。月曜日と 木曜日は 授業が あります。マリアさんが 応募できるのは どれですか。
+> → 3 điều kiện: (1) 大学生 → check 応募条件, (2) 月曜日+木曜日NG → check 勤務日, (3) 応募できる → cross-check 複数の求人
 
 **Ví dụ sai:**
 > 田中さんは プールに 行きます。いくらですか。
@@ -52,16 +62,22 @@ Mỗi câu hỏi PHẢI xây dựng tình huống với:
 
 ### 8 kiểu câu hỏi — Q1 và Q2 PHẢI khác kiểu
 
-| # | Kiểu | Level |
-|---|------|-------|
-| 1 | Chọn phương án phù hợp | All |
-| 2 | Kiểm tra tư cách/điều kiện | N3-N1 |
-| 3 | Xác định thủ tục/trình tự | N3-N1 |
-| 4 | Tính toán chi phí/thời gian | All |
-| 5 | Xác định đúng/sai về nội dung | All |
-| 6 | Tìm ngoại lệ/điều kiện đặc biệt | N2-N1 |
-| 7 | So sánh và chọn | All |
-| 8 | Hành động khi có vấn đề | N4-N1 |
+| # | Kiểu | Level | Ví dụ câu hỏi |
+|---|------|-------|---------------|
+| 1 | Chọn phương án phù hợp | All | 「〜さんに 合っているのは どれですか」 |
+| 2 | Kiểm tra tư cách/điều kiện | N3-N1 | 「〜さんは 参加できますか」「応募できるのは どれですか」 |
+| 3 | Xác định thủ tục/trình tự | N3-N1 | 「まず 何を しなければなりませんか」「どうすればいいですか」 |
+| 4 | Tính toán chi phí/thời gian | All | 「いくら 払いますか」「何時までに 行きますか」 |
+| 5 | Xác định đúng/sai về nội dung | All | 「この案内について 正しいのは どれですか」 |
+| 6 | Tìm ngoại lệ/điều kiện đặc biệt | N2-N1 | 「〜の場合、どうなりますか」 |
+| 7 | So sánh và chọn | All | 「どちらの コースが いいですか」 |
+| 8 | Hành động khi có vấn đề | N4-N1 | 「〜のとき、どうしますか」 |
+
+> **⛔ Đa dạng kiểu hỏi trong batch — BẮT BUỘC:**
+> - Trong 1 bài (Q1 + Q2): Q1 và Q2 PHẢI khác kiểu (đã có rule ở trên)
+> - Trong batch (nhiều bài cùng level): **KHÔNG được có >50% câu hỏi cùng kiểu**. Ví dụ 4 bài N3 (8 câu) → tối đa 4 câu kiểu #4 (tính toán chi phí)
+> - **KHÔNG được dùng kiểu #4 (tính toán chi phí) cho TOÀN BỘ Q1** — phải xen kẽ kiểu #1, #2, #3, #5, #7
+> - Agent lên kế hoạch phân bố kiểu hỏi TRƯỚC khi gen, giống cách phân bố topic + format + layout
 
 ### Paraphrasing — TẤT CẢ LEVEL
 
@@ -160,9 +176,61 @@ Với mỗi đáp án sai, agent phải:
 > → Trích dẫn: bảng giá "週末コース 2,500円" — đây là giá GỐC, đúng thông tin nhưng sai vì chưa áp dụng giảm giá
 > → Người đọc phải đọc thêm phần 【わりびき】 mới loại được ✅
 
+> Đáp án sai: 「木曜日の午後5時」 (cho câu hỏi "khi nào phải đặt chỗ")
+> → Trích dẫn: 【予約について】"前の日の午後5時までに" — nhưng người hỏi muốn đi thứ Sáu, nên deadline là THỨ NĂM không phải thứ Tư
+> → Người đọc phải cross-check ngày cụ thể + quy tắc "前の日" mới loại được ✅
+
+> Đáp án sai: 「会員カードを作る」 (cho câu hỏi "まず何をしますか")
+> → Trích dẫn: 【入会手順】"①申し込み → ②会員カード → ③受付" — thí sinh nhầm bước 2 thành bước 1
+> → Người đọc phải đọc đúng thứ tự thủ tục mới loại được ✅
+
 ### ⛔ Red flag câu hỏi
 
 - **Đúng vì lý do sai**: Thí sinh sử dụng logic sai nhưng vẫn chọn được kết luận đúng → câu hỏi không phân biệt được năng lực thật → REJECT, phải thiết kế lại để chỉ logic đúng mới dẫn tới đáp án đúng
+
+### ⛔ NGHIÊM CẤM — Cho sẵn dữ kiện trong câu hỏi (Data Leak)
+
+> **Đây là lỗi nghiêm trọng nhất trong thiết kế câu hỏi 情報検索.**
+> Bản chất 情報検索 = thí sinh PHẢI tự tìm thông tin từ bài. Nếu câu hỏi đã cung cấp sẵn
+> dữ kiện → thí sinh không cần đọc bài → câu hỏi mất giá trị → REJECT.
+
+**3 anti-pattern NGHIÊM CẤM:**
+
+#### ① Cho sẵn dữ kiện mà thí sinh phải tự tra cứu
+
+Câu hỏi KHÔNG ĐƯỢC cung cấp bất kỳ số liệu / dữ kiện nào mà thí sinh cần tự tìm trong bài.
+
+| Kiểu | SAI (❌) | ĐÚNG (✅) | Lý do |
+|------|----------|-----------|-------|
+| Giá | 「基本料金は50,000円、割増料金が10,000円かかります。キャンセル料はいくらですか」 | 「佐藤さんはEconomyプランを予約しましたが、2日前にキャンセルしました。キャンセル料はいくらですか」 | Thí sinh phải tự tra: 基本料金 (bảng giá) + 割増料金 (quy tắc phụ thu) + キャンセル率 (bảng cancel) |
+| Giá | 「全部で3,000円です。キャンセルしたら…」 | 「木村さんはテントサイトを1泊予約し、3日前にキャンセルしました。いくら払いますか」 | Thí sinh phải tự tính tổng (入場料 + 宿泊料) rồi mới áp dụng tỷ lệ cancel |
+| Thời gian | 「受付は午後5時までです。田中さんはいつまでに行きますか」 | 「田中さんは金曜日のクラスに出たいです。いつまでに予約しますか」 | Thí sinh phải tự tra: 予約 deadline (前日の午後5時) + 金曜=木曜が締切 |
+| Thủ tục | 「会員カードを持っている人は受付で見せます。山田さんは…」 | 「山田さんは初めてジムを利用します。まず何をしなければなりませんか」 | Thí sinh phải tự tra: 初めての人 → 手順 (申し込み → 会員カード → 受付) |
+| Điều kiện | 「18歳以上で、日本語が話せる人が応募できます。リンさんは…」 | 「リンさん（20歳）は日本語学校に通っています。このアルバイトに応募できますか」 | Thí sinh phải tự tra: 応募条件 (年齢 + 言語 + 勤務日) rồi match với profile |
+
+**Test:** Đọc câu hỏi một mình (không nhìn bài) → nếu đã có đủ thông tin để trả lời = ❌ Data Leak
+
+#### ② Thông tin thừa không ảnh hưởng đáp án
+
+Mọi điều kiện trong tình huống PHẢI ảnh hưởng đến đáp án. KHÔNG có thông tin trang trí.
+
+| SAI (❌) | Lý do |
+|----------|-------|
+| 「田中さんは会員です…何時までに予約しますか」 (nhưng 会員 không ảnh hưởng deadline đặt chỗ) | 会員 là thông tin thừa — gây nhầm lẫn nhưng không phải bẫy hợp lệ, mà là thiết kế sai |
+
+**Test:** Bỏ từng điều kiện ra khỏi câu hỏi → nếu đáp án không thay đổi = điều kiện thừa = ❌
+
+#### ③ Vô hiệu hóa bẫy (※) bằng dữ kiện cho sẵn
+
+Nếu bài có ※ chứa trap (ví dụ: "料金には入場料と宿泊料の両方が含まれます"), câu hỏi KHÔNG ĐƯỢC
+cho sẵn kết quả của trap đó (ví dụ: "全部で3,000円です"). Làm vậy = bẫy bị vô hiệu hóa.
+
+**Test:** Liệt kê tất cả ※ trong bài → với mỗi ※, kiểm tra câu hỏi có bypass nó không:
+- ※ nói "A bao gồm B+C" → câu hỏi cho sẵn tổng A = ❌ bypass
+- ※ nói "ngày X phụ thu Y" → câu hỏi cho sẵn "phụ thu là Y円" = ❌ bypass
+- ※ nói "không được dùng 2 giảm giá cùng lúc" → câu hỏi cho sẵn mức giảm cuối = ❌ bypass
+
+**Kết quả đúng:** Câu hỏi chỉ cho **tình huống** (ai, khi nào, muốn gì, điều kiện gì) — KHÔNG cho **dữ kiện số** mà thí sinh cần tra cứu. Thí sinh phải tự: tra bảng → tìm giá/lịch → đọc ※ → tính toán → chọn đáp án.
 
 ### Loại trừ tuyệt đối — REJECT nếu có bất kỳ
 

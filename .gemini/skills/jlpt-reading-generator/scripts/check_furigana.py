@@ -2,11 +2,11 @@
 """
 check_furigana.py — Kiểm tra kanji thiếu furigana trong bài JLPT 情報検索
 
-Scan HTML file, extract tất cả kanji, tra level từng ký tự trong jlpt_kanji.csv,
+Scan HTML file, extract tất cả kanji, tra level từng ký tự trong kanji_simplified.csv,
 báo cáo kanji vượt level mà không có <ruby><rt> tag.
 
 Usage:
-    python3 check_furigana.py --html <path> --level N5 --kanji-csv input/jlpt_kanji.csv
+    python3 check_furigana.py --html <path> --level N5 --kanji-csv input/kanji_simplified.csv
 
 Exit code:
     0 = OK (không có kanji thiếu furigana)
@@ -39,7 +39,7 @@ def load_kanji_csv(csv_path: str) -> dict:
     mapping = {}
     with open(csv_path, "r", encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            mapping[row["Kanji JLPT"]] = row["Level JLPT"]
+            mapping[row["kanji"]] = row["jlpt"]
     return mapping
 
 # ── Extract ruby kanji (already have furigana) ───────────────────────
@@ -128,7 +128,7 @@ def check_furigana(html_path: str, target_level: str, kanji_csv_path: str) -> li
                 "level": "N/A",
                 "target": target_level,
                 "contexts": sorted(contexts),
-                "reason": "Không có trong jlpt_kanji.csv → mặc định cần furigana",
+                "reason": "Không có trong kanji_simplified.csv → mặc định cần furigana",
             })
         elif level_exceeds(kanji_lv, target_level):
             problems.append({
@@ -149,8 +149,8 @@ def main():
     parser.add_argument("--html", required=True, help="Path to HTML file")
     parser.add_argument("--level", required=True, choices=["N1", "N2", "N3", "N4", "N5"],
                         help="Target JLPT level")
-    parser.add_argument("--kanji-csv", default="input/jlpt_kanji.csv",
-                        help="Path to jlpt_kanji.csv (default: input/jlpt_kanji.csv)")
+    parser.add_argument("--kanji-csv", default="input/kanji_simplified.csv",
+                        help="Path to kanji_simplified.csv (default: input/kanji_simplified.csv)")
     args = parser.parse_args()
 
     if not Path(args.html).exists():

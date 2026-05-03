@@ -45,7 +45,7 @@ description: >
 ## BƯỚC 0: CHUẨN BỊ (1 lần cho batch)
 
 1. **Đọc rules**: `rules/content.md` + `rules/vocabulary.md` + `rules/technical.md`
-2. **Đọc `input/jlpt_kanji.csv`** — dùng để tra level từng kanji khi quyết định furigana
+2. **Đọc `input/kanji_simplified.csv`** — dùng để tra level từng kanji khi quyết định furigana
 3. Scan `sheets/` xem format + layout đã dùng → chọn format + layout chưa/ít dùng
 4. Lập kế hoạch: mỗi bài gán **format** (R7) + **layout variant** (R2) + chủ đề slug (R1) — cả 3 KHÔNG trùng
    - Format = loại tài liệu (nội dung gì). Layout = cách trình bày (nhìn thế nào). Topic = chủ đề.
@@ -156,7 +156,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
 | 14b | **⛔ Layout variant đúng** | Đối chiếu HTML structure với layout slug đã chọn trong kế hoạch | HTML thực sự dùng đúng CSS/HTML đặc trưng của layout variant (tra bảng R2). Không trùng layout với bài trước trong batch |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
-| 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --html {file} --level {LEVEL}`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output, sửa HTML (thêm ruby hoặc viết hiragana), chạy lại screenshot, chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/jlpt_kanji.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
+| 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --html {file} --level {LEVEL}`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output, sửa HTML (thêm ruby hoặc viết hiragana), chạy lại screenshot, chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/kanji_simplified.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
 
 #### PHẦN C: CÂU HỎI & ĐÁP ÁN
 
@@ -172,6 +172,9 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 | 22 | **A1 đủ 4 loại bẫy** | Đọc 3 đáp án sai, xác định loại bẫy | Đủ: ① condition miss ② calculation trap ③ detail swap ④ partial match |
 | 23 | **A1 distractor khó loại** | Với mỗi đáp án sai: có dùng info thật? Cần quay lại bài mới loại? | Không có đáp án nào loại được trong <3 giây bằng common sense |
 | 24 | **Test che bài** | Che bài, nhìn 4 đáp án | Cả 4 đều hợp lý như nhau, KHÔNG đoán được đáp án đúng |
+| 24b | **⛔ Data Leak test** | Đọc câu hỏi MỘT MÌNH (không nhìn bài) — đã có đủ số liệu để tính đáp án chưa? | KHÔNG có số liệu/dữ kiện nào trong câu hỏi mà thí sinh cần tự tra từ bài. Câu hỏi chỉ cho tình huống (ai, khi nào, muốn gì) |
+| 24c | **⛔ Điều kiện thừa** | Bỏ từng điều kiện ra khỏi câu hỏi → đáp án có thay đổi không? | Mọi điều kiện đều ảnh hưởng đáp án. Không có thông tin trang trí |
+| 24d | **⛔ Bẫy ※ còn hiệu lực** | Liệt kê tất cả ※ trong bài → câu hỏi có bypass ※ nào bằng cách cho sẵn kết quả? | Không ※ nào bị vô hiệu hóa. Thí sinh phải tự đọc + áp dụng ※ |
 | 25 | **Q2 exists (N1-N4)** | Xem CSV | Có câu hỏi 2 + 4 đáp án + correct_answer (bỏ qua nếu N5) |
 | 26 | **Q2 ≠ Q1 kiểu** | So sánh Q1 và Q2 | Q1 và Q2 khác kiểu hỏi (ví dụ: Q1 hỏi thời gian, Q2 hỏi điều kiện) |
 | 27 | **Explanations đầy đủ** | Đọc explain_vn_1 + explain_en_1 | Giải thích đủ 3 phần (xem format bên dưới) |
@@ -192,9 +195,9 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 >
 > **Phần 3 — Tóm tắt:** 1 câu ngắn tóm lại logic tìm đáp án.
 >
-> **Ví dụ explain_vn_1:**
+> **Ví dụ explain_vn_1 (kiểu tính toán chi phí):**
 > ```
-> ĐÁP ÁN ĐÚNG (2): 10時
+> ĐÁP ÁN ĐÚNG (2): 2,000円
 > Theo bảng【クラスと料金】, ngày Thứ Bảy có lớp 週末ヨガ lúc 14:00～15:30.
 > Phần【わりびき】ghi: đi cùng bạn được giảm 500円/người → 2,500 - 500 = 2,000円.
 > Vậy đáp án đúng là 2,000円.
@@ -205,6 +208,21 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 > (4) 3,000円 — plausible wrong: không có giá này trong bài.
 >
 > Tóm tắt: Cần kết hợp bảng giá + điều kiện giảm giá để tính đúng.
+> ```
+>
+> **Ví dụ explain_vn_1 (kiểu thời gian/thủ tục):**
+> ```
+> ĐÁP ÁN ĐÚNG (3): 木曜日の午後5時
+> Phần【予約について】ghi: "前の日の午後5時までに電話で予約してください".
+> 田中さん muốn đi lớp thứ Sáu → 前の日 = thứ Năm (木曜日).
+> Vậy deadline là 木曜日の午後5時.
+>
+> ĐÁP ÁN SAI:
+> (1) 水曜日の午後5時 — calculation trap: đếm sai "前の日", lùi 2 ngày thay vì 1 ngày.
+> (2) 金曜日の午前10時 — condition miss: nhầm deadline là ngày diễn ra lớp, bỏ qua quy tắc "前の日".
+> (4) 金曜日の午後5時 — partial match: đúng giờ (午後5時) nhưng sai ngày (phải là 前の日).
+>
+> Tóm tắt: Cần đọc quy tắc đặt chỗ + áp dụng cho ngày cụ thể của nhân vật.
 > ```
 
 #### PHẦN C2: VERIFY ĐÁP ÁN (⛔ QUAN TRỌNG NHẤT)
@@ -249,7 +267,9 @@ Agent mở file PNG và xem:
 | #2, #3, #4, #5, #9, #10 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** → **chạy lại check_furigana.py** | Quay lại BƯỚC 2 |
 | #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
-| #17-#28 | Sửa câu hỏi/đáp án/CSV fields (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
+| #17-#24 | Sửa câu hỏi/đáp án/CSV fields (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
+| #24b-#24d (data leak / điều kiện thừa / bẫy bị bypass) | Viết lại câu hỏi: bỏ dữ kiện cho sẵn, bỏ điều kiện thừa, đảm bảo ※ còn hiệu lực | Quay lại BƯỚC 2 |
+| #25-#28 | Sửa câu hỏi/đáp án/CSV fields (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
 | #29-#30 (tự tính sai) | Kiểm tra lại phép tính, sửa đáp án hoặc sửa bài viết | Quay lại BƯỚC 2 |
 | #31 (mơ hồ) | Sửa bài viết cho rõ ràng → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #32 (distractor bịa) | Viết lại distractor dùng info thật từ bài | Quay lại BƯỚC 2 |

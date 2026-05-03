@@ -74,8 +74,8 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 ### Dữ liệu tham chiếu — BẮT BUỘC dùng
 
-> **File `input/jlpt_kanji.csv`** chứa 2150 kanji với level JLPT (N5→N1).
-> Agent PHẢI tra file này khi quyết định furigana. KHÔNG đoán level kanji từ trí nhớ.
+> **File `input/kanji_simplified.csv`** chứa 2211 kanji với level JLPT (N5→N1).
+> Columns: `kanji,jlpt,onyomi,kunyomi`. Agent PHẢI tra file này khi quyết định furigana. KHÔNG đoán level kanji từ trí nhớ.
 
 ### Core Rule — Tra từng kanji trong từ
 
@@ -85,7 +85,7 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 **Quy trình xét furigana cho từ kanji (áp dụng cho từ có BẤT KỲ số lượng kanji: 2, 3, 4, 5+ ký tự):**
 
 1. Tra **TỪNG ký tự kanji** trong từ (không chỉ 2 ký tự — từ có thể dài: 身分証明書=5 kanji, 自転車=3 kanji...)
-2. Tra mỗi ký tự trong `input/jlpt_kanji.csv` → lấy level
+2. Tra mỗi ký tự trong `input/kanji_simplified.csv` → lấy level
 3. So sánh level từng kanji với **level mục tiêu** của bài
 4. Nếu **TẤT CẢ kanji ≤ level mục tiêu** → KHÔNG furigana
 5. Nếu **BẤT KỲ kanji > level mục tiêu** → CẢ TỪ cần furigana
