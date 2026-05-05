@@ -74,7 +74,7 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 ### Dữ liệu tham chiếu — BẮT BUỘC dùng
 
-> **File `input/kanji_jlpt_sensei.csv`** chứa ~5311 kanji với level JLPT (N5→N1).
+> **File `input/kanji_jlpt_sensei.csv`** chứa 2495 kanji với level JLPT (N5:80, N4:167, N3:370, N2:374, N1:1504).
 > Columns: `kanji,jlpt,onyomi,kunyomi,meanings`. Agent PHẢI tra file này khi quyết định furigana. KHÔNG đoán level kanji từ trí nhớ.
 
 ### Core Rule — Tra từng kanji trong từ
@@ -93,21 +93,22 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 **Thứ tự level (thấp → cao):** N5 < N4 < N3 < N2 < N1
 
-> **Ví dụ 2 kanji — 割引** (割=N3, 引=N4):
-> - Bài N3: 割(N3) ≤ N3 ✓, 引(N4) ≤ N3 ✓ → **không furigana** → `割引`
-> - Bài N4: 割(N3) > N4 ✗ → **cần furigana** → `<ruby>割引<rt>わりびき</rt></ruby>`
+> **Ví dụ 2 kanji — 割引** (割=N3, 引=N3):
+> - Bài N3: 割(N3) ≤ N3 ✓, 引(N3) ≤ N3 ✓ → **không furigana** → `割引`
+> - Bài N4: 割(N3) > N4 ✗, 引(N3) > N4 ✗ → **cần furigana** → `<ruby>割引<rt>わりびき</rt></ruby>`
 >
-> **Ví dụ 3 kanji — 自転車** (自=N4, 転=không có trong CSV, 車=N5):
-> - Bài N4: 転 không có trong CSV → mặc định > N4 → **cần furigana** → `<ruby>自転車<rt>じてんしゃ</rt></ruby>`
-> - Bài N3: 転 không có trong CSV → mặc định > N3 → **cần furigana** → `<ruby>自転車<rt>じてんしゃ</rt></ruby>`
+> **Ví dụ 3 kanji — 美術館** (美=N3, 術=N3, 館=N4):
+> - Bài N3: 美(N3) ≤ N3 ✓, 術(N3) ≤ N3 ✓, 館(N4) ≤ N3 ✓ → **không furigana** → `美術館`
+> - Bài N4: 美(N3) > N4 ✗, 術(N3) > N4 ✗ → **cần furigana** → `<ruby>美術館<rt>びじゅつかん</rt></ruby>`
 >
-> **Ví dụ 5 kanji — 身分証明書** (身=N3, 分=N5, 証=N2, 明=N5, 書=N5):
-> - Bài N4: 身(N3) > N4, 証(N2) > N4 → **cần furigana** → `<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>`
-> - Bài N2: 身(N3) ≤ N2 ✓, 証(N2) ≤ N2 ✓ → tất cả ≤ N2 → **không furigana** → `身分証明書`
+> **Ví dụ 5 kanji — 身分証明書** (身=N3, 分=N5, 証=N1, 明=N4, 書=N5):
+> - Bài N4: 身(N3) > N4, 証(N1) > N4 → **cần furigana** → `<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>`
+> - Bài N2: 証(N1) > N2 ✗ → **cần furigana** → `<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>`
+> - Bài N1: tất cả ≤ N1 → **không furigana** → `身分証明書`
 >
-> **Ví dụ 2 kanji — 経験** (経=N2, 験=N3):
-> - Bài N3: 経(N2) > N3 ✗ → **cần furigana** → `<ruby>経験<rt>けいけん</rt></ruby>`
-> - Bài N2: 経(N2) ≤ N2 ✓, 験(N3) ≤ N2 ✓ → **không furigana** → `経験`
+> **Ví dụ 2 kanji — 条件** (条=N1, 件=N3):
+> - Bài N3: 条(N1) > N3 ✗ → **cần furigana** → `<ruby>条件<rt>じょうけん</rt></ruby>`
+> - Bài N1: 条(N1) ≤ N1 ✓, 件(N3) ≤ N1 ✓ → **không furigana** → `条件`
 
 ### Phân loại từ vựng kết hợp kanji level
 
@@ -159,45 +160,48 @@ Okurigana ngoại lệ: `<ruby>届<rt>とど</rt></ruby>く` (kanji stem + okuri
 **Bước tra CSV:**
 - 最(N3) 近(N4) → cả 2 ≤ N3 → không furigana
 - 仕(N4) 事(N4) → cả 2 ≤ N3 → không furigana
-- 生(N5) 活(N4) → cả 2 ≤ N3 → không furigana
-- 経(N2) 験(N3) → 経=N2 > N3 → **cần furigana**
+- 生(N5) 活(N3) → cả 2 ≤ N3 → không furigana
+- 経(N3) 験(N4) → cả 2 ≤ N3 → không furigana
 - 豊(N2) 富(N3) → 豊=N2 > N3 → **cần furigana**
 - 講(N2) 師(N3) → 講=N2 > N3 → **cần furigana**
-- 丁(N2) 寧(N1) → cả 2 > N3 → **cần furigana**
+- 丁(N1) 寧(N1) → cả 2 > N3 → **cần furigana**
+- 条(N1) 件(N3) → 条=N1 > N3 → **cần furigana**
 
 **SAI (111 ruby tags — furigana toàn bộ, không tra CSV):**
 ```html
-<ruby>最近<rt>さいきん</rt></ruby>は、<ruby>仕事<rt>しごと</rt></ruby>や<ruby>生活<rt>せいかつ</rt></ruby>で...
+<ruby>最近<rt>さいきん</rt></ruby>は、<ruby>仕事<rt>しごと</rt></ruby>や<ruby>経験<rt>けいけん</rt></ruby>が...
 ```
-→ 最近(N3+N4), 仕事(N4+N4), 生活(N5+N4) đều ≤ N3 → KHÔNG furigana
+→ 最近(N3+N4), 仕事(N4+N4), 経験(N3+N4) đều ≤ N3 → KHÔNG furigana
 
 **ĐÚNG (tra CSV → chỉ từ có kanji > N3 mới thêm furigana):**
 ```html
-最近は、仕事や生活で...
-<ruby>経験豊富<rt>けいけんほうふ</rt></ruby>な<ruby>講師<rt>こうし</rt></ruby>が<ruby>丁寧<rt>ていねい</rt></ruby>にお教えします。
+最近は、仕事や経験が...
+<ruby>豊富<rt>ほうふ</rt></ruby>な<ruby>講師<rt>こうし</rt></ruby>が<ruby>丁寧<rt>ていねい</rt></ruby>にお教えします。
 ```
 
 ### Ví dụ N4 — Từ dài (3-5 kanji)
 
 **Bước tra CSV (chú ý từ dài hơn 2 kanji):**
-- 利用(利=N4, 用=N3) → 用=N3 > N4 → **cần furigana**
-- 自転車(自=N4, 転=???, 車=N5) → 転 không có CSV → **cần furigana**
-- 身分証明書(身=N3, 分=N5, 証=N2, 明=N5, 書=N5) → 身=N3, 証=N2 > N4 → **cần furigana**
-- 注意(注=N3, 意=N3) → cả 2 > N4 → **cần furigana**
-- 無料(無=N3, 料=N4) → 無=N3 > N4 → **cần furigana**
+- 利用(利=N3, 用=N4) → 利=N3 > N4 → **cần furigana**
 - 予約(予=N3, 約=N3) → cả 2 > N4 → **cần furigana**
+- 場合(場=N4, 合=N3) → 合=N3 > N4 → **cần furigana**
+- 身分証明書(身=N3, 分=N5, 証=N1, 明=N4, 書=N5) → 身=N3, 証=N1 > N4 → **cần furigana**
+- 美術館(美=N3, 術=N3, 館=N4) → 美,術=N3 > N4 → **cần furigana**
+- 自転車(自=N4, 転=N4, 車=N5) → cả 3 ≤ N4 → **không furigana**
+- 注意(注=N4, 意=N4) → cả 2 ≤ N4 → **không furigana**
+- 無料(無=N4, 料=N4) → cả 2 ≤ N4 → **không furigana**
 - 料金(料=N4, 金=N5) → cả 2 ≤ N4 → **không furigana**
-- 場合(場=N4, 合=N4) → cả 2 ≤ N4 → **không furigana**
 
-**SAI (thiếu furigana cho từ có kanji > N4):**
+**SAI (thiếu furigana + furigana thừa):**
 ```html
-◆ 利用料金（一人）
-...身分証明書（パスポートなど）を 見せてください。
+◆ 利用料金（一人）... 場合は...
+自転車で...<ruby>注意<rt>ちゅうい</rt></ruby>してください。
 ```
-→ 利用(用=N3), 身分証明書(身=N3,証=N2) đều có kanji > N4 → PHẢI có furigana
+→ 利用(利=N3>N4) THIẾU furigana. 場合(合=N3>N4) THIẾU furigana.
+→ 注意(注=N4,意=N4 ≤ N4) THỪA furigana. 自転車(全≤N4) đúng.
 
 **ĐÚNG:**
 ```html
-◆ <ruby>利用<rt>りよう</rt></ruby>料金（一人）
-...<ruby>身分証明書<rt>みぶんしょうめいしょ</rt></ruby>（パスポートなど）を 見せてください。
+◆ <ruby>利用<rt>りよう</rt></ruby>料金（一人）... <ruby>場合<rt>ばあい</rt></ruby>は...
+自転車で...注意してください。
 ```

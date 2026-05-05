@@ -225,9 +225,50 @@ Nguyên tắc quan trọng nhất: thí sinh **không cần hiểu hết 100% t�
 
 * **Diễn đạt (Paraphrasing):** Từ cấp độ N3 trở lên, câu hỏi và đáp án không nên copy nguyên văn từ trong text mà nên sử dụng **từ đồng nghĩa hoặc cách diễn đạt tương đương** để kiểm tra khả năng xử lý ngôn ngữ.
 
-* **Sự nhất quán về thì:** Câu hỏi và các lựa chọn phải thống nhất về thì động từ.
+* **Thể chia nhất quán theo cấp độ:** N1/N2/N3 dùng thể thường (普通形); N4/N5 dùng thể ます (lịch sự). Câu hỏi và các lựa chọn phải thống nhất thể chia trong cùng một bài. Riêng N5 cần có khoảng trắng thoáng giữa các cụm từ để phù hợp trình độ người học 
 
-## **4\. Các dấu hiệu loại trừ (Red Flags)**
+## **4\. Quy định về thể chia động từ và cách trình bày câu hỏi**
+
+ 
+
+| Cấp độ | Thể chia động từ | Khoảng cách chữ | Đặc điểm trình bày câu hỏi |
+| ----- | ----- | ----- | ----- |
+| **N5** | Thể ます (lịch sự) | Có khoảng cách thoáng (〜は　〜) | Câu ngắn, đơn giản. Có khoảng trắng giữa các cụm từ để dễ đọc. |
+| **N4** | Thể ます (lịch sự) | Bình thường (không thoáng) | Câu dài hơn, phức tạp hơn N5 một chút. Không dùng khoảng trắng đặc biệt. |
+| **N3** | Thể thường (普通形) | Bình thường | Câu kết thúc bằng 〜か。 |
+| **N2** | Thể thường (普通形) | Bình thường | Câu kết thúc bằng 〜か。 |
+| **N1** | Thể thường (普通形) | Bình thường | Câu kết thúc bằng 〜か。 |
+
+ 
+
+**Ví dụ minh họa theo từng cấp độ:**
+
+ 
+
+| N5 | *フォンさんの　休みは　二日間です。休みに　海へ　行きたいです。どの　旅行に　行きますか。* → Thể ます. Có khoảng trắng thoáng giữa các cụm từ.  |
+| :---: | :---- |
+
+ 
+
+| N4 | *エレナさんはカレーと一緒にサラダを食べて、あとでコーヒーを飲みたいと思っています。エレナさんが選ぶことのできるメニューはどれですか。* → Thể ます. Không dùng khoảng trắng đặc biệt.  |
+| :---: | :---- |
+
+ 
+
+| N3 | *田中さんは、出発日が土曜日のバス旅行に申し込みたいと思っている。昼食がついていて、温泉に行けるものがいい。田中さんの希望に合うのはどれか。* → Thể thường (普通形).  |
+| :---: | :---- |
+
+ 
+
+| N2 | *このパスを手に入れるには、どうしたらいいか。* → Thể thường (普通形).  |
+| :---: | :---- |
+
+ 
+
+| N1 | *サブリナさんは中橋区に住んでいる。「中橋自然の宿」に、国から遊びに来る友達と二人で止まりに行こうと思っている。友達の年齢はサブリナさんと同じ24歳である。二人に適用される一泊の利用料金はどのようになるか。* → Thể thường (普通形).  |
+| :---: | :---- |
+
+## **5\. Các dấu hiệu loại trừ (Red Flags)**
 
 **⚠** Câu hỏi mơ hồ: Thiếu dữ kiện khiến thí sinh phải tự giả định tình huống.
 

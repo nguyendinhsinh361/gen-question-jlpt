@@ -95,9 +95,62 @@ Câu hỏi và đáp án KHÔNG được copy nguyên văn từ bài → PHẢI 
 
 Từ dùng để paraphrase phải đúng level thí sinh.
 
-### Nhất quán thì động từ
+### ⛔ Thể chia động từ + khoảng cách chữ theo level — BẮT BUỘC
 
-Câu hỏi + 4 lựa chọn phải **thống nhất thì** (ưu tiên thì hiện tại).
+> **Đây là lỗi hệ thống phổ biến nhất. AI thường viết tất cả câu hỏi bằng thể ます — SAI cho N1/N2/N3.**
+
+| Level | Thể chia động từ | Khoảng cách chữ | Đặc điểm |
+|-------|-----------------|-----------------|----------|
+| **N5** | Thể ます (lịch sự) | Có khoảng cách thoáng (〜は　〜を) | Câu ngắn, đơn giản. Có khoảng trắng giữa các cụm từ |
+| **N4** | Thể ます (lịch sự) | Bình thường (không thoáng) | Câu dài hơn N5. KHÔNG dùng khoảng trắng đặc biệt |
+| **N3** | Thể thường (普通形) | Bình thường | Câu kết thúc bằng 〜か。 |
+| **N2** | Thể thường (普通形) | Bình thường | Câu kết thúc bằng 〜か。 |
+| **N1** | Thể thường (普通形) | Bình thường | Câu kết thúc bằng 〜か。 |
+
+**Ví dụ theo level:**
+
+| Level | Ví dụ |
+|-------|-------|
+| N5 | フォンさんの　休みは　二日間です。休みに　海へ　行きたいです。どの　旅行に　行き**ますか**。 |
+| N4 | エレナさんはカレーと一緒にサラダを食べて、あとでコーヒーを飲みたいと思っています。エレナさんが選ぶことのできるメニューはどれ**ですか**。 |
+| N3 | 田中さんは、出発日が土曜日のバス旅行に申し込みたいと思っている。昼食がついていて、温泉に行けるものがいい。田中さんの希望に合うのはどれ**か**。 |
+| N2 | このパスを手に入れるには、どうしたらいい**か**。 |
+| N1 | 二人に適用される一泊の利用料金はどのようになる**か**。 |
+
+**⛔ SAI (lỗi thường gặp):**
+- N1: 「いくら支払われ**ますか**」 → PHẢI viết 「いくら支払われる**か**」
+- N2: 「どうすれば**いいですか**」 → PHẢI viết 「どうすれば**いいか**」
+- N3: 「いくら払い**ますか**」 → PHẢI viết 「いくら払う**か**」
+- N4: 「大学生の　田中さんは…」 → PHẢI viết 「大学生の田中さんは…」 (N4 KHÔNG thoáng)
+
+**Nhất quán trong bài:** Câu hỏi + 4 lựa chọn PHẢI thống nhất thể chia. Nếu câu hỏi dùng 普通形 thì 4 đáp án cũng phải 普通形 — KHÔNG được mix.
+
+### ⛔ Điều kiện ngầm — NGHIÊM CẤM
+
+> Mọi điều kiện ảnh hưởng đáp án PHẢI được nêu **rõ ràng** (explicit) trong câu hỏi.
+> KHÔNG được ngầm giả định thí sinh sẽ thực hiện hành động nào đó.
+
+**Ví dụ SAI:**
+> 「田中さんは大学生です…いくらですか」 — bài có quy tắc "学生カードを見せると100円引き"
+> nhưng câu hỏi KHÔNG nói 田中 có xuất trình thẻ hay không → ngầm giả định có → ❌
+
+**Ví dụ ĐÚNG:**
+> 「田中さんは大学生で、学生カードを見せました…いくらですか」 → explicit ✅
+
+**Test:** Với mỗi điều kiện trong câu hỏi, hỏi "thí sinh có thể hiểu khác không?" Nếu có → phải explicit hóa.
+
+### ⛔ Quy tắc mơ hồ trong bài — NGHIÊM CẤM
+
+> Mọi quy tắc/chính sách trong bài PHẢI có **cách hiểu duy nhất**.
+> Nếu đọc theo 2 cách cho ra 2 kết quả khác nhau → bài có lỗi → phải sửa bài.
+
+**Test 2 cách đọc:** Với mỗi quy tắc trong bài (giảm giá, phụ thu, deadline...), thử đọc theo 2 cách hiểu hợp lý. Nếu ra kết quả khác nhau → phải thêm chú thích/giải thích để loại bỏ cách hiểu sai.
+
+**Ví dụ cần sửa:**
+> 「土・日に勤務する場合、全時間帯で時給＋100円」— ca 22:00 CN → 06:00 thứ 2:
+> - Cách 1: áp +100 cho cả ca (vì ca bắt đầu vào CN) → 8×100 = 800
+> - Cách 2: áp +100 chỉ cho giờ CN (22:00-24:00 = 2h) → 2×100 = 200
+> → 2 kết quả khác nhau → PHẢI thêm chú thích: "勤務開始日が土日の場合、全時間帯に適用"
 
 ---
 
@@ -131,7 +184,7 @@ Quy tắc:
 | **① Bẫy điều kiện (condition miss)** | Đúng số liệu nhưng sai điều kiện áp dụng | Phải đọc kỹ lưu ý/chú thích mới phát hiện sai |
 | **② Bẫy tính toán (calculation trap)** | Kết quả phép tính hợp lý nhưng bỏ sót 1 bước | Phải tính lại cẩn thận từ đầu mới thấy sai |
 | **③ Bẫy thông tin chéo (detail swap)** | Dữ liệu THẬT từ bài nhưng thuộc đối tượng/dòng khác | Phải xác nhận đúng dòng/cột/đối tượng mới loại được |
-| **④ Bẫy tương tự (partial match)** | Đúng một phần nhưng thiếu/thừa 1 yếu tố | Phải cross-check đầy đủ điều kiện mới phát hiện |
+| **④ Bẫy đọc nhầm / tương tự (partial match)** | Đúng một phần nhưng thiếu/thừa 1 yếu tố, HOẶC nhầm hàng/cột tương tự trong bảng | Phải cross-check đầy đủ điều kiện hoặc xác nhận đúng dòng/cột mới phát hiện |
 
 ### Đặc điểm lựa chọn theo level
 
@@ -186,7 +239,9 @@ Với mỗi đáp án sai, agent phải:
 
 ### ⛔ Red flag câu hỏi
 
-- **Đúng vì lý do sai**: Thí sinh sử dụng logic sai nhưng vẫn chọn được kết luận đúng → câu hỏi không phân biệt được năng lực thật → REJECT, phải thiết kế lại để chỉ logic đúng mới dẫn tới đáp án đúng
+- **Đúng vì lý do sai**: Thí sinh sử dụng logic sai nhưng vẫn chọn được kết luận đúng → REJECT, phải thiết kế lại
+- **Có >1 đáp án đúng**: Văn bản hoặc câu hỏi không đủ chặt chẽ để loại trừ các phương án còn lại → REJECT
+- **Thông tin tập trung**: Đáp án nằm trọn trong 1 dòng/1 chỗ, không cần kỹ năng scan → REJECT (câu hỏi phải buộc cross-reference ≥3 vị trí)
 
 ### ⛔ NGHIÊM CẤM — Cho sẵn dữ kiện trong câu hỏi (Data Leak)
 

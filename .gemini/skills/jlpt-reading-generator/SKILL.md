@@ -173,12 +173,16 @@ Agent đọc câu hỏi + 4 đáp án từ CSV và đánh giá:
 | 19 | **A1 format** | Xem 4 đáp án | Đúng 4 options, đều độ dài (ratio < 2.0), thì động từ nhất quán |
 | 20 | **A1 correct_answer** | Xem giá trị correct_answer_1 | Integer 1-4. Vị trí ≠ correct_answer_2 (nếu có Q2). Scan batch: không lặp cùng vị trí ≥3 lần liên tiếp |
 | 21 | **A1 paraphrase** | So đáp án đúng với bài gốc | KHÔNG trùng cụm ≥4 từ liên tiếp (N3+) hoặc ≥6 từ (N4/N5) |
-| 22 | **A1 đủ 4 loại bẫy** | Đọc 3 đáp án sai, xác định loại bẫy | Đủ: ① condition miss ② calculation trap ③ detail swap ④ partial match |
+| 22 | **A1 đủ 4 loại bẫy** | Đọc 3 đáp án sai, xác định loại bẫy | Đủ: ① condition miss ② calculation trap ③ detail swap ④ partial match / đọc nhầm |
 | 23 | **A1 distractor khó loại** | Với mỗi đáp án sai: có dùng info thật? Cần quay lại bài mới loại? | Không có đáp án nào loại được trong <3 giây bằng common sense |
 | 24 | **Test che bài** | Che bài, nhìn 4 đáp án | Cả 4 đều hợp lý như nhau, KHÔNG đoán được đáp án đúng |
 | 24b | **⛔ Data Leak test** | Đọc câu hỏi MỘT MÌNH (không nhìn bài) — đã có đủ số liệu để tính đáp án chưa? | KHÔNG có số liệu/dữ kiện nào trong câu hỏi mà thí sinh cần tự tra từ bài. Câu hỏi chỉ cho tình huống (ai, khi nào, muốn gì) |
 | 24c | **⛔ Điều kiện thừa** | Bỏ từng điều kiện ra khỏi câu hỏi → đáp án có thay đổi không? | Mọi điều kiện đều ảnh hưởng đáp án. Không có thông tin trang trí |
 | 24d | **⛔ Bẫy ※ còn hiệu lực** | Liệt kê tất cả ※ trong bài → câu hỏi có bypass ※ nào bằng cách cho sẵn kết quả? | Không ※ nào bị vô hiệu hóa. Thí sinh phải tự đọc + áp dụng ※ |
+| 24e | **⛔ Thể chia đúng level** | Xem thể chia động từ cuối câu hỏi + 4 đáp án | N1/N2/N3 → 普通形 kết thúc 〜か。(VD: 「いくらになるか」). N4/N5 → ます形 kết thúc 〜ますか/〜ですか。Câu hỏi và 4 đáp án **phải nhất quán** — KHÔNG mix |
+| 24f | **⛔ Khoảng cách chữ đúng level** | Xem khoảng trắng trong câu hỏi | N5 → thoáng (「〜は　〜を　〜ます」). N4/N3/N2/N1 → bình thường (không thoáng). N4 dùng khoảng cách thoáng kiểu N5 = FAIL |
+| 24g | **⛔ Điều kiện ngầm** | Với mỗi điều kiện ảnh hưởng đáp án, kiểm tra câu hỏi có nêu explicit không | Mọi điều kiện đều được nêu rõ ràng. KHÔNG ngầm giả định thí sinh thực hiện hành động (VD: "xuất trình thẻ" phải nói rõ) |
+| 24h | **⛔ Quy tắc không mơ hồ** | Với mỗi quy tắc trong bài (giảm giá, phụ thu, deadline...), thử đọc theo 2 cách hiểu | Mọi quy tắc chỉ có 1 cách hiểu hợp lý. Nếu 2 cách đọc ra 2 kết quả → PHẢI thêm chú thích |
 | 25 | **Q2 exists (N1-N4)** | Xem CSV | Có câu hỏi 2 + 4 đáp án + correct_answer (bỏ qua nếu N5) |
 | 26 | **Q2 ≠ Q1 kiểu** | So sánh Q1 và Q2 | Q1 và Q2 khác kiểu hỏi (ví dụ: Q1 hỏi thời gian, Q2 hỏi điều kiện) |
 | 27 | **Explanations đầy đủ** | Đọc explain_vn_1 + explain_en_1 | Giải thích đủ 3 phần (xem format bên dưới) |
@@ -273,6 +277,10 @@ Agent mở file PNG và xem:
 | #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #17-#24 | Sửa câu hỏi/đáp án/CSV fields (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
 | #24b-#24d (data leak / điều kiện thừa / bẫy bị bypass) | Viết lại câu hỏi: bỏ dữ kiện cho sẵn, bỏ điều kiện thừa, đảm bảo ※ còn hiệu lực | Quay lại BƯỚC 2 |
+| #24e (thể chia sai) | Đổi toàn bộ câu hỏi + 4 đáp án sang đúng thể chia (N1-N3 → 普通形, N4-N5 → ます形) | Quay lại BƯỚC 2 |
+| #24f (khoảng cách sai) | N5 → thêm khoảng trắng thoáng; N4+ → bỏ khoảng trắng thừa | Quay lại BƯỚC 2 |
+| #24g (điều kiện ngầm) | Thêm explicit điều kiện vào câu hỏi (VD: 「学生カードを見せました」) | Quay lại BƯỚC 2 |
+| #24h (quy tắc mơ hồ) | Thêm chú thích/giải thích vào bài viết → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #25-#28 | Sửa câu hỏi/đáp án/CSV fields (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
 | #29-#30 (tự tính sai) | Kiểm tra lại phép tính, sửa đáp án hoặc sửa bài viết | Quay lại BƯỚC 2 |
 | #31 (mơ hồ) | Sửa bài viết cho rõ ràng → **chạy lại screenshot** | Quay lại BƯỚC 2 |

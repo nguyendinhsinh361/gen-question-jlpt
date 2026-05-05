@@ -82,6 +82,10 @@
 
 ### Checklist kiểm tra chủ đề
 
+- Chủ đề có tính thực tế và ứng dụng cao không? (không giả định, không story)
+- Có đầy đủ data (thời gian, giá cả, điều kiện) để tra cứu không?
+- Chủ đề có phù hợp với trình độ nhận thức của level mục tiêu không?
+- Văn bản có chứa ít nhất 2 nguồn/phần thông tin khác nhau để thí sinh phải scan không?
 - Số điều kiện cần kết hợp có đúng với thước đo của level (N5: 1–2 / N4: 3–4 / N3: 5–6 / N2: 6–8 / N1: 7+) không?
 - Slug chủ đề có nằm trong danh mục phù hợp với level không? (Tra bảng tổng hợp hệ thống)
 
