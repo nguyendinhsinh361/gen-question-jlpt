@@ -45,7 +45,7 @@ description: >
 ## BƯỚC 0: CHUẨN BỊ (1 lần cho batch)
 
 1. **Đọc rules**: `rules/content.md` + `rules/vocabulary.md` + `rules/technical.md`
-2. **Đọc `input/kanji_simplified.csv`** — dùng để tra level từng kanji khi quyết định furigana
+2. **Đọc `input/kanji_jlpt_sensei.csv`** — dùng để tra level từng kanji khi quyết định furigana
 3. Scan `sheets/` xem format + layout đã dùng → chọn format + layout chưa/ít dùng
 4. Lập kế hoạch: mỗi bài gán **format** (R7) + **layout variant** (R2) + chủ đề slug (R1) — cả 3 KHÔNG trùng
    - Format = loại tài liệu (nội dung gì). Layout = cách trình bày (nhìn thế nào). Topic = chủ đề.
@@ -156,7 +156,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
 | 14b | **⛔ Layout variant đúng** | Đối chiếu HTML structure với layout slug đã chọn trong kế hoạch | HTML thực sự dùng đúng CSS/HTML đặc trưng của layout variant (tra bảng R2). Không trùng layout với bài trước trong batch |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
-| 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --html {file} --level {LEVEL}`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output, sửa HTML (thêm ruby hoặc viết hiragana), chạy lại screenshot, chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/kanji_simplified.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
+| 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --html {file} --level {LEVEL}`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output, sửa HTML (thêm ruby hoặc viết hiragana), chạy lại screenshot, chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/kanji_jlpt_sensei.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có `<ruby><rt>`. Không thừa. Không thiếu. KHÔNG đoán — phải tra CSV |
 
 #### PHẦN C: CÂU HỎI & ĐÁP ÁN
 

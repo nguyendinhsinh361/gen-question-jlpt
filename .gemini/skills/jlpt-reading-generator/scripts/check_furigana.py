@@ -2,11 +2,11 @@
 """
 check_furigana.py — Kiểm tra kanji thiếu furigana trong bài JLPT 情報検索
 
-Scan HTML file, extract tất cả kanji, tra level từng ký tự trong kanji_simplified.csv,
+Scan HTML file, extract tất cả kanji, tra level từng ký tự trong kanji_jlpt_sensei.csv,
 báo cáo kanji vượt level mà không có <ruby><rt> tag.
 
 Usage:
-    python3 check_furigana.py --html <path> --level N5 --kanji-csv input/kanji_simplified.csv
+    python3 check_furigana.py --html <path> --level N5 --kanji-csv input/kanji_jlpt_sensei.csv
 
 Exit code:
     0 = OK (không có kanji thiếu furigana)
@@ -128,7 +128,7 @@ def check_furigana(html_path: str, target_level: str, kanji_csv_path: str) -> li
                 "level": "N/A",
                 "target": target_level,
                 "contexts": sorted(contexts),
-                "reason": "Không có trong kanji_simplified.csv → mặc định cần furigana",
+                "reason": "Không có trong kanji_jlpt_sensei.csv → mặc định cần furigana",
             })
         elif level_exceeds(kanji_lv, target_level):
             problems.append({
@@ -149,8 +149,8 @@ def main():
     parser.add_argument("--html", required=True, help="Path to HTML file")
     parser.add_argument("--level", required=True, choices=["N1", "N2", "N3", "N4", "N5"],
                         help="Target JLPT level")
-    parser.add_argument("--kanji-csv", default="input/kanji_simplified.csv",
-                        help="Path to kanji_simplified.csv (default: input/kanji_simplified.csv)")
+    parser.add_argument("--kanji-csv", default="input/kanji_jlpt_sensei.csv",
+                        help="Path to kanji_jlpt_sensei.csv (default: input/kanji_jlpt_sensei.csv)")
     args = parser.parse_args()
 
     if not Path(args.html).exists():

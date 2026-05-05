@@ -71,7 +71,7 @@ Gen xong tất cả → gộp CSV thành sheets/all_tim_thong_tin.csv.
 
 Lưu CSV vào sheets/. Trước khi gen:
 1. Đọc rules/content.md + rules/vocabulary.md + rules/technical.md + rules/questions.md
-2. Đọc input/kanji_simplified.csv để tra level kanji khi quyết định furigana
+2. Đọc input/kanji_jlpt_sensei.csv để tra level kanji khi quyết định furigana
 3. Đọc 1-2 mẫu input/html/ + 1 mẫu input/htm_content_qa/ cho level cần gen
 4. Scan sheets/ xem chủ đề + format + layout nào đã dùng → chọn chủ đề + format + layout chưa/ít dùng
    (rules/content.md đã chứa bảng slug + star rating + thước đo + LAYOUT VARIANTS (R2) + 19 formats (R7). input/rule_doc_hieu.md là nguồn gốc — dùng để cross-check)
