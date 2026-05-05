@@ -143,6 +143,7 @@ Agent đọc lại file HTML và kiểm tra:
 | 6 | **Furigana format** | Tìm ngoặc `漢字(かんじ)` hoặc `漢字【かんじ】` | Không có — tất cả furigana dùng `<ruby><rt>` |
 | 7 | **Ruby có `<rt>`** | Xem mọi `<ruby>...</ruby>` | Tất cả đều có `<rt>` bên trong |
 | 8 | **Ruby count** | Đếm số `<ruby>` | Trong ngưỡng: N5 0-5 (vượt >8 = thừa), N4 0-8 (vượt >12 = thừa), N3 5-20, N2 5-20, N1 3-15 |
+| 8b | **⛔ Ruby CSS baseline** | Xem CSS cho `ruby` và `ruby rt` trong `<style>` | Chỉ có `ruby { ruby-align: center; ruby-position: over; }` và `ruby rt { font-size: 0.55em; color: #333; letter-spacing: 0.02em; }`. KHÔNG có `vertical-align` trên `ruby`/`rt`, KHÔNG có `line-height` trên `rt`. Body phải có `line-height: 2` (không `1.8` hay `1.6`). Vi phạm → text có furigana bị lệch baseline |
 | 9 | **Table layout** | Xem CSS nếu có `<table>` | Có `table-layout:fixed` (bỏ qua nếu không có table) |
 | 10 | **Symbols** | Tìm ○×△※★◆◎【】 | Có ít nhất 1 symbol trong nội dung |
 | 10b | **⛔ Color palette** | Scan tất cả hex code trong CSS | Chỉ dùng màu trong palette R8 (`rules/content.md`). Không `color:#fff`. Tối đa 2 accent. ○=Green, ×=Red, △=Amber |
@@ -268,7 +269,7 @@ Agent mở file PNG và xem:
 |-----------|-----------|--------|
 | #1, #11, #12, #13, #15 | Gen lại toàn bộ HTML → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #2, #3, #4, #5, #9, #10 | Sửa HTML/CSS → **chạy lại screenshot** | Quay lại BƯỚC 2 |
-| #6, #7, #8, #16 | Sửa ruby tags → **chạy lại screenshot** → **chạy lại check_furigana.py** | Quay lại BƯỚC 2 |
+| #6, #7, #8, #8b, #16 | Sửa ruby tags/CSS → **chạy lại screenshot** → **chạy lại check_furigana.py** | Quay lại BƯỚC 2 |
 | #14 | Sửa bố cục bài → **chạy lại screenshot** | Quay lại BƯỚC 2 |
 | #17-#24 | Sửa câu hỏi/đáp án/CSV fields (không cần chạy lại screenshot) | Quay lại BƯỚC 2 |
 | #24b-#24d (data leak / điều kiện thừa / bẫy bị bypass) | Viết lại câu hỏi: bỏ dữ kiện cho sẵn, bỏ điều kiện thừa, đảm bảo ※ còn hiệu lực | Quay lại BƯỚC 2 |

@@ -23,8 +23,10 @@
         /* Dùng pattern này thay vì floating label: */
         .section-box { border: 1px solid #ccc; margin-top: 20px; padding: 12px; }
         .section-label { font-weight: bold; background: #f0f0f0; padding: 4px 12px; margin: -12px -12px 10px -12px; border-bottom: 1px solid #ccc; color: #000; }
-        ruby { ruby-align: center; ruby-position: over; vertical-align: baseline; }
-        ruby rt { font-size: 0.55em; color: #333; letter-spacing: 0.02em; line-height: 1; vertical-align: top; }
+        /* Ruby: giữ đơn giản — KHÔNG thêm vertical-align hay line-height vào ruby/rt
+           để tránh baseline lệch khi mix ruby + non-ruby trên cùng dòng */
+        ruby { ruby-align: center; ruby-position: over; }
+        ruby rt { font-size: 0.55em; color: #333; letter-spacing: 0.02em; }
     </style>
 </head>
 <body>
@@ -34,6 +36,29 @@
 </body>
 </html>
 ```
+
+### ⛔ Ruby Baseline — KHÔNG thêm CSS thừa vào ruby/rt
+
+> **LỖI PHỔ BIẾN:** AI thêm `vertical-align: baseline` vào `ruby` và `vertical-align: top; line-height: 1` vào `ruby rt`.
+> Kết quả: text có furigana bị **đẩy lên/xuống** so với text không có furigana trên cùng dòng → nhìn lệch baseline, đặc biệt trong flex container (flow chart, step boxes...).
+
+**Quy tắc CSS cho ruby:**
+
+```css
+/* ✅ ĐÚNG — chỉ 2 dòng, không thêm gì khác */
+ruby { ruby-align: center; ruby-position: over; }
+ruby rt { font-size: 0.55em; color: #333; letter-spacing: 0.02em; }
+```
+
+```css
+/* ❌ SAI — vertical-align và line-height gây lệch baseline */
+ruby { ruby-align: center; ruby-position: over; vertical-align: baseline; }
+ruby rt { font-size: 0.55em; line-height: 1; vertical-align: top; }
+```
+
+**Thêm bắt buộc:**
+- `body { line-height: 2; }` — phải đúng `2`, KHÔNG dùng `1.8` hay `1.6` → thiếu khoảng trống cho ruby annotation.
+- KHÔNG thêm bất kỳ `vertical-align`, `line-height`, hay `display` nào vào thẻ `ruby` hoặc `rt`.
 
 ---
 
