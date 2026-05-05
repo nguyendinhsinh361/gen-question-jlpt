@@ -74,8 +74,8 @@ Các kanji 当, 届, 締, 割, 欄 là N3+ → KHÔNG xuất hiện trong bài N
 
 ### Dữ liệu tham chiếu — BẮT BUỘC dùng
 
-> **File `input/kanji_jlpt_sensei.csv`** chứa 2211 kanji với level JLPT (N5→N1).
-> Columns: `kanji,jlpt,onyomi,kunyomi`. Agent PHẢI tra file này khi quyết định furigana. KHÔNG đoán level kanji từ trí nhớ.
+> **File `input/kanji_jlpt_sensei.csv`** chứa ~5311 kanji với level JLPT (N5→N1).
+> Columns: `kanji,jlpt,onyomi,kunyomi,meanings`. Agent PHẢI tra file này khi quyết định furigana. KHÔNG đoán level kanji từ trí nhớ.
 
 ### Core Rule — Tra từng kanji trong từ
 

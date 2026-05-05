@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """
-check_furigana.py — Kiểm tra kanji thiếu furigana trong bài JLPT 情報検索
+check_furigana.py — Kiểm tra kanji thiếu VÀ thừa furigana trong bài JLPT 情報検索
 
-Scan HTML file, extract tất cả kanji, tra level từng ký tự trong kanji_jlpt_sensei.csv,
-báo cáo kanji vượt level mà không có <ruby><rt> tag.
+Scan HTML file, extract tất cả kanji, tra level từng ký tự trong kanji_jlpt_sensei.csv:
+  - THIẾU: kanji vượt level mà không có <ruby><rt> tag → FAIL
+  - THỪA: ruby word mà TẤT CẢ kanji ≤ level (không cần furigana) → FAIL
 
 Usage:
     python3 check_furigana.py --html <path> --level N5 --kanji-csv input/kanji_jlpt_sensei.csv
 
 Exit code:
-    0 = OK (không có kanji thiếu furigana)
-    1 = FAIL (có kanji thiếu furigana)
+    0 = OK (không có kanji thiếu hoặc thừa furigana)
+    1 = FAIL (có kanji thiếu hoặc thừa furigana)
     2 = Error (file không tồn tại, tham số sai...)
 """
 
@@ -45,7 +46,6 @@ def load_kanji_csv(csv_path: str) -> dict:
 # ── Extract ruby kanji (already have furigana) ───────────────────────
 def extract_ruby_kanji(html: str) -> set:
     """Return set of kanji chars that are inside <ruby>...<rt>...</rt></ruby>."""
-    # Match <ruby>CONTENT<rt>READING</rt></ruby>
     ruby_pattern = re.compile(r"<ruby>(.*?)<rt>.*?</rt></ruby>", re.DOTALL)
     kanji_set = set()
     for m in ruby_pattern.finditer(html):
@@ -54,6 +54,16 @@ def extract_ruby_kanji(html: str) -> set:
             if is_kanji(ch):
                 kanji_set.add(ch)
     return kanji_set
+
+def extract_ruby_words(html: str) -> list:
+    """Return list of (content, reading) tuples from <ruby>CONTENT<rt>READING</rt></ruby>."""
+    ruby_pattern = re.compile(r"<ruby>(.*?)<rt>(.*?)</rt></ruby>", re.DOTALL)
+    results = []
+    for m in ruby_pattern.finditer(html):
+        content = m.group(1).strip()
+        reading = m.group(2).strip()
+        results.append((content, reading))
+    return results
 
 # ── Extract visible kanji without ruby ───────────────────────────────
 def extract_bare_kanji(html: str) -> dict:
@@ -99,36 +109,22 @@ def _is_kana(ch: str) -> bool:
     cp = ord(ch)
     return (0x3040 <= cp <= 0x309F) or (0x30A0 <= cp <= 0x30FF)
 
-# ── Main check ───────────────────────────────────────────────────────
-def check_furigana(html_path: str, target_level: str, kanji_csv_path: str) -> list:
-    """
-    Check all kanji in HTML against target level.
-    Return list of dicts with problem kanji.
-    """
-    with open(html_path, "r", encoding="utf-8") as f:
-        html = f.read()
-
-    kanji_map = load_kanji_csv(kanji_csv_path)
-    ruby_kanji = extract_ruby_kanji(html)
+# ── Check MISSING furigana ──────────────────────────────────────────
+def check_missing(html: str, target_level: str, kanji_map: dict) -> list:
+    """Kanji vượt level mà KHÔNG có ruby → thiếu furigana."""
     bare_kanji = extract_bare_kanji(html)
 
     problems = []
     for ch, contexts in sorted(bare_kanji.items()):
-        if ch in ruby_kanji:
-            # This kanji appears both with and without ruby — still a problem
-            # (some occurrences lack furigana)
-            pass
-
         kanji_lv = kanji_map.get(ch, None)
 
         if kanji_lv is None:
-            # Not in JLPT list → treat as above level
             problems.append({
                 "kanji": ch,
                 "level": "N/A",
                 "target": target_level,
                 "contexts": sorted(contexts),
-                "reason": "Không có trong kanji_jlpt_sensei.csv → mặc định cần furigana",
+                "reason": "Không có trong CSV → mặc định cần furigana",
             })
         elif level_exceeds(kanji_lv, target_level):
             problems.append({
@@ -141,10 +137,55 @@ def check_furigana(html_path: str, target_level: str, kanji_csv_path: str) -> li
 
     return problems
 
+# ── Check EXCESS furigana ───────────────────────────────────────────
+def check_excess(html: str, target_level: str, kanji_map: dict) -> list:
+    """
+    Ruby words mà TẤT CẢ kanji bên trong đều ≤ level → furigana thừa.
+    Rule: nếu BẤT KỲ kanji trong từ > level → cả từ cần ruby (OK).
+          nếu TẤT CẢ kanji ≤ level → ruby là thừa (FAIL).
+    """
+    ruby_words = extract_ruby_words(html)
+    excess = []
+    seen = set()
+
+    for content, reading in ruby_words:
+        kanji_in_word = [ch for ch in content if is_kanji(ch)]
+        if not kanji_in_word:
+            continue
+
+        # Check if ANY kanji in this word exceeds level
+        needs_ruby = False
+        for ch in kanji_in_word:
+            kanji_lv = kanji_map.get(ch, None)
+            if kanji_lv is None:
+                # Not in JLPT list → treat as above level → ruby OK
+                needs_ruby = True
+                break
+            elif level_exceeds(kanji_lv, target_level):
+                needs_ruby = True
+                break
+
+        if not needs_ruby:
+            key = f"{content}({reading})"
+            if key not in seen:
+                seen.add(key)
+                kanji_info = []
+                for ch in kanji_in_word:
+                    lv = kanji_map.get(ch, "?")
+                    kanji_info.append(f"{ch}={lv}")
+                excess.append({
+                    "word": content,
+                    "reading": reading,
+                    "kanji_levels": ", ".join(kanji_info),
+                    "target": target_level,
+                })
+
+    return excess
+
 # ── CLI ──────────────────────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(
-        description="Kiểm tra kanji thiếu furigana trong bài JLPT"
+        description="Kiểm tra kanji thiếu VÀ thừa furigana trong bài JLPT"
     )
     parser.add_argument("--html", required=True, help="Path to HTML file")
     parser.add_argument("--level", required=True, choices=["N1", "N2", "N3", "N4", "N5"],
@@ -160,27 +201,47 @@ def main():
         print(f"❌ Kanji CSV không tồn tại: {args.kanji_csv}", file=sys.stderr)
         sys.exit(2)
 
-    problems = check_furigana(args.html, args.level, args.kanji_csv)
+    with open(args.html, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    kanji_map = load_kanji_csv(args.kanji_csv)
+    missing = check_missing(html, args.level, kanji_map)
+    excess = check_excess(html, args.level, kanji_map)
 
     # Report
     print(f"🔍 Furigana check: {args.html} (Level: {args.level})")
     print("=" * 70)
 
-    if not problems:
-        print("✅ PASS — Không có kanji vượt level thiếu furigana")
-        sys.exit(0)
-    else:
-        print(f"❌ FAIL — {len(problems)} kanji vượt level thiếu furigana:\n")
+    has_error = False
+
+    if missing:
+        has_error = True
+        print(f"\n❌ THIẾU FURIGANA — {len(missing)} kanji vượt level không có ruby:\n")
         print("{:<6} {:<8} {:<10} {}".format("Kanji", "Level", "Lý do", "Ngữ cảnh"))
         print("-" * 70)
-        for p in problems:
+        for p in missing:
             ctx = ", ".join(p["contexts"][:3]) if p["contexts"] else "—"
             print("{:<6} {:<8} {:<10} {}".format(
                 p["kanji"], p["level"], p["reason"], ctx
             ))
+        print(f"\n⛔ Sửa: thêm <ruby><rt> cho {len(missing)} kanji trên, hoặc viết hiragana.")
 
-        print(f"\n⛔ Sửa: thêm <ruby><rt> cho {len(problems)} kanji trên, hoặc viết hiragana.")
-        print("   Ưu tiên N5/N4: viết hiragana nếu có thể. Furigana chỉ khi không thể thay.")
+    if excess:
+        has_error = True
+        print(f"\n❌ THỪA FURIGANA — {len(excess)} từ có ruby nhưng tất cả kanji ≤ {args.level}:\n")
+        print("{:<12} {:<12} {:<20} {}".format("Từ", "Reading", "Kanji levels", "Target"))
+        print("-" * 70)
+        for e in excess:
+            print("{:<12} {:<12} {:<20} {}".format(
+                e["word"], e["reading"], e["kanji_levels"], e["target"]
+            ))
+        print(f"\n⛔ Sửa: bỏ <ruby><rt> cho {len(excess)} từ trên — kanji đều ≤ {args.level}, không cần furigana.")
+
+    if not has_error:
+        print("✅ PASS — Không có kanji thiếu hoặc thừa furigana")
+        sys.exit(0)
+    else:
+        print()
         sys.exit(1)
 
 if __name__ == "__main__":
