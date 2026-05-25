@@ -31,6 +31,9 @@ description: >
 | `scripts/process_html.py` | Xử lý HTML → CSV (tạo row) | Gen CSV |
 | `scripts/fill_qa.py` | Điền Q&A vào CSV (quote an toàn) | Sau khi gen Q&A |
 | `scripts/check_furigana.py` | Kiểm tra kanji thiếu VÀ thừa furigana (exit 0=OK, 1=FAIL) | Sau gen HTML, trước QC |
+| `scripts/check_csv_fields.py` | Auto-check required CSV fields (`_id`, `level`, `tag`, `kind`, `question_label_*`, Q slots). Dùng `--kind info` cho tìm thông tin | BƯỚC 1 sau khi tạo CSV + QC |
+| `scripts/check_spacing.py` | Auto-check khoảng cách chữ (N5 BẮT BUỘC わかち書き có khoảng trắng, N1-N4 BẮT BUỘC không có) | BƯỚC 1 sau gen HTML + QC |
+| `scripts/check_answer_punctuation.py` | Auto-check dấu `。` cuối lựa chọn (Phần 5.8): câu hoàn chỉnh → cần `。`; mệnh đề phụ/kanji-noun → không `。`; nhất quán trong 1 Q | BƯỚC 1 sau khi tạo CSV + QC |
 
 ## Outputs Per Passage
 
@@ -92,14 +95,35 @@ description: >
 7. **⛔ Chạy check_furigana.py** — kiểm tra kanji THIẾU furigana (vượt level không có ruby) VÀ THỪA furigana (≤ level nhưng có ruby):
    ```bash
    python3 .claude/skills/jlpt-reading-generator/scripts/check_furigana.py \
-     --html assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
-     --level {LEVEL}
+     --file assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
+     --level {LEVEL} \
+     --csv input/kanji_jlpt_sensei.csv
    ```
    > **Exit 0 = OK. Exit 1 = FAIL → sửa HTML:**
    > - **THIẾU furigana** → thêm `<ruby><rt>` hoặc viết hiragana
    > - **THỪA furigana** → bỏ `<ruby><rt>`, viết kanji trần (kanji ≤ level không cần ruby)
    > **→ chạy lại screenshot → chạy lại check_furigana.**
    > **KHÔNG được chuyển sang BƯỚC 2 (QC) nếu check_furigana FAIL.**
+
+8. **⛔ Chạy check_spacing.py** — kiểm tra khoảng cách わかち書き đúng level (N5 BẮT BUỘC có khoảng trắng giữa cụm từ, N1-N4 BẮT BUỘC không có):
+   ```bash
+   python3 .claude/skills/jlpt-reading-generator/scripts/check_spacing.py \
+     --file assets/html/tim_thong_tin/{LEVEL}_{uuid}.html \
+     --level {LEVEL}
+   ```
+   > **Exit 0 = OK. Exit 1 = FAIL → sửa HTML:**
+   > - **N5 MISSING_WAKACHI** → thêm khoảng trắng giữa các cụm từ (phong cách nhẹ)
+   > - **N1-N4 UNEXPECTED_WAKACHI** → bỏ khoảng trắng giữa kanji/kana
+   > **→ chạy lại screenshot → chạy lại check_spacing.**
+
+9. **⛔ Chạy check_csv_fields.py** — kiểm tra row CSV vừa tạo có đủ required fields (`_id`, `level`, `tag`, `kind`, `question_label_*`, Q slots):
+   ```bash
+   python3 .claude/skills/jlpt-reading-generator/scripts/check_csv_fields.py \
+     --csv sheets/{LEVEL}.csv \
+     --kind info
+   ```
+   > **Exit 0 = ALL ROWS VALID. Exit 1 = FAIL → sửa CSV bằng fill_qa.py (KHÔNG sửa tay).**
+   > Q count rule: **N5 = 1 câu, N1-N4 = 2 câu**. Tag PHẢI English (không kana/kanji/diacritic VN).
 
 ---
 
@@ -126,6 +150,20 @@ description: >
 ---
 
 ### BƯỚC 3: ⛔ CHECKLIST — TẤT CẢ PHẢI PASS
+
+#### PHẦN 0: AUTO-CHECK SCRIPTS — 3 checks BẮT BUỘC chạy đầu tiên
+
+> **🔒 BẮT BUỘC chạy 3 script trước khi đánh giá manual checklist.** Nếu BẤT KỲ script nào FAIL → quay lại BƯỚC 4 sửa, KHÔNG đánh giá tiếp các mục manual.
+
+| # | Check | Cách verify | PASS nếu |
+|---|-------|-------------|----------|
+| 0a | **Auto furigana** | `python3 .claude/skills/jlpt-reading-generator/scripts/check_furigana.py --file assets/html/tim_thong_tin/<file>.html --level <LEVEL> --csv input/kanji_jlpt_sensei.csv` | Exit code 0. Output KHÔNG có `MISSING FURIGANA`. (Auto-detect kanji vượt level thiếu ruby + cảnh báo ruby thừa) |
+| 0b | **Auto CSV fields** | `python3 .claude/skills/jlpt-reading-generator/scripts/check_csv_fields.py --csv sheets/<LEVEL>.csv --kind info` | Exit code 0. Output `ALL ROWS VALID`. (Auto-check `_id`, `level`, `tag`, `kind`, `question_label_*`, Q slots đầy đủ) |
+| 0c | **Auto spacing** | `python3 .claude/skills/jlpt-reading-generator/scripts/check_spacing.py --file assets/html/tim_thong_tin/<file>.html --level <LEVEL>` | Exit code 0. Status `OK`. (N5 BẮT BUỘC わかち書き ratio ≥ 3%; N1-N4 BẮT BUỘC ratio ≤ 0.5%) |
+| 0d | **Auto answer 。** | `python3 .claude/skills/jlpt-reading-generator/scripts/check_answer_punctuation.py --csv sheets/<LEVEL>.csv` | Exit code 0. Output `ALL ROWS VALID`. (Phần 5.8: câu hoàn chỉnh → cần `。`; mệnh đề từ / kanji-noun → không `。`; nhất quán trong 1 Q) |
+
+> **CẤM bỏ qua 3 mục này** — đây là enforce mạnh nhất. Auto-scripts không thể đoán → phải pass thực sự.
+
 
 > **Quy tắc: 1 FAIL = chưa xong. Sửa → QC lại từ đầu → lặp đến khi ALL PASS.**
 
@@ -160,7 +198,7 @@ Agent đọc nội dung bài viết và đánh giá:
 | 14 | **Thông tin phân tán** | Xem thông tin liên quan đến đáp án | Nằm ở ≥3 vị trí khác nhau (bảng + lưu ý + đoạn văn...) |
 | 14b | **⛔ Layout variant đúng** | Đối chiếu HTML structure với layout slug đã chọn trong kế hoạch | HTML thực sự dùng đúng CSS/HTML đặc trưng của layout variant (tra bảng R2). Không trùng layout với bài trước trong batch |
 | 15 | **Từ vựng đúng level** | Đọc từng từ, đối chiếu `rules/vocabulary.md` R3 | Key terms ≤ level, không dùng ngữ pháp vượt level |
-| 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --html {file} --level {LEVEL}`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output: **THIẾU** → thêm ruby hoặc viết hiragana. **THỪA** → bỏ ruby, viết kanji trần (kanji ≤ level không cần furigana). Sửa xong → chạy lại screenshot → chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/kanji_jlpt_sensei.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` / `電話(電=N5,話=N5) → bài N5 → KHÔNG cần furigana ✗` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có ruby. Mọi từ có tất cả kanji ≤ level đều KHÔNG có ruby. KHÔNG đoán — phải tra CSV |
+| 16 | **⛔ Furigana đúng từ (script + tra CSV)** | Chạy `check_furigana.py --file {file} --level {LEVEL} --csv input/kanji_jlpt_sensei.csv`. Nếu exit 0 → PASS. Nếu exit 1 → đọc output: **THIẾU** → thêm ruby hoặc viết hiragana. **THỪA** → bỏ ruby, viết kanji trần (kanji ≤ level không cần furigana). Sửa xong → chạy lại screenshot → chạy lại script. **Ngoài ra**: liệt kê TẤT CẢ từ kanji trong bài → tra TỪNG ký tự trong `input/kanji_jlpt_sensei.csv` → ghi: `từ(ký tự=level)`. **PHẢI log bảng tra.** Ví dụ: `全部(全=N3,部=N4) → bài N5 → CẦN furigana ✓` / `電話(電=N5,話=N5) → bài N5 → KHÔNG cần furigana ✗` | `check_furigana.py` exit 0 **VÀ** mọi từ có kanji > level đều có ruby. Mọi từ có tất cả kanji ≤ level đều KHÔNG có ruby. KHÔNG đoán — phải tra CSV |
 
 #### PHẦN C: CÂU HỎI & ĐÁP ÁN
 
@@ -310,9 +348,32 @@ Chỉ khi **TẤT CẢ 39 checks PASS** → log:
 
 ---
 
-## BƯỚC CUỐI: GỘP CSV (sau khi gen xong TẤT CẢ bài)
+## BƯỚC CUỐI: VERIFY BATCH + GỘP CSV (sau khi gen xong TẤT CẢ bài)
 
-> Sau khi hoàn thành toàn bộ batch, gộp các file CSV theo level thành **1 file duy nhất**.
+> **BẮT BUỘC chạy 3 auto-check trên TOÀN bộ batch trước khi gộp CSV.**
+
+```bash
+# 1. Auto-check furigana coverage cho TẤT CẢ file HTML
+python3 .claude/skills/jlpt-reading-generator/scripts/check_furigana.py \
+  --html-dir assets/html/tim_thong_tin \
+  --csv input/kanji_jlpt_sensei.csv
+
+# 2. Auto-check khoảng cách わかち書き cho TẤT CẢ file HTML
+python3 .claude/skills/jlpt-reading-generator/scripts/check_spacing.py \
+  --html-dir assets/html/tim_thong_tin
+
+# 3. Auto-check required CSV fields cho TẤT CẢ rows (chạy cho mỗi level CSV hoặc merged CSV)
+for L in N1 N2 N3 N4 N5; do
+  if [ -f "sheets/${L}.csv" ]; then
+    python3 .claude/skills/jlpt-reading-generator/scripts/check_csv_fields.py \
+      --csv "sheets/${L}.csv" --kind info
+  fi
+done
+```
+
+> Cả 3 script phải PASS (exit 0). Nếu có FAIL → sửa rồi rerun. KHÔNG gộp CSV nếu chưa PASS.
+
+> Sau khi hoàn thành toàn bộ batch + 3 check PASS, gộp các file CSV theo level thành **1 file duy nhất**.
 
 ```bash
 python3 -c "
